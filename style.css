@@ -92,6 +92,11 @@ font {
     font-weight: 400;
 }
 
+.footer_text_font_setting{
+    font-size: 30px; 
+    font-family: Segoe UI; 
+    color:white;
+}
 
 /* --------------------------- Color & Size Set Up ---------------------------*/
 :root { 
@@ -694,12 +699,6 @@ nav a,button{
 /* ------------------------------ About Us End ------------------------------ */
 
 /* ---------------------------- Footer Starts Here -------------------------- */
-.footer_text_font_setting{
-    font-size: 30px; 
-    font-family: Segoe UI; 
-    color:white;
-}
-
 .footerBG{
     width: 1920px;
     height: 120px; 
