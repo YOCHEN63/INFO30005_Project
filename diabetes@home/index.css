@@ -16,6 +16,9 @@ alfred starts here */
     margin-left: 26px;
     margin-top: 26px;
 }
+body{
+  min-width: 960px;
+}
 
 .main .diabete1 {
     background-color: #f8fafc;
@@ -74,7 +77,6 @@ alfred starts here */
     text-align: left;
     width: calc(100.00% - 38px);
   }
-
 
 .main .underline-pic2 {
     background-color: transparent;
@@ -174,13 +176,15 @@ alfred starts here */
   }
 /* alfred ends here */
 
+/* header */
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 40px 5%; 
-    background: var(--background_blue); 
-    height: 120px;  */
+    background: var(--blue); 
+    top: 0;
+    height: 120px;  
+    width: 1920px;
     min-width: 960px;
 }
 
@@ -189,12 +193,13 @@ alfred starts here */
     left: 0px;
     top: 0px;
     margin-left: 0px;
+    height: 120px;
+    width: 360px;
 }
 
-
+/* nav bar */
 .nav_btn{
     width: 225px;
-    padding: 9px 20px;
     background-color: var(--spindle);
     border-radius: 8px;
     border: 1px solid var(--dove_gray);
@@ -214,4 +219,123 @@ nav a,button{
     font-style: normal;
     font-weight: 700;
     margin-right: 5px;
+}
+/* nav bar ends here*/
+
+/* About us page*/
+.about_us_bg_pic {
+  top: 120px;
+  height: 360px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 1920px;
+}
+
+.about_us_blue_bg {
+  background-color: var(--background_blue);
+  border: 1px solid #2372ff80;
+  border-radius: 8px;
+  box-shadow: 0px 6px 12px #00000029;
+  height: 400px;
+  left: 120px;
+  position: absolute;
+  top: 200px;
+  width: 1680px;
+}
+
+.about_us_message_title {
+  -webkit-text-stroke: 4px transparent;
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  height: 62px;
+  left: 200px;
+  letter-spacing: 2.00px;
+  line-height: 24px;
+  position: absolute;
+  top: 260px;
+  width: 225px;
+}
+
+.about_us_message {
+  -webkit-text-stroke: 4px transparent;
+  color: #fffb91;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  height: 202px;
+  left: 240px;
+  letter-spacing: 0.38px;
+  line-height: 50px;
+  position: absolute;
+  top: 360px;
+  width: 1440px;
+}
+
+.main_info{
+  margin-top: 520px;
+  padding-left: 200px;
+  padding-right: 200px;
+  min-width: 1920px;
+  max-width: 1920px;
+}
+
+.info_gallery{
+  display: inline-table;
+  width: 400px;
+  border: 3px solid var(--border_line);
+  border-radius: 10px;
+  height: 400px;
+  margin-left: 80px;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.info_gallery_content{
+  background-color: var(--white);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.info_line{
+  margin-top: 3px;
+  width: 320px;
+  color: var(--dove_gray);
+  size: 1;
+  left: 40px;
+  position: static;
+}
+
+.content_message{
+  left: 40px;
+  text-align: left;
+}
+
+.as_our_client_message_content{
+  margin-top: 40px;
+  width: 1386px;
+  height: 240px;
+  border: 3px solid var(--border_line);
+  border-radius: 10px;
+  margin-left: 80px;
+}
+
+.as_our_client{
+  padding-left: 80px;
+  padding-top: 40px;
+}
+
+.as_our_client_line{
+  margin-top: 3px;
+  width: 320px;
+  color: var(--dove_gray);
+  size: 1;
+  margin-left: 80px;
+}
+
+.as_our_client_message{
+  padding-left: 80px;
+  padding-right: 80px;
 }
