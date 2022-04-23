@@ -98,6 +98,20 @@ font {
     color:white;
 }
 
+.segoeui_regular_blue_20px{
+    color: var(--font_blue);
+    font-family: (--font-family-segoeui-regular);
+    font-size: 20px;
+    font-style: normal;
+}
+
+.roboto_regular_black_48px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-size: 48px;
+    font-style: normal;
+}
+
 /* --------------------------- Color & Size Set Up ---------------------------*/
 :root { 
     --blue: #2372ff;
@@ -107,6 +121,8 @@ font {
     --licorice: #171414;
     --spindle: #b3cfff1a;
     --white: #ffffff;
+    --backgroud_black:#343A40;
+    --font_blue:#047BF1;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
