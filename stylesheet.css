@@ -30,6 +30,13 @@ body{
     font-style: normal;
     font-size: 24px;
 }
+
+.roboto_regular_black_20px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-style: normal;
+    font-size: 20px;
+}
 /* --------------------------- Color & Size Set Up ---------------------------*/
 
 :root { 
@@ -44,6 +51,7 @@ body{
     --font_blue:#047BF1;
     --active_background:#73777B;
     --table_category_background:#F5F6FA;
+    --black: #000;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -103,12 +111,14 @@ body{
     width: 55px;
 }
 
+/* ---------------------------- 以上其实是共通的 ---------------------------- */
+
 .table_name{
     padding-top: 25px;
     padding-left: 66px;
 }
 
-.patient_left_column{
+.clinician_main_left_column{
     float: left;
 }
 
@@ -140,19 +150,19 @@ body{
     
 }
 
-.patient_right_column{
+.clinician_main_right_column{
     float: left;
     padding-left: 66px;
 }
 
-.inside_patitetn_card{
+.patitent_card{
     width: 540px;
     height: 323px;
     border: 1px solid var(--dove-gray);
     border-radius: 51px;
 }
 
-.inside_patitetn_card img{
+.patitnent_card img{
     width: 124px;
     height: 124px;
     padding-left: 37px;
@@ -160,16 +170,46 @@ body{
     float: left;
 }
 
-.inside_patitetn_card h2{
+.patitetn_card h2{
     padding-left: 20px;
     float: left;
     padding-top: 70px;
     font-size: 24px;
 }
 
-
-.inside_patitetn_card p{
+.patitetn_card p{
     padding-top: 10px;
     padding-left: 20px;
     float: left;
 }
+
+/* ------------------------ Clinican UI Paitent Detail ---------------------- */
+.ClinicianUI_patient_detail_page_left{
+    float: left;
+}
+
+.patient_detail_card{
+    padding-left: 88px;
+    padding-top: 48px;
+    width: 248px;
+}
+
+.patient_detail_card img{
+    width: 248px;
+    height: 248px;
+}
+
+.patient_detail_card h4{
+    text-align: center;
+}
+
+.patient_data_seletor_container{
+    padding-top: 100px;
+    padding-left: 45px;
+}
+
+
+
+
+
+

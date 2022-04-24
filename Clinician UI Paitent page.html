@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinician - Diabetes@Home</title>
+    <title>Patient Detail - Diabetes@Home</title>
     
     <link rel="shortcut icon" href="./logo/Diabetes @Home (8).png">
     <link rel="stylesheet" href="stylesheet.css">
@@ -18,7 +18,7 @@
 <body>
     <!-- nav bar -->
     <div class="clinician_nav">
-        <a href="#">0
+        <a href="#">
             <img src="./logo/doctor (1).png" class="round_icon">
         </a>
         <a>
@@ -32,24 +32,53 @@
         </a>
     </div>
 
-    <!-- patient detail side -->
-    <div class="patient_detail_card">
-        <img src="./logo/man.png">
+    <!-- left column -->
+    <div class="ClinicianUI_patient_detail_page_left">
+         <!-- patient detail side -->
+        <div class="patient_detail_card">
+            <img src="./logo/man.png">
+    
+            <div class="patient_detail_container">
+                <h4 class="roboto_regular_black_48px">John</h4>
+                <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
+              </div>
+        </div>
 
-        <div class="patient_detail_container">
-            <h4><b>Johnathan Joestar</b></h4>
-            <p>JoJo12345@gmail.com</p>
-          </div>
+        <!-- data seletor -->
+        <div class="patient_data_seletor_container">
+            <p class="roboto_regular_black_20px">Tell your Patient what Data he needs to record</p>
+
+            <label class="data_selector">
+                Blood glucose level
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="data_selector">
+                Weight
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="data_selector">
+                Doses of insulin taken
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="data_selector">
+                Exercise 
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+        </div>
     </div>
 
-    <!-- data seletor -->
-    <div>
-
-    </div>
 
     <!-- view chart -->
     <!-- 能用单独的modal来完成吗？-->
 
+    <!-- middle column -->
     <!-- patient's data table -->
     <table class="patients_reocrds">
         <!-- category -->
@@ -64,6 +93,7 @@
         -->
     </table>
 
+    <!-- Right column -->
     <!-- Note bar -->
     <div>
 
