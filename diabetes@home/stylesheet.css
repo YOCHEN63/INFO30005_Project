@@ -1,0 +1,236 @@
+/* --------------------------- Main Element Set Up ---------------------------*/
+*{
+    margin:0;
+    padding:0;
+    
+
+}
+
+body{
+    background-color: #F6F8F9;
+    min-width: 375px;
+}
+/* ---------------------------- Font Style Set Up ----------------------------*/
+
+.segoeui_regular_blue{
+    color: var(--font_blue);
+    font-family: (--font-family-segoeui-regular);
+    font-style: normal;
+}
+
+.roboto_regular_black_48px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-size: 48px;
+    font-style: normal;
+}
+
+.roboto_regular_gray_24px{
+    color: var(--dove-gray);
+    font-family: (--font-family-roboto);
+    font-style: normal;
+    font-size: 24px;
+}
+
+.font-25px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 450;
+}
+/* --------------------------- Color & Size Set Up ---------------------------*/
+
+:root { 
+    --blue: #2372ff;
+    --background_blue: #2372ff;
+    --dove-gray: #707070;
+    --border_line: #e1e1e1;
+    --licorice: #171414;
+    --spindle: #b3cfff1a;
+    --white: #ffffff;
+    --backgroud_black:#343A40;
+    --font_blue:#047BF1;
+    --active_background:#73777B;
+    --table_category_background:#F5F6FA;
+   
+    --font-size-l: 38px;
+    --font-size-m: 30px;
+    --font-size-s: 28px;
+    --font-size-xl: 40px;
+    --font-size-xs: 25px;
+    --font-size-xxl: 50px;
+   
+    --font-family-roboto: "Roboto", Helvetica;
+    --font-family-segoeui-bold: "SegoeUI-Bold", Helvetica;
+    --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
+}
+
+/* ----------------------------- Clinican Page ------------------------------ */
+.clinician_nav{
+    background-color: var(--backgroud_black);
+    height: 72px;
+    overflow: hidden;
+}
+
+.clinician_nav a{
+    float: left;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+}
+
+.clinician_nav p{
+    padding-top: 23px;
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+.round_icon{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--white);
+}
+
+.nav_icon{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    margin-left: 40%;
+    padding-top: 5px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.nav_icon:hover{
+    height: 55px;
+    width: 55px;
+}
+
+.table_name{
+    padding-top: 25px;
+    padding-left: 66px;
+}
+
+.patients_list {
+    width: 65%;
+    padding-top: 30px;
+    padding-left: 66px;
+    border-spacing: 0;
+}
+
+.patients_list tr:nth-child(even){
+    background-color: var(--dove-gray);
+}
+
+.patients_list td:hover{
+    background-color: var(--active_background);
+}
+
+.patients_list th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--table_category_background);
+}
+
+.patient_card{
+    width: 540px;
+    height: 323px;
+    position: absolute;
+    left: 1331px;
+    top: 102px;
+    border: 1px solid var(--dove-gray);
+    border-radius: 51px;
+    float: left;
+}
+
+.patient_card img{
+    width: 124px;
+    height: 124px;
+    padding-left: 37px;
+    padding-top: 37px;
+    float: left;
+}
+
+.patient_card h2{
+    padding-left: 20px;
+    float: left;
+    padding-top: 70px;
+    font-size: 24px;
+}
+
+.patient_card p{
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+}
+
+
+
+/* ----------------------------- Patient Home ------------------------------ */
+
+.home_font{
+    text-align: center;
+    padding-top: 31px;
+    font-size: 25px;
+}
+
+.date_font{
+    font-size: 15px;
+    float:right; 
+    padding-right: 5%;
+}
+
+
+.medal{
+    /* position: relative;  */
+    width: 54px;
+    height: 68px;
+    /* top: 90px;
+    left: 26px;  */
+}
+
+.patient_profile{
+    background-color: white;
+    margin-top: 16px;
+    height: 205px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.today_record{
+    background-color: white;
+    margin-top: 16px;
+    height: 222px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.patient_nav{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--backgroud_black);
+    height: 72px;
+    overflow: hidden;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.patient_nav a{
+    position: relative;
+    float: left;
+    padding-top: 5px;
+    padding-right: 10%;
+    padding-right: 10%;
+}
