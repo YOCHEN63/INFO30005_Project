@@ -6,7 +6,8 @@
 }
 
 body{
-    min-width: 960px;
+    background-color: #F6F8F9;
+    min-width: 375px;
 }
 /* ---------------------------- Font Style Set Up ----------------------------*/
 
@@ -165,6 +166,47 @@ body{
 
 /* ----------------------------- Patient Page ------------------------------ */
 
+.home_font{
+    text-align: center;
+    padding-top: 31px;
+    font-size: 25px;
+}
+
+.date_font{
+    font-size: 15px;
+    float:right; 
+    padding-right: 5%;
+}
+
+
+.medal{
+    /* position: relative;  */
+    width: 54px;
+    height: 68px;
+    /* top: 90px;
+    left: 26px;  */
+}
+
+.patient_profile{
+    background-color: white;
+    margin-top: 16px;
+    height: 205px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.today_record{
+    background-color: white;
+    margin-top: 16px;
+    height: 222px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .patient_nav{
     position: absolute;
     bottom: 0;
@@ -180,6 +222,5 @@ body{
     position: relative;
     float: left;
     padding-top: 5px;
-    padding-right: 10%;
     padding-right: 10%;
 }
