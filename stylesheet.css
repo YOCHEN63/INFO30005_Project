@@ -171,16 +171,15 @@ body{
     background-color: var(--backgroud_black);
     height: 72px;
     overflow: hidden;
-    width: 100%;
-    text-align: center;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .patient_nav a{
     position: relative;
     float: left;
-    padding-left:8%;
-    padding-right:8%;
-    max-width:5%;
     padding-top: 5px;
     text-decoration: none;
+    padding-right:12%;
 }
