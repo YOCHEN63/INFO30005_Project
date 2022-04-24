@@ -20,38 +20,52 @@ const UserSchema = new mongoose.Schema({
     password :{
         type:String,
         require: true
+    },
+    clinicianID:{
+        type:mongoose.Schema.Types.ObjectId,ref:'user'
     }
+})
+
+const NoteSchema = new mongoose.Schema({
+    record_date :{type:Date,default:Date.now},
+    comment:{type:String,require:true},
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
 })
 
 const BloodGlucoseSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
     blood_glucose_level : {type:Double,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    comment:{type:String}
 })
 
 const ExerciseSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
     walk_steps : {type:int64,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    comment:{type:String}
 })
 
 const WeightSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
     weight : {type:Double,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    comment:{type:String}
 })
 
 const InsulinSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
     insulin_shots : {type:int64,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    comment:{type:String}
 })
 
 const user = mongoose.model('user',UserSchema,'user')
+const note = mongoose.model('note',NoteSchema,'note')
 const exercise = mongoose.model('exercise',ExerciseSchema,'exercise')
 const bloodGlucose = mongoose.model('bloodGlucose',BloodGlucoseSchema,'bloodGlucose')
 const insulin = mongoose.model('insulin',UserSchema,'insulin')
 const weight = mongoose.model('weight',WeightSchema,'weight')
 const myschemas = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose
-    ,'insulin':insulin,'weight':weight}
+    ,'insulin':insulin,'weight':weight,'note':note}
 module.exports = myschemas
