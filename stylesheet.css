@@ -167,10 +167,6 @@ body{
 /* ----------------------------- Patient Page ------------------------------ */
 
 
-
-
-
-
 .patient_bottom ::after{
     height:300px;
     display:table;
@@ -253,8 +249,14 @@ body{
     float: left;
     padding-top: 5px;
     padding-right: 10%;
-    padding-right: 10%;
 }
+
+@media screen and (max-width: 375px) {
+    .bottom_left, .bottom_right {   
+      width: 90%;
+      padding: 0;
+    }
+  }
 
 
 .home_font{
@@ -283,11 +285,21 @@ body{
 .patient_profile{
     background-color: white;
     margin-top: 16px;
-    height: 200px;
+    height: 10%;
     width: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.profile_img{
+    
+    max-width:15%;
+    max-height:15%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:18px;
 }
 
 .today_record{
