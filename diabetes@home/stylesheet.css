@@ -9,7 +9,7 @@
 body{
     background-color: #F6F8F9;
     min-width: 375px;
-    height:1000px;
+    min-height:1800px;
 }
 /* ---------------------------- Font Style Set Up ----------------------------*/
 
@@ -192,7 +192,6 @@ body{
     float: left;
     padding-top: 5px;
     padding-right: 10%;
-    padding-right: 10%;
 }
 
 
@@ -222,17 +221,7 @@ body{
 .patient_profile{
     background-color: white;
     margin-top: 16px;
-    height: 200px;
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.today_record{
-    /* background-color: white; */
-    margin-top: 16px;
-    height: 345px;
+    height: 10%;
     width: 90%;
     display: block;
     margin-left: auto;
@@ -240,14 +229,24 @@ body{
 }
 
 .profile_img{
-    width: 29%;
-    height: 40%;
+    max-width: 15%;
+    max-height: 15%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-top: 18px;
 
     /* margin-left: 37%; */
+}
+
+.today_record{
+    /* background-color: white; */
+    margin-top: 16px;
+    height: 25%;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .today_record_text{
@@ -323,27 +322,31 @@ body{
 
 .past_record{
     background-color: white;
-    margin-top: 18%;
+    margin-top: 5%;
     margin-left: 5%;
     height: 166px;
     width: 43%;
     float: left;
     text-align: center;
+    padding-top: 2%;
 }
 
 .leader_board{
     background-color: white;
-    margin-top: 18%;
+    margin-top: 5%;
     margin-right: 5%;
-    height: 166px;
+    margin-bottom: 5%;
+    min-height: 15%;
     width: 43%;
     float: right;
-    text-align: center;
+    padding-top: 2%;
+    /* text-align: center; */
 } 
 
 .note_icon{
     width:65px;
-    margin-top: 8%;
+    margin-top: 5%;
+    /* margin-bottom: 5%; */
 }
 
 .past_record button{
@@ -351,78 +354,38 @@ body{
     color:white;
     border: none;
     padding: 8px 15px;
+    border-radius: 4px;
 }
 
-
-/* .patient_bottom ::after{
-    height:300px;
-    display:table;
-    content: "";
-    clear: both;
-}
-
-
-.bottom_left{
-    float:left;
-    min-width:42%;
+.scroller{
+    width: auto;;
+    height: 137px;
+    overflow-y: scroll;
     padding-left: 5%;
-    padding-right: 10px;
-}
-.bottom_right{
-    float:right;
-    min-width:42%;
-    padding-left: 10px;
-    padding-right: 5%;
+    /* overflow: visible; */
 }
 
-.leaderboard{
-    background-color: white;
-    margin-top: 20px;
+.scroller p{
+    background-color: #A2D2F9;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 10%;
+    border-radius: 10px;
+    border-style: solid;
+    margin-left: 3.5%;
+    margin-right: 5%;
+    border-width: 5px;
+    border-color: white;
+    font-size: 14px;
+    color:white;
 }
 
-.past_record{
+.trans_badge{
+    width: 138px;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 5%;
     display: block;
-    text-align: center;
-    background-color: white;
-    padding-left: 20px;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.past_record p{
-    padding-right: 5%;
-    font-size: 48px;
-    font-style: normal;
-}
-
-.past_record p{
-    padding-right: 5%;
-    height:60px;
-    font-size: 36px;
-    font-style: normal;
-}
-
-.past_record img{
-    padding-top:5%;
-    padding-left:5%;
-    max-width:30%
-    
-}
-.past_record button{
-    padding: 15px 32px;
-    border: none;
-    background-color:#047BF1;
-    color: white;
-    height:80px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size:var(--font-size-l);
-    border-radius: 8px;
-} 
-
-@media screen and (max-width: 1368px) {
-    .bottom_left, .bottom_right {   
-      width: 90%;
-      padding: 0;
-    }
-  } */
