@@ -1,0 +1,51 @@
+:root { 
+  --background_blue: #2372ff;
+  --dove_gray: #707070;
+  --licorice: #171414;
+  --spindle: #b3cfff1a;
+  --white: #ffffff;
+ 
+  --font-family-roboto: "Roboto", Helvetica;
+  --font-family-segoeui-bold: "SegoeUI-Bold", Helvetica;
+  --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
+}
+
+.segoeui_bold_white_25px {
+  color: var(--white);
+  font-family: var(--font-family-segoeui-bold);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.roboto_medium_licorice_30px {
+  color: var(--licorice);
+  font-family: var(--font-family-roboto);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.roboto_medium_licorice_40px {
+  color: var(--licorice);
+  font-family: var(--font-family-roboto);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.segoeui_regular_normal_white_28px {
+  color: var(--white);
+  font-family: var(--font-family-segoeui-regular);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.border-1px-dove-gray {
+  border: 1px solid var(--dove-gray);
+}
+
+.border-3px-dove-gray {
+  border: 3px solid var(--dove-gray);
+}
