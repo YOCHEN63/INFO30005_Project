@@ -1,0 +1,315 @@
+/* --------------------------- Main Element Set Up ---------------------------*/
+*{
+    margin:0;
+    padding:0;
+
+}
+
+body{
+    min-width: 960px;
+}
+/* ---------------------------- Font Style Set Up ----------------------------*/
+
+.segoeui_regular_blue{
+    color: var(--font_blue);
+    font-family: (--font-family-segoeui-regular);
+    font-style: normal;
+}
+
+.roboto_regular_black_48px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-size: 48px;
+    font-style: normal;
+}
+
+.roboto_regular_gray_24px{
+    color: var(--dove-gray);
+    font-family: (--font-family-roboto);
+    font-style: normal;
+    font-size: 24px;
+}
+/* --------------------------- Color & Size Set Up ---------------------------*/
+
+:root { 
+    --blue: #2372ff;
+    --background_blue: #2372ff;
+    --dove-gray: #707070;
+    --border_line: #e1e1e1;
+    --licorice: #171414;
+    --spindle: #b3cfff1a;
+    --white: #ffffff;
+    --backgroud_black:#343A40;
+    --font_blue:#047BF1;
+    --active_background:#73777B;
+    --table_category_background:#F5F6FA;
+   
+    --font-size-l: 38px;
+    --font-size-m: 30px;
+    --font-size-s: 28px;
+    --font-size-xl: 40px;
+    --font-size-xs: 25px;
+    --font-size-xxl: 50px;
+   
+    --font-family-roboto: "Roboto", Helvetica;
+    --font-family-segoeui-bold: "SegoeUI-Bold", Helvetica;
+    --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
+}
+
+/* ----------------------------- Clinican Page ------------------------------ */
+.clinician_nav{
+    background-color: var(--backgroud_black);
+    height: 72px;
+    overflow: hidden;
+}
+
+.clinician_nav a{
+    float: left;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+}
+
+.clinician_nav p{
+    padding-top: 23px;
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+.round_icon{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--white);
+}
+
+.nav_icon{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    margin-left: 40%;
+    padding-top: 5px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.nav_icon:hover{
+    height: 55px;
+    width: 55px;
+}
+
+.table_name{
+    padding-top: 25px;
+    padding-left: 66px;
+}
+
+.patients_list {
+    width: 65%;
+    padding-top: 30px;
+    padding-left: 66px;
+    border-spacing: 0;
+}
+
+.patients_list tr:nth-child(even){
+    background-color: var(--dove-gray);
+}
+
+.patients_list td:hover{
+    background-color: var(--active_background);
+}
+
+.patients_list th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--table_category_background);
+}
+
+.patient_card{
+    width: 540px;
+    height: 323px;
+    position: absolute;
+    left: 1331px;
+    top: 102px;
+    border: 1px solid var(--dove-gray);
+    border-radius: 51px;
+    float: left;
+}
+
+.patient_card img{
+    width: 124px;
+    height: 124px;
+    padding-left: 37px;
+    padding-top: 37px;
+    float: left;
+}
+
+.patient_card h2{
+    padding-left: 20px;
+    float: left;
+    padding-top: 70px;
+    font-size: 24px;
+}
+
+
+.patient_card p{
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+}
+
+/* shiki */
+
+.data_header{
+    width: 100%;
+    overflow: hidden;
+    min-width: 100%;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.data_header:after{
+    content: '';
+    display: block;
+    margin-top: 10%;
+}
+.data_header a{
+    text-decoration: none;
+    position: relative;
+    float: left;
+    padding-top: 1.5%;
+    padding-bottom: 1%;
+}
+.data_header p{
+    display: inline;
+    text-align:center;
+    text-decoration: none;
+    position: relative;
+    float: left;
+    padding-top: 2%;
+    padding-left: 7%;
+}
+
+.leftarrow_icon{
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    align-items: center;
+
+    overflow: hidden;
+    background: var(--white);
+}
+
+.underline{
+    position: relative;
+    background-color: var(--dove-gray);
+    width: 100%;
+    overflow: hidden;
+    min-width: 100%;
+
+}
+.underline:after{
+    content: '';
+    display: block;
+    margin-top: 0.2%;
+}
+
+
+
+
+/* selection */
+.selection_container{
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    min-width: 100%;
+    position:relative;
+    padding-top: 2% ;
+}
+.selection_container:after{
+    content: '';
+    display: block;
+    margin-top: 7%;
+
+}
+
+.selection{
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background: url(./image/down-arrow.png) no-repeat 100% center;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    float: left;
+}
+
+.selection select {
+    border: none;
+    background-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+/* diagram */
+.diagram_container{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+        
+}
+
+.diagram_container:after{
+    content: '';
+    display: block;
+    margin-top: 23.9%;
+}
+.diagram_container graph{
+    position:relative;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.data_graph{
+    height: 100%;
+    width: 100%;
+    align-items: center;
+
+
+
+
+}
+
+/* ----------------------------- Patient Page ------------------------------ */
+
+.patient_nav{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--backgroud_black);
+    height: 72px;
+    overflow: hidden;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.patient_nav a{
+    position: relative;
+    float: left;
+    padding-top: 5px;
+    padding-right: 10%;
+}
+
+
+

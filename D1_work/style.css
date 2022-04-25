@@ -1,0 +1,807 @@
+/* --------------------------- Main Element Set Up ---------------------------*/
+*{
+    margin:0;
+    padding:0;
+
+}
+ul,li{
+    list-style: none;
+
+}
+a{
+    text-decoration: underline;
+}
+
+body{
+  min-width: 960px;
+}
+
+main{
+    background-image: url(./image/blueBackGround.png);
+    width: 1920px;
+    height: 840px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    min-width: 960px;
+}
+
+h1 {color: blue}
+
+/* ---------------------------- Font Style Set Up ----------------------------*/
+.font-30px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+
+}
+
+.font-25px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 450;
+}
+
+font {
+    color:#FFFFFF; 
+    font-size: 30px; 
+    font-family: "Roboto";
+   
+}
+
+.segoeui_bold_white_25px {
+    color: var(--white);
+    font-family: var(--font-family-segoeui-bold);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+}
+  
+.roboto_medium_licorice_30px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.roboto_medium_licorice_38px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 500;
+}
+  
+.roboto_medium_licorice_40px {
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+}
+  
+.segoeui_regular_normal_white_28px {
+    color: var(--white);
+    font-family: var(--font-family-segoeui-regular);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.footer_text_font_setting{
+    font-size: 30px; 
+    font-family: Segoe UI; 
+    color:white;
+}
+
+.segoeui_regular_blue_20px{
+    color: var(--font_blue);
+    font-family: (--font-family-segoeui-regular);
+    font-size: 20px;
+    font-style: normal;
+}
+
+.roboto_regular_black_48px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-size: 48px;
+    font-style: normal;
+}
+
+/* --------------------------- Color & Size Set Up ---------------------------*/
+:root { 
+    --blue: #2372ff;
+    --background_blue: #2372ff;
+    --dove-gray: #707070;
+    --border_line: #e1e1e1;
+    --licorice: #171414;
+    --spindle: #b3cfff1a;
+    --white: #ffffff;
+    --backgroud_black:#343A40;
+    --font_blue:#047BF1;
+   
+    --font-size-l: 38px;
+    --font-size-m: 30px;
+    --font-size-s: 28px;
+    --font-size-xl: 40px;
+    --font-size-xs: 25px;
+    --font-size-xxl: 50px;
+   
+    --font-family-roboto: "Roboto", Helvetica;
+    --font-family-segoeui-bold: "SegoeUI-Bold", Helvetica;
+    --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
+}
+
+.border-gray {
+    border: 1px solid var(--dove-gray);
+}
+  
+/* ----------------------------------- Header --------------------------------*/
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--blue); 
+    top: 0;
+    height: 120px;  
+    width: 1920px;
+    min-width: 960px;
+}
+
+.logo{
+    cursor: pointer;
+    left: 0px;
+    top: 0px;
+    margin-left: 0px;
+    height: 120px;
+    width: 360px;
+}
+
+/* nav bar */
+.nav_btn{
+    width: 225px;
+    background-color: var(--spindle);
+    border-radius: 8px;
+    border: 1px solid var(--dove_gray);
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    height: 40px;
+}
+
+.nav_btn:hover{
+    background-color: #80aeff;
+}
+
+nav a,button{
+    color: var(--white);
+    font-family: var(--font-family-segoeui-bold);
+    font-size: var(--font-size-xs);
+    font-style: normal;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+/* ------------------------------- Header End --------------------------------*/
+
+/* --------------------------- About Diabtes Class ---------------------------*/
+.main-content{
+    width: 1615px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.main.about-Diabet{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 497px;
+    height: 607px;
+    margin-left: 26px;
+    margin-top: 26px;
+}
+
+.main .diabete1 {
+    background-color: #f8fafc;
+    height: 440px;
+    left: 160px;
+    position: absolute;
+    top: 920px;
+    width: 360px;
+}
+
+.main .diabetes-box {
+    background-color: var(--white-lilac);
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px #00000029;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.main .diabete-heading{
+    -webkit-text-stroke: 4px transparent;
+    background-color: transparent;
+    height: 41px;
+    left: 20px;
+    letter-spacing: 0.23px;
+    line-height: 24px;
+    position: absolute;
+    text-align: left;
+    top: 43px;
+    width: 227px;
+}
+
+.main .diabete-content {
+    -webkit-text-stroke: 4px transparent;
+    background-color: transparent;
+    bottom: 32px;
+    height: 290px;
+    left: 20px;
+    letter-spacing: 0.19px;
+    line-height: 30px;
+    position: absolute;
+    text-align: left;
+    width: calc(100.00% - 38px);
+}
+
+.main .underline-pic2 {
+    background-color: transparent;
+    height: 5px;
+    left: 20px;
+    object-fit: cover;
+    position: absolute;
+    top: calc(22.41% - 1px);
+    width: 300px;
+}
+
+.main .diabetes2 {
+    background-color: #f8fafc;
+    height: 440px;
+    left: 600px;
+    position: absolute;
+    top: 920px;
+    width: 360px;
+}
+
+.main .pre-diabetes {
+    background-color: #f8fafc;
+    height: 440px;
+    left: 160px;
+    position: absolute;
+    top: 1440px;
+    width: 360px;
+}
+
+.main .more-info {
+    background-color: #f8fafc;
+    height: 440px;
+    left: 600px;
+    position: absolute;
+    top: 1440px;
+    width: 360px;
+}
+
+.main .vedio-box {
+    background-color: transparent;
+    height: 720px;
+    left: 1280px;
+    position: absolute;
+    top: 1080px;
+    width: 480px;
+}
+
+.main .what-is-diabetes{
+    background-color: transparent;
+    color: var(--licorice);
+    font-family: var(--font-family-roboto);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    height: 49px;
+    left: 20px;
+    letter-spacing: 0.00px;
+    line-height: 38px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    top: 40px;
+    width: 317px;
+}
+
+.main .line-pic {
+    background-color: transparent;
+    height: 4px;
+    left: 20px;
+    object-fit: cover;
+    position: absolute;
+    top: 98px;
+    width: calc(100.00% - 60px);
+}
+
+.main .video1 {
+    background-color: transparent;
+    height: 240px;
+    left: 20px;
+    mix-blend-mode: normal;
+    object-fit: cover;
+    position: absolute;
+    top: calc(25.00% - 60px);
+    width: calc(100.00% - 40px);
+}
+
+.main .video2 {
+    background-color: transparent;
+    bottom: 60px;
+    height: 240px;
+    left: 20px;
+    object-fit: cover;
+    position: absolute;
+    width: calc(100.00% - 40px);
+}
+
+.mxain .right-background {
+    background-color: transparent;
+    height: calc(100.00% + 18px);
+    left: -9px;
+    object-fit: cover;
+    position: absolute;
+    top: -6px;
+    width: calc(100.00% + 18px);
+}
+
+.diabetesTitle{
+    position:absolute;
+    left: 200px;
+    top: 188px;
+    /* right: 1359px;
+    bottom: 2682px; */
+    width: 362px;
+    height: 50px;
+    margin-top: 0px;
+}
+
+.diabetesText{
+    position:absolute;
+    left: 209px;
+    top: 280px;
+    right: 1160px;
+    bottom: 2360px;
+    width: 551px;
+    height: 280px; 
+}
+
+.blueTextBackGround{
+    position:absolute;
+    left: 180px;
+    top: 240px;
+    right: 1140px;
+    bottom: 2260px;
+    width: 605px;
+    height: 420px;
+    
+}
+
+.text_more{
+    position: absolute;
+    width: 96px;
+    height: 39px; 
+    left: 632px; 
+    top: 601px;
+    right: 1192px;
+    bottom: 2280px;
+}
+
+.rightArrow{
+    position: absolute;
+    width: 30px;
+    height: 30px; 
+    left: 740px; 
+    top: 606px;
+    right: 1150px;
+    bottom: 2280px;
+}
+
+.poster{
+    position: absolute;
+    width: 480px;
+    height: 680px; 
+    left: 1280px; 
+    top: 240px;
+    right: 160px;
+    bottom: 2000px;
+}
+
+.exploreMoreBG{
+    position: absolute;
+    width: 1920px;
+    height: 800px; 
+    top: 2000px;
+    bottom: 120px;
+}
+
+.ExploreMore{
+    position: absolute;
+    width: 255px;
+    height: 40px; 
+    left: 160px; 
+    top: 2092px;
+    right: 1507px;
+    bottom: 788px;
+    font-size: 40px;
+    font-family:'Segoe UI';
+
+}
+
+.textBG-W1{
+    position: absolute;
+    width: 400px;
+    height: 520px; 
+    left: 280px;
+    top: 2200px;
+    right: 1240px;
+    bottom: 200px;
+}
+.textBG-W2{
+    position: absolute;
+    width: 400px;
+    height: 520px; 
+    left: 760px;
+    top: 2200px;
+    right: 760px;
+    bottom: 200px;
+}
+.textBG-W3{
+    position: absolute;
+    width: 400px;
+    height: 520px; 
+    left: 1240px;
+    top: 2200px;
+    right: 280px;
+    bottom: 200px;
+}
+
+.lancetBG1{
+    position: absolute;
+    width: 200px;
+    height: 120px; 
+    left: 320px;
+    top: 2280px;
+    /* right: 280px;
+    bottom: 200px; */
+}
+
+.lancetBG2{
+    position: absolute;
+    width: 200px;
+    height: 120px; 
+    left: 800px;
+    top: 2280px;
+}
+
+.lancetBG3{
+    position: absolute;
+    width: 200px;
+    height: 120px; 
+    left: 1280px;
+    top: 2280px;
+}
+.lancet1{
+    position: absolute;
+    width: 180px;
+    height: 20px; 
+    left: 330px;
+    top: 2330px;
+    /* right: 1410px;
+    bottom: 570px; */
+}
+
+.lancet2{
+    position: absolute;
+    width: 180px;
+    height: 20px; 
+    left: 810px;
+    top: 2330px;
+}
+
+.lancet3{
+    position: absolute;
+    width: 180px;
+    height: 20px; 
+    left: 1290px;
+    top: 2330px;
+    /* right: 1410px;
+    bottom: 570px; */
+}
+
+.em-photo1{
+    position: absolute;
+    width: 400px;
+    height: 160px; 
+    left: 280px;
+    top: 2200px;
+}
+
+.em-photo2{
+    position: absolute;
+    width: 400px;
+    height: 160px; 
+    left: 760px;
+    top: 2200px;
+}
+
+.em-photo3{
+    position: absolute;
+    width: 400px;
+    height: 160px; 
+    left: 1240px;
+    top: 2200px;
+}
+
+.Lanct_text1{
+    position: absolute;
+    width: 340px;
+    height: 169px; 
+    left: 320px;
+    top: 2431px;
+    line-height: 150%;
+}
+
+.Lanct_text2{
+    position: absolute;
+    width: 330px;
+    height: 169px; 
+    left: 800px;
+    top: 2431px;
+    line-height: 150%;
+}
+
+.Lanct_text3{
+    position: absolute;
+    width: 340px;
+    height: 169px; 
+    left: 1280px;
+    top: 2431px;
+    line-height: 150%;
+}
+
+.Article_text1{
+    position: absolute;
+    width: 56px;
+    height: 20px; 
+    left: 320px;
+    top: 2665px;
+}
+
+.Article_text2{
+    position: absolute;
+    width: 56px;
+    height: 20px; 
+    left: 800px;
+    top: 2665px;
+}
+
+.Article_text3{
+    position: absolute;
+    width: 56px;
+    height: 20px; 
+    left: 1280px;
+    top: 2665px;
+}
+
+/* ----------------------------- About Diabtes End ---------------------------*/
+
+/* -------------------------------- About Us ---------------------------------*/
+.about_us_bg_pic {
+  top: 120px;
+  height: 360px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 1920px;
+}
+
+.about_us_blue_bg {
+  background-color: var(--background_blue);
+  border: 1px solid #2372ff80;
+  border-radius: 8px;
+  box-shadow: 0px 6px 12px #00000029;
+  height: 400px;
+  left: 120px;
+  position: absolute;
+  top: 200px;
+  width: 1680px;
+}
+
+.about_us_message_title {
+  -webkit-text-stroke: 4px transparent;
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  height: 62px;
+  left: 200px;
+  letter-spacing: 2.00px;
+  line-height: 24px;
+  position: absolute;
+  top: 260px;
+  width: 225px;
+}
+
+.about_us_message {
+  -webkit-text-stroke: 4px transparent;
+  color: #fffb91;
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  height: 202px;
+  left: 240px;
+  letter-spacing: 0.38px;
+  line-height: 50px;
+  position: absolute;
+  top: 360px;
+  width: 1440px;
+}
+
+.main_info{
+  margin-top: 520px;
+  padding-left: 200px;
+  padding-right: 200px;
+  min-width: 1920px;
+  max-width: 1920px;
+}
+
+.info_gallery{
+  display: inline-table;
+  width: 400px;
+  border: 3px solid var(--border_line);
+  border-radius: 10px;
+  height: 400px;
+  margin-left: 80px;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.info_gallery_content{
+  background-color: var(--white);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.info_line{
+  margin-top: 3px;
+  width: 320px;
+  color: var(--dove_gray);
+  size: 1;
+  left: 40px;
+  position: static;
+}
+
+.content_message{
+  left: 40px;
+  text-align: left;
+}
+
+.as_our_client_message_content{
+  margin-top: 40px;
+  width: 1386px;
+  height: 240px;
+  border: 3px solid var(--border_line);
+  border-radius: 10px;
+  margin-left: 80px;
+}
+
+.as_our_client{
+  padding-left: 80px;
+  padding-top: 40px;
+}
+
+.as_our_client_line{
+  margin-top: 3px;
+  width: 320px;
+  color: var(--dove_gray);
+  size: 1;
+  margin-left: 80px;
+}
+
+.as_our_client_message{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* ------------------------------ About Us End ------------------------------ */
+
+/* ---------------------------- Footer Starts Here -------------------------- */
+.footerBG{
+    width: 1920px;
+    height: 120px; 
+    left: 0px;
+    top: 2799px;
+    position: absolute;
+}
+.facebook-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px; 
+    left: 1320px;
+}
+.twitter-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px; 
+    left: 1400px;
+    top: 2839px;
+}
+.ins-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px; 
+    left: 1480px;
+    top: 2839px;
+}
+.email-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px; 
+    left: 1560px;
+    top: 2839px;
+}
+.footer_text1{
+    position: absolute;
+    width: 350px;
+    height: 30px; 
+    left: 160px;
+    top: 2842px;
+}
+.footer_text2{
+    position: absolute;
+    width: 350px;
+    height: 30px; 
+    left: 720px;
+    top: 2842px;
+}
+.footer_text3{
+    position: absolute;
+    width: 350px;
+    height: 30px; 
+    left: 928px;
+    top: 2842px;
+}
+/* ------------------------------ Footer Ends Here -------------------------- */
+
+/* -------------------------- About Us Page Footer -------------------------- */
+.about_us_footer .footerBG{
+    top: 1440px;
+}
+
+.about_us_footer .facebook-icon{
+    top: 1480px;
+}
+
+.about_us_footer .twitter-icon{
+    top: 1480px;
+}
+
+.about_us_footer .ins-icon{
+    top: 1480px;
+}
+
+.about_us_footer .email-icon{
+    top:1480px;
+}
+
+.about_us_footer .footer_text1{
+    top: 1477px;
+}
+
+.about_us_footer .footer_text2{
+    top: 1477px;
+}
+
+.about_us_footer .footer_text3{
+    top: 1477px;
+}
+/* ------------------------ About Us Page Footer Ends ----------------------- */
