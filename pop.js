@@ -1,6 +1,6 @@
 var btn = document.getElementById('add_button');
 var showItem = document.getElementById('myForm');
-var closeBtn = document.getElementById('close_button');
+var closeBtn = document.getElementById('close_record');
 btn.onclick = function show(){
     showItem.style.display = "block";
 }
