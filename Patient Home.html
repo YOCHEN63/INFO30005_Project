@@ -44,7 +44,24 @@
 
     <div class="today_record">
         <p class="today_record_text"> <b>Today's Record</b>
-        <img class="add_icon_blue" src="./logo/add (2).png">
+        <button class="comment_button" id="add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Record Your Data</h1>
+          
+              <label for="data_field"><b>Blood Glucose Level</b></label>
+              <input type="text" placeholder="Enter Blood Glucose Level" name="blood_glucose_level" required>
+          
+              <label for="comment_field"><b>Comment</b></label>
+              <input type="text" placeholder="Enter Your Comment" name="comment" required>
+          
+              <button type="button" class="submit_button">Login</button>
+              <button type="button" class="close_button">Close</button>
+            </form>
+          </div>
+    
+        <script src="pop.js"></script>   
         </p>
 <!-- blood glucose level -->
         <p class="align_left"> <b>Blood glucose level</b></p> 
