@@ -31,11 +31,11 @@ body{
     font-size: 24px;
 }
 
-.roboto_regular_black_20px{
+.roboto_regular_black_18px{
     color: #000;
     font-family: (--font-family-roboto);
     font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .segoeui_bold_white{
@@ -50,8 +50,6 @@ body{
     --background_blue: #2372ff;
     --dove-gray: #707070;
     --border_line: #e1e1e1;
-    --licorice: #171414;
-    --spindle: #b3cfff1a;
     --white: #ffffff;
     --backgroud_black:#343A40;
     --font_blue:#047BF1;
@@ -59,6 +57,8 @@ body{
     --table_category_background:#F5F6FA;
     --black: #000;
     --background_light_gray: #d3d3d3;
+    --green:#05c46b;
+    --shadow_blue: #092c3e;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -193,6 +193,17 @@ body{
 /* ------------------------ Clinican UI Paitent Detail ---------------------- */
 .ClinicianUI_patient_detail_page_left{
     float: left;
+    width: 30%;
+}
+
+.ClinicianUI_patient_detail_page_middle{
+    float: left;
+    width: 35%;
+}
+
+.ClinicianUI_patient_detail_page_right{
+    float: left;
+    width: 35%;
 }
 
 .patient_detail_card{
@@ -217,18 +228,23 @@ body{
 
 .data_container_list{
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 90px;
     width: 300px;
     height: 200px;
     background-color: var(--background_blue);
     border-radius: 35px;
 }
 
-.data_container p{
+.data_container{
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 15px;
     font-size: 20px;
+}
+
+.required_data{
+    border-radius: 8px;
+    height: 20px;
+    width: 20px;
 }
 
 .link_buttom{
@@ -237,4 +253,41 @@ body{
     border-top: solid var(--border_line) 1px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2px;
+}
+
+#data_chart_button{
+    background-color: var(--background_blue);
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 140px;
+    border-radius: 35px;
+    width: 200px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#data_chart_button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+
+#data_chart_button span::after{
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#data_chart_button:hover span{
+    padding-right: 25px;
+}
+
+#data_chart_button:hover span::after{
+    opacity: 1;
+    right: 0;
 }

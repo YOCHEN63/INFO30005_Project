@@ -46,36 +46,46 @@
 
         <!-- data seletor -->
         <div class="patient_data_seletor_container">
-            <p class="roboto_regular_black_20px">Tell your Patient what Data he needs to record</p>
+            <p class="roboto_regular_black_18px">Tell your Patient what Data he needs to record</p>
         </div>
 
-            <!-- 用div来实现一列效果 不然checkbox会变成一行 -->
             <div class="data_container_list">
                 <div class="data_container">
-                    <p class="segoeui_bold_white">Blood glucose level</p>
-                    <div class="link_buttom"></div>
+                    <label class="segoeui_bold_white">Blood glucose level</label>
+                    <input type="checkbox" class="required_data">
                 </div>
-                
+
+                <div class="link_buttom"></div>
+
                 <div class="data_container">
-                    <p class="segoeui_bold_white">Weight</p>
-                    <div class="link_buttom"></div>
+                    <label class="segoeui_bold_white">Weight</label>
+                    <input type="checkbox" class="required_data">
                 </div>
-    
+                <div class="link_buttom"></div>
+
                 <div class="data_container">
-                    <p class="segoeui_bold_white">Doses of insulin taken</p>
-                    <div class="link_buttom"></div>
+                    <label class="segoeui_bold_white">Doses of insulin taken</label>
+                    <input type="checkbox" class="required_data">
                 </div>
-    
+                <div class="link_buttom"></div>
+
                 <div class="data_container">
-                    <p class="segoeui_bold_white">Exercise </p>
-                    <div class="link_buttom"></div>
+                    <label class="segoeui_bold_white">Exercise </label> 
+                    <input type="checkbox" class="required_data">
                 </div>
+                <div class="link_buttom"></div>
             </div>
+
+        <!-- view chart -->
+        <!-- 这个是展现折线图的和表格无关 -->
+        <button id="data_chart_button" class="segoeui_bold_white">
+            <span>View Charts</span>
+        </button>  
+
+        <div class="view_charts_modal">
+
+        </div>
     </div>
-
-
-    <!-- view chart -->
-    <!-- 能用单独的modal来完成吗？-->
 
     <!-- middle column -->
     <!-- patient's data table -->
