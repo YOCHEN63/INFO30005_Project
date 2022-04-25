@@ -48,29 +48,28 @@
         <div class="patient_data_seletor_container">
             <p class="roboto_regular_black_20px">Tell your Patient what Data he needs to record</p>
 
-            <label class="data_selector">
-                Blood glucose level
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="data_selector">
-                Weight
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="data_selector">
-                Doses of insulin taken
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="data_selector">
-                Exercise 
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
+            <!-- 用div来实现一列效果 不然checkbox会变成一行 -->
+            <div class="data_container_list">
+                <div class="data_container">
+                    <input type="checkbox" id="required_data_checkbox">
+                    <p class="segoeui_bold_white">Blood glucose level</p>
+                </div>
+                
+                <div class="data_container">
+                    <input type="checkbox" id="required_data_checkbox">
+                    <p class="segoeui_bold_white">Weight</p>
+                </div>
+    
+                <div class="data_container">
+                    <input type="checkbox" id="required_data_checkbox">
+                    <p class="segoeui_bold_white">Doses of insulin taken</p>
+                </div>
+    
+                <div class="data_container">
+                    <input type="checkbox" id="required_data_checkbox">
+                    <p class="segoeui_bold_white">Exercise </p>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -37,6 +37,12 @@ body{
     font-style: normal;
     font-size: 20px;
 }
+
+.segoeui_bold_white{
+    color: var(--white);
+    font-family: var(--font-family-segoeui-bold);
+    font-style: normal;
+}
 /* --------------------------- Color & Size Set Up ---------------------------*/
 
 :root { 
@@ -52,6 +58,7 @@ body{
     --active_background:#73777B;
     --table_category_background:#F5F6FA;
     --black: #000;
+    --background_light_gray: #d3d3d3;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -208,8 +215,41 @@ body{
     padding-left: 45px;
 }
 
+.data_container_list{
+    padding-left: 80px;
+    margin-top: 20px;
 
+    width: 300px;
+    height: 350px;
+    background-color: var(--background_blue);
+    border-radius: 35px;
+}
+.data_container{
+    border-radius: 35px;
+    width: 250px;
+    background-color: var(--background_blue);
+    height: 50px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
 
+.data_container p{
+    padding-left: 10px;
+    display: inline;
+    font-size: 20px;
+    text-align: center;}
 
+#required_data_checkbox {
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 1px solid var(--background_light_gray);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    visibility: visible;
+    content: ' ';
+}
 
-
+#required_data_thick::after{
+    background-color: var(--active_background);
+}
