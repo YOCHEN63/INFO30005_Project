@@ -34,28 +34,28 @@ const NoteSchema = new mongoose.Schema({
 
 const BloodGlucoseSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
-    blood_glucose_level : {type:Double,required:true},
+    blood_glucose_level : {type:Number,required:true},
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
 })
 
 const ExerciseSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
-    walk_steps : {type:int64,required:true},
+    walk_steps : {type:Number,required:true},
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
 })
 
 const WeightSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
-    weight : {type:Double,required:true},
+    weight : {type:Number,required:true},
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
 })
 
 const InsulinSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
-    insulin_shots : {type:int64,required:true},
+    insulin_shots : {type:Number,required:true},
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
 })
