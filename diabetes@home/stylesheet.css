@@ -9,6 +9,7 @@
 body{
     background-color: #F6F8F9;
     min-width: 375px;
+    height:1000px;
 }
 /* ---------------------------- Font Style Set Up ----------------------------*/
 
@@ -319,3 +320,109 @@ body{
     font-size: 10px;
     color:#5C6770;
 }
+
+.past_record{
+    background-color: white;
+    margin-top: 18%;
+    margin-left: 5%;
+    height: 166px;
+    width: 43%;
+    float: left;
+    text-align: center;
+}
+
+.leader_board{
+    background-color: white;
+    margin-top: 18%;
+    margin-right: 5%;
+    height: 166px;
+    width: 43%;
+    float: right;
+    text-align: center;
+} 
+
+.note_icon{
+    width:65px;
+    margin-top: 8%;
+}
+
+.past_record button{
+    background-color: #007AD4;
+    color:white;
+    border: none;
+    padding: 8px 15px;
+}
+
+
+/* .patient_bottom ::after{
+    height:300px;
+    display:table;
+    content: "";
+    clear: both;
+}
+
+
+.bottom_left{
+    float:left;
+    min-width:42%;
+    padding-left: 5%;
+    padding-right: 10px;
+}
+.bottom_right{
+    float:right;
+    min-width:42%;
+    padding-left: 10px;
+    padding-right: 5%;
+}
+
+.leaderboard{
+    background-color: white;
+    margin-top: 20px;
+}
+
+.past_record{
+    display: block;
+    text-align: center;
+    background-color: white;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.past_record p{
+    padding-right: 5%;
+    font-size: 48px;
+    font-style: normal;
+}
+
+.past_record p{
+    padding-right: 5%;
+    height:60px;
+    font-size: 36px;
+    font-style: normal;
+}
+
+.past_record img{
+    padding-top:5%;
+    padding-left:5%;
+    max-width:30%
+    
+}
+.past_record button{
+    padding: 15px 32px;
+    border: none;
+    background-color:#047BF1;
+    color: white;
+    height:80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size:var(--font-size-l);
+    border-radius: 8px;
+} 
+
+@media screen and (max-width: 1368px) {
+    .bottom_left, .bottom_right {   
+      width: 90%;
+      padding: 0;
+    }
+  } */
