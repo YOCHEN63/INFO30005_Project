@@ -166,17 +166,7 @@ body{
 
 /* ----------------------------- Patient Page ------------------------------ */
 
-.home_font{
-    text-align: center;
-    padding-top: 31px;
-    font-size: 25px;
-}
 
-.date_font{
-    font-size: 15px;
-    float:right; 
-    padding-right: 5%;
-}
 
 
 .medal{
@@ -190,7 +180,7 @@ body{
 .patient_profile{
     background-color: white;
     margin-top: 16px;
-    height: 205px;
+    height: 300px;
     width: 90%;
     display: block;
     margin-left: auto;
@@ -208,19 +198,81 @@ body{
 }
 
 .patient_nav{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: var(--backgroud_black);
     height: 72px;
     overflow: hidden;
     min-width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .patient_nav a{
     position: relative;
     float: left;
     padding-top: 5px;
-    padding-right: 10%;
+    padding-right: 9%;
+}
+
+.patient_info{
+    text-align: center;
+}
+
+.patient_name{
+    font-size: 25px;
+}
+.home{
+
+    text-align: center;
+}
+
+.home_font {
+    padding-top: 31px;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.date_font{
+    text-align:right;
+    padding-right:6%;
+    font-size: 15px; 
+    margin-top: 20px;
+}
+
+
+
+
+
+.patient_bottom ::after{
+    height:300px;
+    display:table;
+    content: "";
+    clear: both;
+}
+
+
+.bottom_left{
+    float:left;
+    width:40%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.bottom_right{
+    float:left;
+    width:40%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.leaderboard{
+    background-color: white;
+    
+    margin-top: 20px;
+}
+
+.past_record{
+    background-color: white;
+    padding-left: 20px;
+    margin-top: 20px;
 }
