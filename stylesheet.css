@@ -6,6 +6,7 @@
 }
 
 body{
+    min-height:1800px;
     background-color: #F6F8F9;
     min-width: 375px;
 }
@@ -167,71 +168,6 @@ body{
 /* ----------------------------- Patient Page ------------------------------ */
 
 
-.patient_bottom ::after{
-    height:300px;
-    display:table;
-    content: "";
-    clear: both;
-}
-
-
-.bottom_left{
-    float:left;
-    min-width:42%;
-    padding-left: 5%;
-    padding-right: 10px;
-}
-.bottom_right{
-    float:right;
-    min-width:42%;
-    padding-left: 10px;
-    padding-right: 5%;
-}
-
-.leaderboard{
-    background-color: white;
-    margin-top: 20px;
-}
-
-.past_record{
-    display: block;
-    text-align: center;
-    background-color: white;
-    padding-left: 20px;
-    margin-top: 20px;
-}
-
-.past_record p{
-    padding-right: 5%;
-    font-size: 48px;
-    font-style: normal;
-}
-
-.past_record p{
-    padding-right: 5%;
-    height:60px;
-    font-size: 36px;
-    font-style: normal;
-}
-
-.past_record img{
-    padding-top:5%;
-    padding-left:5%;
-    max-width:30%
-    
-}
-.past_record button{
-    padding: 15px 32px;
-    border: none;
-    background-color:#047BF1;
-    color: white;
-    height:80px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size:var(--font-size-l);
-    border-radius: 8px;
-}
 
 .patient_nav{
     position: fixed;
@@ -250,14 +186,6 @@ body{
     padding-top: 5px;
     padding-right: 10%;
 }
-
-@media screen and (max-width: 375px) {
-    .bottom_left, .bottom_right {   
-      width: 90%;
-      padding: 0;
-    }
-  }
-
 
 .home_font{
     text-align: center;  
@@ -391,4 +319,68 @@ body{
     margin-left: 75%;
     font-size: 10px;
     color:#5C6770;
+}
+
+/* reponsive design of view data and leaderboard, small screen*/
+@media screen and (max-width: 1600px) {
+    .bottom_left, .bottom_right {   
+      width: 90%;
+      padding-top: 20px;
+    }
+}
+
+.past_record{
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 43%;
+    float: left;
+    text-align: center;
+}
+
+.leader_board{
+    background-color: white;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    min-height: 15%;
+    width: 43%;
+    float: right;
+    text-align: center;
+} 
+
+.note_icon{
+    width:65px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.past_record button{
+    background-color: #007AD4;
+    color:white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+/* ----------------------------- Comment Page ------------------------------ */
+
+.comment_button{
+    background-color: #007AD4;
+    color:white;
+    padding: 8px 15px;
+    border: none;
+}
+
+.comment_background {
+    display: none;
+    width:100px;
+    height:100px;
+    position:absolute;
+    left:50%;
+    top:50;
+    bottom: 50%;
+    right:50%;
+
+    border: 3px solid #f1f1f1;
 }
