@@ -7,9 +7,9 @@
 }
 
 body{
+    min-height:1800px;
     background-color: #F6F8F9;
     min-width: 375px;
-    min-height:1800px;
 }
 /* ---------------------------- Font Style Set Up ----------------------------*/
 
@@ -31,14 +31,6 @@ body{
     font-family: (--font-family-roboto);
     font-style: normal;
     font-size: 24px;
-}
-
-.font-25px {
-    color: var(--licorice);
-    font-family: var(--font-family-roboto);
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 450;
 }
 /* --------------------------- Color & Size Set Up ---------------------------*/
 
@@ -172,9 +164,9 @@ body{
     float: left;
 }
 
+/* ----------------------------- Patient Page ------------------------------ */
 
 
-/* ----------------------------- Patient Home ------------------------------ */
 
 .patient_nav{
     position: fixed;
@@ -194,19 +186,37 @@ body{
     padding-right: 10%;
 }
 
-
 .home_font{
     text-align: center;  
     padding-top: 31px;
     font-size: 26px;
 }
+@media screen and (min-width: 601px) {
+    .home_font {
+      font-size: 40px;
+    }
+  }
+@media screen and (min-width: 1600px) {
+    .home_font {
+      font-size: 50px;
+    }
+  }
 
 .date_font{
     font-size: 15px;
     text-align: right;
     padding-right: 5%;
 }
-
+@media screen and (min-width: 601px) {
+    .date_font {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .date_font {
+      font-size: 30px;
+    }
+  }
 
 .medal{
     position: absolute;  
@@ -239,6 +249,36 @@ body{
     /* margin-left: 37%; */
 }
 
+.profile_name{
+    text-align: center; 
+    font-size: 24px;
+}
+@media screen and (min-width: 601px) {
+    .profile_name {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .profile_name{
+      font-size: 40px;
+    }
+  }
+
+.profile_city{
+    text-align: center;
+    font-size: 16px;
+}
+@media screen and (min-width: 601px) {
+    .profile_city {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .profile_city {
+      font-size: 30px;
+    }
+  }
+
 .today_record{
     /* background-color: white; */
     margin-top: 16px;
@@ -254,12 +294,21 @@ body{
     margin-left: 3.5%;
     padding-top: 4%;
 }
+@media screen and (min-width: 601px) {
+    .today_record_text {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .today_record_text {
+      font-size: 40px;
+    }
+  }
 
 .add_icon_blue{
     width: 25px;
     margin-right: 3.5%;
     float: right;
-
 }
 
 .align_left{
@@ -268,6 +317,16 @@ body{
     margin-top: 4%;
     font-size: 14px;
 }
+@media screen and (min-width: 601px) {
+    .align_left {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .align_left {
+      font-size: 25px;
+    }
+  }
 
 .align_right{
     float: right;
@@ -275,6 +334,16 @@ body{
     margin-top: 4%;
     font-size: 14px;
 }
+@media screen and (min-width: 601px) {
+    .align_right {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .align_right {
+      font-size: 25px;
+    }
+  }
 
 .rightarrow_blue{
     width: 25px;
@@ -292,12 +361,37 @@ body{
     border-width: 0.5px;
     border-color: black;
     background-color: white;
-    
+    border-left: 5px solid #047BF1;
+    border-right: 5px solid #047BF1;
+    /* background-color: #ddffff; */
 }
+@media screen and (min-width: 601px) {
+    .bubbleText {
+        border-left: 8px solid #047BF1;
+        border-right: 8px solid #047BF1;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText {
+        border-left: 10px solid #047BF1;
+        border-right: 10px solid #047BF1;
+    }
+  }
 
 .bubbleText p{
     margin-left: 7.5%;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .bubbleText p {
+      font-size: 22px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText p {
+      font-size: 28px;
+    }
+  }
 
 .bubbleText_noRecord{
     border-radius: 20px;
@@ -307,7 +401,18 @@ body{
     border-width: 0.5px;
     border-color: black;
     background-color: #FF6B6B;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .bubbleText_noRecord {
+      font-size: 22px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText_noRecord {
+      font-size: 28px;
+    }
+  }
 
 .bubbleText_noRecord p{
     margin-left: 15%;
@@ -319,16 +424,69 @@ body{
     font-size: 10px;
     color:#5C6770;
 }
+@media screen and (min-width: 601px) {
+    .bubbleText time {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText time{
+      font-size: 25px;
+    }
+  }
 
 .past_record{
     background-color: white;
     margin-top: 5%;
     margin-left: 5%;
-    height: 166px;
     width: 43%;
     float: left;
     text-align: center;
-    padding-top: 2%;
+    font-size: 16px;
+}
+@media screen and (min-width: 601px) {
+    .past_record {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .past_record {
+      font-size: 30px;
+    }
+  }
+
+.note_icon{
+    width:65px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.past_record button{
+    background-color: #007AD4;
+    color:white;
+    border: none;
+    margin-bottom: 5%;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+@media screen and (min-width: 601px) {
+    .past_record button {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .today_record_text {
+      font-size: 30px;
+    }
+  }
+
+.scroller{
+    width: auto;
+    height: 150px;
+    overflow-y: scroll;
+    padding-left: 5%;
+    /* overflow: visible; */
 }
 
 .leader_board{
@@ -336,40 +494,28 @@ body{
     margin-top: 5%;
     margin-right: 5%;
     margin-bottom: 5%;
-    min-height: 15%;
     width: 43%;
+    height: 30%;
     float: right;
-    padding-top: 2%;
     /* text-align: center; */
+    font-size: 16px;
 } 
-
-.note_icon{
-    width:65px;
-    margin-top: 5%;
-    /* margin-bottom: 5%; */
-}
-
-.past_record button{
-    background-color: #007AD4;
-    color:white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-}
-
-.scroller{
-    width: auto;;
-    height: 137px;
-    overflow-y: scroll;
-    padding-left: 5%;
-    /* overflow: visible; */
-}
+@media screen and (min-width: 601px) {
+    .leader_board {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .leader_board {
+      font-size: 30px;
+    }
+  }
 
 .scroller p{
     background-color: #A2D2F9;
     padding-top: 3%;
     padding-bottom: 3%;
-    padding-left: 10%;
+    padding-left: 5%;
     border-radius: 10px;
     border-style: solid;
     margin-left: 3.5%;
@@ -379,6 +525,16 @@ body{
     font-size: 14px;
     color:white;
 }
+@media screen and (min-width: 601px) {
+    .scroller p {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .scroller p {
+      font-size: 30px;
+    }
+  }
 
 .trans_badge{
     width: 138px;
@@ -389,3 +545,79 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+/* ----------------------------- Comment Page ------------------------------ */
+
+
+.comment_button{
+    float: right;
+    margin-top: 2%;
+}
+
+.form-popup .label{
+    margin-top: 5px;
+}
+
+.form-popup {
+    text-align: center;
+    display: none;
+    width:500px;
+    height:380px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    margin:auto;
+
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 450px;
+    padding: 10px;
+    background-color: white;
+    border-style:solid;
+    border-color:black ;
+    border-width:2px;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text] {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit button */
+  .form-container .submit_button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    margin-bottom:10px;
+  }
+  
+  /* Add a red background color to the button */
+  .form-container .close_button {
+    background-color:#007AD4;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    margin-bottom:10px;
+  }
+
+  .form-container .data_field{
+      text-align: left;
+  }

@@ -1,0 +1,110 @@
+[33mcommit 7999a5cfccfd00697fd37e5061b71c12d0d76ef5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Haoyi Fu <haoyif1@student.unimelb.edu.au>
+Date:   Fri Mar 25 23:14:05 2022 +1100
+
+    small update
+
+[1mdiff --git a/About Diabetes.html b/About Diabetes.html[m
+[1mindex 0360c2e..e2e8bca 100644[m
+[1m--- a/About Diabetes.html[m	
+[1m+++ b/About Diabetes.html[m	
+[36m@@ -104,8 +104,6 @@[m
+         Article[m
+     </text>[m
+ [m
+[31m-[m
+[31m-[m
+ </main>[m
+ [m
+ <!-- footer here -->[m
+[36m@@ -115,6 +113,7 @@[m
+     <img src="./image/twitter.png" class="twitter-icon">[m
+     <img src="./image/instagram.png" class="ins-icon">[m
+     <img src="./image/email.png" class="email-icon">[m
+[32m+[m
+     <div class="footer_text_font_setting">[m
+         <text class="footer_text1">© Diabetes@Home 2022</text>[m
+         <text class="footer_text2"><u>About Us</u></text>[m
+[36m@@ -122,10 +121,7 @@[m
+     </div>[m
+ </footer>[m
+ [m
+[31m-[m
+ <body>[m
+[31m-[m
+[31m-[m
+     <div class="main">[m
+         <!-- #region zhuti juzhong-->[m
+         <div class="main-content">[m
+[36m@@ -195,6 +191,7 @@[m
+                 <img class="video1" src="./image/videoplayback@1x.png" />[m
+                 <img class="video2" src="./image/videoplayback--1-@1x.png" />[m
+             </div>[m
+[32m+[m
+         </div>[m
+     </div>[m
+ </body>[m
+[1mdiff --git a/About Us.html b/About Us.html[m
+[1mindex 382ada3..104a560 100644[m
+[1m--- a/About Us.html[m	
+[1m+++ b/About Us.html[m	
+[36m@@ -88,18 +88,18 @@[m
+ [m
+ <!-- footer here -->[m
+ <footer class="about_us_footer">[m
+[31m-    <div class="about_us_footer_element_horizontal_position">[m
+[31m-        <img src="./image/footerBG.png" class="footerBG">[m
+[31m-        <img src="./image/facebook.png" class="facebook-icon">[m
+[31m-        <img src="./image/twitter.png" class="twitter-icon">[m
+[31m-        <img src="./image/instagram.png" class="ins-icon">[m
+[31m-        <img src="./image/email.png" class="email-icon">[m
+[31m-        <div class="footer_text_font_setting">[m
+[31m-            <text class="footer_text1">© Diabetes@Home 2022</text>[m
+[31m-            <text class="footer_text2"><u>About Us</u></text>[m
+[31m-            <text class="footer_text3"><u>About Diabetes</u></text>[m
+[31m-        </div>[m
+[32m+[m[32m    <img src="./image/footerBG.png" class="footerBG">[m
+[32m+[m[32m    <img src="./image/facebook.png" class="facebook-icon">[m
+[32m+[m[32m    <img src="./image/twitter.png" class="twitter-icon">[m
+[32m+[m[32m    <img src="./image/instagram.png" class="ins-icon">[m
+[32m+[m[32m    <img src="./image/email.png" class="email-icon">[m
+[32m+[m
+[32m+[m[32m    <div class="footer_text_font_setting">[m
+[32m+[m[32m        <text class="footer_text1">© Diabetes@Home 2022</text>[m
+[32m+[m[32m        <text class="footer_text2"><u>About Us</u></text>[m
+[32m+[m[32m        <text class="footer_text3"><u>About Diabetes</u></text>[m
+     </div>[m
+[32m+[m[41m    [m
+ </footer>[m
+ [m
+ </html>[m
+\ No newline at end of file[m
+[1mdiff --git a/style.css b/style.css[m
+[1mindex 1bbb7d2..bc1d505 100644[m
+[1m--- a/style.css[m
+[1m+++ b/style.css[m
+[36m@@ -92,6 +92,11 @@[m [mfont {[m
+     font-weight: 400;[m
+ }[m
+ [m
+[32m+[m[32m.footer_text_font_setting{[m
+[32m+[m[32m    font-size: 30px;[m[41m [m
+[32m+[m[32m    font-family: Segoe UI;[m[41m [m
+[32m+[m[32m    color:white;[m
+[32m+[m[32m}[m
+ [m
+ /* --------------------------- Color & Size Set Up ---------------------------*/[m
+ :root { [m
+[36m@@ -694,12 +699,6 @@[m [mnav a,button{[m
+ /* ------------------------------ About Us End ------------------------------ */[m
+ [m
+ /* ---------------------------- Footer Starts Here -------------------------- */[m
+[31m-.footer_text_font_setting{[m
+[31m-    font-size: 30px; [m
+[31m-    font-family: Segoe UI; [m
+[31m-    color:white;[m
+[31m-}[m
+[31m-[m
+ .footerBG{[m
+     width: 1920px;[m
+     height: 120px; [m
