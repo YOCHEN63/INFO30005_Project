@@ -66,6 +66,6 @@ const exercise = mongoose.model('exercise',ExerciseSchema,'exercise')
 const bloodGlucose = mongoose.model('bloodGlucose',BloodGlucoseSchema,'bloodGlucose')
 const insulin = mongoose.model('insulin',UserSchema,'insulin')
 const weight = mongoose.model('weight',WeightSchema,'weight')
-const myschemas = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose
-    ,'insulin':insulin,'weight':weight,'note':note}
-module.exports = myschemas
+const myModel = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose,'insulin':insulin,'weight':weight,'note':note}
+
+module.exports = myModel
