@@ -176,7 +176,7 @@ body{
     border-radius: 51px;
 }
 
-.patitnent_card img{
+.patient_card img{
     width: 124px;
     height: 124px;
     padding-left: 37px;
@@ -184,7 +184,7 @@ body{
     float: left;
 }
 
-.patitetn_card h2{
+.patient_card h2{
     padding-left: 20px;
     float: left;
     padding-top: 70px;
