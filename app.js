@@ -13,18 +13,17 @@ app.use(express.static('public'))
 const exphbs = require('express-handlebars') 
 
 app.engine('hbs', exphbs.engine({      // configure Handlebars 
-    defaultlayout: 'main', 
+    defaultlayout: 'home', 
     extname: 'hbs' 
 })) 
  
 app.set('view engine', 'hbs')   // set Handlebars view engine
 
+const indexRouter = require('./routes/index')
 // Set up to handle POST requests
 app.use(express.json())     // needed if POST data is in JSON format
 // app.use(express.urlencoded())  // only needed for URL-encoded input
-app.get('/', (req,res) => {
-    res.send('Our demo app is working!')
-})
+app.use('/', indexRouter)
 app.listen(3000,()=>{
     console.log('App listenting to port 3000')
 })
