@@ -53,14 +53,8 @@ body{
     --shadow_blue: #092c3e;
     --hover_gray: #ddd;
     --actived_gary: #b3b3b3;
-   
-    --font-size-l: 38px;
-    --font-size-m: 30px;
-    --font-size-s: 28px;
-    --font-size-xl: 40px;
-    --font-size-xs: 25px;
-    --font-size-xxl: 50px;
-   
+    --border_hover:#cccccc;
+
     --font-family-roboto: "Roboto", Helvetica;
     --font-family-segoeui-bold: "SegoeUI-Bold", Helvetica;
     --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
@@ -380,7 +374,7 @@ body{
 }
 
 .notes_container{
-    height: 280px;
+    height: 250px;
     border: 1px solid var(--border_line);
     overflow: auto;
 }
@@ -395,3 +389,45 @@ body{
     background-color: var(--table_category_background);
     height: 100px;
 }
+
+#note_message_get_time{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#note_input_container{
+    border: 1px solid var(--border_line);
+}
+
+#clinician_note_input{
+    margin: 20px 30px;
+    height: 30px;
+    font-size: 17px;
+    width: 70%;
+    border: 1px solid var(--border_line);
+    border-radius: 8px;
+}
+
+#clinician_note_input:hover{
+    background-color: #f2f2f2;
+}
+
+#clinician_note_submit{
+    width: 15%;
+    height: 30px;
+    background-color: var(--background_blue);
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    margin:20px 0px;
+}
+
+#clinician_note_submit:hover{
+    background-color: #4d8eff;
+}
+
+#clinician_note_submit:active{
+    background-color: #80aeff;
+}
+
+/* ----------------------------- Message Content ---------------------------- */
