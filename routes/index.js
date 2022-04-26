@@ -5,5 +5,6 @@ const controllers = require('../controller/blood.controller')
 
 
 router.get('/', controllers.find) 
+router.get('/:id', controllers.find)
 
 module.exports = router
