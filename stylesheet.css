@@ -260,7 +260,7 @@ body{
 /* diagram */
 .diagram_container{
     display: flex;
-    width: 800%;
+    width: 80%;
     overflow: hidden;
     position:relative;
     text-align: center;
