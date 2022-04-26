@@ -245,12 +245,6 @@ body{
     padding-top: 4%;
 }
 
-.comment_button{
-    width: 25px;
-    margin-right: 3.5%;
-    float: right;
-}
-
 .add_icon_blue{
     width: 25px;
     margin-right: 3.5%;
@@ -325,17 +319,6 @@ body{
     text-align: center;
 }
 
-.leader_board{
-    background-color: white;
-    margin-top: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    min-height: 15%;
-    width: 43%;
-    float: right;
-    text-align: center;
-} 
-
 .note_icon{
     width:65px;
     margin-top: 5%;
@@ -346,23 +329,35 @@ body{
     background-color: #007AD4;
     color:white;
     border: none;
+    margin-bottom: 5%;
     padding: 8px 15px;
     border-radius: 4px;
 }
 
 .scroller{
-    width: auto;;
-    height: 137px;
+    width: auto;
+    height: 150px;
     overflow-y: scroll;
     padding-left: 5%;
     /* overflow: visible; */
 }
 
+.leader_board{
+    background-color: white;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    width: 43%;
+    height: 30%;
+    float: right;
+    text-align: center;
+} 
+
 .scroller p{
     background-color: #A2D2F9;
     padding-top: 3%;
     padding-bottom: 3%;
-    padding-left: 10%;
+    padding-left: 5%;
     border-radius: 10px;
     border-style: solid;
     margin-left: 3.5%;
@@ -385,34 +380,43 @@ body{
 /* ----------------------------- Comment Page ------------------------------ */
 
 
+.comment_button{
+    float: right;
+    margin-top: 2%;
+    margin-right: 3.5%;
+}
+
 .form-popup .label{
     margin-top: 5px;
 }
 
 .form-popup {
+    text-align: center;
     display: none;
-    width:20%;
-    height:35%;
+    width:500px;
+    height:380px;
     position:absolute;
-    left:50%;
-    top:50;
-    bottom: 50%;
-    right:50%;
-    background-color: white;
-    border-color:black ;
-    border-width:10px;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    margin:auto;
+
   }
   
   /* Add styles to the form container */
   .form-container {
-    max-width: 300px;
+    max-width: 450px;
     padding: 10px;
     background-color: white;
+    border-style:solid;
+    border-color:black ;
+    border-width:2px;
   }
   
   /* Full-width input fields */
   .form-container input[type=text] {
-    width: 100%;
+    width: 80%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -432,7 +436,7 @@ body{
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     margin-bottom:10px;
   }
   
@@ -443,10 +447,10 @@ body{
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     margin-bottom:10px;
   }
 
   .form-container .data_field{
-      margin-top:5%;
+      text-align: left;
   }

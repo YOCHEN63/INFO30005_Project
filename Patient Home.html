@@ -44,28 +44,29 @@
 
     <div class="today_record">
         <p class="today_record_text"> <b>Today's Record</b>
+        
+        
+        </p>
+<!-- blood glucose level -->
+        <p class="align_left"> <b>Blood glucose level</b></p> 
         <!-- add a pop up page for adding data and comment-->
-        <button class="comment_button" id="add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
-
-        <div class="form-popup" id="myForm">
+        <button class="comment_button" id="bgl_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+        <div class="form-popup" id="bgl_form">
             <form action="/action_page.php" class="form-container">
               <h1>Record Your Data</h1>
           
               <label for="data_field"><b>Blood Glucose Level</b></label>
-              <input type="text" placeholder="Enter Blood Glucose Level" name="blood_glucose_level" required>
+              <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required>
           
               <label for="comment_field"><b>Comment</b></label>
-              <input type="text" placeholder="Enter Your Comment" name="comment" required>
+              <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
           
-              <button type="button" class="submit_button">Login</button>
-              <button type="button" class="close_button" id="close_record">Close</button>
+              <button type="button" class="submit_button">Submit</button>
+              <button type="button" class="close_button" id="bgl_close">Close</button>
             </form>
-          </div>
+        </div>
     
-        <script src="pop.js"></script>   
-        </p>
-<!-- blood glucose level -->
-        <p class="align_left"> <b>Blood glucose level</b></p> 
+        <script src="bgl_pop.js"></script> 
         <img class="rightarrow_blue" src="./logo/rightarrow_blue.PNG">
         <p class="align_right"><b>100</b> Nmol/L</p>
        
@@ -77,6 +78,25 @@
         </div>
 <!-- weight -->
         <p class="align_left"> <b>Weight</b></p> 
+        <!-- add a pop up page for adding data and comment-->
+        <button class="comment_button" id="weight_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+        <div class="form-popup" id="weight_form">
+            <form action="/action_page.php" class="form-container">
+              <h1>Record Your Data</h1>
+          
+              <label for="data_field"><b>Weight</b></label>
+              <input type="text" placeholder="Enter Weight (kg)" name="weight" required>
+          
+              <label for="comment_field"><b>Comment</b></label>
+              <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+          
+              <button type="button" class="submit_button">Submit</button>
+              <button type="button" class="close_button" id="weight_close">Close</button>
+            </form>
+        </div>
+    
+        <script src="weight_pop.js"></script>   
+
         <img class="rightarrow_blue" src="./logo/rightarrow_blue.PNG">
         <p class="align_right"><b>--</b> Kg</p>
 
@@ -88,6 +108,27 @@
        </div>
 <!-- Doses of insulin taken -->
        <p class="align_left"> <b>Doses of insulin taken</b></p> 
+       <!-- add a pop up page for adding data and comment-->
+       <button class="comment_button" id="insulin_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+       <div class="form-popup" id="insulin_form">
+            <form action="/action_page.php" class="form-container">
+              <h1>Record Your Data</h1>
+          
+              <label for="data_field"><b>Insulin Taken</b></label>
+              <input type="text" placeholder="Enter insulin taken (doses)" name="insulin" required>
+          
+              <label for="comment_field"><b>Comment</b></label>
+              <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+          
+              <button type="button" class="submit_button">Submit</button>
+              <button type="button" class="close_button" id="insulin_close">Close</button>
+            </form>
+        </div>
+    
+        <script src="insulin_pop.js"></script> 
+
+
+
         <img class="rightarrow_blue" src="./logo/rightarrow_blue.PNG">
         <p class="align_right"><b>1</b> Doses</p>
        
@@ -99,6 +140,25 @@
         </div>
 <!-- Exercise -->
        <p class="align_left"> <b>Exercise</b></p> 
+       <button class="comment_button" id="exercise_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+       <div class="form-popup" id="exercise_form">
+            <form action="/action_page.php" class="form-container">
+              <h1>Record Your Data</h1>
+          
+              <label for="data_field"><b>Exercise</b></label>
+              <input type="text" placeholder="Enter steps you walk (steps)" name="exercise" required>
+          
+              <label for="comment_field"><b>Comment</b></label>
+              <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+          
+              <button type="button" class="submit_button">Submit</button>
+              <button type="button" class="close_button" id="exercise_close">Close</button>
+            </form>
+        </div>
+    
+        <script src="exercise_pop.js"></script> 
+
+        
         <img class="rightarrow_blue" src="./logo/rightarrow_blue.PNG">
         <p class="align_right"><b>19534</b> Steps</p>
        
