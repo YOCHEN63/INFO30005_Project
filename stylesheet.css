@@ -40,7 +40,7 @@ body{
 
 .segoeui_bold_white{
     color: var(--white);
-    font-family: var(--font-family-segoeui-bold);
+    font-family: --font-family-segoeui-bold;
     font-style: normal;
 }
 /* --------------------------- Color & Size Set Up ---------------------------*/
@@ -59,6 +59,7 @@ body{
     --background_light_gray: #d3d3d3;
     --green:#05c46b;
     --shadow_blue: #092c3e;
+    --hover_gray: #ddd;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -128,6 +129,7 @@ body{
 
 .clinician_main_left_column{
     float: left;
+    width: 70%;
 }
 
 .patients_list {
@@ -160,7 +162,7 @@ body{
 
 .clinician_main_right_column{
     float: left;
-    padding-left: 66px;
+    width: 20%;
 }
 
 .patitent_card{
@@ -319,4 +321,39 @@ body{
     width: 40px;
     height: 40px;
     padding: 40px;
+}
+
+.patient_data_content{
+    overflow: hidden;
+    background-color: var(--background_light_gray);
+    margin-top: 50px;
+}
+
+.patient_data_content button{
+    color: var(--black);
+    font-family: --font-family-segoeui-bold;
+    font-style: normal;
+    font-size: 17px;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.patient_data_content button:hover{
+    background-color: var(--hover_gray);
+}
+
+.patient_data_content button:active{
+    background-color: var(--active_background);
+}
+
+.patient_data_tabs_content th{
+    padding-left: 20px;
+    padding-top: 10px;
+    border: 1px solid var(--shadow_blue);
 }
