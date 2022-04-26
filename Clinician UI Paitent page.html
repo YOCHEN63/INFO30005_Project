@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--
+        Target:
+        style: more margin, not absolute
+    -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Detail - Diabetes@Home</title>
+        
+        <link rel="shortcut icon" href="./logo/Diabetes @Home (8).png">
+        <link rel="stylesheet" href="stylesheet.css">
+        
+    </head>
+
+    <body>
+        <!-- nav bar -->
+        <div class="clinician_nav">
+            <a href="#">
+                <img src="./logo/doctor (1).png" class="round_icon">
+            </a>
+            <a>
+                <p class="segoeui_regular_blue">Hi, Chris</p>
+            </a> 
+            <a href="#">
+                <img src="./logo/home.png" class="nav_icon">
+            </a>
+            <a href="#">
+                <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
+            </a>
+        </div>
+
+        <!-- left column -->
+        <div class="ClinicianUI_patient_detail_page_left">
+            <!-- patient detail side -->
+            <div class="patient_detail_card">
+                <img src="./logo/man.png">
+        
+                <div class="patient_detail_container">
+                    <h4 class="roboto_regular_black_48px">John</h4>
+                    <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- data seletor -->
+            <div class="patient_data_selector_container">
+                <p class="roboto_regular_black_18px">Tell your Patient what Data he needs to record</p>
+            </div>
+
+                <div class="data_container_list">
+                    <div class="data_container">
+                        <label class="segoeui_bold_white">Blood glucose level</label>
+                        <input type="checkbox" class="required_data">
+                    </div>
+
+                    <div class="link_buttom"></div>
+
+                    <div class="data_container">
+                        <label class="segoeui_bold_white">Weight</label>
+                        <input type="checkbox" class="required_data">
+                    </div>
+                    <div class="link_buttom"></div>
+
+                    <div class="data_container">
+                        <label class="segoeui_bold_white">Doses of insulin taken</label>
+                        <input type="checkbox" class="required_data">
+                    </div>
+                    <div class="link_buttom"></div>
+
+                    <div class="data_container">
+                        <label class="segoeui_bold_white">Exercise </label> 
+                        <input type="checkbox" class="required_data">
+                    </div>
+                    <div class="link_buttom"></div>
+                </div>
+
+            <!-- view chart -->
+            <!-- 这个是展现折线图的和表格无关 -->
+            <button id="data_chart_button">
+                <span class="segoeui_bold_white">View Charts</span>
+            </button>  
+
+            <div id="paitent_data_chart_modal">
+                <div class="view_charts_modal_content">
+                    <img src="./logo/left-arrow.png" id="modal_return_icon"> 
+                    <!-- 这里还差我们的折线图
+                        还没有加任何的东西且上面的图是无效输入的
+                        现在只是摆个位置
+                        退出的话点一下屏幕任何一个地方就能返回页面
+                        还有注意的一点是modal背景颜色应该设置成0.6的黑色
+                        不然icon也是0.6的opacity
+                    -->      
+                </div>
+            </div>
+        </div>
+
+        <!-- middle column -->
+        <div class="ClinicianUI_patient_detail_page_middle">
+            <!-- patient's data table in a tab-->
+            <div class="patient_data_content">
+                <button class="patient_data_tabs" onclick="OpenTable(event,'blood_glucose_level')">
+                    Blood Glucose Level
+                </button>
+
+                <button class="patient_data_tabs" onclick="OpenTable(event,'weight')">
+                    Weight
+                </button>
+
+                <button class="patient_data_tabs" onclick="OpenTable(event,'doses_of_insulin_taken')">
+                    Doses of insulin taken
+                </button>
+
+                <button class="patient_data_tabs" onclick="OpenTable(event,'exercise')">
+                    Exercise 
+                </button>
+            </div>
+            
+            <!-- 数据 -->
+            <div id="weight" class="patient_data_tabs_content">
+                <table>
+                    <!-- category -->
+                    <tr>
+                        <th>Time</th>
+                        <th>Weight(kg)</th>
+                        <th>Comment</th>
+                    </tr>
+
+                    <!-- 
+                        todo: get data from the database
+                    -->
+                </table>
+            </div>
+
+            <div id="blood_glucose_level" class="patient_data_tabs_content">
+                <table>
+                    <!-- category -->
+                    <tr>
+                        <th>Time</th>
+                        <th>Blood glucose level(Nmol/L)</th>
+                        <th>Comment</th>
+                    </tr>
+
+                    <!-- 
+                        todo: get data from the database
+                    -->
+                </table>
+            </div>
+
+            <div id="doses_of_insulin_taken" class="patient_data_tabs_content">
+                <table>
+                    <!-- category -->
+                    <tr>
+                        <th>Time</th>
+                        <th>Doses of insulin taken</th>
+                        <th>Comment</th>
+                    </tr>
+                    <!-- 
+                        todo: get data from the database
+                    -->
+                </table>
+            </div>
+
+            <div id="exercise" class="patient_data_tabs_content">
+                <table>
+                    <!-- category -->
+                    <tr>
+                        <th>Time</th>
+                        <th>Exercise(steps)</th>
+                        <th>Comment</th>
+                    </tr>
+                    <!-- 
+                        todo: get data from the database
+                    -->
+                </table>
+            </div>
+            
+        </div>
+        <!-- Right column -->
+        <!-- Note bar -->
+        <div>
+
+        </div>
+
+        <!-- Chats box -->
+        <div>
+
+        </div>
+    </body>
+</html>
+
+<script type="text/javascript" src="script.js"></script>
