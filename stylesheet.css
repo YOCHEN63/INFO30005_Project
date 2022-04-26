@@ -60,6 +60,7 @@ body{
     --green:#05c46b;
     --shadow_blue: #092c3e;
     --hover_gray: #ddd;
+    --actived_gary: #b3b3b3;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -348,8 +349,8 @@ body{
     background-color: var(--hover_gray);
 }
 
-.patient_data_content button:active{
-    background-color: var(--active_background);
+.patient_data_content button.active{
+    background-color: var(--actived_gary);
 }
 
 .patient_data_tabs_content{
@@ -358,11 +359,15 @@ body{
     border-top: none;
 }
 
-.patient_data_tabs_content  table{
+.patient_data_tabs_content table{
     border-spacing: 0;
 }
 
 .patient_data_tabs_content th{
     padding: 10px 20px;
     border-collapse: collapse;
+}
+
+#blood_glucose_level{
+    display: block;
 }

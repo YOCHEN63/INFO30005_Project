@@ -36,5 +36,5 @@ function OpenTable(event, tableName){
     }
 
     document.getElementById(tableName).style.display = "block";
-    evt.currentTarget.className += " active";
+    event.currentTarget.className += " active";
 }
