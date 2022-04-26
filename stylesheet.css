@@ -2,6 +2,7 @@
 *{
     margin:0;
     padding:0;
+    
 
 }
 
@@ -82,7 +83,6 @@ body{
     background-color: var(--backgroud_black);
     height: 72px;
     overflow: hidden;
-    width: 100%
 }
 
 .clinician_nav a{
@@ -191,7 +191,7 @@ body{
     font-size: 24px;
 }
 
-.patitetn_card p{
+.patient_card p{
     padding-top: 10px;
     padding-left: 20px;
     float: left;
@@ -225,12 +225,33 @@ body{
     font-size: 26px;
 }
 
+/* responsive design auto changing font in different screen*/
+@media screen and (min-width: 601px) {
+    .home_font {
+      font-size: 40px;
+    }
+  }
+@media screen and (min-width: 1600px) {
+    .home_font {
+      font-size: 50px;
+    }
+  }
+
 .date_font{
     font-size: 15px;
     text-align: right;
     padding-right: 5%;
 }
-
+@media screen and (min-width: 601px) {
+    .date_font {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .date_font {
+      font-size: 30px;
+    }
+  }
 
 .medal{
     position: absolute;  
@@ -253,15 +274,48 @@ body{
 }
 
 .profile_img{
-    max-width:15%;
-    max-height:15%;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    padding-top:18px;
+    max-width: 15%;
+    max-height: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 18px;
+
+    /* margin-left: 37%; */
 }
 
+.profile_name{
+    text-align: center; 
+    font-size: 24px;
+}
+@media screen and (min-width: 601px) {
+    .profile_name {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .profile_name{
+      font-size: 40px;
+    }
+  }
+
+.profile_city{
+    text-align: center;
+    font-size: 16px;
+}
+@media screen and (min-width: 601px) {
+    .profile_city {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .profile_city {
+      font-size: 30px;
+    }
+  }
+
 .today_record{
+    /* background-color: white; */
     margin-top: 16px;
     height: 25%;
     width: 90%;
@@ -270,12 +324,21 @@ body{
     margin-right: auto;
 }
 
-
 .today_record_text{
     font-size: 20px;
     margin-left: 3.5%;
     padding-top: 4%;
 }
+@media screen and (min-width: 601px) {
+    .today_record_text {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .today_record_text {
+      font-size: 40px;
+    }
+  }
 
 .add_icon_blue{
     width: 25px;
@@ -289,6 +352,16 @@ body{
     margin-top: 4%;
     font-size: 14px;
 }
+@media screen and (min-width: 601px) {
+    .align_left {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .align_left {
+      font-size: 25px;
+    }
+  }
 
 .align_right{
     float: right;
@@ -296,6 +369,16 @@ body{
     margin-top: 4%;
     font-size: 14px;
 }
+@media screen and (min-width: 601px) {
+    .align_right {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .align_right {
+      font-size: 25px;
+    }
+  }
 
 .rightarrow_blue{
     width: 25px;
@@ -313,12 +396,37 @@ body{
     border-width: 0.5px;
     border-color: black;
     background-color: white;
-    
+    border-left: 5px solid #047BF1;
+    border-right: 5px solid #047BF1;
+    /* background-color: #ddffff; */
 }
+@media screen and (min-width: 601px) {
+    .bubbleText {
+        border-left: 8px solid #047BF1;
+        border-right: 8px solid #047BF1;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText {
+        border-left: 10px solid #047BF1;
+        border-right: 10px solid #047BF1;
+    }
+  }
 
 .bubbleText p{
     margin-left: 7.5%;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .bubbleText p {
+      font-size: 22px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText p {
+      font-size: 28px;
+    }
+  }
 
 .bubbleText_noRecord{
     border-radius: 20px;
@@ -328,7 +436,18 @@ body{
     border-width: 0.5px;
     border-color: black;
     background-color: #FF6B6B;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .bubbleText_noRecord {
+      font-size: 22px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText_noRecord {
+      font-size: 28px;
+    }
+  }
 
 .bubbleText_noRecord p{
     margin-left: 15%;
@@ -340,7 +459,16 @@ body{
     font-size: 10px;
     color:#5C6770;
 }
-
+@media screen and (min-width: 601px) {
+    .bubbleText time {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .bubbleText time{
+      font-size: 25px;
+    }
+  }
 
 .past_record{
     background-color: white;
@@ -349,7 +477,18 @@ body{
     width: 43%;
     float: left;
     text-align: center;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .past_record {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .past_record {
+      font-size: 30px;
+    }
+  }
 
 .note_icon{
     width:65px;
@@ -364,7 +503,18 @@ body{
     margin-bottom: 5%;
     padding: 8px 15px;
     border-radius: 4px;
+    font-size: 16px;
 }
+@media screen and (min-width: 601px) {
+    .past_record button {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .today_record_text {
+      font-size: 30px;
+    }
+  }
 
 .scroller{
     width: auto;
@@ -382,8 +532,19 @@ body{
     width: 43%;
     height: 30%;
     float: right;
-    text-align: center;
+    /* text-align: center; */
+    font-size: 16px;
 } 
+@media screen and (min-width: 601px) {
+    .leader_board {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .leader_board {
+      font-size: 30px;
+    }
+  }
 
 .scroller p{
     background-color: #A2D2F9;
@@ -399,6 +560,16 @@ body{
     font-size: 14px;
     color:white;
 }
+@media screen and (min-width: 601px) {
+    .scroller p {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1600px) {
+    .scroller p {
+      font-size: 30px;
+    }
+  }
 
 .trans_badge{
     width: 138px;
