@@ -40,14 +40,18 @@
                 <img src="./logo/man.png">
         
                 <div class="patient_detail_container">
-                    <h4 class="roboto_regular_black_48px">John</h4>
+                    <h4 class="roboto_regular_black" style="font-size: 48px;">
+                        John
+                    </h4>
                     <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
                 </div>
             </div>
 
             <!-- data seletor -->
             <div class="patient_data_selector_container">
-                <p class="roboto_regular_black_18px">Tell your Patient what Data he needs to record</p>
+                <p class="roboto_regular_black" style="font-size: 18px;">
+                    Tell your Patient what Data he needs to record
+                </p>
             </div>
 
                 <div class="data_container_list">
@@ -65,7 +69,7 @@
                     <div class="link_buttom"></div>
 
                     <div class="data_container">
-                        <label class="segoeui_bold_white">Doses of insulin taken</label>
+                        <label class="segoeui_bold_white">Doses of Insulin Taken</label>
                         <input type="checkbox" class="required_data">
                     </div>
                     <div class="link_buttom"></div>
@@ -110,7 +114,7 @@
                 </button>
 
                 <button class="patient_data_tabs" onclick="OpenTable(event,'doses_of_insulin_taken')">
-                    Doses of insulin taken
+                    Doses of Insulin Taken
                 </button>
 
                 <button class="patient_data_tabs" onclick="OpenTable(event,'exercise')">
@@ -180,8 +184,32 @@
         </div>
         <!-- Right column -->
         <!-- Note bar -->
-        <div>
+        <div class="ClinicianUI_patient_detail_page_right">
+            <div class="clinician_note_content">
+                <h2 class="roboto_regular_black" style="font-size: 25px;">
+                    Note
+                </h2>
 
+                <div class="notes_container">
+                    <!-- 这里应该是无的,是input之后才有的
+                         暂时还没有加add class function
+                    -->
+                    <div class="single_note_container">
+                        <h5  id="note_message_get_time" 
+                            class="roboto_regular_black"
+                            style="font-size: 14px;">
+                        </h5>
+
+                        <p>
+                            <!-- meesage here-->
+                        </p>
+                    </div>
+                </div>
+
+                <div id="note_input_container">
+                    
+                </div>
+            </div>
         </div>
 
         <!-- Chats box -->

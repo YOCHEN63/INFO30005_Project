@@ -17,10 +17,9 @@ body{
     font-style: normal;
 }
 
-.roboto_regular_black_48px{
+.roboto_regular_black{
     color: #000;
     font-family: (--font-family-roboto);
-    font-size: 48px;
     font-style: normal;
 }
 
@@ -29,13 +28,6 @@ body{
     font-family: (--font-family-roboto);
     font-style: normal;
     font-size: 24px;
-}
-
-.roboto_regular_black_18px{
-    color: #000;
-    font-family: (--font-family-roboto);
-    font-style: normal;
-    font-size: 18px;
 }
 
 .segoeui_bold_white{
@@ -324,6 +316,8 @@ body{
     padding: 40px;
 }
 
+/* ------------------------ Clinician UI Patient Data ---------------------- */
+
 .patient_data_content{
     overflow: hidden;
     background-color: var(--background_light_gray);
@@ -370,4 +364,34 @@ body{
 
 #blood_glucose_level{
     display: block;
+}
+
+/* ------------------------------ Note Content ----------------------------- */
+
+.clinician_note_content{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.clinician_note_content h2{
+    text-align: center;
+    border: 1px solid var(--border_line);
+}
+
+.notes_container{
+    height: 280px;
+    border: 1px solid var(--border_line);
+    overflow: auto;
+}
+
+.notes_container::-webkit-scrollbar{
+    width: 10px;
+}
+
+.single_note_container{
+    margin: 10px;
+    border: 1px solid var(--border_line);
+    background-color: var(--table_category_background);
+    height: 100px;
 }

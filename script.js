@@ -38,3 +38,23 @@ function OpenTable(event, tableName){
     document.getElementById(tableName).style.display = "block";
     event.currentTarget.className += " active";
 }
+
+/* -------------------------- Patient Note Content -------------------------- */
+var currentDate = new Date();
+var date = currentDate.getDate()+'/'+currentDate.getMonth()+"/"
+           +currentDate.getFullYear();
+
+var Hours = currentDate.getHours();
+var Minutes = currentDate.getMinutes();
+
+if(Hours <10){
+    Hours = '0'+Hours;
+}
+
+if(Minutes <10){
+    Minutes = '0'+Minutes;
+}
+
+var time = Hours +':'+ Minutes;
+var dateTime = date+' '+time;
+document.getElementById("note_message_get_time").innerHTML=dateTime;
