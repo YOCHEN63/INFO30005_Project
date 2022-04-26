@@ -40,6 +40,8 @@ body{
 :root { 
     --blue: #2372ff;
     --background_blue: #2372ff;
+    --background_blue_hover: #4d8eff;
+    --background_blue_active: #80aeff;
     --dove-gray: #707070;
     --border_line: #e1e1e1;
     --white: #ffffff;
@@ -250,9 +252,9 @@ body{
     margin-top: 2px;
 }
 
-/* ---------------------------- View Chart Button --------------------------- */
+/* ----------------------- Save Required Data Button ------------------------ */
 
-#data_chart_button{
+#save_required_button{
     background-color: var(--background_blue);
     font-size: 20px;
     margin-top: 40px;
@@ -265,14 +267,22 @@ body{
     border: none;
 }
 
-#data_chart_button span{
+#save_required_button:hover{
+    background-color: var(--background_blue_hover);
+}
+
+#save_required_button:active{
+    background-color: var(--background_blue_active);
+}
+
+#save_required_button span{
     cursor: pointer;
     display: inline-block;
     position: relative;
 }
 
-#data_chart_button span::after{
-    content: "\00bb";
+#save_required_button span::after{
+    content: "\2191";
     position: absolute;
     opacity: 0;
     top: 0;
@@ -280,34 +290,13 @@ body{
     transition: 0.5s;
 }
 
-#data_chart_button:hover span{
+#save_required_button:hover span{
     padding-right: 35px;
 }
 
-#data_chart_button:hover span::after{
+#save_required_button:hover span::after{
     opacity: 1;
     right: 0;
-}
-
-#paitent_data_chart_modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: var(--black);
-    opacity: 0.6;
-}
-
-#view_charts_modal_content{
-}
-
-#modal_return_icon{
-    width: 40px;
-    height: 40px;
-    padding: 40px;
 }
 
 /* ------------------------ Clinician UI Patient Data ---------------------- */
@@ -423,11 +412,11 @@ body{
 }
 
 #clinician_note_submit:hover{
-    background-color: #4d8eff;
+    background-color: var(--background_blue_hover);
 }
 
 #clinician_note_submit:active{
-    background-color: #80aeff;
+    background-color: var(--background_blue_active);
 }
 
 /* ----------------------------- Message Content ---------------------------- */
