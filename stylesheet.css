@@ -10,6 +10,7 @@ body{
     min-height:1800px;
     background-color: #F6F8F9;
     min-width: 375px;
+
 }
 /* ---------------------------- Font Style Set Up ----------------------------*/
 
@@ -32,6 +33,19 @@ body{
     font-style: normal;
     font-size: 24px;
 }
+
+.roboto_regular_black_18px{
+    color: #000;
+    font-family: (--font-family-roboto);
+    font-style: normal;
+    font-size: 18px;
+}
+
+.segoeui_bold_white{
+    color: var(--white);
+    font-family: --font-family-segoeui-bold;
+    font-style: normal;
+}
 /* --------------------------- Color & Size Set Up ---------------------------*/
 
 :root { 
@@ -39,13 +53,17 @@ body{
     --background_blue: #2372ff;
     --dove-gray: #707070;
     --border_line: #e1e1e1;
-    --licorice: #171414;
-    --spindle: #b3cfff1a;
     --white: #ffffff;
     --backgroud_black:#343A40;
     --font_blue:#047BF1;
     --active_background:#73777B;
     --table_category_background:#F5F6FA;
+    --black: #000;
+    --background_light_gray: #d3d3d3;
+    --green:#05c46b;
+    --shadow_blue: #092c3e;
+    --hover_gray: #ddd;
+    --actived_gary: #b3b3b3;
    
     --font-size-l: 38px;
     --font-size-m: 30px;
@@ -59,7 +77,8 @@ body{
     --font-family-segoeui-regular: "SegoeUI-Regular", Helvetica;
 }
 
-/* ----------------------------- Clinican Page ------------------------------ */
+/* ------------------------- Clinican Page Nav Bar -------------------------- */
+
 .clinician_nav{
     background-color: var(--backgroud_black);
     height: 72px;
@@ -105,16 +124,24 @@ body{
     width: 55px;
 }
 
+/* ----------------------------- Clinican Page ------------------------------ */
+
 .table_name{
     padding-top: 25px;
     padding-left: 66px;
 }
 
-.patients_list {
+.clinician_main_left_column{
+    float: left;
     width: 65%;
+}
+
+.patients_list {
+    width: 1210px;
     padding-top: 30px;
     padding-left: 66px;
     border-spacing: 0;
+    min-width: 960px;
 }
 
 .patients_list tr:nth-child(even){
@@ -132,18 +159,24 @@ body{
     background-color: var(--table_category_background);
 }
 
-.patient_card{
-    width: 540px;
-    height: 323px;
-    position: absolute;
-    left: 1331px;
-    top: 102px;
-    border: 1px solid var(--dove-gray);
-    border-radius: 51px;
-    float: left;
+/* todo: add style to the table elements*/
+.patients_list td{
+    
 }
 
-.patient_card img{
+.clinician_main_right_column{
+    float: left;
+    width: 35%;
+}
+
+.patitent_card{
+    width: 540px;
+    height: 323px;
+    border: 1px solid var(--dove-gray);
+    border-radius: 51px;
+}
+
+.patitnent_card img{
     width: 124px;
     height: 124px;
     padding-left: 37px;
@@ -151,7 +184,7 @@ body{
     float: left;
 }
 
-.patient_card h2{
+.patitetn_card h2{
     padding-left: 20px;
     float: left;
     padding-top: 70px;
@@ -557,6 +590,17 @@ body{
     margin-top: 5px;
 }
 
+.gray_cover{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--black);
+    opacity: 0.6;
+}
+
 .form-popup {
     text-align: center;
     display: none;
@@ -579,6 +623,7 @@ body{
     border-style:solid;
     border-color:black ;
     border-width:2px;
+    border-radius:4px;
   }
   
   /* Full-width input fields */
@@ -621,3 +666,178 @@ body{
   .form-container .data_field{
       text-align: left;
   }
+
+/* -------------------------- Clinican UI Paitent  -------------------------- */
+.ClinicianUI_patient_detail_page_left{
+    float: left;
+    width: 30%;
+}
+
+.ClinicianUI_patient_detail_page_middle{
+    float: left;
+    width: 35%;
+}
+
+.ClinicianUI_patient_detail_page_right{
+    float: left;
+    width: 35%;
+}
+
+/* ------------------------ Clinican UI Paitent Card ------------------------ */
+
+.patient_detail_card{
+    padding-left: 88px;
+    padding-top: 48px;
+    width: 248px;
+}
+
+.patient_detail_card img{
+    width: 248px;
+    height: 248px;
+}
+
+.patient_detail_card h4{
+    text-align: center;
+}
+
+/* -------------------------- Required Data Selector ------------------------ */
+
+.patient_data_selector_container{
+    padding-top: 100px;
+    padding-left: 45px;
+}
+
+.data_container_list{
+    margin-top: 20px;
+    margin-left: 90px;
+    width: 300px;
+    height: 200px;
+    background-color: var(--background_blue);
+    border-radius: 35px;
+}
+
+.data_container{
+    padding-left: 20px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.required_data{
+    border-radius: 8px;
+    height: 20px;
+    width: 20px;
+}
+
+.link_buttom{
+    width: 90%;
+    height: 1px;
+    border-top: solid var(--border_line) 1px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+}
+
+/* ---------------------------- View Chart Button --------------------------- */
+
+#data_chart_button{
+    background-color: var(--background_blue);
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 140px;
+    border-radius: 35px;
+    width: 200px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    border: none;
+}
+
+#data_chart_button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+
+#data_chart_button span::after{
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#data_chart_button:hover span{
+    padding-right: 35px;
+}
+
+#data_chart_button:hover span::after{
+    opacity: 1;
+    right: 0;
+}
+
+#paitent_data_chart_modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--black);
+    opacity: 0.6;
+}
+
+#modal_return_icon{
+    width: 40px;
+    height: 40px;
+    padding: 40px;
+}
+
+.patient_data_content{
+    overflow: hidden;
+    background-color: var(--background_light_gray);
+    margin-top: 50px;
+}
+
+.patient_data_content button{
+    color: var(--black);
+    font-family: --font-family-segoeui-bold;
+    font-style: normal;
+    font-size: 17px;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.patient_data_content button:hover{
+    background-color: var(--hover_gray);
+}
+
+.patient_data_content button.active{
+    background-color: var(--actived_gary);
+}
+
+.patient_data_tabs_content{
+    display: none;
+    border: 1px solid var(--border_line);
+    border-top: none;
+}
+
+.patient_data_tabs_content table{
+    border-spacing: 0;
+}
+
+.patient_data_tabs_content th{
+    padding: 10px 20px;
+    border-collapse: collapse;
+}
+
+#blood_glucose_level{
+    display: block;
+}
