@@ -257,8 +257,8 @@ body{
     overflow: hidden;
     white-space: nowrap;
 }
-/* diagram */
-.diagram_container{
+/* show all data */
+.data_container{
     display: flex;
     width: 80%;
     overflow: hidden;
@@ -269,7 +269,7 @@ body{
         
 }
 
-.diagram_container:after{
+.data_container:after{
     content: '';
     display: block;
     margin-top: 23.9%;
