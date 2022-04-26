@@ -4,6 +4,6 @@ const schemas = require('../models/User.js')
 const controllers = require('../controller/blood.controller')
 
 
-router.get('/', controllers)
+router.get('/', controllers.find) 
 
 module.exports = router
