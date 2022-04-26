@@ -170,29 +170,28 @@ body{
     min-width: 100%;
     position:relative;
     display: flex;
-    justify-content: center;
     
+
 }
 .data_header:after{
     content: '';
     display: block;
-    margin-top: 10%;
+    margin-top: 8%;
+
 }
 .data_header a{
-    text-decoration: none;
     position: relative;
-    float: left;
-    padding-top: 1.5%;
+    padding-top: 2%;
     padding-bottom: 1%;
+    padding-left: 30%;
 }
 .data_header p{
-    display: inline;
-    text-align:center;
     text-decoration: none;
     position: relative;
     float: left;
-    padding-top: 2%;
-    padding-left: 7%;
+    padding-left: 12%;
+    padding-top: 2.5%;
+
 }
 
 .leftarrow_icon{
@@ -224,6 +223,7 @@ body{
 
 
 /* selection */
+
 .selection_container{
 
     display: flex;
@@ -232,24 +232,23 @@ body{
     overflow: hidden;
     min-width: 100%;
     position:relative;
-    padding-top: 2% ;
+    
 }
 .selection_container:after{
     content: '';
     display: block;
-    margin-top: 7%;
+    margin-top: 2%;
 
 }
 
 .selection{
     position: relative;
     align-items: center;
-    justify-content: space-between;
-    background: url(./image/down-arrow.png) no-repeat 100% center;
     overflow: hidden;
     white-space: nowrap;
-    display: inline-block;
-    float: left;
+    display: flex;
+    padding-top: 1%;
+
 }
 
 .selection select {
@@ -257,15 +256,16 @@ body{
     background-color: transparent;
     overflow: hidden;
     white-space: nowrap;
-    width: 100%;
 }
 /* diagram */
 .diagram_container{
-    width: 100%;
-    position: relative;
-    overflow: hidden;
     display: flex;
+    width: 800%;
+    overflow: hidden;
+    position:relative;
+    text-align: center;
     justify-content: center;
+
         
 }
 
@@ -274,18 +274,13 @@ body{
     display: block;
     margin-top: 23.9%;
 }
-.diagram_container graph{
-    position:relative;
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
 
-}
+
 .data_graph{
     height: 100%;
     width: 100%;
-    align-items: center;
-
+    display: flex;
+    justify-content: center;
 
 
 
@@ -294,7 +289,7 @@ body{
 /* ----------------------------- Patient Page ------------------------------ */
 
 .patient_nav{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: var(--backgroud_black);
     height: 72px;
