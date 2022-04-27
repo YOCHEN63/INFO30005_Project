@@ -86,11 +86,16 @@ const reqWeightData = async (req, res) => {
 */
 const addData = async (req, res) => {
     try {
-        const document = await bloodGlucose(req.body)
+        const document = new bloodGlucose({
+            user_id: '6266f45c3c62e10a62e038f4',
+            blood_glucose_level: 10,
+            comment: 'hahahahaha',
+        })
         await document.save()
-        res.redirect('/')
+        console.log("data saved")
+        return res.redirect('/:id/index')
     }catch (err){
-        return res.render('error', {error: err})
+        return console.error(err)
     }
 }
 

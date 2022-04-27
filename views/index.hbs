@@ -42,14 +42,14 @@
     <button class="comment_button" id="bgl_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
     <div class= "gray_cover" id="gray_form"></div>
     <div class="form-popup" id="bgl_form">
-        <form action="/" class="form-container">
+        <form action="/" method="post" class="form-container">
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Blood Glucose Level</b></label>
-            <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required>
+            <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required />
         
             <label for="comment_field"><b>Comment</b></label>
-            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required />
         
             <button type="submit" class="submit_button">Submit</button>
             <button type="button" class="close_button" id="bgl_close">Close</button>
@@ -105,7 +105,7 @@
     <button class="comment_button" id="insulin_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
     <div class= "gray_cover" id="gray_form_2"></div>
     <div class="form-popup" id="insulin_form">
-        <form action="/" class="form-container">
+        <form action="/" method="post" class="form-container">
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Insulin Taken</b></label>
