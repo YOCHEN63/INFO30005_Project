@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const schemas = require('../models/User.js')
+const controller = require('../controller/index')
 
 
 router.get('/',async(req,res,next)=>{
@@ -15,5 +15,7 @@ router.get('/',async(req,res,next)=>{
     doc.save();
     console.log("saved")
 })
+
+router.post('/index', controller.insert)
 
 module.exports = router
