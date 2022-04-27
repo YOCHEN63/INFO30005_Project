@@ -20,14 +20,14 @@
 </div>
 
 
-    
+{{#with data}}    
 <div class="patient_profile"> 
     <img class="medal" src="./logo/medal.png">
     <img class="profile_img" src="./logo/profile1.jpg">
-    <p class="profile_name"> <b>John Doe</b> </p>
-    <p class="profile_city"> San Francisco, CA</p>
-    
+    <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
+    <p class="profile_email"> {{this.email}}</p>
 </div>
+{{/with}}
 
 
 <div class="today_record">
@@ -72,7 +72,7 @@
     <button class="comment_button" id="weight_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
     <div class= "gray_cover" id="gray_form_1"></div>
     <div class="form-popup" id="weight_form">
-        <form action="/" class="form-container">
+        <form action="/"  class="form-container">
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Weight</b></label>

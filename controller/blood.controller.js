@@ -1,13 +1,22 @@
 const mongoose = require('mongoose')
 const generalModel = require('../models/User')
-const bloodGlucose = generalModel.user
+const myUser = generalModel.user
+const bloodGlucose = generalModel.bloodGlucose
 
+/*request for user data */
 
 const reqData = async (req, res) => {
-    let { id } = req.params
-    const reqBody = await bloodGlucose.find(id).lean()
-    console.log('found userData')
-    return reqBody
+    try {
+        const reqBody = await myUser.findOne({"first_name":"Yixuan"}).lean()
+        if (!reqBody){
+            return res.sendStatus(404)
+        }
+        console.log('found userData')
+        return res.render('index',{data:reqBody})
+    } catch (err) {
+        return next(err)
+    }
+    
 }
 
 const addData = async (req, res) => {
@@ -20,5 +29,5 @@ const addData = async (req, res) => {
     }
 }
 
-exports.insert = addData;
-exports.find = reqData;
+module.exports.insert = addData;
+module.exports.find = reqData;
