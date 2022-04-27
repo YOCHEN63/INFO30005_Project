@@ -47,19 +47,18 @@ function GetDateTime(){
     return dateTime;
 }
 /* --------------------------- Patient Note Submit -------------------------- */
-var numberOfNote = 0;
 
-document.querySelector('#clinician_note_submit').onclick = function(numberOfNote){
+document.querySelector('#clinician_note_submit').onclick = function(){
     //input can't be none
     if(document.getElementById("clinician_note_input").value.length == 0){
         setTimeout(() => { alert("Note message can't be none"); }, 1000);
     }
     else{
-        numberOfNote++;
         var newNote = document.createElement("li");
         var inputValue = GetDateTime() + " " 
         + document.getElementById("clinician_note_input").value; 
         var text = document.createTextNode(inputValue);
+        var text 
 
         newNote.classList.add("note_message");
 
@@ -69,10 +68,5 @@ document.querySelector('#clinician_note_submit').onclick = function(numberOfNote
 
         //clear input
         document.getElementById("clinician_note_input").value = '';
-    }
-
-    if(numberOfNote >=4)
-    {
-        
     }
 }
