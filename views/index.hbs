@@ -63,20 +63,10 @@
     <div style="clear: both;"></div>
        
     <div class="bubbleText">
-        <p class="maybe_comment"> ifComment()</p>
-        <time>{{this.date}}</time>
+        <p>{{this.comment}} </p>
+        <time>19:55pm</time>
     </div>
 
-    <script>
-        var showComment = document.getElementsByClassName("maybe_comment")
-        function ifComment(){
-            if (showComment == ""){
-                showComment.innerHTML="Not record yet"
-            } else {
-                showComment.innerHTML={{this.comment}}
-            }
-        }
-    </script>
     {{/with}}
 <!-- weight -->
     <p class="align_left"> <b>Weight</b></p> 
@@ -99,15 +89,16 @@
     </div>
 
     <script src="./javascripts/weight_pop.js"></script>   
-    
-    <p class="align_right"><b>--</b> Kg</p>
+    {{#with weight_data}} 
+    <p class="align_right"><b>{{this.weight}}</b> Kg</p>
 
     <div style="clear: both;"></div>
 
-    <div class="bubbleText_noRecord">
-        <p>Not record yet </p>
-        <!-- <time>13:58pm</time> -->
+    <div class="bubbleText">
+        <p>It's better than yesterday!</p>
+        <time>13:58pm</time> 
     </div>
+    {{/with}}
 <!-- Doses of insulin taken -->
     <p class="align_left"> <b>Doses of insulin taken</b></p> 
     <!-- add a pop up page for adding data and comment-->
@@ -129,15 +120,16 @@
     </div>
 
     <script src="./javascripts/insulin_pop.js"></script> 
-
-    <p class="align_right"><b>1</b> Doses</p>
+    {{#with insulin_data}} 
+    <p class="align_right"><b>{{this.insulin_shots}}</b> Doses</p>
     
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-            <p>I'm late for dinner today, hope it's not a big problem </p>
+            <p>{{this.comment}} </p>
             <time>19:56pm</time>
     </div>
+    {{/with}}
 <!-- Exercise -->
     <p class="align_left"> <b>Exercise</b></p> 
     <button class="comment_button" id="exercise_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
@@ -159,17 +151,16 @@
 
     <script src="./javascripts/exercise_pop.js"></script> 
 
-    
-    <p class="align_right"><b>19534</b> Steps</p>
+    {{#with exercise_data}} 
+    <p class="align_right"><b>{{this.walk_steps}}</b> Steps</p>
     
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-            <p>The weather was nice today, so I decided 
-            to go out for a hike :) </p>
+            <p>{{this.comment}}</p>
             <time>16:32pm</time>
     </div>
-
+    {{/with}}
 </div>
 
 <div class="past_record">
