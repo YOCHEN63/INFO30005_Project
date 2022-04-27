@@ -54,39 +54,43 @@
                 </p>
             </div>
 
-                <div class="data_container_list">
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Blood glucose level</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Weight</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Doses of Insulin Taken</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Exercise </label> 
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
-                    
-                    <!-- Save Required Button -->
-                    <!-- 还没有正式地给它添加任何的数据保存功能 -->
-                    <button id="save_required_button" onclick="SubmitRequiredData()">
-                        <span class="segoeui_bold_white">Save</span>
-                    </button>  
+            <div class="data_container_list">
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Blood glucose level</label>
+                    <input type="checkbox" class="required_data">
                 </div>
 
+                <div class="link_buttom"></div>
+
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Weight</label>
+                    <input type="checkbox" class="required_data">
+                </div>
+                <div class="link_buttom"></div>
+
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Doses of Insulin Taken</label>
+                    <input type="checkbox" class="required_data">
+                </div>
+                <div class="link_buttom"></div>
+
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Exercise </label> 
+                    <input type="checkbox" class="required_data">
+                </div>
+                <div class="link_buttom"></div>
+                
+                <!-- Save Required Button -->
+                <!-- 还没有正式地给它添加任何的数据保存功能 -->
+                <button id="save_required_button" onclick="SubmitRequiredData()">
+                    <span class="segoeui_bold_white">Save</span>
+                </button>  
+            </div>
+            
+            <!-- time sequence -->
+            <div>
+
+            </div>
         </div>
 
         <!-- middle column -->
@@ -170,6 +174,7 @@
             </div>
             
         </div>
+
         <!-- Right column -->
         <!-- Note bar -->
         <div class="ClinicianUI_patient_detail_page_right">
@@ -178,15 +183,13 @@
                     Note
                 </h2>
 
+                <!-- Add Note -->
                 <div class="notes_container">
-                    <!-- 这里应该是无的,是input之后才有的
-                         暂时还没有加add class function
-                    -->
                     <ul id="notes">
-
                     </ul>
                 </div>
 
+                <!-- Note Submit button -->
                 <div id="note_input_container">
                     <input type="text" placeholder="Any notes here..."
                      id="clinician_note_input">

@@ -30,18 +30,18 @@ function GetDateTime(){
     var date = currentDate.getDate()+'/'+currentDate.getMonth()+"/"
             +currentDate.getFullYear();
 
-    var Hours = currentDate.getHours();
-    var Minutes = currentDate.getMinutes();
+    var hours = currentDate.getHours();
+    var minutes = currentDate.getMinutes();
 
-    if(Hours <10){
-        Hours = '0'+Hours;
+    if(hours <10){
+        hours = '0'+hours;
     }
 
-    if(Minutes <10){
-        Minutes = '0'+Minutes;
+    if(minutes <10){
+        minutes = '0'+minutes;
     }
 
-    var time = Hours +':'+ Minutes;
+    var time = hours +':'+ minutes;
     var dateTime = date+' '+time;
 
     return dateTime;
@@ -51,14 +51,13 @@ function GetDateTime(){
 document.querySelector('#clinician_note_submit').onclick = function(){
     //input can't be none
     if(document.getElementById("clinician_note_input").value.length == 0){
-        setTimeout(() => { alert("Note message can't be none"); }, 1000);
+        setTimeout(() => { alert("Note message can't be none"); }, 500);
     }
     else{
         var newNote = document.createElement("li");
         var inputValue = GetDateTime() + " " 
         + document.getElementById("clinician_note_input").value; 
         var text = document.createTextNode(inputValue);
-        var text 
 
         newNote.classList.add("note_message");
 
@@ -70,3 +69,4 @@ document.querySelector('#clinician_note_submit').onclick = function(){
         document.getElementById("clinician_note_input").value = '';
     }
 }
+

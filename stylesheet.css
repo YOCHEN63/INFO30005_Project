@@ -182,7 +182,7 @@ body{
     float: left;
 }
 
-/* -------------------------- Clinican UI Paitent  -------------------------- */
+/* -------------------------- Clinican UI Paitent --------------------------- */
 .ClinicianUI_patient_detail_page_left{
     float: left;
     width: 30%;
@@ -201,7 +201,7 @@ body{
 /* ------------------------ Clinican UI Paitent Card ------------------------ */
 
 .patient_detail_card{
-    padding-left: 88px;
+    padding-left: 108px;
     padding-top: 48px;
     width: 248px;
 }
@@ -375,6 +375,7 @@ body{
     list-style-type: none;
     border: 1px solid var(--border_line);
     max-height: 250px;
+    height: 250px;
     overflow: hidden;
     overflow-y: scroll
 }
