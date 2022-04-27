@@ -38,7 +38,7 @@ body{
 /* --------------------------- Color & Size Set Up ---------------------------*/
 
 :root { 
-    --blue: #2372ff;
+    --blue:#004bcc;
     --background_blue: #2372ff;
     --background_blue_hover: #4d8eff;
     --background_blue_active: #80aeff;
@@ -218,7 +218,7 @@ body{
 /* -------------------------- Required Data Selector ------------------------ */
 
 .patient_data_selector_container{
-    padding-top: 100px;
+    padding-top: 20px;
     padding-left: 45px;
 }
 
@@ -226,7 +226,7 @@ body{
     margin-top: 20px;
     margin-left: 90px;
     width: 300px;
-    height: 200px;
+    height: 260px;
     background-color: var(--background_blue);
     border-radius: 35px;
 }
@@ -255,16 +255,19 @@ body{
 /* ----------------------- Save Required Data Button ------------------------ */
 
 #save_required_button{
-    background-color: var(--background_blue);
+    background-color: var(--blue);
     font-size: 20px;
-    margin-top: 40px;
-    margin-left: 140px;
+    margin-top: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: auto;
     border-radius: 35px;
     width: 200px;
     height: 40px;
     transition: all 0.5s;
     cursor: pointer;
     border: none;
+    box-shadow: 1px 2px var(--shadow_blue);
 }
 
 #save_required_button:hover{
@@ -362,24 +365,32 @@ body{
     border: 1px solid var(--border_line);
 }
 
-.notes_container{
+#notes_container{
     height: 250px;
     border: 1px solid var(--border_line);
     overflow: auto;
 }
 
-.notes_container::-webkit-scrollbar{
-    width: 10px;
+#notes{
+    list-style-type: none;
+    border: 1px solid var(--border_line);
+    max-height: 250px;
+    overflow: hidden;
+    overflow-y: scroll
+}
+
+#notes li{
+    font-size: 18px;
 }
 
 .single_note_container{
     margin: 10px;
     border: 1px solid var(--border_line);
     background-color: var(--table_category_background);
-    height: 100px;
+    height: 50px;
 }
 
-#note_message_get_time{
+.note_message{
     padding-left: 20px;
     padding-top: 10px;
 }

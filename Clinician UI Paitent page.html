@@ -79,13 +79,13 @@
                         <input type="checkbox" class="required_data">
                     </div>
                     <div class="link_buttom"></div>
+                    
+                    <!-- Save Required Button -->
+                    <!-- 还没有正式地给它添加任何的数据保存功能 -->
+                    <button id="save_required_button" onclick="SubmitRequiredData()">
+                        <span class="segoeui_bold_white">Save</span>
+                    </button>  
                 </div>
-
-            <!-- Save Required Button -->
-            <!-- 还没有正式地给它添加任何的数据保存功能 -->
-            <button id="save_required_button" onclick="SubmitRequiredData()">
-                <span class="segoeui_bold_white">Save</span>
-            </button>  
 
         </div>
 
@@ -182,22 +182,17 @@
                     <!-- 这里应该是无的,是input之后才有的
                          暂时还没有加add class function
                     -->
-                    <div class="single_note_container">
-                        <h5  id="note_message_get_time" 
-                            class="roboto_regular_black"
-                            style="font-size: 14px;">
-                        </h5>
+                    <ul id="notes">
 
-                        <p>
-                            <!-- meesage here-->
-                        </p>
-                    </div>
+                    </ul>
                 </div>
 
                 <div id="note_input_container">
                     <input type="text" placeholder="Any notes here..."
                      id="clinician_note_input">
-                    <button id="clinician_note_submit" class="segoeui_bold_white">
+                     
+                    <button id="clinician_note_submit" 
+                            class="segoeui_bold_white">
                         Submit
                     </button>
                 </div>
