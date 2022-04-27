@@ -23,7 +23,7 @@
 {{#with data}}    
 <div class="patient_profile"> 
     <img class="medal" src="./logo/medal.png">
-    <img class="profile_img" src="./logo/profile1.jpg">
+    <img class="profile_img" src={{this.img}}>
     <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
     <p class="profile_email"> {{this.email}}</p>
 </div>
@@ -57,15 +57,27 @@
     </div>
 
     <script src="./javascripts/bgl_pop.js"></script> 
-
-    <p class="align_right"><b>100</b> Nmol/L</p>
+    {{#with bgl_data}} 
+    <p class="align_right"><b>{{this.blood_glucose_level}}</b> Nmol/L</p>
     
     <div style="clear: both;"></div>
-
+       
     <div class="bubbleText">
-            <p>It's better than yesterday! </p>
-            <time>13:58pm</time>
+        <p class="maybe_comment"> ifComment()</p>
+        <time>{{this.date}}</time>
     </div>
+
+    <script>
+        var showComment = document.getElementsByClassName("maybe_comment")
+        function ifComment(){
+            if (showComment == ""){
+                showComment.innerHTML="Not record yet"
+            } else {
+                showComment.innerHTML={{this.comment}}
+            }
+        }
+    </script>
+    {{/with}}
 <!-- weight -->
     <p class="align_left"> <b>Weight</b></p> 
     <!-- add a pop up page for adding data and comment-->
@@ -87,7 +99,7 @@
     </div>
 
     <script src="./javascripts/weight_pop.js"></script>   
-
+    
     <p class="align_right"><b>--</b> Kg</p>
 
     <div style="clear: both;"></div>
