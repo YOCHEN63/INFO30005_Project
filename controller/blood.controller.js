@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 const generalModel = require('../models/User')
+const express = require('express')
+const { stringify } = require('nodemon/lib/utils')
+const render = express.render
 const myUser = generalModel.user
 const bloodGlucose = generalModel.bloodGlucose
 const exercise = generalModel.exercise
@@ -71,12 +74,65 @@ const reqUserData = async (req, res) => {
     
 }
 
-const reqDocData = async (req, res) => {
+const reqLatestData = async (user_id) => {
+    try {
+        const now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var bgl_doc = await bloodGlucose.findOne({$and:[{"user_id": user_id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1},).lean()
+        if(bgl_doc != null) {
+            if(bgl_doc.hasOwnProperty('blood_glucose_level')) {
+                var bgl_data = bgl_doc.blood_glucose_level
+            }
+        } else {
+            var bgl_data = '--'
+        }
+        var weight_doc = await weight.findOne({$and:[{"user_id": user_id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        if (weight_doc != null) {
+            if(weight_doc.hasOwnProperty('weight')) {
+                var weight_data = weight_doc.weight
+            }
+        } else {
+            var weight_data = '--'
+        }
+        var exercise_doc = await exercise.findOne({$and:[{"user_id": user_id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1},).lean()
+        if(exercise_doc != null) {
+            if(exercise_doc.hasOwnProperty('walk_steps')) {
+               var exercise_data = exercise_doc.walk_stepss
+            }
+        } else {
+            var exercise_data = '--'
+        }
+        var insulin_doc = await insulin.findOne({$and:[{"user_id": user_id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        if(insulin_doc != null) {    
+            if(insulin_doc.hasOwnProperty('insulin_shots')) {
+                var insulin_data = insulin_doc.insulin_shots
+            }
+        } else {
+            var insulin_data = '--'
+        }
+    /* if no data found, initilise table*/
+        return {"bloodGlucose": bgl_data, "weight": weight_data, "inulin": insulin_data, "exercise": exercise_data}
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+const reqDocData = async (req, res, next) => {
     try {
         const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
         const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
         console.log('doc log in')
-        return res.render('clinician_home',{docData:docData,patientData:patientData})
+        var dataSet = {};
+        for(var i = 0; i < patientData.length; i++){
+            var objectId = stringify(patientData[i]._id);
+            var data = reqLatestData(objectId);
+            console.log('get data for patient');
+        }
+        res.render('clinician_home',{docData:docData,patientData:patientData});
     } catch (err) {
         return next(err)
     }
@@ -144,3 +200,4 @@ module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
 module.exports.find = reqUserData;
+module.exports.reqLatestData = reqLatestData;
