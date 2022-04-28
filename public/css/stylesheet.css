@@ -125,16 +125,15 @@ body{
 }
 
 .patients_list {
-  width: 1210px;
-  padding-top: 30px;
-  padding-left: 66px;
+  width: 70%;
+  margin: 30px 66px;
   border-spacing: 0;
   min-width: 960px;
   border: 1px solid var(--border_line);
 }
 
 .patients_list td:hover{
-  background-color: var(--active_background);
+  background-color: var(--hover_gray);
 }
 
 .patients_list th{
@@ -147,6 +146,8 @@ body{
 /* todo: add style to the table elements*/
 .patients_list td{
   border: 1px solid var(--border_line);
+  padding-left: 20px;
+  padding-top: 12px;
 }
 
 .clinician_main_right_column{
@@ -166,12 +167,10 @@ body{
   height: 124px;
   padding-left: 37px;
   padding-top: 37px;
-  float: left;
 }
 
 .patient_card h2{
   padding-left: 20px;
-  float: left;
   padding-top: 70px;
   font-size: 24px;
 }
@@ -179,7 +178,6 @@ body{
 .patient_card p{
   padding-top: 10px;
   padding-left: 20px;
-  float: left;
 }
 
 
@@ -420,7 +418,7 @@ body{
   margin-left: 3.5%;
   margin-right: 50%;
   border-width: 0.5px;
-  border-color: black;
+  border-color: var(--black);
   background-color: #FF6B6B;
   font-size: 16px;
 }
@@ -457,7 +455,7 @@ body{
 }
 
 .past_record{
-  background-color: white;
+  background-color: var(--white);
   margin-top: 5%;
   margin-left: 5%;
   width: 43%;
@@ -483,7 +481,7 @@ body{
 }
 
 .past_record button{
-  background-color: #007AD4;
+  background-color: var(--background_blue_hover);
   color:white;
   border: none;
   margin-bottom: 5%;
@@ -511,7 +509,7 @@ body{
 }
 
 .leader_board{
-  background-color: white;
+  background-color: var(w);
   margin-top: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
@@ -542,9 +540,9 @@ body{
   margin-left: 3.5%;
   margin-right: 5%;
   border-width: 5px;
-  border-color: white;
+  border-color: var(--white);
   font-size: 14px;
-  color:white;
+  color:var(--white);
 }
 @media screen and (min-width: 601px) {
   .scroller p {
@@ -608,7 +606,7 @@ body{
 .form-container {
   max-width: 450px;
   padding: 10px;
-  background-color: white;
+  background-color: var(--white);
   border-radius:4px;
 }
 
@@ -630,7 +628,7 @@ body{
 /* Set a style for the submit button */
 .form-container .submit_button {
   background-color: #04AA6D;
-  color: white;
+  color: var(--white);
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -640,7 +638,7 @@ body{
 
 /* Add a red background color to the button */
 .form-container .close_button {
-  background-color:#007AD4;
+  background-color:var(--background_blue);
   color: white;
   padding: 16px 20px;
   border: none;
@@ -840,7 +838,7 @@ body{
   border-collapse: collapse;
 }
 
-patient_data_tabs_content{
+.patient_data_tabs_content{
   border: 1px solid var(--border_line);
   border-collapse: collapse;
 }
