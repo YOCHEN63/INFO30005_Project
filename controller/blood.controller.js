@@ -9,20 +9,25 @@ const weight = generalModel.weight
 /*request for user data */
 
 const reqUserData = async (req, res) => {
+    
     try {
+        const now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
-        const bgl_data = await bloodGlucose.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        const weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        const exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        const insulin_data = await insulin.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
+        const bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+
+        const weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
+        const exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
+        const insulin_data = await insulin.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
         if (!reqBody){
             return res.sendStatus(404)
         }
         console.log('found userData')
         return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
-        return next(err)
+        return console.error(err)
     }
+    
     
 }
 
