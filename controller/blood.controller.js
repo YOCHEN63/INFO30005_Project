@@ -56,7 +56,6 @@ const reqUserData = async (req, res) => {
         if (!reqBody){
             return res.sendStatus(404)
         }
-        console.log("2001-04-26T14:00:00.000Z">startOfToday)
         return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return console.error(err)
