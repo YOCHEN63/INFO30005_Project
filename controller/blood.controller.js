@@ -2,12 +2,14 @@ const mongoose = require('mongoose')
 const generalModel = require('../models/User')
 const express = require('express')
 const { stringify } = require('nodemon/lib/utils')
+const { user } = require('../models/User')
 const render = express.render
 const myUser = generalModel.user
 const bloodGlucose = generalModel.bloodGlucose
 const exercise = generalModel.exercise
 const insulin = generalModel.insulin
 const weight = generalModel.weight
+const threshold = generalModel.threshold
 /*request for user data */
 
 const reqUserData = async (req, res) => {
@@ -74,7 +76,25 @@ const reqUserData = async (req, res) => {
     
 }
 
-/* find the newest data from user*/
+const updateThreshold = async (req, res) => {
+    const dataType = req.body.dataType + 'Threshold'
+    const threshold = new threshold({
+        upperBound: req.body.upperBound,
+        lowerBound: req.body.lowerBound
+    })
+    try {
+        user.findByIdAndUpdate(req.body.user_id,{dataType: threshold});
+    } catch (err) {
+        console.error(err)
+    }
+
+}
+
+const findThreshold = async (req, res) => {
+    const dataType = req.params.dataType + 'Threshold';
+    const threshold = await threshold.find({dataType: req.params.dataType})
+}
+
 const reqLatestData = async (user_id) => {
     try {
         const now = new Date()
@@ -146,6 +166,8 @@ const reqDocPatientData = async (req, res) => {
     try {
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
+        var date = onePatient.record_date
+        
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
