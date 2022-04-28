@@ -91,7 +91,6 @@ const reqDocPatientData = async (req, res) => {
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var insulin_data = await insulin.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
-        console.log(new Date().toString())
         console.log('doc view data')
         return res.render('clinician_view_patient',{onePatient:onePatient,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
