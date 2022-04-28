@@ -119,8 +119,17 @@
         </button>
     </div>
     
-    <!-- 数据 -->
+    <!-- Tab Content -->
     <div id="weight" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+            <!-- 根据id从database里面获得数据 -->
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">upper</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_lower" class="segoeui_regular_blue">lower</p>
+        </div>
+
         <table>
             <!-- category -->
             <tr>
@@ -142,6 +151,18 @@
     </div>
 
     <div id="blood_glucose_level" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+            <!-- 根据id从database里面获得数据 -->
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">upper</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_lower" class="segoeui_regular_blue">lower</p>
+
+            <a id="bgl_threshold_setting" onclick="#">
+                <img src="./logo/setting.png" class="round_icon">
+            </a>
+        </div>
         <table>
             <!-- category -->
             <tr>
@@ -204,6 +225,9 @@
         </table>
     </div>
     
+    <div id="threshold_setting_modal">
+
+    </div>
 </div>
 
 <!-- Right column -->

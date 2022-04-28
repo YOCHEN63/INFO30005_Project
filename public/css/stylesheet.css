@@ -841,7 +841,7 @@ body{
   font-size: 15px;
 }
 
-#time_sequence button:hover{
+#time_sequence button:hover, #time_sequence button:active{
   background-color: var(--background_blue_hover);
 }
 
@@ -891,24 +891,49 @@ body{
 .patient_data_tabs_content table{
   border-spacing: 0;
   width: 100%;
+  padding-top: 10px;
+}
+
+.patient_data_tabs_content tr:nth-child(odd){
+  background-color: #f2f2f2;
 }
 
 .patient_data_tabs_content th{
   padding: 10px 20px;
   border-collapse: collapse;
+  height: 30px;
 }
 
 .patient_data_tabs_content td{
   border: 1px solid var(--border_line);
   border-collapse: collapse;
   text-align: center;
+  height: 30px;
 }
 
 #blood_glucose_level{
   display: block;
 }
 
+.threshold{
+  padding-top: 10px;
+  padding-left: 10px;
+}
 
+.threshold h3, .threshold p, .threshold a{
+  float: left;
+}
+
+.threshold p{
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.threshold img{
+  padding-left: 20px;
+  height: 28px;
+  width: 28px;
+}
 /* ------------------------------ Note Content ----------------------------- */
 
 .clinician_note_content{
