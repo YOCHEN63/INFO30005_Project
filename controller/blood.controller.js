@@ -10,7 +10,7 @@ const weight = generalModel.weight
 
 const reqUserData = async (req, res) => {
     try {
-        const reqBody = await myUser.findOne({"first_name":"Yixuan"}).lean()
+        const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
         const bgl_data = await bloodGlucose.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
         const weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
         const exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
@@ -28,9 +28,8 @@ const reqUserData = async (req, res) => {
 
 const reqDocData = async (req, res) => {
     try {
-        const docData = await myUser.findOne({"user_id":'626260ca24f9653799b8b340'}).lean()
+        const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
         const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
-        console.log(patientData)
         console.log('doc log in')
         return res.render('clinician_home',{docData:docData,patientData:patientData})
     } catch (err) {
@@ -40,9 +39,13 @@ const reqDocData = async (req, res) => {
 }
 
 const reqDocPatientData = async (req, res) => {
-    
-    console.log('doc view data')
-    return res.render('clinician_view_patient')
+    try {
+        const onePatient = await myUser.findOne({"user_id":'626260ca24f9653799b8b340'}).lean()
+        console.log('doc view data')
+        return res.render('clinician_view_patient')
+    } catch (err) {
+        return next(err)
+    }
     
 }
 
@@ -54,10 +57,11 @@ const addData = async (req, res) => {
             "blood_glucose_level":req.body.blood_glucose_level,
             "comment":req.body.comment
         })
-        console.log(req.params.comment)
+        
         await document.save()
+        
         console.log("data saved")
-        return res.redirect('/:id/index')
+        return res.redirect('/')
     }catch (err){
         return console.error(err)
     }
