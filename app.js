@@ -7,7 +7,11 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:
 
 // Set your app up as an express app
 const app = express()
-
+const bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static('public'))
 
 const exphbs = require('express-handlebars') 

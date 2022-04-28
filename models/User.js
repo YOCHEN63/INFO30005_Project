@@ -64,7 +64,7 @@ const user = mongoose.model('user',UserSchema,'user')
 const note = mongoose.model('note',NoteSchema,'note')
 const exercise = mongoose.model('exercise',ExerciseSchema,'exercise')
 const bloodGlucose = mongoose.model('bloodGlucose',BloodGlucoseSchema,'bloodGlucose')
-const insulin = mongoose.model('insulin',UserSchema,'insulin')
+const insulin = mongoose.model('insulin',InsulinSchema,'insulin')
 const weight = mongoose.model('weight',WeightSchema,'weight')
 const myModel = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose,'insulin':insulin,'weight':weight,'note':note}
 

@@ -75,7 +75,7 @@
     <button class="comment_button" id="weight_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
     <div class= "gray_cover" id="gray_form_1"></div>
     <div class="form-popup" id="weight_form">
-        <form action="/"  class="form-container">
+        <form action="/" method = "post" class="form-container">
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Weight</b></label>
@@ -96,7 +96,7 @@
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-        <p>It's better than yesterday!</p>
+        <p>{{this.comment}} </p>
         <time>13:58pm</time> 
     </div>
     {{/with}}
@@ -136,7 +136,7 @@
     <button class="comment_button" id="exercise_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
     <div class= "gray_cover" id="gray_form_3"></div>
     <div class="form-popup" id="exercise_form">
-        <form action="/" class="form-container">
+        <form action="/" method = 'post' class="form-container">
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Exercise</b></label>
@@ -158,7 +158,7 @@
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-            <p>{{this.comment}}</p>
+            <p>{{this.comment}} </p>
             <time>16:32pm</time>
     </div>
     {{/with}}

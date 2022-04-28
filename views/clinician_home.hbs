@@ -31,15 +31,11 @@
             <th>Doses of insulin taken</th>
             <th>Exercise(steps)</th>
         </tr>
-
+			{{#each patientData}}
         <tr>
-            <td>Pat</td>
-            <td>104</td>
-            <td>78</td>
-            <td>1</td>
-            <td>5632</td>
+            <td>{{this.first_name}} {{last_name}}</td>
         </tr>
-
+			{{/each}}
         <!-- 
             todo: get data from the database
         -->
