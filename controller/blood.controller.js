@@ -14,15 +14,49 @@ const reqUserData = async (req, res) => {
         const now = new Date()
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
-        const bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
-
-        const weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
-        const exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
-        const insulin_data = await insulin.findOne({"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}).lean()
+        var bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        var weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        var exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        var insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        if (weight_data == null){
+            let weight_null = new weight({
+                "user_id":'6266f45c3c62e10a62e038f4',
+                "weight":"--",
+                "comment":"not recorded yet"
+            })
+            weight_data = weight_null.toObject()
+        }
+        
+        if (bgl_data == null){
+            let bgl_null = new bloodGlucose({
+                "user_id":'6266f45c3c62e10a62e038f4',
+                "blood_glucose_level":"--",
+                "comment":"not recorded yet"
+            })
+            bgl_data = bgl_null.toObject()
+        }
+        if (exercise_data == null){
+            let exercise_null = new exercise({
+                "user_id":'6266f45c3c62e10a62e038f4',
+                "walk_steps":"--",
+                "comment":"not recorded yet"
+            })
+            exercise_data = exercise_null.toObject()
+        }
+        if (insulin_data == null){
+            
+            let insulin_null = new insulin({
+                "user_id":'6266f45c3c62e10a62e038f4',
+                "insulin_shots":"--",
+                "comment":"not recorded yet"
+            })
+            insulin_data = insulin_null.toObject()
+        }
+        
         if (!reqBody){
             return res.sendStatus(404)
         }
-        console.log('found userData')
+        console.log("2001-04-26T14:00:00.000Z">startOfToday)
         return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return console.error(err)
