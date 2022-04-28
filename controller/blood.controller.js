@@ -74,6 +74,7 @@ const reqUserData = async (req, res) => {
     
 }
 
+/* find the newest data from user*/
 const reqLatestData = async (user_id) => {
     try {
         const now = new Date()
@@ -100,7 +101,7 @@ const reqLatestData = async (user_id) => {
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1},).lean()
         if(exercise_doc != null) {
             if(exercise_doc.hasOwnProperty('walk_steps')) {
-               var exercise_data = exercise_doc.walk_stepss
+               var exercise_data = exercise_doc.walk_steps
             }
         } else {
             var exercise_data = '--'
@@ -115,7 +116,7 @@ const reqLatestData = async (user_id) => {
             var insulin_data = '--'
         }
     /* if no data found, initilise table*/
-        return {"bloodGlucose": bgl_data, "weight": weight_data, "inulin": insulin_data, "exercise": exercise_data}
+        return {"_id":user_id,"bloodGlucose": bgl_data, "weight": weight_data, "insulin": insulin_data, "exercise": exercise_data}
     } catch (err) {
         console.error(err)
     }
@@ -126,13 +127,15 @@ const reqDocData = async (req, res, next) => {
         const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
         const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
         console.log('doc log in')
-        var dataSet = {};
+        var dataSet = [];
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
-            var data = reqLatestData(objectId);
+            var data = await reqLatestData(objectId);
+            dataSet[i] = data;
             console.log('get data for patient');
         }
-        res.render('clinician_home',{docData:docData,patientData:patientData});
+        console.log(data)
+        res.render('clinician_home',{docData:docData,patientData:patientData,dataSet:dataSet});
     } catch (err) {
         return next(err)
     }
