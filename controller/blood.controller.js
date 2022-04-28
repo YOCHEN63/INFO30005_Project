@@ -5,7 +5,6 @@ const bloodGlucose = generalModel.bloodGlucose
 const exercise = generalModel.exercise
 const insulin = generalModel.insulin
 const weight = generalModel.weight
-
 /*request for user data */
 
 const reqUserData = async (req, res) => {
@@ -57,14 +56,40 @@ const reqDocPatientData = async (req, res) => {
 
 const addData = async (req, res) => {
     try {
-        const document = new bloodGlucose({
-            "user_id":'6266f45c3c62e10a62e038f4',
-            "blood_glucose_level":req.body.blood_glucose_level,
-            "comment":req.body.comment
-        })
-        
-        await document.save()
-        
+        const body = req.body
+        const dataType = Object.keys(body)[0]
+        if (dataType === 'weight') {
+            const weightData = new weight({
+                'weight' : body.weight,
+                'user_id': '6266f45c3c62e10a62e038f4',
+                'comment': body.comment
+            })
+            weightData.save()
+        }
+        if (dataType === 'blood_glucose_level') {
+            const bloodGlucoseData = new bloodGlucose({
+                'blood_glucose_level' : body.blood_glucose_level,
+                'user_id': '6266f45c3c62e10a62e038f4',
+                'comment': body.comment
+            })
+            bloodGlucoseData.save()
+        }
+        if (dataType === 'exercise') {
+            const exerciseData = new exercise({
+                'exercise' : body.exercise,
+                'user_id': '6266f45c3c62e10a62e038f4',
+                'comment': body.comment
+            })
+            exerciseData.save()
+        }
+        if (dataType === 'insulin_shots') {
+            const insulin_shots = new insulin({
+                'insulin_shots' : body.insulin_shots,
+                'user_id': '6266f45c3c62e10a62e038f4',
+                'comment': body.comment
+            })
+            insulin_shots.save()
+        }
         console.log("data saved")
         return res.redirect('/')
     }catch (err){
