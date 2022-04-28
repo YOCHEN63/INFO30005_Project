@@ -16,10 +16,14 @@ const reqUserData = async (req, res) => {
 
         /* find only today's newly update date to render*/
 
-        var bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
-        var weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
-        var exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
-        var insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        var bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
         /* if no data found, initilise table*/
         if (weight_data == null){
             let weight_null = new weight({
@@ -95,6 +99,7 @@ const addData = async (req, res) => {
     try {
         const body = req.body
         const dataType = Object.keys(body)[0]
+        console.log(dataType)
         if (dataType === 'weight') {
             const weightData = new weight({
                 'weight' : body.weight,
@@ -102,30 +107,30 @@ const addData = async (req, res) => {
                 'comment': body.comment
             })
             weightData.save()
-        }
-        if (dataType === 'blood_glucose_level') {
+        } else if (dataType === 'blood_glucose_level') {
             const bloodGlucoseData = new bloodGlucose({
                 'blood_glucose_level' : body.blood_glucose_level,
                 'user_id': '6266f45c3c62e10a62e038f4',
                 'comment': body.comment
             })
             bloodGlucoseData.save()
-        }
-        if (dataType === 'exercise') {
+        } else if (dataType === 'walk_steps') {
             const exerciseData = new exercise({
-                'exercise' : body.exercise,
+                'walk_steps' : body.walk_steps,
                 'user_id': '6266f45c3c62e10a62e038f4',
                 'comment': body.comment
             })
+            
             exerciseData.save()
-        }
-        if (dataType === 'insulin_shots') {
-            const insulin_shots = new insulin({
+            
+        } else if (dataType === 'insulin_shots') {
+            const insulinData = new insulin({
                 'insulin_shots' : body.insulin_shots,
                 'user_id': '6266f45c3c62e10a62e038f4',
                 'comment': body.comment
             })
-            insulin_shots.save()
+            console.log(insulinData)
+            insulinData.save()
         }
         console.log("data saved")
         return res.redirect('/')
