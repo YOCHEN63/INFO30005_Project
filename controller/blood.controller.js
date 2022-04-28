@@ -19,7 +19,7 @@ const reqUserData = async (req, res) => {
             return res.sendStatus(404)
         }
         console.log('found userData')
-        return res.render('index',{data:reqBody,bgl_data:fixed_bgl,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
+        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return next(err)
     }
@@ -36,9 +36,10 @@ const addData = async (req, res) => {
         })
         console.log(req.params.comment)
         await document.save()
-        res.redirect('/')
+        console.log("data saved")
+        return res.redirect('/:id/index')
     }catch (err){
-        return res.render('error', {error: err})
+        return console.error(err)
     }
 }
 
