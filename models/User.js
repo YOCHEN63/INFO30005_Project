@@ -29,10 +29,38 @@ const UserSchema = new mongoose.Schema({
     clinicianID:{
         type:mongoose.Schema.Types.ObjectId,ref:'user'
     },
-    BGL_threshold: thresholdSchema,
-    exercise_threshold: thresholdSchema,
-    insulin_threshold: thresholdSchema,
-    weight_threshold: thresholdSchema,
+    bgl_up: {
+        type:Number,
+        default: 10000
+    },
+    bgl_down: {
+        type: Number,
+        default: 0
+    },
+    exercise_up: {
+        type:Number,
+        default: 10000
+    },
+    exercise_down: {
+        type: Number,
+        default: 0,
+    },
+    insulin_up: {
+        type:Number,
+        default: 10000
+    },
+    insulin_down: {
+        type:Number,
+        default: 0,
+    },
+    weight_up: {
+        type:Number,
+        default: 10000
+    },
+    weight_down: {
+        type:Number,
+        default: 0,
+    }
 })
 
 const NoteSchema = new mongoose.Schema({

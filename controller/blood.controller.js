@@ -77,23 +77,33 @@ const reqUserData = async (req, res) => {
 }
 
 const updateThreshold = async (req, res) => {
-    const dataType = req.body.dataType + 'Threshold'
-    const threshold = new threshold({
-        upperBound: req.body.upperBound,
-        lowerBound: req.body.lowerBound
-    })
+    const dataType = req.body.dataType
+    
+    if(dataType === 'blood_glucose_level'){
+        const max = bgl_up;
+        const min = bgl_down;
+    }
+    if(dataType === 'exercise'){
+        const max = exercise_up;
+        const min = exercise_down;
+    }
+    if(dataType === 'insulin_shots'){
+        const max = insulin_up;
+        const min = insulin_down;
+    }
+    if(dataType === 'weight'){
+        const max = weight_up;
+        const min = weight_down;
+    }
     try {
-        user.findByIdAndUpdate(req.body.user_id,{dataType: threshold});
+        user.findByIdAndUpdate(req.body.user_id,{max: req.body.max, min:req.body.min});
+        console.log('saved')
     } catch (err) {
         console.error(err)
     }
 
 }
 
-const findThreshold = async (req, res) => {
-    const dataType = req.params.dataType + 'Threshold';
-    const threshold = await threshold.find({dataType: req.params.dataType})
-}
 
 const reqLatestData = async (user_id) => {
     try {
@@ -167,13 +177,24 @@ const reqDocPatientData = async (req, res) => {
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
         var date = onePatient.record_date
-        
+        var bgl_upper = onePatient.bgl_threshold.upperBound
+        var bgl_lower = onePatient.bgl_threshold.lowerBound
+        var weight_upper = onePatient.weight_threshold.upperBound
+        var weight_lower = onePatient.weight_threshold.lowerBound
+        var exercise_upper = onePatient.exercise_threshold.upperBound
+        var exercise_lower = onePatient.exercise_threshold.lowerBound
+        var insulin_upper = onePatient.insulin_threshold.upperBound
+        var insulin_lower = onePatient.insulin_threshold.lowerBound
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var insulin_data = await insulin.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         console.log('doc view data')
-        return res.render('clinician_view_patient',{onePatient:onePatient,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
+        return res.render('clinician_view_patient',{onePatient:onePatient,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,
+                            bgl_lower: bgl_lower, bgl_upper: bgl_upper,
+                            weight_lower: weight_lower, weight_upper: weight_upper,
+                            exercise_lower: exercise_lower, exercise_upper: exercise_upper,
+                            insulin_lower: insulin_lower, insulin_upper: insulin_upper})
     } catch (err) {
         return next(err)
     }
@@ -230,3 +251,4 @@ module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
 module.exports.find = reqUserData;
 module.exports.reqLatestData = reqLatestData;
+module.exports.edit_threshold = updateThreshold
