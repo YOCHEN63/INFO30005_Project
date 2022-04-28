@@ -14,10 +14,14 @@ const reqUserData = async (req, res) => {
         const now = new Date()
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
+
+        /* find only today's newly update date to render*/
+
         var bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
         var weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
         var exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
         var insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},{"record_date": {$gte: ["record_date",startOfToday]}}]}).lean()
+        /* if no data found, initilise table*/
         if (weight_data == null){
             let weight_null = new weight({
                 "user_id":'6266f45c3c62e10a62e038f4',
