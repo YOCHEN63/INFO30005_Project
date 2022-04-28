@@ -8,7 +8,7 @@
 
 body{
   min-height:1800px;
-  background-color: #F6F8F9;
+  background-color: var(--white);
   min-width: 375px;
 
 }
