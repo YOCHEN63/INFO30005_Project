@@ -2,9 +2,11 @@
     <a href="#">
         <img src="./logo/doctor (1).png" class="round_icon">
     </a>
+    {{#with onePatient}}
     <a>
-        <p class="segoeui_regular_blue">Hi, Chris</p>
+        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
+    {{/with}}
     <a href="#">
         <img src="./logo/home.png" class="nav_icon">
     </a>
@@ -18,13 +20,14 @@
     <!-- patient detail side -->
     <div class="patient_detail_card">
         <img src="./logo/man.png">
-
+        {{#with onePatient}}
         <div class="patient_detail_container">
             <h4 class="roboto_regular_black" style="font-size: 48px;">
-                John
+                {{this.first_name}} {{this.last_name}}
             </h4>
-            <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
+            <p class="roboto_regular_gray_24px">{{this.email}}</p>
         </div>
+        {{/with}}
     </div>
 
     <!-- data seletor -->
@@ -103,12 +106,13 @@
                 <th>Weight(kg)</th>
                 <th>Comment</th>
             </tr>
-
+            {{#each weight_data}}
             <tr>
-                <td>21/04/2022 11:26</td>
-                <td>78</td>
-                <td>The weight doesn't changed, keep going</td>
+                <td>{{this.Date}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.comment}}</td>
             </tr>
+            {{/each}}
             <!-- 
                 todo: get data from the database
             -->
@@ -123,12 +127,13 @@
                 <th>Blood glucose level(Nmol/L)</th>
                 <th>Comment</th>
             </tr>
-
+            {{#each bgl_data}}
             <tr>
-                <td>21/04/2022 11:28</td>
-                <td>78</td>
-                <td>I tested it before meal today</td>
+                <td>{{this.Date}}</td>
+                <td>{{this.blood_glucose_level}}</td>
+                <td>{{this.comment}}</td>
             </tr>
+            {{/each}}
             <!-- 
                 todo: get data from the database
             -->
@@ -143,12 +148,13 @@
                 <th>Doses of insulin taken</th>
                 <th>Comment</th>
             </tr>
-
+            {{#each insulin_data}}
             <tr>
-                <td>21/04/2022 11:30</td>
-                <td>1</td>
-                <td>I just have 1 does today</td>
+                <td>{{this.Date}}</td>
+                <td>{{this.insulin_shots}}</td>
+                <td>{{this.comment}}</td>
             </tr>
+            {{/each}}
             <!-- 
                 todo: get data from the database
             -->
@@ -163,12 +169,13 @@
                 <th>Exercise(steps)</th>
                 <th>Comment</th>
             </tr>
-
+            {{#each exercise_data}}
             <tr>
-                <td>21/04/2022 11:32</td>
-                <td>28945</td>
-                <td>Today's weather is nice so I go to hiking today</td>
+                <td>{{this.Date}}</td>
+                <td>{{this.walk_steps}}</td>
+                <td>{{this.comment}}</td>
             </tr>
+            {{/each}}
             <!-- 
                 todo: get data from the database
             -->
