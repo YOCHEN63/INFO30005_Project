@@ -121,15 +121,16 @@ body{
 
 .clinician_main_left_column{
   float: left;
-  width: 65%;
+  width: 70%;
 }
 
 .patients_list {
-  width: 70%;
-  margin: 30px 66px;
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 66px;
   border-spacing: 0;
-  min-width: 960px;
   border: 1px solid var(--border_line);
+  min-width: 800px;
 }
 
 .patients_list td:hover{
@@ -152,7 +153,7 @@ body{
 
 .clinician_main_right_column{
   float: left;
-  width: 35%;
+  width: 30%;
 }
 
 .patitent_card{
@@ -160,6 +161,7 @@ body{
   height: 323px;
   border: 1px solid var(--dove-gray);
   border-radius: 51px;
+  min-width: 540px;
 }
 
 .patient_card img{
@@ -655,12 +657,12 @@ body{
 /* -------------------------- Clinican UI Paitent --------------------------- */
 .ClinicianUI_patient_detail_page_left{
   float: left;
-  width: 30%;
+  width: 25%;
 }
 
 .ClinicianUI_patient_detail_page_middle{
   float: left;
-  width: 35%;
+  width: 40%;
 }
 
 .ClinicianUI_patient_detail_page_right{
@@ -831,6 +833,7 @@ body{
 
 .patient_data_tabs_content table{
   border-spacing: 0;
+  width: 100%;
 }
 
 .patient_data_tabs_content th{
@@ -838,9 +841,10 @@ body{
   border-collapse: collapse;
 }
 
-.patient_data_tabs_content{
+.patient_data_tabs_content td{
   border: 1px solid var(--border_line);
   border-collapse: collapse;
+  text-align: center;
 }
 
 #blood_glucose_level{
