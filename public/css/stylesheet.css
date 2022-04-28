@@ -133,10 +133,6 @@ body{
   border: 1px solid var(--border_line);
 }
 
-.patients_list tr:nth-child(even){
-  background-color: var(--dove-gray);
-}
-
 .patients_list td:hover{
   background-color: var(--active_background);
 }
