@@ -86,9 +86,9 @@ const reqDocData = async (req, res) => {
 const reqDocPatientData = async (req, res) => {
     try {
         
-        const onePatient = await myUser.findOne({"user_id":'626260ca24f9653799b8b340'}).lean()
+        const onePatient = await myUser.findById(req.params.user_id).lean()
         console.log('doc view data')
-        return res.render('clinician_view_patient')
+        return res.render('clinician_view_patient',{onePatient:onePatient})
     } catch (err) {
         return next(err)
     }
