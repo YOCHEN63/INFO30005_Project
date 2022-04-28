@@ -26,6 +26,20 @@ const reqUserData = async (req, res) => {
     
 }
 
+const reqDocData = async (req, res) => {
+    
+    console.log('doc log in')
+    return res.render('clinician_home')
+    
+}
+
+const reqDocPatientData = async (req, res) => {
+    
+    console.log('doc view data')
+    return res.render('clinician_view_patient')
+    
+}
+
 
 const addData = async (req, res) => {
     try {
@@ -43,5 +57,7 @@ const addData = async (req, res) => {
     }
 }
 
+module.exports.find_doc_patient = reqDocPatientData;
+module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
 module.exports.find = reqUserData;

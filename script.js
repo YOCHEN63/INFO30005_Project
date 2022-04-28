@@ -1,21 +1,6 @@
-/* --------------------------- View Charts Modal --------------------------- */
-var viewChartsModal = document.getElementById("paitent_data_chart_modal");
-var viewChartsBtn = document.getElementById("data_chart_button");
-var closeButn = document.getElementById("modal_return_icon");
-
-viewChartsBtn.onclick = function(){
-    viewChartsModal.style.display = "block";
-}
-
-closeButn.onclick = function(){
-    viewChartsModal.style.display = "none";
-}
-//close the window when click outside of the window
-
-window.onclick = function(event){
-    if(event.target == viewChartsModal){
-        viewChartsModal.style.display = "none";
-    }
+/* -------------------------- Submit Required Data -------------------------- */
+function SubmitRequiredData(){
+    setTimeout(() => { alert("Submit successfully!"); }, 1500);
 }
 
 /* -------------------------- Patient Data Content -------------------------- */
@@ -38,3 +23,50 @@ function OpenTable(event, tableName){
     document.getElementById(tableName).style.display = "block";
     event.currentTarget.className += " active";
 }
+
+/* -------------------------- Patient Note Content -------------------------- */
+function GetDateTime(){
+    var currentDate = new Date();
+    var date = currentDate.getDate()+'/'+currentDate.getMonth()+"/"
+            +currentDate.getFullYear();
+
+    var hours = currentDate.getHours();
+    var minutes = currentDate.getMinutes();
+
+    if(hours <10){
+        hours = '0'+hours;
+    }
+
+    if(minutes <10){
+        minutes = '0'+minutes;
+    }
+
+    var time = hours +':'+ minutes;
+    var dateTime = date+' '+time;
+
+    return dateTime;
+}
+/* --------------------------- Patient Note Submit -------------------------- */
+
+document.querySelector('#clinician_note_submit').onclick = function(){
+    //input can't be none
+    if(document.getElementById("clinician_note_input").value.length == 0){
+        setTimeout(() => { alert("Note message can't be none"); }, 500);
+    }
+    else{
+        var newNote = document.createElement("li");
+        var inputValue = GetDateTime() + " " 
+        + document.getElementById("clinician_note_input").value; 
+        var text = document.createTextNode(inputValue);
+
+        newNote.classList.add("note_message");
+
+        newNote.appendChild(text);
+        newNote.classList.add("single_note_container");
+        document.getElementById("notes").appendChild(newNote);
+
+        //clear input
+        document.getElementById("clinician_note_input").value = '';
+    }
+}
+
