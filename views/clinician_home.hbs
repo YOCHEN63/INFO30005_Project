@@ -3,9 +3,11 @@
     <a href="#">
         <img src="./logo/Diabetes @Home (8).png" class="round_icon">
     </a>
+    {{#with docData}}
     <a>
-        <p class="segoeui_regular_blue">Hi, Chris</p>
+        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
+    {{/with}}
     <a href="#">
         <img src="./logo/home.png" class="nav_icon">
     </a>
