@@ -130,6 +130,7 @@ body{
   padding-left: 66px;
   border-spacing: 0;
   min-width: 960px;
+  border: 1px solid var(--border_line);
 }
 
 .patients_list tr:nth-child(even){
@@ -149,7 +150,7 @@ body{
 
 /* todo: add style to the table elements*/
 .patients_list td{
-  
+  border: 1px solid var(--border_line);
 }
 
 .clinician_main_right_column{
@@ -840,6 +841,11 @@ body{
 
 .patient_data_tabs_content th{
   padding: 10px 20px;
+  border-collapse: collapse;
+}
+
+patient_data_tabs_content{
+  border: 1px solid var(--border_line);
   border-collapse: collapse;
 }
 
