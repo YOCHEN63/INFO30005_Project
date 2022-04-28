@@ -85,10 +85,15 @@ const reqDocData = async (req, res) => {
 
 const reqDocPatientData = async (req, res) => {
     try {
-        
+        /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
+        var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
+        console.log(new Date().toString())
         console.log('doc view data')
-        return res.render('clinician_view_patient',{onePatient:onePatient})
+        return res.render('clinician_view_patient',{onePatient:onePatient,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return next(err)
     }
