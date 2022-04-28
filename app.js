@@ -13,7 +13,7 @@ app.use(express.static('public'))
 const exphbs = require('express-handlebars') 
 
 app.engine('hbs', exphbs.engine({      // configure Handlebars 
-    defaultlayout: 'home', 
+    defaultlayout: 'main', 
     extname: 'hbs' 
 })) 
  
@@ -32,6 +32,7 @@ app.use('/', indexRouter)
 app.get('/', (req,res) => { 
     res.render('index.hbs') 
 })
+
 
 
 
