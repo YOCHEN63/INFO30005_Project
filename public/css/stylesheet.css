@@ -935,9 +935,15 @@ body{
 }
 
 .patient_data_tabs_content th{
-  padding: 10px 10px;
+  padding: 10px 20px;
   border-collapse: collapse;
   height: 30px;
+}
+@media screen and (max-width: 600px) {
+  .patient_data_tabs_content th{
+    padding: 10px 5px;
+  }
+  
 }
 
 .patient_data_tabs_content td{
@@ -1210,4 +1216,5 @@ body{
   display: block;
   margin-top: 23.9%;
 }
+
 
