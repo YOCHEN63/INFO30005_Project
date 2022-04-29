@@ -77,6 +77,8 @@ const reqUserData = async (req, res) => {
 }
 
 const updateThreshold = async (req, res) => {
+    const max = 10000
+    const min = 0
     const body = req.body
     const dataType = Object.keys(body)[0]
     if(dataType === 'blood_glucose_level'){
@@ -96,15 +98,9 @@ const updateThreshold = async (req, res) => {
         const min = body.weight_lower
     }
     try {
-        
-
-        if(max instanceof Number && min instanceof Number){
-            user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
-            console.log('saved')
-        }else {
-            console.log('invalid data')
-        }
-
+        user.findByIdAndUpdate({"_id":req.params.user_id},{max: max, min:min});
+        console.log(req.params.user_id)
+        console.log('saved')
     } catch (err) {
         console.error(err)
     }
