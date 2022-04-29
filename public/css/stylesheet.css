@@ -648,6 +648,12 @@ body{
     margin-left: 13%;
   }
 }
+@media screen and (max-width: 400px) {
+  .form-container {
+    max-width: 300px;
+    margin-left: 1%;
+  }
+}
 
 /* Full-width input fields */
 .form-container input[type=text] {
