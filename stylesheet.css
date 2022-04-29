@@ -1048,7 +1048,7 @@ body{
   white-space: nowrap;
 }
 /* show all data */
-.data_container{
+.viewdata_container{
   display: flex;
   width: 80%;
   overflow: hidden;
@@ -1059,14 +1059,14 @@ body{
       
 }
 
-.data_container:after{
+.viewdata_container:after{
   content: '';
   display: block;
   margin-top: 23.9%;
 }
 
 
-.data_graph{
+.viewdata_graph{
   height: 100%;
   width: 100%;
   display: flex;
