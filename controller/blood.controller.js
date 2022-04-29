@@ -246,6 +246,20 @@ const addData = async (req, res) => {
     }
 }
 
+const viewDocData = async (req, res, next) => {
+    try {
+        var bgl_data = await bloodGlucose.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
+        var weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
+        var exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
+        var insulin_data = await insulin.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
+        res.render('patient_view_data');
+    } catch (err) {
+        return next(err)
+    }
+    
+}
+
+module.exports.view_data = viewDocData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
 module.exports.insert = addData;

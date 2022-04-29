@@ -19,8 +19,8 @@
 <div class="ClinicianUI_patient_detail_page_left">
     <!-- patient detail side -->
     <div class="patient_detail_card">
-        <img src="./logo/man.png">
         {{#with onePatient}}
+        <img src={{this.img}}>
         <div class="patient_detail_container">
             <h4 class="roboto_regular_black" style="font-size: 48px;">
                 {{this.first_name}} {{this.last_name}}
