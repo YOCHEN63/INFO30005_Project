@@ -642,6 +642,12 @@ body{
   background-color: var(--white);
   border-radius:4px;
 }
+@media screen and (max-width: 600px) {
+  .form-container {
+    max-width: 320px;
+    margin-left: 13%;
+  }
+}
 
 /* Full-width input fields */
 .form-container input[type=text] {
