@@ -40,60 +40,56 @@
                 <img src="./logo/man.png">
         
                 <div class="patient_detail_container">
-                    <h4 class="roboto_regular_black_48px">John</h4>
+                    <h4 class="roboto_regular_black" style="font-size: 48px;">
+                        John
+                    </h4>
                     <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
                 </div>
             </div>
 
             <!-- data seletor -->
             <div class="patient_data_selector_container">
-                <p class="roboto_regular_black_18px">Tell your Patient what Data he needs to record</p>
+                <p class="roboto_regular_black" style="font-size: 18px;">
+                    Tell your Patient what Data he needs to record
+                </p>
             </div>
 
-                <div class="data_container_list">
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Blood glucose level</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Weight</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Doses of insulin taken</label>
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
-
-                    <div class="data_container">
-                        <label class="segoeui_bold_white">Exercise </label> 
-                        <input type="checkbox" class="required_data">
-                    </div>
-                    <div class="link_buttom"></div>
+            <div class="data_container_list">
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Blood glucose level</label>
+                    <input type="checkbox" class="required_data">
                 </div>
 
-            <!-- view chart -->
-            <!-- 这个是展现折线图的和表格无关 -->
-            <button id="data_chart_button">
-                <span class="segoeui_bold_white">View Charts</span>
-            </button>  
+                <div class="link_buttom"></div>
 
-            <div id="paitent_data_chart_modal">
-                <div class="view_charts_modal_content">
-                    <img src="./logo/left-arrow.png" id="modal_return_icon"> 
-                    <!-- 这里还差我们的折线图
-                        还没有加任何的东西且上面的图是无效输入的
-                        现在只是摆个位置
-                        退出的话点一下屏幕任何一个地方就能返回页面
-                        还有注意的一点是modal背景颜色应该设置成0.6的黑色
-                        不然icon也是0.6的opacity
-                    -->      
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Weight</label>
+                    <input type="checkbox" class="required_data">
                 </div>
+                <div class="link_buttom"></div>
+
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Doses of Insulin Taken</label>
+                    <input type="checkbox" class="required_data">
+                </div>
+                <div class="link_buttom"></div>
+
+                <div class="data_container">
+                    <label class="segoeui_bold_white">Exercise </label> 
+                    <input type="checkbox" class="required_data">
+                </div>
+                <div class="link_buttom"></div>
+                
+                <!-- Save Required Button -->
+                <!-- 还没有正式地给它添加任何的数据保存功能 -->
+                <button id="save_required_button" onclick="SubmitRequiredData()">
+                    <span class="segoeui_bold_white">Save</span>
+                </button>  
+            </div>
+            
+            <!-- time sequence -->
+            <div>
+
             </div>
         </div>
 
@@ -110,7 +106,7 @@
                 </button>
 
                 <button class="patient_data_tabs" onclick="OpenTable(event,'doses_of_insulin_taken')">
-                    Doses of insulin taken
+                    Doses of Insulin Taken
                 </button>
 
                 <button class="patient_data_tabs" onclick="OpenTable(event,'exercise')">
@@ -178,10 +174,32 @@
             </div>
             
         </div>
+
         <!-- Right column -->
         <!-- Note bar -->
-        <div>
+        <div class="ClinicianUI_patient_detail_page_right">
+            <div class="clinician_note_content">
+                <h2 class="roboto_regular_black" style="font-size: 25px;">
+                    Note
+                </h2>
 
+                <!-- Add Note -->
+                <div class="notes_container">
+                    <ul id="notes">
+                    </ul>
+                </div>
+
+                <!-- Note Submit button -->
+                <div id="note_input_container">
+                    <input type="text" placeholder="Any notes here..."
+                     id="clinician_note_input">
+                     
+                    <button id="clinician_note_submit" 
+                            class="segoeui_bold_white">
+                        Submit
+                    </button>
+                </div>
+            </div>
         </div>
 
         <!-- Chats box -->

@@ -1,6 +1,6 @@
 /* -------------------------- Submit Required Data -------------------------- */
 function SubmitRequiredData(){
-    setTimeout(() => { alert("Submit successfully!"); }, 500);
+    setTimeout(() => { alert("Submit successfully!"); }, 1500);
 }
 
 /* -------------------------- Patient Data Content -------------------------- */

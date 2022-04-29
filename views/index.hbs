@@ -1,15 +1,15 @@
 <div class="patient_nav">
     <a href="#">
-        <img src="../logo/home.png" class="nav_icon">
+        <img src="./logo/home.png" class="nav_icon">
     </a>
     <a href="#">
-        <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
+        <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
     <a href="#">
-        <img src="../logo/notification.png" class="nav_icon">
+        <img src="./logo/notification.png" class="nav_icon">
     </a>
     <a href="#">
-        <img src="../logo/setting.png" class="nav_icon">
+        <img src="./logo/setting.png" class="nav_icon">
     </a>
 </div>
 
@@ -20,89 +20,153 @@
 </div>
 
 
-    
+{{#with data}}    
 <div class="patient_profile"> 
-    <img class="medal" src="../logo/medal.png">
-    <img class="profile_img" src="../pic/profile1.jpg">
-    <p style="text-align: center; font-size: 24px;"> <b>John Doe</b> </p>
-    <p style="text-align: center;"> San Francisco, CA</p>
-    
+    <img class="medal" src="./logo/medal.png">
+    <img class="profile_img" src={{this.img}}>
+    <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
+    <p class="profile_email"> {{this.email}}</p>
 </div>
+{{/with}}
 
 
 <div class="today_record">
     <p class="today_record_text"> <b>Today's Record</b>
-    <!-- add a pop up page for adding data and comment-->
-    <button class="comment_button" id="add_button"><img class="add_icon_blue" src="../logo/add (2).png"></button>
-
-    <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-            <h1>Record Your Data</h1>
-        
-            <label for="data_field"><b>Blood Glucose Level</b></label>
-            <input type="text" placeholder="Enter Blood Glucose Level" name="blood_glucose_level" required>
-        
-            <label for="comment_field"><b>Comment</b></label>
-            <input type="text" placeholder="Enter Your Comment" name="comment" required>
-        
-            <button type="button" class="submit_button">Login</button>
-            <button type="button" class="close_button" id="close_record">Close</button>
-        </form>
-        </div>
-
-    <script src="pop.js"></script>   
+    
+    
     </p>
 <!-- blood glucose level -->
     <p class="align_left"> <b>Blood glucose level</b></p> 
-    <img class="rightarrow_blue" src="../logo/rightarrow_blue.PNG">
-    <p class="align_right"><b>100</b> Nmol/L</p>
+    <!-- add a pop up page for adding data and comment-->
+    
+    <button class="comment_button" id="bgl_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+    <div class= "gray_cover" id="gray_form"></div>
+    <div class="form-popup" id="bgl_form">
+        <form action="/" method="post" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Blood Glucose Level</b></label>
+            <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required />
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required />
+        
+            <button type="submit" class="submit_button" onclick="SubmitRequiredData()">Submit</button>
+            <button type="button" class="close_button" id="bgl_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./javascripts/bgl_pop.js"></script> 
+    {{#with bgl_data}} 
+    <p class="align_right"><b>{{this.blood_glucose_level}}</b> Nmol/L</p>
     
     <div style="clear: both;"></div>
-
+       
     <div class="bubbleText">
-            <p>It's better than yesterday! </p>
-            <time>13:58pm</time>
+        <a href="javascripts:ifcomment()"></a>
+        <p>{{this.comment}} </p>
+        <time>19:55pm</time>
     </div>
+
+    {{/with}}
 <!-- weight -->
     <p class="align_left"> <b>Weight</b></p> 
-    <img class="rightarrow_blue" src="../logo/rightarrow_blue.PNG">
-    <p class="align_right"><b>--</b> Kg</p>
+    <!-- add a pop up page for adding data and comment-->
+    <button class="comment_button" id="weight_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+    <div class= "gray_cover" id="gray_form_1"></div>
+    <div class="form-popup" id="weight_form">
+        <form action="/" method = "post" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Weight</b></label>
+            <input type="text" placeholder="Enter Weight (kg)" name="weight" required>
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+        
+            <button type="submit" class="submit_button" onclick="SubmitRequiredData()">Submit</button>
+            <button type="button" class="close_button" id="weight_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./javascripts/weight_pop.js"></script>   
+    {{#with weight_data}} 
+    <p class="align_right"><b>{{this.weight}}</b> Kg</p>
 
     <div style="clear: both;"></div>
 
-    <div class="bubbleText_noRecord">
-        <p>Not record yet </p>
-        <!-- <time>13:58pm</time> -->
+    <div class="bubbleText">
+        <p>{{this.comment}} </p>
+        <time>13:58pm</time> 
     </div>
+    {{/with}}
 <!-- Doses of insulin taken -->
     <p class="align_left"> <b>Doses of insulin taken</b></p> 
-    <img class="rightarrow_blue" src="../logo/rightarrow_blue.PNG">
-    <p class="align_right"><b>1</b> Doses</p>
+    <!-- add a pop up page for adding data and comment-->
+    <button class="comment_button" id="insulin_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+    <div class= "gray_cover" id="gray_form_2"></div>
+    <div class="form-popup" id="insulin_form">
+        <form action="/" method="post" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Insulin Taken</b></label>
+            <input type="text" placeholder="Enter insulin taken (doses)" name="insulin_shots" required>
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+        
+            <button type="submit" class="submit_button" onclick="SubmitRequiredData()">Submit</button>
+            <button type="button" class="close_button" id="insulin_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./javascripts/insulin_pop.js"></script> 
+    {{#with insulin_data}} 
+    <p class="align_right"><b>{{this.insulin_shots}}</b> Doses</p>
     
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-            <p>I'm late for dinner today, hope it's not a big problem </p>
+            <p>{{this.comment}} </p>
             <time>19:56pm</time>
     </div>
+    {{/with}}
 <!-- Exercise -->
     <p class="align_left"> <b>Exercise</b></p> 
-    <img class="rightarrow_blue" src="../logo/rightarrow_blue.PNG">
-    <p class="align_right"><b>19534</b> Steps</p>
+    <button class="comment_button" id="exercise_add_button"><img class="add_icon_blue" src="./logo/add (2).png"></button>
+    <div class= "gray_cover" id="gray_form_3"></div>
+    <div class="form-popup" id="exercise_form">
+        <form action="/" method = 'post' class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Exercise</b></label>
+            <input type="text" placeholder="Enter steps you walk (steps)" name="walk_steps" required>
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required>
+        
+            <button type="submit" class="submit_button" onclick="SubmitRequiredData()">Submit</button>
+            <button type="button" class="close_button" id="exercise_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./javascripts/exercise_pop.js"></script> 
+
+    {{#with exercise_data}} 
+    <p class="align_right"><b>{{this.walk_steps}}</b> Steps</p>
     
     <div style="clear: both;"></div>
 
     <div class="bubbleText">
-            <p>The weather was nice today, so I decided 
-            to go out for a hike :) </p>
+            <p>{{this.comment}} </p>
             <time>16:32pm</time>
     </div>
-
+    {{/with}}
 </div>
 
 <div class="past_record">
     <p> <b>Past Record </b></p>
-    <img class="note_icon" src= "../logo/note.png">
+    <img class="note_icon" src= "./logo/note.png">
     <br>
     <button> view </button>
 </div>

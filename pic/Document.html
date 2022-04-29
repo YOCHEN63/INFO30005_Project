@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:3000/clinician -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Document_files/stylesheet.css">
+</head>
+
+<body>
+    <main><div class="patient_nav">
+    <a href="http://localhost:3000/clinician#">
+        <img src="./Document_files/home.png" class="nav_icon">
+    </a>
+    <a href="http://localhost:3000/clinician#">
+        <img src="./Document_files/multiple-users-silhouette (1).png" class="nav_icon">
+    </a>
+    <a href="http://localhost:3000/clinician#">
+        <img src="./Document_files/notification.png" class="nav_icon">
+    </a>
+    <a href="http://localhost:3000/clinician#">
+        <img src="./Document_files/setting.png" class="nav_icon">
+    </a>
+</div>
+
+
+<div class="home_font">
+    <div class="home"><b>Home</b></div> 
+    <div class="date_font">2022/3/15</div>
+</div>
+
+
+<div class="patient_profile"> 
+    <img class="medal" src="./Document_files/medal.png">
+    <img class="profile_img" src="./Document_files/32.jpg">
+    <p class="profile_name"> <b>Yixuan Chen</b> </p>
+    <p class="profile_email"> 114514@gmail.com</p>
+</div>
+
+
+<div class="today_record">
+    <p class="today_record_text"> <b>Today's Record</b>
+    
+    
+    </p>
+<!-- blood glucose level -->
+    <p class="align_left"> <b>Blood glucose level</b></p> 
+    <!-- add a pop up page for adding data and comment-->
+    
+    <button class="comment_button" id="bgl_add_button"><img class="add_icon_blue" src="./Document_files/add (2).png"></button>
+    <div class="gray_cover" id="gray_form"></div>
+    <div class="form-popup" id="bgl_form">
+        <form action="http://localhost:3000/" method="post" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Blood Glucose Level</b></label>
+            <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required="">
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required="">
+        
+            <button type="submit" class="submit_button">Submit</button>
+            <button type="button" class="close_button" id="bgl_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./Document_files/bgl_pop.js.下载"></script> 
+    <p class="align_right"><b>75</b> Nmol/L</p>
+    
+    <div style="clear: both;"></div>
+       
+    <div class="bubbleText">
+        <a href="javascripts:ifcomment()"></a>
+        <p>much beterr now </p>
+        <time>19:55pm</time>
+    </div>
+
+<!-- weight -->
+    <p class="align_left"> <b>Weight</b></p> 
+    <!-- add a pop up page for adding data and comment-->
+    <button class="comment_button" id="weight_add_button"><img class="add_icon_blue" src="./Document_files/add (2).png"></button>
+    <div class="gray_cover" id="gray_form_1"></div>
+    <div class="form-popup" id="weight_form">
+        <form action="http://localhost:3000/" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Weight</b></label>
+            <input type="text" placeholder="Enter Weight (kg)" name="weight" required="">
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required="">
+        
+            <button type="submit" class="submit_button">Submit</button>
+            <button type="button" class="close_button" id="weight_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./Document_files/weight_pop.js.下载"></script>   
+    <p class="align_right"><b>78</b> Kg</p>
+
+    <div style="clear: both;"></div>
+
+    <div class="bubbleText">
+        <p>It's better than yesterday!</p>
+        <time>13:58pm</time> 
+    </div>
+<!-- Doses of insulin taken -->
+    <p class="align_left"> <b>Doses of insulin taken</b></p> 
+    <!-- add a pop up page for adding data and comment-->
+    <button class="comment_button" id="insulin_add_button"><img class="add_icon_blue" src="./Document_files/add (2).png"></button>
+    <div class="gray_cover" id="gray_form_2"></div>
+    <div class="form-popup" id="insulin_form">
+        <form action="http://localhost:3000/" method="post" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Insulin Taken</b></label>
+            <input type="text" placeholder="Enter insulin taken (doses)" name="insulin_shots" required="">
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required="">
+        
+            <button type="submit" class="submit_button">Submit</button>
+            <button type="button" class="close_button" id="insulin_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./Document_files/insulin_pop.js.下载"></script> 
+    <p class="align_right"><b>1</b> Doses</p>
+    
+    <div style="clear: both;"></div>
+
+    <div class="bubbleText">
+            <p> </p>
+            <time>19:56pm</time>
+    </div>
+<!-- Exercise -->
+    <p class="align_left"> <b>Exercise</b></p> 
+    <button class="comment_button" id="exercise_add_button"><img class="add_icon_blue" src="./Document_files/add (2).png"></button>
+    <div class="gray_cover" id="gray_form_3"></div>
+    <div class="form-popup" id="exercise_form">
+        <form action="http://localhost:3000/" class="form-container">
+            <h1>Record Your Data</h1>
+        
+            <label for="data_field"><b>Exercise</b></label>
+            <input type="text" placeholder="Enter steps you walk (steps)" name="walk_steps" required="">
+        
+            <label for="comment_field"><b>Comment</b></label>
+            <input type="text" placeholder="Enter Your Comment (Optional)" name="comment" required="">
+        
+            <button type="submit" class="submit_button">Submit</button>
+            <button type="button" class="close_button" id="exercise_close">Close</button>
+        </form>
+    </div>
+
+    <script src="./Document_files/exercise_pop.js.下载"></script> 
+
+    <p class="align_right"><b>12324</b> Steps</p>
+    
+    <div style="clear: both;"></div>
+
+    <div class="bubbleText">
+            <p></p>
+            <time>16:32pm</time>
+    </div>
+</div>
+
+<div class="past_record">
+    <p> <b>Past Record </b></p>
+    <img class="note_icon" src="./Document_files/note.png">
+    <br>
+    <button> view </button>
+</div>
+
+
+<div class="leader_board">
+    <!-- <img class="trans_badge" src="./logo/badge_transparent.png"> -->
+    <p style="text-align: center;"> <b>LeaderBoard </b></p>
+    <div class="scroller">
+            <p>1. Captain Teemo</p>
+            <p>2. Shiki2208</p>
+            <p>3. Johnwwwwww</p>
+            <p>4. foreverfix</p>
+            <p>5. bettlejuice</p>
+    </div>
+
+</div></main>
+    
+
+</body></html>
