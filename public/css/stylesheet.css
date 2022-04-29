@@ -841,8 +841,8 @@ body{
 
 #time_sequence{
   border: 1px solid var(--border_line);
-  width: 62%;
-  margin-left: auto;
+  width: 300px;
+  margin-left: 90px;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 5%;
