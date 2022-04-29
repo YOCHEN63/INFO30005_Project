@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const schemas = require('../models/User.js')
+const controllers = require('../controller/blood.controller')
 
-router.get('/',async(req,res,next)=>{
-    let user = shcemas.user;
 
-    let userResult = await user.find({}).exec((err, userData)=>{
-        if (userData){
-            res.render('index',{data:userData})
-        }
-    })
-})
+router.get('/', controllers.find) 
+router.get('/clinician', controllers.find_doc)
+router.get('/:user_id', controllers.find_doc_patient)
+router.post('/:user_id', controllers.edit_threshold)
+router.post('/', controllers.insert)
+module.exports = router

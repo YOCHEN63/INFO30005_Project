@@ -10,20 +10,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinician - Diabetes@Home</title>
-    
-    <link rel="stylesheet" href="stylesheet.css">
 
-    
+    <link rel="shortcut icon" href="./logo/Diabetes @Home (8).png">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
     <!-- nav bar -->
     <div class="clinician_nav">
         <a href="#">
-            <img src="./logo/doctor (1).png" class="round_icon">
+            <img src="./logo/Diabetes @Home (8).png" class="round_icon">
         </a>
         <a>
-            <p class="segoeui_regular_blue">Hi, Mycroft</p>
+            <p class="segoeui_regular_blue">Hi, Chris</p>
         </a> 
         <a href="#">
             <img src="./logo/home.png" class="nav_icon">
@@ -37,29 +36,36 @@
         <h1 class="roboto_regular_black_48px">My patient</h1>
     </div>
     
-    <!-- table -->
-    <table class="patients_list">
-        <!-- category -->
-        <tr>
-            <th>Name</th>
-            <th>Blood glucose level(Nmol/g)</th>
-            <th>Weight(kg)</th>
-            <th>Doses of insulin taken</th>
-            <th>Exercise(steps)</th>
-        </tr>
-
-        <!-- 
-            todo: get data from the database
-        -->
-    </table>
+    <!-- patients table -->
+    <div class="clinician_main_left_column">
+        <table class="patients_list">
+            <!-- category -->
+            <tr>
+                <th>Name</th>
+                <th>Blood glucose level(Nmol/g)</th>
+                <th>Weight(kg)</th>
+                <th>Doses of insulin taken</th>
+                <th>Exercise(steps)</th>
+            </tr>
+    
+            <tr>
+                <td>Pat</td>
+            </tr>
+    
+            <!-- 
+                todo: get data from the database
+            -->
+        </table>
+    </div>
 
     <!-- patient card -->
-    <!-- 其实更多的是考虑用json来替换下面的文本-->
-    <div class="patient_card">
-        <div class="inside_patitetn_card">
+    <div class="clinician_main_right_column">
+        <!-- 左右列打乱了原有格式，要改-->
+        <div class="patitetn_card">
             <img src="./logo/man.png">
             <h2 class="segoeui_regular_blue">Client: Johnathan Joestar</h2>
             <p class="roboto_regular_gray_24px">JoJo12345@gmail.com</p>
         </div>
     </div>
+
 </body>
