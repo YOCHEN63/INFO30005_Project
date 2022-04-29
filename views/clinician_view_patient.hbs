@@ -1,5 +1,5 @@
 <div class="clinician_nav">
-    <a href="#">
+    <a href="/clinician">
         <img src="./logo/doctor (1).png" class="round_icon">
     </a>
     {{#with onePatient}}
@@ -7,7 +7,7 @@
         <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
-    <a href="#">
+    <a href="/clinician">
         <img src="./logo/home.png" class="nav_icon">
     </a>
     <a href="#">
@@ -19,8 +19,8 @@
 <div class="ClinicianUI_patient_detail_page_left">
     <!-- patient detail side -->
     <div class="patient_detail_card">
-        <img src="./logo/man.png">
         {{#with onePatient}}
+        <img src={{this.img}}>
         <div class="patient_detail_container">
             <h4 class="roboto_regular_black" style="font-size: 48px;">
                 {{this.first_name}} {{this.last_name}}
@@ -71,8 +71,30 @@
     </div>
     
     <!-- time sequence -->
-    <div>
-
+    <div id="time_sequence">
+        <h5 class="segoeui_bold_white">Time required for data enter:</h5>
+        <select>
+            <option value="7:00">7:00 am</option>
+            <option value="8:00">8:00 am</option>
+            <option value="9:00">9:00 am</option>
+            <option value="10:00">10:00 am</option>
+            <option value="11:00">11:00 am</option>
+            <option value="12:00">12:00 pm</option>
+            <option value="13:00">13:00 pm</option>
+            <option value="14:00">14:00 pm</option>
+            <option value="15:00">15:00 pm</option>
+            <option value="16:00">16:00 pm</option>
+            <option value="17:00">17:00 pm</option>
+            <option value="18:00">18:00 pm</option>
+            <option value="19:00">19:00 pm</option>
+            <option value="20:00">20:00 pm</option>
+            <option value="21:00">21:00 pm</option>
+        </select>
+        <span>
+            <button class="segoeui_bold_white" onclick="SubmitRequiredData()">
+                Submit
+            </button>
+        </span>
     </div>
 </div>
 
@@ -97,8 +119,36 @@
         </button>
     </div>
     
-    <!-- 数据 -->
+    <!-- Tab Content -->
     <div id="weight" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+            <!-- 根据id从database里面获得数据 -->
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">upper</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_lower" class="segoeui_regular_blue">lower</p>
+            
+            <button>
+                <img src="./logo/setting.png" class="round_icon" id="set_threshold">
+            </button>
+            <div class= "gray_cover" id="gray_form_4"></div>
+            <div class="form-popup" id="threshold_form">
+                <form action="/:user_id" method = 'post' class="form-container">
+                    <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>upperbond</b></label>
+                    <input type="text" placeholder="Enter upper bond of threshold for weight" name="weight_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="text" placeholder="Enter lower bond of threshold for weight" name="weight_lower" required>
+                
+                    <button type="submit" class="submit_button">Submit</button>
+                    <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
+                </form>
+            </div>
+        </div>
+
         <table>
             <!-- category -->
             <tr>
@@ -120,6 +170,19 @@
     </div>
 
     <div id="blood_glucose_level" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+            <!-- 根据id从database里面获得数据 -->
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">upper</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_lower" class="segoeui_regular_blue">lower</p>
+            
+            <div class="threshold_setting">
+                <img src="./logo/setting.png" onclick="#">
+            </div>
+        </div>
+
         <table>
             <!-- category -->
             <tr>
@@ -182,6 +245,9 @@
         </table>
     </div>
     
+    <div id="threshold_setting_modal">
+        
+    </div>
 </div>
 
 <!-- Right column -->
@@ -216,3 +282,4 @@
 
 </div>
 <script type="text/javascript" src="/javascripts/script.js"></script> 
+<script type="text/javascript" src="/javascripts/weight_threshold.js"></script> 

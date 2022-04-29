@@ -31,18 +31,15 @@
             <th>Doses of insulin taken</th>
             <th>Exercise(steps)</th>
         </tr>
-		
-        <tr>
-            {{#each patientData}}
+		{{#each patientData}}
+        <tr>  
             <td><a href="/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></td>     
-            <!--
             <td>{{this.bloodGlucose}}</td>
             <td>{{this.weight}}</td>
             <td>{{this.insulin}}</td>
-            <td>{{this.exercise}}</td>
-            -->
-            {{/each}}
+            <td>{{this.exercise}}</td>    
         </tr>
+        {{/each}}
 		
         <!-- 
             todo: get data from the database
@@ -53,7 +50,7 @@
 <!-- patient card -->
 {{#with docData}}
 <div class="clinician_main_right_column">
-    <!-- 左右列打乱了原有格式，要改-->
+    
     <div class="patitetn_card">
         <img src={{this.img}}>
         <h2 class="segoeui_regular_blue">Client: {{this.first_name}} {{this.last_name}}</h2>

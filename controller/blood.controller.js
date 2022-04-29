@@ -77,8 +77,8 @@ const reqUserData = async (req, res) => {
 }
 
 const updateThreshold = async (req, res) => {
-    const dataType = req.body.dataType
-    
+    const body = req.body
+    const dataType = Object.keys(body)[0]
     if(dataType === 'blood_glucose_level'){
         const max = bgl_up;
         const min = bgl_down;
@@ -91,13 +91,20 @@ const updateThreshold = async (req, res) => {
         const max = insulin_up;
         const min = insulin_down;
     }
-    if(dataType === 'weight'){
-        const max = weight_up;
-        const min = weight_down;
+    if(dataType === 'weight_upper'){
+        const max = body.weight_upper
+        const min = body.weight_lower
     }
     try {
-        user.findByIdAndUpdate(req.body.user_id,{max: req.body.max, min:req.body.min});
-        console.log('saved')
+        
+
+        if(max instanceof Number && min instanceof Number){
+            user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
+            console.log('saved')
+        }else {
+            console.log('invalid data')
+        }
+
     } catch (err) {
         console.error(err)
     }
@@ -161,11 +168,11 @@ const reqDocData = async (req, res, next) => {
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
             var data = await reqLatestData(objectId);
-            dataSet[i] = data;
+            patientData[i] = Object.assign(patientData[i], data);
             console.log('get data for patient');
         }
         console.log(data)
-        res.render('clinician_home',{docData:docData,patientData:patientData,dataSet:dataSet});
+        res.render('clinician_home',{docData:docData,patientData:patientData});
     } catch (err) {
         return next(err)
     }
@@ -176,25 +183,13 @@ const reqDocPatientData = async (req, res) => {
     try {
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
-        var date = onePatient.record_date
-        var bgl_upper = onePatient.bgl_threshold.upperBound
-        var bgl_lower = onePatient.bgl_threshold.lowerBound
-        var weight_upper = onePatient.weight_threshold.upperBound
-        var weight_lower = onePatient.weight_threshold.lowerBound
-        var exercise_upper = onePatient.exercise_threshold.upperBound
-        var exercise_lower = onePatient.exercise_threshold.lowerBound
-        var insulin_upper = onePatient.insulin_threshold.upperBound
-        var insulin_lower = onePatient.insulin_threshold.lowerBound
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var insulin_data = await insulin.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         console.log('doc view data')
-        return res.render('clinician_view_patient',{onePatient:onePatient,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,
-                            bgl_lower: bgl_lower, bgl_upper: bgl_upper,
-                            weight_lower: weight_lower, weight_upper: weight_upper,
-                            exercise_lower: exercise_lower, exercise_upper: exercise_upper,
-                            insulin_lower: insulin_lower, insulin_upper: insulin_upper})
+        return res.render('clinician_view_patient',{onePatient:onePatient,
+                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return next(err)
     }
@@ -246,6 +241,20 @@ const addData = async (req, res) => {
     }
 }
 
+const viewDocData = async (req, res, next) => {
+    try {
+        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        res.render('patient_view_data',{bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data});
+    } catch (err) {
+        return next(err)
+    }
+    
+}
+
+module.exports.view_data = viewDocData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
