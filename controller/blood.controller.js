@@ -161,11 +161,11 @@ const reqDocData = async (req, res, next) => {
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
             var data = await reqLatestData(objectId);
-            dataSet[i] = data;
+            patientData[i] = Object.assign(patientData[i], data);
             console.log('get data for patient');
         }
         console.log(data)
-        res.render('clinician_home',{docData:docData,patientData:patientData,dataSet:dataSet});
+        res.render('clinician_home',{docData:docData,patientData:patientData});
     } catch (err) {
         return next(err)
     }
