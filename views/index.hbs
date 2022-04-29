@@ -56,7 +56,6 @@
         </form>
     </div>
 
-    <script src="./javascripts/bgl_pop.js"></script> 
     {{#with bgl_data}} 
     <p class="align_right"><b>{{this.blood_glucose_level}}</b> Nmol/L</p>
     
@@ -89,7 +88,7 @@
         </form>
     </div>
 
-    <script src="./javascripts/weight_pop.js"></script>   
+
     {{#with weight_data}} 
     <p class="align_right"><b>{{this.weight}}</b> Kg</p>
 
@@ -120,7 +119,7 @@
         </form>
     </div>
 
-    <script src="./javascripts/insulin_pop.js"></script> 
+    
     {{#with insulin_data}} 
     <p class="align_right"><b>{{this.insulin_shots}}</b> Doses</p>
     
@@ -150,7 +149,7 @@
         </form>
     </div>
 
-    <script src="./javascripts/exercise_pop.js"></script> 
+    
 
     {{#with exercise_data}} 
     <p class="align_right"><b>{{this.walk_steps}}</b> Steps</p>
@@ -168,7 +167,7 @@
     <p> <b>Past Record </b></p>
     <img class="note_icon" src= "./logo/note.png">
     <br>
-    <button> view </button>
+    <a href="/view_data"><button> view </button></a>
 </div>
 
 
@@ -184,3 +183,7 @@
     </div>
 
 </div>
+<script src="./javascripts/exercise_pop.js"></script> 
+<script src="./javascripts/insulin_pop.js"></script> 
+<script src="./javascripts/bgl_pop.js"></script> 
+<script src="./javascripts/weight_pop.js"></script>   
