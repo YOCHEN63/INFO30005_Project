@@ -124,7 +124,7 @@
         <div class="threshold">
             <h3>The threshold is:</h3>
 
-            <!-- 根据id从database里面获得数据 -->
+            <!-- get threshold -->
             <p id="weight_threshold_upper" class="segoeui_regular_blue">upper</p>
             <p class="segoeui_regular_blue"> ~ </p>
             <p id="weight_threshold_lower" class="segoeui_regular_blue">lower</p>
@@ -132,6 +132,7 @@
             <button>
                 <img src="./logo/setting.png" class="round_icon" id="set_threshold">
             </button>
+            <!--  threshold pop up form
             <div class= "gray_cover" id="gray_form_4"></div>
             <div class="form-popup" id="threshold_form">
                 <form action="/:user_id" method = 'post' class="form-container">
@@ -147,6 +148,7 @@
                     <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
                 </form>
             </div>
+            -->
         </div>
 
         <table>
@@ -173,7 +175,7 @@
         <div class="threshold">
             <h3>The threshold is:</h3>
 
-            <!-- 根据id从database里面获得数据 -->
+            <!-- get data -->
             <p id="bgl_threshold_upper" class="segoeui_regular_blue">upper</p>
             <p class="segoeui_regular_blue"> ~ </p>
             <p id="bgl_threshold_lower" class="segoeui_regular_blue">lower</p>
@@ -197,9 +199,7 @@
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
-            <!-- 
-                todo: get data from the database
-            -->
+            
         </table>
     </div>
 
@@ -218,9 +218,7 @@
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
-            <!-- 
-                todo: get data from the database
-            -->
+        
         </table>
     </div>
 
@@ -239,9 +237,7 @@
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
-            <!-- 
-                todo: get data from the database
-            -->
+            
         </table>
     </div>
     
@@ -282,4 +278,6 @@
 
 </div>
 <script type="text/javascript" src="/javascripts/script.js"></script> 
+<!--
 <script type="text/javascript" src="/javascripts/weight_threshold.js"></script> 
+-->
