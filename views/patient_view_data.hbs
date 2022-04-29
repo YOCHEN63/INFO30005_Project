@@ -23,22 +23,114 @@
 <div class="underline">
 </div>
 
-<div class="selection_container">
-    <div class = "selection">
-        <select class="roboto_regular_gray_20px">
-            <option herf="#">
-                Weight
-            </option>
-            <option herf="#">
-                Blood glucose level    
-            </option>
-            <option herf="#">
-                Insulin taken    
-            </option>
-            <option herf="#">
-                Exercise    
-            </option>
-        </select>
+<div class="ClinicianUI_patient_detail_page_middle">
+    <!-- patient's data table in a tab-->
+    <div class="patient_data_content">
+        <button class="patient_data_tabs" onclick="OpenTable(event,'blood_glucose_level')">
+            Blood Glucose Level
+        </button>
+
+        <button class="patient_data_tabs" onclick="OpenTable(event,'weight')">
+            Weight
+        </button>
+
+        <button class="patient_data_tabs" onclick="OpenTable(event,'doses_of_insulin_taken')">
+            Doses of Insulin Taken
+        </button>
+
+        <button class="patient_data_tabs" onclick="OpenTable(event,'exercise')">
+            Exercise 
+        </button>
     </div>
     
+    <!-- Tab Content -->
+    <div id="weight" class="patient_data_tabs_content">
+
+        <table>
+            <!-- category -->
+            <tr>
+                <th>Time</th>
+                <th>Weight(kg)</th>
+                <th>Comment</th>
+            </tr>
+            {{#each weight_data}}
+            <tr>
+                <td>{{this.record_date}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.comment}}</td>
+            </tr>
+            {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
+        </table>
+    </div>
+
+    <div id="blood_glucose_level" class="patient_data_tabs_content">
+
+        <table>
+            <!-- category -->
+            <tr>
+                <th>Time</th>
+                <th>Blood glucose level(Nmol/L)</th>
+                <th>Comment</th>
+            </tr>
+            {{#each bgl_data}}
+            <tr>
+                <td>{{this.record_date}}</td>
+                <td>{{this.blood_glucose_level}}</td>
+                <td>{{this.comment}}</td>
+            </tr>
+            {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
+        </table>
+    </div>
+
+    <div id="doses_of_insulin_taken" class="patient_data_tabs_content">
+        <table>
+            <!-- category -->
+            <tr>
+                <th>Time</th>
+                <th>Doses of insulin taken</th>
+                <th>Comment</th>
+            </tr>
+            {{#each insulin_data}}
+            <tr>
+                <td>{{this.record_date}}</td>
+                <td>{{this.insulin_shots}}</td>
+                <td>{{this.comment}}</td>
+            </tr>
+            {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
+        </table>
+    </div>
+
+    <div id="exercise" class="patient_data_tabs_content">
+        <table>
+            <!-- category -->
+            <tr>
+                <th>Time</th>
+                <th>Exercise(steps)</th>
+                <th>Comment</th>
+            </tr>
+            {{#each exercise_data}}
+            <tr>
+                <td>{{this.record_date}}</td>
+                <td>{{this.walk_steps}}</td>
+                <td>{{this.comment}}</td>
+            </tr>
+            {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
+        </table>
+    </div>
+    
+    <div id="threshold_setting_modal">
+        
+    </div>
 </div>

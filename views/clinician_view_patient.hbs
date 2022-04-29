@@ -130,8 +130,23 @@
             <p id="weight_threshold_lower" class="segoeui_regular_blue">lower</p>
             
             <button>
-                <img src="./logo/setting.png" class="round_icon">
+                <img src="./logo/setting.png" class="round_icon" id="set_threshold">
             </button>
+            <div class= "gray_cover" id="gray_form_4"></div>
+            <div class="form-popup" id="threshold_form">
+                <form action="/:user_id" method = 'post' class="form-container">
+                    <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>Upper bond</b></label>
+                    <input type="text" placeholder="Enter upper bond of threshold for weight" name="weight_upper" required>
+                
+                    <label for="comment_field"><b>Lower bond</b></label>
+                    <input type="text" placeholder="Enter lower bond of threshold for weight" name="weight_lower" required>
+                
+                    <button type="submit" class="submit_button">Submit</button>
+                    <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
+                </form>
+            </div>
         </div>
 
         <table>
@@ -267,3 +282,4 @@
 
 </div>
 <script type="text/javascript" src="/javascripts/script.js"></script> 
+<script type="text/javascript" src="/javascripts/weight_threshold.js"></script> 

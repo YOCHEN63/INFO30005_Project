@@ -77,8 +77,8 @@ const reqUserData = async (req, res) => {
 }
 
 const updateThreshold = async (req, res) => {
-    const dataType = req.body.dataType
-    
+    const body = req.body
+    const dataType = Object.keys(body)[0]
     if(dataType === 'blood_glucose_level'){
         const max = bgl_up;
         const min = bgl_down;
@@ -91,13 +91,14 @@ const updateThreshold = async (req, res) => {
         const max = insulin_up;
         const min = insulin_down;
     }
-    if(dataType === 'weight'){
-        const max = weight_up;
-        const min = weight_down;
+    if(dataType === 'weight_upper'){
+        const max = body.weight_upper
+        const min = body.weight_lower
     }
     try {
-        user.findByIdAndUpdate(req.body.user_id,{max: req.body.max, min:req.body.min});
+        user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
         console.log('saved')
+        res.redirect(req.params.user_id)
     } catch (err) {
         console.error(err)
     }
@@ -236,11 +237,11 @@ const addData = async (req, res) => {
 
 const viewDocData = async (req, res, next) => {
     try {
-        var bgl_data = await bloodGlucose.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        var weight_data = await weight.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        var exercise_data = await exercise.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        var insulin_data = await insulin.findOne({"user_id":'6266f45c3c62e10a62e038f4'}).lean()
-        res.render('patient_view_data');
+        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        res.render('patient_view_data',{bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data});
     } catch (err) {
         return next(err)
     }
