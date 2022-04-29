@@ -177,14 +177,14 @@ const reqDocPatientData = async (req, res) => {
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
         var date = onePatient.record_date
-        var bgl_upper = onePatient.bgl_threshold.upperBound
-        var bgl_lower = onePatient.bgl_threshold.lowerBound
-        var weight_upper = onePatient.weight_threshold.upperBound
-        var weight_lower = onePatient.weight_threshold.lowerBound
-        var exercise_upper = onePatient.exercise_threshold.upperBound
-        var exercise_lower = onePatient.exercise_threshold.lowerBound
-        var insulin_upper = onePatient.insulin_threshold.upperBound
-        var insulin_lower = onePatient.insulin_threshold.lowerBound
+        var bgl_upper = onePatient.bgl_up
+        var bgl_lower = onePatient.bgl_down
+        var weight_upper = onePatient.weight_up
+        var weight_lower = onePatient.weight_down
+        var exercise_upper = onePatient.exercise_up
+        var exercise_lower = onePatient.exercise_down
+        var insulin_upper = onePatient.insulin_up
+        var insulin_lower = onePatient.insulin_down
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
