@@ -1,6 +1,8 @@
+const { set } = require("express/lib/application");
+
 /* -------------------------- Submit Required Data -------------------------- */
 function SubmitRequiredData(){
-    setTimeout(() => { alert("Submit successfully!"); }, 500);
+    setTimeout(() => { alert("Submit successfully!"); }, 1000);
 }
 
 /* -------------------------- Patient Data Content -------------------------- */
@@ -32,16 +34,20 @@ function GetDateTime(){
 
     var hours = currentDate.getHours();
     var minutes = currentDate.getMinutes();
+    var sec = currentDate.getSeconds();
 
     if(hours <10){
-        hours = '0'+hours;
+        hours = '0'+hours; 
     }
 
     if(minutes <10){
         minutes = '0'+minutes;
     }
+    if(sec < 10){
+        sec = '0'+minutes;
+    }
 
-    var time = hours +':'+ minutes;
+    var time = hours +':'+ minutes+":"+sec;
     var dateTime = date+' '+time;
 
     return dateTime;
