@@ -950,7 +950,7 @@ body{
   padding-left: 10px;
 }
 
-.threshold h3, .threshold p, .threshold a{
+.threshold h3, .threshold p, .threshold_setting{
   float: left;
 }
 
@@ -959,11 +959,29 @@ body{
   padding-left: 20px;
 }
 
-.threshold img{
-  padding-left: 20px;
-  height: 28px;
-  width: 28px;
+.threshold_setting{
+  margin-left: 20px;
 }
+
+.threshold_setting:hover{
+  background-color: var(--hover_gray);
+}
+
+.threshold_setting:active{
+  background-color: var(--actived_gary);
+}
+
+.threshold img{
+  height: 30px;
+  width: 30px;
+  border: none;
+  font-size: 18px;
+}
+
+#threshold_setting_modal{
+  display: none;
+}
+
 /* ------------------------------ Note Content ----------------------------- */
 
 .clinician_note_content{
