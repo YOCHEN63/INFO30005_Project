@@ -8,7 +8,7 @@
 
 body{
   min-height:1800px;
-  background-color: #F6F8F9;
+  background-color: var(--white);
   min-width: 375px;
 
 }
@@ -131,6 +131,15 @@ body{
   border-spacing: 0;
   border: 1px solid var(--border_line);
   min-width: 800px;
+}
+
+.patients_list a{
+  text-decoration: none;
+  color: var(--blackl);
+}
+
+.patients_list a:visited{
+  color: var(--black);
 }
 
 .patients_list td:hover{
@@ -793,6 +802,54 @@ body{
   padding: 40px;
 }
 
+/* -------------------------- Time Sequence Setting ------------------------- */
+
+#time_sequence{
+  border: 1px solid var(--border_line);
+  width: 62%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 21px;
+  background-color: var(--background_blue);
+}
+
+#time_sequence h5{
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+#time_sequence select{
+  margin-bottom: 20px;
+  margin: 10px 20px;
+  height: 30px;
+  width: 120px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: none;
+  box-shadow: 1px 2px var(--shadow_blue);
+}
+
+#time_sequence button{
+  height: 30px;
+  width: 100px;
+  border-radius: 18px;
+  background-color: var(--blue);
+  box-shadow: 1px 2px var(--shadow_blue);
+  border: none;
+  font-size: 15px;
+}
+
+#time_sequence button:hover, #time_sequence button:active{
+  background-color: var(--background_blue_hover);
+}
+
+#time_sequence button:active{
+  background-color: var(--background_blue_active);
+}
+
+
 /* ------------------------ Clinician UI Patient Data ---------------------- */
 
 
@@ -834,23 +891,66 @@ body{
 .patient_data_tabs_content table{
   border-spacing: 0;
   width: 100%;
+  padding-top: 10px;
+}
+
+.patient_data_tabs_content tr:nth-child(odd){
+  background-color: #f2f2f2;
 }
 
 .patient_data_tabs_content th{
   padding: 10px 20px;
   border-collapse: collapse;
+  height: 30px;
 }
 
 .patient_data_tabs_content td{
   border: 1px solid var(--border_line);
   border-collapse: collapse;
   text-align: center;
+  height: 30px;
 }
 
 #blood_glucose_level{
   display: block;
 }
 
+.threshold{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.threshold h3, .threshold p, .threshold_setting{
+  float: left;
+}
+
+.threshold p{
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.threshold_setting{
+  margin-left: 20px;
+}
+
+.threshold_setting:hover{
+  background-color: var(--hover_gray);
+}
+
+.threshold_setting:active{
+  background-color: var(--actived_gary);
+}
+
+.threshold img{
+  height: 30px;
+  width: 30px;
+  border: none;
+  font-size: 18px;
+}
+
+#threshold_setting_modal{
+  display: none;
+}
 
 /* ------------------------------ Note Content ----------------------------- */
 
