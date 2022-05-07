@@ -1217,4 +1217,406 @@ body{
   margin-top: 23.9%;
 }
 
+/* ----------------------------- About Diabetes ------------------andy---------- */
+.AD-header {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../image/AD-header-img.png');
+
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+
+}
+
+.AD-header-content {
+  background: rgba(0, 94, 255, 0.55);
+  height: 60%;
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 7%;
+  border-radius: 20px;
+  
+  
+}
+
+.AD-header-content h2{
+  margin-top: 5%;
+  margin-left: 10%;
+  color: white;
+  font-size: 5vmin;
+  width: 50vw;
+  
+
+}
+
+.AD-header-content p {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  color: white;
+  width: 40vw;
+  font-size: 3vmin;
+}
+
+.AD-header-content a{
+  color:white;
+  margin-top: 5%;
+  margin-left: 10%;
+  font-size: 3vmin;
+  margin-left: 80%;
+}
+.AD-header-content a:hover{
+  color:#000
+}
+
+.AD-header-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  /* margin-top: 5%; */
+  margin-left: 10%;
+}
+
+
+/* -------Nav Bar--------*/
+.AD-head-logo {
+  height: 11vh;
+  width: auto;
+  float: left;
+  margin-left: 2%;
+}
+
+.AD-navbar {
+  background-color: #2372FF;
+  height: 11vh;
+  font-size: 3vmin;
+  justify-content: space-between;
+}
+
+.AD-nav-links {
+  display: flex;
+  list-style-type: none;
+  /* align-items: center; */
+  margin-left: 50%;
+}
+
+.AD-nav-links li {
+  margin: 25px 20px;  
+}
+@media screen and (max-width: 1024px) {
+  .AD-nav-links li {
+    margin: 30px 12px; 
+  }
+}
+@media screen and (min-width: 1900px) {
+  .AD-nav-links li {
+    margin: 33px 45px; 
+  }
+}
+
+.AD-nav-links li a {
+  color: white;
+}
+
+.AD-nav-links li :hover {
+  color: black;
+}
+
+.AD-menu-btn{
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 40px;
+  cursor:pointer;
+  display: none;
+}
+
+
+.AD-video-content {
+  background: #F8FAFC;
+  height: 70%;
+  width: 30%;
+  margin-top: 10%;
+  margin-left: 6%;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #000;
+}
+
+.AD-video-content h2{
+  margin-top: 5%;
+  text-align: center;
+  font-size: 4vmin;
+}
+
+.AD-video-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  /* margin-top: 5%; */
+  margin-left: 10%;
+}
+
+.AD-video-content iframe {
+  margin-top: 3%;
+  width: 90%;
+  height: 40%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.AD-about-Diabetes {
+  background-color: white;
+  width: 100vw;
+  height: 85vh;
+  /* display: flex; */
+}
+
+.AD-about-Diabetes-heading {
+  padding-top: 5%;
+  margin-left: 10%;
+  font-size: 2.5vmin;
+
+}
+
+.AD-about-Diabetes-content {
+  background: #F8FAFC;
+  height: 58%;
+  width: 20%;
+  margin-top: 5%;
+  margin-left: 4%;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #000;
+  float: left;
+  box-shadow: 5px 10px #888888;
+}
+
+.AD-about-Diabetes-content h2 {
+  padding-top: 7%;
+  margin-left: 0%;
+  font-size: 3vmin;
+  text-align: center;
+}
+
+.AD-about-Diabetes-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.AD-about-Diabetes-content p {
+  width: 85%;
+  font-size: 2vmin;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.AD-about-Diabetes-content p a {
+  display: block;
+}
+
+.AD-about-Diabetes-content p a:hover {
+  color: green;
+}
+
+
+/* ---AD footer--- */
+.AD-footer {
+  background-color: #2372FF;
+  height: 11vh;
+  display: flex;
+}
+
+.AD-footer ul {
+  list-style-type: none;
+  align-items: center;
+}
+
+.AD-footer-content {
+  font-size: 2vmin;
+  display: flex;
+  /* list-style-type: none; */
+  margin-left: 5%;
+  justify-content: space-between;
+  width: 50%;
+  
+}
+
+.AD-footer-content li {
+  color: white;
+}
+
+.AD-footer-content li a{
+  color: white;
+}
+
+.AD-footer-content li a:hover{
+  color:#000;
+}
+
+
+.AD-footer-img {
+  margin-left: 15%;
+  display: flex;
+  width: 25vw;
+}
+
+.AD-footer-img-content {
+  width: 50%;
+  margin-top:5%;
+  margin-left: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  -------About Diabetes mobile page-------- */
+@media screen and (max-width: 500px){
+  .AD-menu-btn {
+    display:flex;
+  }
+
+
+  .AD-nav-links {
+    flex-direction: column;
+    width: 100%;
+    /* height: 100vh; */
+    justify-content: center;
+    background-color:#2372FF;
+    position: relative;
+    margin-left: 0;
+    /* margin-top: -900px;  no affect*/
+    display: none;
+    border: 1px solid white;
+    border-left: hidden;
+    border-right: hidden;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .AD-nav-links a:link {
+    text-decoration: none;
+  }
+   .AD-nav-links a:hover{
+    text-decoration: underline;
+  }
+
+  .mobile-menu{
+    display: flex;
+  }
+  .AD-nav-links li {
+    margin: 30px auto;
+    font-size: large;
+  }
+
+
+  .AD-header {
+    display: block;
+    float: left;
+  }
+
+  .AD-header-content {
+    height: 30%;
+    width: 90%;
+    /* margin-top: 0; */
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
+
+  .AD-header-content h2 {
+    margin-top: 0%;
+    padding-top: 5%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+  }
+
+  .AD-header-content p {
+    width: 70vw;
+  }
+
+  .AD-video-content {
+    height: 60%;
+    width: 90%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .AD-about-Diabetes {
+    float: left;
+    height: 120vh;
+  }
+
+  .AD-about-Diabetes-content {
+    width: 90%;
+    height: 20%;
+    box-shadow: none;
+  }
+
+  .AD-about-Diabetes-content h2 {
+    font-size: 4vmin;
+    padding-top: 5%;
+  }
+
+  .AD-about-Diabetes-line {
+    margin-top: 3%;
+  }
+
+  .AD-footer {
+    /* display: block; */
+    float: left;
+    width: 100%;
+    height: 5vh;
+  }
+  .AD-footer-content {
+    /* margin-left: 8%; */
+  }
+
+  .AD-footer-content li a {
+    display: none;
+  }
+
+  .AD-footer-img {
+    margin-left: 5%;
+    margin-top: 1%;
+    width: 50vw;
+  }
+
+  .AD-footer-img-content {
+    width: 60%;
+  
+  }
+
+}
+
+
 
