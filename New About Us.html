@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Diabetes@Home</title>
+    <link rel="stylesheet" href="public/css/stylesheet.css">
+</head>
+<body>
+    <nav class="AD-navbar">
+        <img class="AD-head-logo" src="./public/image/AD-logo.png">
+        <ul class="AD-nav-links">
+            <li><a href="#"><b>About Diabetes</b></a></li>
+            <li><a href="#"><b>About Us</b></a></li>
+            <li><a href="#"><b>Theme</b></a></li>
+            <li><a href="#"><b>Log In</b></a></li>
+        </ul>
+        <img src="./public/image/menu_button.png" class="AD-menu-btn">
+    
+    </nav>
+
+    <script>
+        const menuBtn = document.querySelector('.AD-menu-btn')
+        const navlinks = document.querySelector('.AD-nav-links')
+
+        menuBtn.addEventListener('click', ()=>{
+            navlinks.classList.toggle('mobile-menu')
+        })
+    </script>
+
+    <header class="AU-header">
+            
+            <div class="AU-header-content">
+                <h2>About Us</h2>
+                <p>
+                    This website is designed and built to help people manage their diabetes in the convenience of their own home, 
+                    recording data that can be monitored remotely by their clinician. 
+                </p>
+            </div>
+
+    </header>
+    
+    <main class="AU-main">
+        <div class="AU-about-Diabetes-content">
+            <h2>What we do</h2>
+            <div class="AD-about-Diabetes-line"></div>
+            <p> We support, empower and campain for all people afftected by, or at risk of diabetes. 
+            </p>
+        </div>
+
+        <div class="AU-about-Diabetes-content">
+            <h2>Annual Review</h2>
+            <div class="AD-about-Diabetes-line"></div>
+            <p> Each year we produce an Annual review which highlights our achievement throught the year.
+            </p>
+        </div>
+
+        <div class="AU-about-Diabetes-content">
+            <h2>Website developer </h2>
+            <div class="AD-about-Diabetes-line"></div>
+            <p> This website is build by:
+            </p>
+            <p>
+                Song Tang <br>
+                Qiting Ma <br>
+                Zhiyu Chen <br>
+                Zoe.F <br>
+                MahJiang King <br>
+            </p>
+        </div>
+
+        <div class="AU-about-Diabetes-content2">
+            <h2>As our client:</h2>
+            <div class="AU-about-Diabetes-line2"></div>
+            <p> You need to upload your patient data and we will assign a private doctor to monitor 
+                and manage your diabetes to ensure your health.
+            </p>
+        </div>
+
+    </main>
+
+
+</body>
+
+
+<footer>
+    <div class="AD-footer"> 
+        <ul class="AD-footer-content">
+            <li>© Diabetes@Home 2022</li>
+            <li><a href="#">About Diabetes</a></li>
+            <li><a href="#">About Us</a></li>
+ 
+        </ul>
+
+        <ul class="AD-footer-img">
+            <li><a href="#"><img src="./public/image/facebook.png" class="AD-footer-img-content">  </a></li>
+            <li><a href="#"><img src="./public/image/twitter.png" class="AD-footer-img-content">  </a></li>
+            <li><a href="#"><img src="./public/image/instagram.png" class="AD-footer-img-content">  </a></li>
+            <li><a href="#"><img src="./public/image/email.png" class="AD-footer-img-content">  </a></li>
+        </ul>
+
+    </div>
+</footer>
+
+</html>

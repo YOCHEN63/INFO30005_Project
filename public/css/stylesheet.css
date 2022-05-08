@@ -1475,28 +1475,6 @@ body{
   margin-left: 5%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*  -------About Diabetes mobile page-------- */
 @media screen and (max-width: 500px){
   .AD-menu-btn {
@@ -1619,4 +1597,108 @@ body{
 }
 
 
+/* ------------------------------About Us Page---------------andy----------*/
+.AU-header {
+  background-image: url('../image/AU-header-img.jpeg');
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-position: bottom;
+  background-size: cover;
+}
 
+
+
+.AU-header-content {
+  background: rgba(0, 94, 255, 0.55);
+  height: 50%;
+  width: 80%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.AU-header-content h2 {
+  margin-top: 5%;
+  margin-left: 7%;
+  font-size: 4.5vmin;
+  color: white;
+}
+
+.AU-header-content p {
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 4vmin;
+  width: 65vw;
+  color: white;
+}
+
+.AU-main {
+  background-color: white;
+  width:100vw;
+  height: 100vh;
+}
+
+.AU-about-Diabetes-content {
+    background: #F8FAFC;
+    height: 50%;
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 6%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #000;
+    float: left;
+    box-shadow: 5px 10px #888888;
+}
+.AU-about-Diabetes-content h2 {
+  padding-top: 7%;
+  margin-left: 0%;
+  font-size: 3.5vmin;
+  text-align: center;
+}
+
+.AU-about-Diabetes-content p {
+  width: 85%;
+  font-size: 2.5vmin;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.AU-about-Diabetes-content2 {
+  background: #F8FAFC;
+    height: 25%;
+    width: 88%;
+    margin-top: 5%;
+    margin-left: 6%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #000;
+    float: left;
+    box-shadow: 5px 10px #888888;
+}
+
+.AU-about-Diabetes-content2 h2 {
+  padding-top: 2%;
+  font-size: 3.5vmin;
+  text-align: center;
+}
+
+.AU-about-Diabetes-content2 p {
+  width: 85%;
+  font-size: 2.5vmin;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+.AU-about-Diabetes-line2 {
+  width: 80%;
+  height: 4px;
+  margin-top: 1%;
+  background-color: #E2E6EA;
+  margin-left: 10%;
+}
