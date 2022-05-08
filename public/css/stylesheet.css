@@ -1702,3 +1702,30 @@ body{
   background-color: #E2E6EA;
   margin-left: 10%;
 }
+
+/*  -------About Us mobile page-------- */
+@media screen and (max-width: 500px){
+  .AU-header {
+    height: 38vh;
+  }
+  .AU-header-content {
+    height: 75%;
+  }
+  .AU-main {
+    height: 110vh;
+  }
+  .AU-about-Diabetes-content {
+    width: 87%;
+    height: 24%;
+  }
+  .AU-about-Diabetes-content h2 {
+    padding-top: 4%;
+  }
+  .AU-about-Diabetes-content p {
+    margin-top: 4%;
+  }
+  .AU-about-Diabetes-content2 {
+    height: 14%;
+  }
+
+}
