@@ -1305,13 +1305,17 @@ body{
   margin: 25px 20px;  
 }
 @media screen and (max-width: 1024px) {
+.AD-nav-links {
+  margin-left: 38%;
+}
+
   .AD-nav-links li {
-    margin: 30px 12px; 
+    margin: 22px 12px; 
   }
 }
 @media screen and (min-width: 1900px) {
   .AD-nav-links li {
-    margin: 33px 45px; 
+    margin: 33px 22px; 
   }
 }
 
