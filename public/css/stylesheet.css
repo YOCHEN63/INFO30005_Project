@@ -1644,7 +1644,6 @@ body{
 
 }
 .login-diabetes-right arrow{
-  width: 42vw;
   height: 5vh;
 
 }
@@ -1696,11 +1695,70 @@ input[type=text], input[type=password] {
   text-align: right;
 }
 .login-diabetes-right h5{
-  font-size: 2.5vmin;
+  font-size: 3.5vmin;
   background-color: #2372FF;
   color: white;
   margin-top: 3%;
   padding:1vmin;
   text-align: center;
 
+}
+/*  -------About Diabetes mobile page-------- */
+@media screen and (max-width: 500px){
+  .login-diabetes-left{
+    display: none;
+  }
+  .login-diabetes-right{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    float: left;
+  }
+  .login-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .login-right-content h1{
+    font-size: 10vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+  .login-right-content h2{
+    font-size: 5vmin;
+    font-family: var(--font-family-roboto);
+    color: #828282;
+  }
+  .login-diabetes-right h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 5vmin;
+  }
+  .login-diabetes-right h4{
+    font-size: 4vmin;
+    margin-top: 6%;
+    padding-left: 12vmin;
+    font-family: var(--font-family-roboto);
+    text-decoration: underline;
+    text-align: right;
+  }
+  .login-diabetes-right h5{
+    font-size: 7vmin;
+    background-color: #2372FF;
+    color: white;
+    margin-top: 6%;
+    padding:2vmin;
+    text-align: center;
+  
+  }
 }
