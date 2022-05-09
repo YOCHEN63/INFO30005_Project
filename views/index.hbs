@@ -1,3 +1,4 @@
+<!--bottom nav part-->
 <div class="patient_nav">
     <a href="#">
         <img src="./logo/home.png" class="nav_icon">
@@ -13,7 +14,7 @@
     </a>
 </div>
 
-
+<!-- top part-->
 <div class="home_font">
     <div class="home"><b>Home</b></div> 
     <div class="date_font">2022/3/15</div>
@@ -29,7 +30,7 @@
 </div>
 {{/with}}
 
-
+<!-- today record part(middle-->
 <div class="today_record">
     <p class="today_record_text"> <b>Today's Record</b>
     
@@ -61,9 +62,8 @@
     
     <div style="clear: both;"></div>
        
-    <div class="bubbleText">
-        <a href="javascripts:ifcomment()"></a>
-        <p>{{this.comment}} </p>
+    <div class="bubbleText" id="maybe_text">
+        <p id="maybe_comment">{{this.comment}} </p>
         <time>19:55pm</time>
     </div>
 
@@ -162,7 +162,7 @@
     </div>
     {{/with}}
 </div>
-
+<!-- past record part-->
 <div class="past_record">
     <p> <b>Past Record </b></p>
     <img class="note_icon" src= "./logo/note.png">
@@ -170,7 +170,7 @@
     <a href="/view_data"><button> view </button></a>
 </div>
 
-
+<!-- leaderboard part-->
 <div class="leader_board">
     <!-- <img class="trans_badge" src="./logo/badge_transparent.png"> -->
     <p style="text-align: center;"> <b>LeaderBoard </b></p>
@@ -183,7 +183,5 @@
     </div>
 
 </div>
-<script src="./javascripts/exercise_pop.js"></script> 
-<script src="./javascripts/insulin_pop.js"></script> 
-<script src="./javascripts/bgl_pop.js"></script> 
-<script src="./javascripts/weight_pop.js"></script>   
+<script src="./javascripts/pop_form.js"></script> 
+

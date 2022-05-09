@@ -76,7 +76,11 @@ const reqUserData = async (req, res) => {
     
 }
 
+/* update threshold value */
 const updateThreshold = async (req, res) => {
+    const max = 10000
+    const min = 0
+
     const body = req.body
     const dataType = Object.keys(body)[0]
     if(dataType === 'blood_glucose_level'){
@@ -96,15 +100,12 @@ const updateThreshold = async (req, res) => {
         const min = body.weight_lower
     }
     try {
-        
-
         if(max instanceof Number && min instanceof Number){
             user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
             console.log('saved')
         }else {
             console.log('invalid data')
         }
-
     } catch (err) {
         console.error(err)
     }
@@ -113,11 +114,13 @@ const updateThreshold = async (req, res) => {
 
 
 const reqLatestData = async (user_id) => {
+    /* find data from today */
     try {
         const now = new Date()
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         var bgl_doc = await bloodGlucose.findOne({$and:[{"user_id": user_id},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1},).lean()
+        /* replace null data to useful ones */
         if(bgl_doc != null) {
             if(bgl_doc.hasOwnProperty('blood_glucose_level')) {
                 var bgl_data = bgl_doc.blood_glucose_level
@@ -152,15 +155,15 @@ const reqLatestData = async (user_id) => {
         } else {
             var insulin_data = '--'
         }
-    /* if no data found, initilise table*/
         return {"_id":user_id,"bloodGlucose": bgl_data, "weight": weight_data, "insulin": insulin_data, "exercise": exercise_data}
     } catch (err) {
         console.error(err)
     }
 }
-
+/* doc page*/
 const reqDocData = async (req, res, next) => {
     try {
+        /* fin doc and his patient*/
         const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
         const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
         console.log('doc log in')
@@ -196,12 +199,14 @@ const reqDocPatientData = async (req, res) => {
     
 }
 
-
+/* patient home add data*/
 const addData = async (req, res) => {
     try {
+        /* get the entered data*/
         const body = req.body
         const dataType = Object.keys(body)[0]
         console.log(dataType)
+        /* put them into table and store*/
         if (dataType === 'weight') {
             const weightData = new weight({
                 'weight' : body.weight,
@@ -240,9 +245,10 @@ const addData = async (req, res) => {
         return console.error(err)
     }
 }
-
+/* find the selected patient history data*/
 const viewDocData = async (req, res, next) => {
     try {
+        /* find all data sort by date*/
         var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()

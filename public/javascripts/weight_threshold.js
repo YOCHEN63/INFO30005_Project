@@ -12,3 +12,4 @@ threshold_close.onclick = function close(){
     show_stuff.style.display = "none";
     gray_cover.style.display = "none";
 }
+
