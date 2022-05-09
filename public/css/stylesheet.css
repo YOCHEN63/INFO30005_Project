@@ -1761,4 +1761,59 @@ input[type=text], input[type=password] {
     text-align: center;
   
   }
+
+  .change-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .change-right-content h1{
+    font-size: 15vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+
+  .change-diabetes-right h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  .change-diabetes-right h5{
+    font-size: 7vmin;
+    background-color: #2372FF;
+    color: white;
+    margin-top: 6%;
+    padding:2vmin;
+    text-align: center;
+  
+  }
+}
+
+/* ------------------------------Change password ------shiki------------------------------ */
+.change-right-content{
+  width: 44.vw;
+  height: 50vh;
+  margin-left: 25%;
+  margin-right: 20%;
+  margin-top: 2%;
+}
+.change-right-content h1{
+  font-size: 5vmin;
+  font-family: var(--font-family-roboto);
+
+}
+
+.change-diabetes-right h3{
+  margin-top: 6%;
+  font-size: 3.5vmin;
+}
+.change-diabetes-right h5{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  margin-top: 15%;
+  padding:1vmin;
+  text-align: center;
+
 }
