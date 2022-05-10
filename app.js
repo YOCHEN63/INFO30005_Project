@@ -33,9 +33,12 @@ app.use(express.json())     // needed if POST data is in JSON format
 
 app.use('/', indexRouter)
 
+// probably will change route to user_id
+// Note: Change me Later
 app.get('/', (req,res) => { 
     res.render('index.hbs') 
 })
+
 
 
 

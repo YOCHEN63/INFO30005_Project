@@ -100,12 +100,9 @@ const updateThreshold = async (req, res) => {
         const min = body.weight_lower
     }
     try {
-        if(max instanceof Number && min instanceof Number){
-            user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
-            console.log('saved')
-        }else {
-            console.log('invalid data')
-        }
+        user.findByIdAndUpdate({user_id:req.params.user_id},{weight_up: max, weight_down:min});
+        console.log('saved')
+        res.redirect("/"+req.params.user_id)
     } catch (err) {
         console.error(err)
     }
@@ -160,6 +157,7 @@ const reqLatestData = async (user_id) => {
         console.error(err)
     }
 }
+
 /* doc page*/
 const reqDocData = async (req, res, next) => {
     try {
@@ -191,7 +189,7 @@ const reqDocPatientData = async (req, res) => {
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var insulin_data = await insulin.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         console.log('doc view data')
-        return res.render('clinician_view_patient',{onePatient:onePatient,
+        return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
                         bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
     } catch (err) {
         return next(err)
@@ -246,7 +244,7 @@ const addData = async (req, res) => {
     }
 }
 /* find the selected patient history data*/
-const viewDocData = async (req, res, next) => {
+const patientViewData = async (req, res, next) => {
     try {
         /* find all data sort by date*/
         var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
@@ -260,7 +258,24 @@ const viewDocData = async (req, res, next) => {
     
 }
 
-module.exports.view_data = viewDocData
+/* home page */
+const about_diabetes =  (req, res) => {
+    res.render('about_diabetes.hbs',{layout:'about_diabetes_layout'}) 
+}
+
+/* about-us */
+const about_us =  (req, res) => {
+    res.render('about_us.hbs',{layout:'about_us_layout'}) 
+}
+
+const login =  (req, res) => {
+    res.render('login.hbs',{layout:'login_layout'}) 
+}
+
+module.exports.login = login
+module.exports.home = about_diabetes
+module.exports.about_us = about_us
+module.exports.view_data = patientViewData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
