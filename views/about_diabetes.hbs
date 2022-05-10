@@ -1,0 +1,95 @@
+<nav class="AD-navbar">
+    <img class="AD-head-logo" src="./image/AD-logo.png">
+    <ul class="AD-nav-links">
+        <li><a href="/home"><b>About Diabetes</b></a></li>
+        <li><a href="/about-us"><b>About This Website</b></a></li>
+        <li><a href="#"><b>Theme</b></a></li>
+        <li><a href="#"><b>Log In</b></a></li>
+    </ul>
+    <img src="./image/menu_button.png" class="AD-menu-btn">
+
+</nav>
+
+<script>
+    const menuBtn = document.querySelector('.AD-menu-btn')
+    const navlinks = document.querySelector('.AD-nav-links')
+
+    menuBtn.addEventListener('click', ()=>{
+        navlinks.classList.toggle('mobile-menu')
+    })
+</script>
+
+<header class="AD-header">
+    <div class="AD-header-content">
+        
+        <h2>What is Diabetes?</h2>
+        <div class="AD-header-line"></div>
+            <p>'Diabetes' covers a range of conditions where the glucose (sugar) 
+            in the blood becomes higher than normal.  High blood glucose levels can 
+            cause many health issues. If patients follow by the right advice, technology 
+            and medication diabetes can be managed well.
+        </p>
+        <a href="#">More...</a>
+    </div>
+
+    <div class="AD-video-content">
+        <h2>Video Introduction</h2>
+        <div class="AD-video-line"></div>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wZAjVQWbMlE" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4SZGM_E5cLI" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+    </div>
+    
+</header>
+
+<main class="AD-about-Diabetes">
+    <div class="AD-about-Diabetes-heading">
+        <h1>About Diabetes</h1>
+    </div>
+    
+    <div class="AD-about-Diabetes-content">
+        <h2>Pre-diabetes</h2>
+        <div class="AD-about-Diabetes-line"></div>
+        <p> Nearly one in four adults over the age of 25 years has either diabetes or a condition known as ‘pre-diabetes’.  
+            This is when blood glucose levels are higher than normal but not high enough to be diagnosed with type 2 diabetes. 
+        </p>
+    </div>
+
+    <div class="AD-about-Diabetes-content">
+        <h2>Type 1 Diabetes</h2>
+        <div class="AD-about-Diabetes-line"></div>
+        <p>Type 1 diabetes occurs when the pancreas is unable to make the hormone insulin. Insulin acts like a key to open cells and let glucose enter from the blood.
+            The glucose comes from the food we eat and gives us energy.
+        </p>
+    </div>
+
+    <div class="AD-about-Diabetes-content">
+        <h2>Type 2 Diabetes</h2>
+        <div class="AD-about-Diabetes-line"></div>
+        <p>Type 2 diabetes is a condition where the beta cells in the pancreas still make insulin, but it may not make enough, or the insulin that is being made does not do its job properly. 
+                As a result, the gates of the cells cannot open to let the glucose in. 
+        </p>
+    </div>
+
+    <div class="AD-about-Diabetes-content">
+        <h2>More Information</h2>
+        <div class="AD-about-Diabetes-line"></div>
+        <p>
+            To learn more about diabetes, you can visit websites: 
+            <p> 
+                <a href="https://www.diabetesaustralia.com.au/">Diabetes Australia</a>
+                <a href="http://www.diabetesvic.org.au">Diabetes Victoria</a>
+                <a href="http://www.diabetesnsw.com.au">Diabetes NSW</a>
+                
+                
+            </p>
+        </p>
+    </div>
+
+
+</main>
