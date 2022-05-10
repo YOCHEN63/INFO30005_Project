@@ -76,3 +76,14 @@ document.querySelector('#clinician_note_submit').onclick = function(){
     }
 }
 
+/* highlight cell */
+$(document).ready(function(){
+    var upper = document.getElementById("weight_threshold_upper").value;
+    var lower = document.getElementById("weight_threshold_lower").value;
+
+    $('#weight_current_data').each(function(){
+        if($(this).value > upper || $(this).value < lower){
+            $(this).classList.add(highlight);
+        }
+    })
+})

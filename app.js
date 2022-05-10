@@ -39,10 +39,6 @@ app.get('/', (req,res) => {
     res.render('index.hbs') 
 })
 
-
-
-
-
 app.listen(3000,()=>{
     console.log('App listenting to port 3000')
 })

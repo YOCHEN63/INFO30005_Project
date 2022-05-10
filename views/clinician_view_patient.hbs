@@ -123,8 +123,6 @@
     <div id="weight" class="patient_data_tabs_content">
         <div class="threshold">
             <h3>The threshold is:</h3>
-
-
             <!-- get threshold -->
             {{#with onePatient}}
             <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
@@ -136,7 +134,7 @@
             </button>
             </div>
             
-            
+            <!-- record threshold -->
             <div class= "gray_cover" id="gray_form_4"></div>
             <div class="form-popup" id="threshold_form_weight">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
@@ -156,8 +154,6 @@
                 
             </div>
             {{/with}}
-
-            
         </div>
 
         <table>
@@ -170,13 +166,10 @@
             {{#each weight_data}}
             <tr>
                 <td>{{this.record_date}}</td>
-                <td>{{this.weight}}</td>
+                <td id="weight_current_data">{{this.weight}}</td>
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
-            <!-- 
-                todo: get data from the database
-            -->
         </table>
     </div>
 
