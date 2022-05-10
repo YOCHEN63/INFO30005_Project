@@ -100,12 +100,9 @@ const updateThreshold = async (req, res) => {
         const min = body.weight_lower
     }
     try {
-        if(max instanceof Number && min instanceof Number){
-            user.findByIdAndUpdate(req.params.user_id,{max: max, min:min});
-            console.log('saved')
-        }else {
-            console.log('invalid data')
-        }
+        user.findByIdAndUpdate({user_id:req.params.user_id},{weight_up: max, weight_down:min});
+        console.log('saved')
+        res.redirect("/"+req.params.user_id)
     } catch (err) {
         console.error(err)
     }
@@ -160,6 +157,7 @@ const reqLatestData = async (user_id) => {
         console.error(err)
     }
 }
+
 /* doc page*/
 const reqDocData = async (req, res, next) => {
     try {
