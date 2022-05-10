@@ -78,31 +78,53 @@ const reqUserData = async (req, res) => {
 
 /* update threshold value */
 const updateThreshold = async (req, res) => {
-    const max = 10000
-    const min = 0
+    let max = 10000
+    let min = 0
 
     const body = req.body
     const dataType = Object.keys(body)[0]
-    if(dataType === 'blood_glucose_level'){
-        const max = bgl_up;
-        const min = bgl_down;
+    let updatetype = ""
+    if(dataType === 'bgl_upper'){
+        max = body.bgl_upper
+        min = body.bgl_lower
+       
     }
-    if(dataType === 'exercise'){
-        const max = exercise_up;
-        const min = exercise_down;
+    if(dataType === 'exercise_upper'){
+        max = body.exercise_upper
+        min = body.exercise_lower
+        
     }
-    if(dataType === 'insulin_shots'){
-        const max = insulin_up;
-        const min = insulin_down;
+    if(dataType === 'insulin_upper'){
+        max = body.insulin_upper
+        min = body.insulin_lower
+        
     }
     if(dataType === 'weight_upper'){
-        const max = body.weight_upper
-        const min = body.weight_lower
+        max = body.weight_upper
+        min = body.weight_lower
+        
+    }
+    if (min - max > 0){
+        let temp = max
+        max = min
+        min = temp
+        
     }
     try {
-        user.findByIdAndUpdate({user_id:req.params.user_id},{weight_up: max, weight_down:min});
+        if(dataType === 'bgl_upper'){
+            await user.findByIdAndUpdate(req.params.user_id,{bgl_up: max, bgl_down:min})
+        }
+        else if(dataType === 'exercise_upper'){
+            await user.findByIdAndUpdate(req.params.user_id,{exercise_up: max, exercise_down:min})
+        }
+        else if(dataType === 'insulin_upper'){
+            await user.findByIdAndUpdate(req.params.user_id,{insulin_up: max, insulin_down:min}) 
+        }
+        else if(dataType === 'weight_upper'){
+            await user.findByIdAndUpdate(req.params.user_id,{weight_up: max, weight_down:min}) 
+        }
         console.log('saved')
-        res.redirect("/"+req.params.user_id)
+        res.redirect("/clinician/"+req.params.user_id)
     } catch (err) {
         console.error(err)
     }
