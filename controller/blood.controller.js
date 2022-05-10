@@ -268,6 +268,11 @@ const about_us =  (req, res) => {
     res.render('about_us.hbs',{layout:'about_us_layout'}) 
 }
 
+const login =  (req, res) => {
+    res.render('login.hbs',{layout:'login_layout'}) 
+}
+
+module.exports.login = login
 module.exports.home = about_diabetes
 module.exports.about_us = about_us
 module.exports.view_data = patientViewData
