@@ -106,6 +106,14 @@ body{
   padding-left: 10px;
   align-items: center;
 }
+@media screen and (max-width:499px) {
+  .nav_icon {
+    margin-left: 35%;
+    padding-left: 0px;
+  
+  }
+  
+}
 
 .nav_icon:hover{
   height: 55px;
@@ -192,8 +200,7 @@ body{
 }
 
 
-/* ----------------------------- Patient Page ------------------------------ */
-
+/*---------------------------new patient home------------andy-------------------*/
 
 
 .patient_nav{
@@ -215,62 +222,44 @@ body{
 }
 
 .home_font{
-  text-align: center;  
-  padding-top: 31px;
-  font-size: 26px;
+  padding-top: 3%;
+  font-size: 4.5vmin;
+  display: flex;
+  margin-left: 45%;
 }
 
-/* responsive design auto changing font in different screen*/
-@media screen and (min-width: 601px) {
-  .home_font {
-    font-size: 40px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .home_font {
-    font-size: 50px;
-  }
-}
 
 .date_font{
-  font-size: 15px;
-  text-align: right;
-  padding-right: 5%;
-}
-@media screen and (min-width: 601px) {
-  .date_font {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .date_font {
-    font-size: 30px;
-  }
+  font-size: 2vmin;
+  margin-left: 35%;
+  margin-top: 2%;
+  
 }
 
+
 .medal{
-  position: absolute;  
-  width: 54px;
-  height: 68px;
-  margin-top: 3%;
+  position: absolute;
+  width: 58px;
+  height: 73px;
   margin-left: 3%;
-  /* top: 90px;
-  left: 26px;  */
+  left: 30px;
+  top: 70px;
 }
 
 .patient_profile{
   background-color: white;
-  margin-top: 16px;
-  height: 10%;
+  margin-top: 3%;
+  height: 20vh;
   width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  
 }
 
 .profile_img{
-  max-width: 15%;
-  max-height: 15%;
+  width: 28%;
+  height: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -281,37 +270,18 @@ body{
 
 .profile_name{
   text-align: center; 
-  font-size: 24px;
-}
-@media screen and (min-width: 601px) {
-  .profile_name {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .profile_name{
-    font-size: 40px;
-  }
+  font-size: 5vmin;
 }
 
 .profile_email{
   text-align: center;
-  font-size: 16px;
-}
-@media screen and (min-width: 601px) {
-  .profile_email {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .profile_email {
-    font-size: 30px;
-  }
+  font-size: 3.5vmin;
+
 }
 
 .today_record{
   /* background-color: white; */
-  margin-top: 16px;
+  /* margin-top: 16px; */
   height: 25%;
   width: 90%;
   display: block;
@@ -320,59 +290,33 @@ body{
 }
 
 .today_record_text{
-  font-size: 20px;
+  font-size: 4.5vmin;
   margin-left: 3.5%;
   padding-top: 4%;
-}
-@media screen and (min-width: 601px) {
-  .today_record_text {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .today_record_text {
-    font-size: 40px;
-  }
 }
 
 .add_icon_blue{
   width: 25px;
-  margin-right: 3.5%;
   float: right;
+}
+
+.add_icon_blue:hover {
+  cursor: pointer;
+  background-color: #F8F8F8;
 }
 
 .align_left{
   float: left;
   margin-left: 3.5%;
   margin-top: 4%;
-  font-size: 14px;
-}
-@media screen and (min-width: 601px) {
-  .align_left {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .align_left {
-    font-size: 25px;
-  }
+  font-size: 4vmin;
 }
 
 .align_right{
   float: right;
   margin-right: 5%;
   margin-top: 4%;
-  font-size: 14px;
-}
-@media screen and (min-width: 601px) {
-  .align_right {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .align_right {
-    font-size: 25px;
-  }
+  font-size: 4vmin;
 }
 
 .rightarrow_blue{
@@ -395,13 +339,13 @@ body{
   border-right: 5px solid #047BF1;
   /* background-color: #ddffff; */
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 500px) {
   .bubbleText {
       border-left: 8px solid #047BF1;
       border-right: 8px solid #047BF1;
   }
 }
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1400px) {
   .bubbleText {
       border-left: 10px solid #047BF1;
       border-right: 10px solid #047BF1;
@@ -410,18 +354,9 @@ body{
 
 .bubbleText p{
   margin-left: 7.5%;
-  font-size: 16px;
+  font-size: 3.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText p {
-    font-size: 22px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText p {
-    font-size: 28px;
-  }
-}
+
 
 .bubbleText_noRecord{
   border-radius: 20px;
@@ -431,18 +366,9 @@ body{
   border-width: 0.5px;
   border-color: var(--black);
   background-color: #FF6B6B;
-  font-size: 16px;
+  font-size: 3.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText_noRecord {
-    font-size: 22px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText_noRecord {
-    font-size: 28px;
-  }
-}
+
 
 .bubbleText_noRecord p{
   margin-left: 15%;
@@ -451,18 +377,15 @@ body{
 
 .bubbleText time{
   margin-left: 75%;
-  font-size: 10px;
+  font-size: 3vmin;
   color:#5C6770;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText time {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText time{
-    font-size: 25px;
-  }
+
+
+
+.PH-bottom-element {
+  height: 30vh;
+
 }
 
 .past_record{
@@ -473,19 +396,9 @@ body{
   width: 43%;
   float: left;
   text-align: center;
-  font-size: 16px;
+  font-size: 4.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .past_record {
-    font-size: 20px;
-    margin-bottom: 15%;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .past_record {
-    font-size: 30px;
-  }
-}
+
 
 .note_icon{
   width:65px;
@@ -500,46 +413,18 @@ body{
   margin-bottom: 5%;
   padding: 8px 15px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 4vmin;
 }
-@media screen and (min-width: 601px) {
-  .past_record button {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .today_record_text {
-    font-size: 30px;
-  }
-}
+
 
 .scroller{
   width: auto;
-  height: 130px;
+  height: 16vh;
   overflow-y: scroll;
   padding-left: 5%;
   /* overflow: visible; */
 }
-@media screen and (min-width: 601px) {
-  .scroller{
-    height: 150px;
-  }
-}
-@media screen and (min-width: 1100px) {
-  .scroller{
-    height: 180px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .scroller{
-    height: 220px;
-  }
-}
-@media screen and (min-width: 1920px) {
-  .scroller{
-    height: 240px;
-  }
-}
+
 
 .leader_board{
   background-color: var(--white);
@@ -547,21 +432,11 @@ body{
   margin-right: 5%;
   margin-bottom: 5%;
   width: 43%;
-  height: 30%;
+  /* height: 30%; */
   float: right;
   /* text-align: center; */
-  font-size: 16px;
+  font-size: 4.5vmin;
 } 
-@media screen and (min-width: 601px) {
-  .leader_board {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .leader_board {
-    font-size: 30px;
-  }
-}
 
 .scroller p{
   background-color: #A2D2F9;
@@ -574,19 +449,10 @@ body{
   margin-right: 5%;
   border-width: 5px;
   border-color: var(--white);
-  font-size: 14px;
+  font-size: 3vmin;
   color:var(--white);
 }
-@media screen and (min-width: 601px) {
-  .scroller p {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .scroller p {
-    font-size: 30px;
-  }
-}
+
 
 .trans_badge{
   width: 138px;
@@ -597,12 +463,168 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
+.PH-nav-logo{
+  display: none;
+}
+
+/*--------------------ipad and desktop for Patient Home ------------andy-----------*/
+@media screen and (min-width: 500px){
+  .patient_nav {
+    position: relative;
+    justify-content: left;
+    height: 72px;
+  }
+  .patient_nav a {
+    padding-right: 2%;
+  }
+  .PH-nav-logo {
+    display: flex;
+  }
+  .nav_icon {
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+  }
+  .nav_icon:hover{
+    height: 57px;
+    width: 57px;
+  }
+  .home_font {
+    padding-top: 0.5%;
+  }
+  .date_font {
+    font-size: 3vmin;
+    color: #007AD4;
+    margin-left: 50%;
+  }
+  .patient_profile {
+    width: 20%;
+    height: 70vh;
+    margin-left: 3%;
+    margin-top: 1%;
+    float: left;
+    background-color: #F6F8F9;
+
+  }
+  .profile_img {
+    width: 17vw;
+    height: 30vh;
+  }
+  .profile_email {
+    font-size: 2.3vmin;
+  }
+  .profile_name {
+    font-size: 4.5vmin;
+    margin-top: 10%;
+  }
+
+  .medal {
+    position: relative;
+    width: 7vw;
+    height: 16vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    top: 0;
+    margin-top: 10%;
+  }
+
+  .today-record-session{
+    /* display: flex; */
+    float: left;
+    height: 80vh;
+    width: 50vw;
+    border: 1px;
+    border-style: solid;
+    margin-left: 1%;
+    margin-top: 0.5%;
+  }
+  .today_record_text {
+    font-size: 3.5vmin;
+    margin-left: 0;
+    padding-top: 5%;
+    margin-bottom: 3%;
+  }
+  .align_left {
+    font-size: 3vmin;
+  }
+  .align_right {
+    font-size: 3vmin;
+  }
+  .bubbleText p {
+    margin-left: 5%;
+    font-size: 2.5vmin;
+  }
+  .bubbleText time {
+    margin-left: 80%;
+    font-size: 2vmin;
+  }
+  .add_icon_blue {
+    width: 40px;
+  }
+  .bubbleText_noRecord {
+    font-size: 2.5vmin;
+  }
+
+  .past_record {
+    width: 20%;
+    margin-bottom: 4%;
+    margin-left: 3%;
+    font-size: 3.5vmin;
+    margin-top: 3%;
+  }
+  .past_record p{
+    margin-top: 6%;
+    margin-bottom: 2%;
+  }
+  .past_record button {
+    font-size: 3.5vmin;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 10%;
+  }
+  .past_record button:hover{
+    background-color: #2372FF;
+  }
+  .note_icon {
+    width: 38%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .leader_board {
+    width: 20%;
+    float: left;
+    margin-top: 0%;
+    margin-left: 3%;
+    margin-right: 0%;
+    /* height: 35vh; */
+    font-size: 3.5vmin;
+  }
+  .leader_board p {
+    margin-top: 6%;
+    margin-bottom: 2%;
+  }
+  .scroller {
+    height: 26vh;
+    padding-left: 2%;
+    
+  }
+  .scroller p {
+    margin-top: 1%;
+    font-size: 2.5vmin;
+  }
+
+}
 /* ----------------------------- Comment Page ------------------------------ */
 
 
 .comment_button{
   float: right;
-  margin-top: 2%;
+  margin-top: 3.5%;
+  border: none;
+  cursor: pointer;
 }
 
 .form-popup .label{
@@ -657,11 +679,12 @@ body{
 
 /* Full-width input fields */
 .form-container input[type=text] {
-  width: 80%;
+  width: 81%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  font-size: 2vmin;
 }
 
 /* When the inputs get focus, do something */
@@ -679,6 +702,7 @@ body{
   cursor: pointer;
   width: 80%;
   margin-bottom:10px;
+  font-size: 2.5vmin;
 }
 
 /* Add a red background color to the button */
@@ -690,6 +714,7 @@ body{
   cursor: pointer;
   width: 80%;
   margin-bottom:10px;
+  font-size: 2.5vmin;
 }
 
 .form-container .data_field{
@@ -1772,7 +1797,7 @@ body{
 }
 
 .login-right-content{
-  width: 44.vw;
+  width: 44vw;
   height: 50vh;
   margin-left: 25%;
   margin-right: 20%;
@@ -1794,7 +1819,7 @@ body{
 }
 
 
-input[type=text], input[type=password] {
+.login-right-content input[type=text], input[type=password] {
   width: 100%;
   padding: 1vmin 2.5vmin;
   display: inline-block;
@@ -1852,13 +1877,13 @@ input[type=text], input[type=password] {
   }
   
   
-  input[type=text], input[type=password] {
+  .login-right-content input[type=text], input[type=password] {
     width: 100%;
     padding: 2vmin 5vmin;
     display: inline-block;
     border: 0.1vmin solid #ccc;
     box-sizing: border-box;
-    font-size: 5vmin;
+    font-size: 3.5vmin;
   }
   .login-diabetes-right h4{
     font-size: 4vmin;
@@ -1931,6 +1956,13 @@ input[type=text], input[type=password] {
   margin-top: 15%;
   padding:1vmin;
   text-align: center;
->>>>>>> origin/shiki2208
+}
 
+.change-right-content input[type=text], input[type=password] {
+  width: 100%;
+  padding: 1vmin 2.5vmin;
+  display: inline-block;
+  border: 0.1vmin solid #ccc;
+  box-sizing: border-box;
+  font-size: 2.5vmin;
 }
