@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const generalModel = require('../models/User')
 const express = require('express')
+const moment = require('moment');
 const { stringify } = require('nodemon/lib/utils')
 const { user } = require('../models/User')
 const render = express.render
@@ -68,7 +69,7 @@ const reqUserData = async (req, res) => {
         if (!reqBody){
             return res.sendStatus(404)
         }
-        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
+        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data, moment: moment })
     } catch (err) {
         return console.error(err)
     }
@@ -104,6 +105,7 @@ const updateThreshold = async (req, res) => {
         min = body.weight_lower
         
     }
+    /* check if threshold is entered in wrong range (max larger than min)*/
     if (min - max > 0){
         let temp = max
         max = min
