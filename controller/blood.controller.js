@@ -287,7 +287,6 @@ const reqDocPatientData = async (req, res) => {
                 Object.assign(insulin_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data[i].record_date)})
             }
         }
-        console.log(bgl_data[0])
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
                         bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
@@ -351,8 +350,34 @@ const patientViewData = async (req, res, next) => {
         var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
         var insulin_data = await insulin.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-
-        
+        /* set output time style year+month+date+hour+minute*/
+        let options = {
+            year: 'numeric', month: 'numeric', day: 'numeric',hour: 'numeric', minute: 'numeric',
+            timeZone: 'Australia/Melbourne',
+            timeZoneName: 'short'
+        }
+        /* change date the form we want*/
+        if (bgl_data){
+            for (i=0;i<bgl_data.length;i++){
+                Object.assign(bgl_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(bgl_data[i].record_date)})
+            }
+            
+        }
+        if (weight_data){
+            for (i=0;i<weight_data.length;i++){
+                Object.assign(weight_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(weight_data[i].record_date)})
+            }
+        }
+        if (exercise_data){
+            for (i=0;i<exercise_data.length;i++){
+                Object.assign(exercise_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(exercise_data[i].record_date)})
+            }
+        }
+        if (insulin_data){
+            for (i=0;i<insulin_data.length;i++){
+                Object.assign(insulin_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data[i].record_date)})
+            }
+        }
         res.render('patient_view_data',{bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data});
     } catch (err) {
         return next(err)
