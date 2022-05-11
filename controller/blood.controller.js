@@ -16,60 +16,104 @@ const threshold = generalModel.threshold
 const reqUserData = async (req, res) => {
     
     try {
+        /* try to find start of the day*/
         const now = new Date()
-        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        let startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        startOfToday = startOfToday.toLocaleDateString('en-US', {timeZone: 'Australia/Melbourne'})
+        startOfToday = new Date(startOfToday)
+        var todayformat = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        /* set output time style*/
+        let options = {
+            hour: 'numeric', minute: 'numeric',
+            timeZone: 'Australia/Melbourne',
+            timeZoneName: 'short'
+        }
+
+        /* find the patient*/
+
         const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
 
         /* find only today's newly update date to render*/
 
-        var bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        var weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        var exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        var insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+
+        /* change date the form we want*/
+        if (bgl_data){
+            Object.assign(bgl_data, { record_date: new Intl.DateTimeFormat('en-AU', options).format(bgl_data.record_date)})
+        }
+        if (weight_data){
+            Object.assign(weight_data, { record_date: new Intl.DateTimeFormat('en-AU', options).format(weight_data.record_date)})
+        }
+        if (exercise_data){
+            Object.assign(exercise_data, { record_date: new Intl.DateTimeFormat('en-AU', options).format(exercise_data.record_date)})
+        }
+        if (insulin_data){
+            Object.assign(insulin_data, { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data.record_date)})
+        }
+        
+        
+        
+        
+
         /* if no data found, initilise table*/
         if (weight_data == null){
-            let weight_null = new weight({
+            let weight_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
                 "weight":"--",
-                "comment":"not recorded yet"
-            })
-            weight_data = weight_null.toObject()
+                "comment":"not recorded yet",
+                "record_date":"--:--"
+            }
+            weight_data = weight_null
         }
         
         if (bgl_data == null){
-            let bgl_null = new bloodGlucose({
+            let bgl_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
                 "blood_glucose_level":"--",
-                "comment":"not recorded yet"
-            })
-            bgl_data = bgl_null.toObject()
+                "comment":"not recorded yet",
+                "record_date":"--:--"
+            }
+            bgl_data = bgl_null
         }
         if (exercise_data == null){
-            let exercise_null = new exercise({
+            let exercise_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
                 "walk_steps":"--",
-                "comment":"not recorded yet"
-            })
-            exercise_data = exercise_null.toObject()
+                "comment":"not recorded yet",
+                "record_date":"--:--"
+            }
+            exercise_data = exercise_null
         }
         if (insulin_data == null){
             
-            let insulin_null = new insulin({
+            let insulin_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
                 "insulin_shots":"--",
-                "comment":"not recorded yet"
-            })
-            insulin_data = insulin_null.toObject()
+                "comment":"not recorded yet",
+                "record_date":"--:--"
+            }
+            insulin_data = insulin_null
         }
-        
+
+        /* create an object to return today's date */
+        todayDate = {
+            "date":new Intl.DateTimeFormat('en-AU', todayformat).format(startOfToday)
+        }
+
+        /* if we cant find one patient, we return 404*/
         if (!reqBody){
             return res.sendStatus(404)
         }
-        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data, moment: moment })
+
+        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
+            weight_data:weight_data,today:todayDate })
     } catch (err) {
         return console.error(err)
     }
@@ -196,7 +240,6 @@ const reqDocData = async (req, res, next) => {
             patientData[i] = Object.assign(patientData[i], data);
             console.log('get data for patient');
         }
-        console.log(data)
         res.render('clinician_home',{docData:docData,patientData:patientData});
     } catch (err) {
         return next(err)
