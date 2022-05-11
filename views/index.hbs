@@ -1,5 +1,6 @@
 <!--bottom nav part-->
 <div class="patient_nav">
+    <img src="./logo/Diabetes @Home (4).png" class="PH-nav-logo">
     <a href="#">
         <img src="./logo/home.png" class="nav_icon">
     </a>
@@ -23,14 +24,15 @@
 
 {{#with data}}    
 <div class="patient_profile"> 
-    <img class="medal" src="./logo/medal.png">
     <img class="profile_img" src={{this.img}}>
     <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
     <p class="profile_email"> {{this.email}}</p>
+    <img class="medal" src="./logo/medal.png">
 </div>
 {{/with}}
 
 <!-- today record part(middle-->
+<div class="today-record-session">
 <div class="today_record">
     <p class="today_record_text"> <b>Today's Record</b>
     
@@ -161,6 +163,7 @@
             <time>16:32pm</time>
     </div>
     {{/with}}
+</div>
 </div>
 <!-- past record part-->
 <div class="past_record">
