@@ -56,7 +56,23 @@ const UserSchema = new mongoose.Schema({
     weight_down: {
         type:Number,
         default: 0,
-    }
+    },
+    bgl_req :{
+        type:Number,
+        default: 0
+    },
+    weight_req :{
+        type:Number,
+        default: 0
+    },
+    exercise_req :{
+        type:Number,
+        default: 0
+    },
+    insulin_req :{
+        type:Number,
+        default: 0
+    },
 })
 
 const NoteSchema = new mongoose.Schema({

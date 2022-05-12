@@ -59,16 +59,38 @@ const reqUserData = async (req, res) => {
         }
 
         /* create an object to return today's date */
-        todayDate = {
+        let todayDate = {
             "date":new Intl.DateTimeFormat('en-AU', todayformat).format(startOfToday)
         }
 
+
+        if (reqBody.bgl_req == 1){
+            record_bgl ={"record_bgl":"True"}
+        } else {
+            record_bgl = null
+        }
+        if (reqBody.weight_req == 1){
+            record_weight ={"record_weight":"True"}
+        } else {
+            record_weight = null
+        }
+        if (reqBody.insulin_req == 1){
+            record_insulin ={"record_insulin":"True"}
+        } else {
+            record_insulin = null
+        }
+        if (reqBody.exercise_req == 1){
+            record_exercise ={"record_exercise":"True"}
+        } else {
+            record_exercise = null
+        }
         /* if we cant find one patient, we return 404*/
         if (!reqBody){
             return res.sendStatus(404)
         }
         return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
-            weight_data:weight_data,today:todayDate })
+            weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
+            record_bgl:record_bgl })
     } catch (err) {
         return console.error(err)
     }
@@ -83,7 +105,11 @@ const updateThreshold = async (req, res) => {
 
     const body = req.body
     const dataType = Object.keys(body)[0]
-    let updatetype = ""
+    /* require list*/
+    let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
+    /* find the rest of types that are not required*/
+    const difference = all_reqs.filter( x => !(new Set(Object.keys(body))).has(x) );
+    
     if(dataType === 'bgl_upper'){
         max = body.bgl_upper
         min = body.bgl_lower
@@ -123,6 +149,38 @@ const updateThreshold = async (req, res) => {
         }
         else if(dataType === 'weight_upper'){
             await user.findByIdAndUpdate(req.params.user_id,{weight_up: max, weight_down:min}) 
+        }
+        else if (dataType === 'req_bgl' || dataType === 'req_weight' || dataType === 'req_insulin' || dataType === 'req_exercise'){
+            /* store the ticked ones as 1 for requesting */
+            for (i=0;i<Object.keys(body).length;i++){
+                if(Object.keys(body)[i] === 'req_bgl'){
+                    await user.findByIdAndUpdate(req.params.user_id,{bgl_req: 1})
+                }
+                else if(Object.keys(body)[i] === 'req_weight'){
+                    await user.findByIdAndUpdate(req.params.user_id,{weight_req: 1})
+                }
+                else if(Object.keys(body)[i] === 'req_insulin'){
+                    await user.findByIdAndUpdate(req.params.user_id,{insulin_req: 1}) 
+                }
+                else if(Object.keys(body)[i] === 'req_exercise'){
+                    await user.findByIdAndUpdate(req.params.user_id,{exercise_req: 1}) 
+                } 
+            }
+            /* for the rest we just store 0 */
+            for (i=0;i<difference.length;i++){
+                if(difference[i] === 'req_bgl'){
+                    await user.findByIdAndUpdate(req.params.user_id,{bgl_req: 0})
+                }
+                else if(difference[i] === 'req_weight'){
+                    await user.findByIdAndUpdate(req.params.user_id,{weight_req: 0})
+                }
+                else if(difference[i] === 'req_insulin'){
+                    await user.findByIdAndUpdate(req.params.user_id,{insulin_req: 0}) 
+                }
+                else if(difference[i] === 'req_exercise'){
+                    await user.findByIdAndUpdate(req.params.user_id,{exercise_req: 0}) 
+                } 
+            }
         }
         console.log('saved')
         res.redirect("/clinician/"+req.params.user_id)
@@ -195,6 +253,8 @@ const reqDocData = async (req, res, next) => {
             var objectId = stringify(patientData[i]._id);
             var data = await reqLatestData(objectId);
             patientData[i] = Object.assign(patientData[i], data);
+
+            /* check if user's data is over threshold */ 
             if (patientData[i].bloodGlucose > patientData[i].bgl_up || patientData[i].bloodGlucose < patientData[i].bgl_down){
                 if (patientData[i].bloodGlucose != '--'){
                     patientData[i] = Object.assign(patientData[i], {bgl_over:"True"});
@@ -246,7 +306,6 @@ const reqDocPatientData = async (req, res) => {
             for (i=0;i<bgl_data.length;i++){
                 Object.assign(bgl_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(bgl_data[i].record_date)})
             }
-            
         }
         if (weight_data){
             for (i=0;i<weight_data.length;i++){

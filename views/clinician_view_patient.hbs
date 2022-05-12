@@ -31,44 +31,52 @@
     </div>
 
     <!-- data seletor -->
+    
     <div class="patient_data_selector_container">
         <p class="roboto_regular_black" style="font-size: 18px;">
             Tell your Patient what Data he needs to record
         </p>
     </div>
-
+    
+    
     <div class="data_container_list">
-        <div class="data_container">
-            <label class="segoeui_bold_white">Blood glucose level</label>
-            <input type="checkbox" class="required_data">
-        </div>
+        {{#with onePatient}}
+        <form action="/clinician/{{this._id}}" method = 'post'>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Blood glucose level</label>
+                <input type="checkbox" class="required_data" name="req_bgl">
+            </div>
 
-        <div class="link_buttom"></div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Weight</label>
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Weight</label>
+                <input type="checkbox" class="required_data" name="req_weight">
+            </div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Doses of Insulin Taken</label>
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Doses of Insulin Taken</label>
+                <input type="checkbox" class="required_data" name="req_insulin">
+            </div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Exercise </label> 
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
-        
-        <!-- Save Required Button -->
-        <!-- 还没有正式地给它添加任何的数据保存功能 -->
-        <button id="save_required_button" onclick="SubmitRequiredData()">
-            <span class="segoeui_bold_white">Save</span>
-        </button>  
+            <div class="data_container">
+                <label class="segoeui_bold_white">Exercise </label> 
+                <input type="checkbox" class="required_data" name="req_exercise">
+            </div>
+            <div class="link_buttom"></div>
+            
+            <!-- Save Required Button -->
+            <!-- 还没有正式地给它添加任何的数据保存功能 -->
+            <button type="submit" id="save_required_button" onclick="SubmitRequiredData()">
+                <span class="segoeui_bold_white">Save</span>
+            </button>  
+        </form>
+        {{/with}}
     </div>
+    
+    
     
     <!-- time sequence -->
     <div id="time_sequence">
@@ -211,7 +219,7 @@
                     <input type="number" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" required>
 
                 
-                    <button type="submit" class="submit_button" id ="bglThreshold_submit">Submit</button>
+                    <button type="submit" class="submit_button" id ="bglThreshold_submit" >Submit</button>
                     <button type="button" class="close_button" id="bglThreshold_close">Close</button>
                 </form>
                 
