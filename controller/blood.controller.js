@@ -57,53 +57,6 @@ const reqUserData = async (req, res) => {
         if (insulin_data){
             Object.assign(insulin_data, { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data.record_date)})
         }
-        
-        
-        
-        
-        /*
-            if no data found, initilise table
-        if (weight_data == null){
-            let weight_null = {
-                "user_id":'6266f45c3c62e10a62e038f4',
-                "weight":"--",
-                "comment":"not recorded yet",
-                "record_date":"--:--"
-            }
-            weight_data = weight_null
-        }
-        
-        if (bgl_data == null){
-            let bgl_null = {
-                "user_id":'6266f45c3c62e10a62e038f4',
-                "blood_glucose_level":"--",
-                "comment":"not recorded yet",
-                "record_date":"--:--"
-            }
-            bgl_data = bgl_null
-        }
-        
-        if (exercise_data == null){
-            let exercise_null = {
-                "user_id":'6266f45c3c62e10a62e038f4',
-                "walk_steps":"--",
-                "comment":"not recorded yet",
-                "record_date":"--:--"
-            }
-            exercise_data = exercise_null
-        }
-        
-        if (insulin_data == null){
-            
-            let insulin_null = {
-                "user_id":'6266f45c3c62e10a62e038f4',
-                "insulin_shots":"--",
-                "comment":"not recorded yet",
-                "record_date":"--:--"
-            }
-            insulin_data = insulin_null
-        }
-        */
 
         /* create an object to return today's date */
         todayDate = {
