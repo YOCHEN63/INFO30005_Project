@@ -195,6 +195,28 @@ const reqDocData = async (req, res, next) => {
             var objectId = stringify(patientData[i]._id);
             var data = await reqLatestData(objectId);
             patientData[i] = Object.assign(patientData[i], data);
+            if (patientData[i].bloodGlucose > patientData[i].bgl_up || patientData[i].bloodGlucose < patientData[i].bgl_down){
+                if (patientData[i].bloodGlucose != '--'){
+                    patientData[i] = Object.assign(patientData[i], {bgl_over:"True"});
+                } 
+            }
+            if (patientData[i].weight > patientData[i].weight_up || patientData[i].weight < patientData[i].weight_down){
+                if (patientData[i].weight != '--'){
+                    patientData[i] = Object.assign(patientData[i], {weight_over:"True"});
+                }
+                
+            }
+            if (patientData[i].insulin > patientData[i].insulin_up || patientData[i].insulin < patientData[i].insulin_down){
+                if (patientData[i].insulin != '--'){
+                    patientData[i] = Object.assign(patientData[i], {insulin_over:"True"});
+                }
+                
+            }
+            if (patientData[i].exercise > patientData[i].exercise_up || patientData[i].exercise < patientData[i].exercise_down){
+                if (patientData[i].exercise != '--'){
+                    patientData[i] = Object.assign(patientData[i], {exercise_over:"True"});
+                }
+            }
             console.log('get data for patient');
         }
         res.render('clinician_home',{docData:docData,patientData:patientData});
