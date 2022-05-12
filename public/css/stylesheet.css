@@ -146,6 +146,10 @@ body{
   color: var(--blackl);
 }
 
+.patients_list .element_over_threshold{
+  background-color: #FF6B6B;
+}
+
 .patients_list a:visited{
   color: var(--black);
 }
@@ -1799,7 +1803,7 @@ body{
 .login-right-content{
   width: 44vw;
   height: 50vh;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-right: 20%;
   margin-top: 10%;
 }
@@ -1844,6 +1848,14 @@ body{
   text-align: center;
 
 }
+
+.login-submit{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+}
+
 /*  -------About Diabetes mobile page-------- */
 @media screen and (max-width: 500px){
   .login-diabetes-left{
@@ -1956,8 +1968,8 @@ body{
   margin-top: 15%;
   padding:1vmin;
   text-align: center;
-
 }
+
 
 .change-right-content input[type=text], input[type=password] {
   width: 100%;

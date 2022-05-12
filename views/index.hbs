@@ -41,6 +41,7 @@
     
     </p>
 <!-- blood glucose level -->
+    {{#if record_bgl}} 
     <p class="align_left"> <b>Blood glucose level</b></p> 
     
 
@@ -78,14 +79,13 @@
        
     <div class="bubbleText_noRecord" id="maybe_text">
         <p id="maybe_comment">not recorded yet </p>
-        <time>--:--</time>
     </div>
-    {{/if}}
+    {{/if }}
+    {{/if }}
 <!-- weight -->
+    {{#if record_weight}} 
     <p class="align_left"> <b>Weight</b></p> 
     
-
-
     {{#if weight_data}} 
     <p class="align_right"><b>{{weight_data.weight}}</b> Kg</p>
 
@@ -119,10 +119,11 @@
 
     <div class="bubbleText_noRecord">
         <p id="maybe_comment">not recorded yet </p>
-        <time>--:--</time> 
     </div>
     {{/if}}
+    {{/if}}
 <!-- Doses of insulin taken -->
+    {{#if record_insulin}} 
     <p class="align_left"> <b>Doses of insulin taken</b></p> 
     
 
@@ -160,10 +161,11 @@
 
     <div class="bubbleText_noRecord">
             <p id="maybe_comment">not recorded yet </p>
-            <time>--:--</time>
     </div>
     {{/if}}
+    {{/if}}
 <!-- Exercise -->
+    {{#if record_exercise}} 
     <p class="align_left"> <b>Exercise</b></p> 
     {{#if exercise_data}} 
     <p class="align_right"><b>{{exercise_data.walk_steps}}</b> Steps</p>
@@ -197,9 +199,10 @@
 
     <div class="bubbleText_noRecord">
             <p id="maybe_comment">not recorded yet </p>
-            <time>--:--</time>
     </div>
     {{/if}}
+    {{/if}}
+</div>
 </div>
 </div>
 <!-- past record part-->
