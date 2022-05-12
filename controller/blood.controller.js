@@ -10,9 +10,9 @@ const bloodGlucose = generalModel.bloodGlucose
 const exercise = generalModel.exercise
 const insulin = generalModel.insulin
 const weight = generalModel.weight
-const threshold = generalModel.threshold
-/*request for user data */
+const message = generalModel.message
 
+/*request for user data */
 const reqUserData = async (req, res) => {
     
     try {
@@ -236,7 +236,6 @@ const reqDocData = async (req, res, next) => {
         const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
         const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
         console.log('doc log in')
-        var dataSet = [];
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
             var data = await reqLatestData(objectId);
@@ -250,6 +249,7 @@ const reqDocData = async (req, res, next) => {
     
 }
 
+/* clinian view one specific patient data*/
 const reqDocPatientData = async (req, res) => {
     try {
         /* set output time style year+month+date+hour+minute*/
@@ -395,10 +395,31 @@ const about_us =  (req, res) => {
     res.render('about_us.hbs',{layout:'about_us_layout'}) 
 }
 
+/* login page*/
 const login =  (req, res) => {
     res.render('login.hbs',{layout:'login_layout'}) 
 }
 
+/* doc view all comment that is written by his patients*/
+const reqAllComment = async (req, res, next) => {
+    try {
+        /* remember to turn this id to req.params*/
+        const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
+        console.log('doc view comments')
+        for(var i = 0; i < patientData.length; i++){
+            var objectId = stringify(patientData[i]._id);
+            /* write a new function to retrieve a list of objects*/
+            /* find each patient's data*/
+            console.log('get data for comment');
+        }
+        /* write a new function to sort the retrieved list of data by date*/
+    } catch (err) {
+        return next(err)
+    }
+    
+}
+
+module.exports.all_comment = reqAllComment
 module.exports.login = login
 module.exports.home = about_diabetes
 module.exports.about_us = about_us
