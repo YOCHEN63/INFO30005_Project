@@ -146,14 +146,14 @@ body{
   color: var(--blackl);
 }
 
-.element_over_threshold{
+.patients_list .element_over_threshold{
   background-color: #FF6B6B;
 }
+
 .patients_list a:visited{
   color: var(--black);
 }
 
-.
 .patients_list td:hover{
   background-color: var(--hover_gray);
 }

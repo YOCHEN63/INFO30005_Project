@@ -217,7 +217,6 @@ const reqDocData = async (req, res, next) => {
                     patientData[i] = Object.assign(patientData[i], {exercise_over:"True"});
                 }
             }
-            console.log('get data for patient');
         }
         res.render('clinician_home',{docData:docData,patientData:patientData});
     } catch (err) {
