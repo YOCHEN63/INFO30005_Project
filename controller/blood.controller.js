@@ -61,8 +61,8 @@ const reqUserData = async (req, res) => {
         
         
         
-
-        /* if no data found, initilise table*/
+        /*
+            if no data found, initilise table
         if (weight_data == null){
             let weight_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
@@ -82,6 +82,7 @@ const reqUserData = async (req, res) => {
             }
             bgl_data = bgl_null
         }
+        
         if (exercise_data == null){
             let exercise_null = {
                 "user_id":'6266f45c3c62e10a62e038f4',
@@ -91,6 +92,7 @@ const reqUserData = async (req, res) => {
             }
             exercise_data = exercise_null
         }
+        
         if (insulin_data == null){
             
             let insulin_null = {
@@ -101,6 +103,7 @@ const reqUserData = async (req, res) => {
             }
             insulin_data = insulin_null
         }
+        */
 
         /* create an object to return today's date */
         todayDate = {
@@ -111,7 +114,6 @@ const reqUserData = async (req, res) => {
         if (!reqBody){
             return res.sendStatus(404)
         }
-
         return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
             weight_data:weight_data,today:todayDate })
     } catch (err) {
