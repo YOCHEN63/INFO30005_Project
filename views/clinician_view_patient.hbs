@@ -1,6 +1,6 @@
 <div class="clinician_nav">
     <a href="/clinician">
-        <img src="./logo/doctor (1).png" class="round_icon">
+        <img src="../logo/doctor (1).png" class="round_icon">
     </a>
     {{#with onePatient}}
     <a>
@@ -8,10 +8,10 @@
     </a> 
     {{/with}}
     <a href="/clinician">
-        <img src="./logo/home.png" class="nav_icon">
+        <img src="../logo/home.png" class="nav_icon">
     </a>
     <a href="#">
-        <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
+        <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
 </div>
 
@@ -31,44 +31,52 @@
     </div>
 
     <!-- data seletor -->
+    
     <div class="patient_data_selector_container">
         <p class="roboto_regular_black" style="font-size: 18px;">
             Tell your Patient what Data he needs to record
         </p>
     </div>
-
+    
+    
     <div class="data_container_list">
-        <div class="data_container">
-            <label class="segoeui_bold_white">Blood glucose level</label>
-            <input type="checkbox" class="required_data">
-        </div>
+        {{#with onePatient}}
+        <form action="/clinician/{{this._id}}" method = 'post'>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Blood glucose level</label>
+                <input type="checkbox" class="required_data" name="req_bgl">
+            </div>
 
-        <div class="link_buttom"></div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Weight</label>
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Weight</label>
+                <input type="checkbox" class="required_data" name="req_weight">
+            </div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Doses of Insulin Taken</label>
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
+            <div class="data_container">
+                <label class="segoeui_bold_white">Doses of Insulin Taken</label>
+                <input type="checkbox" class="required_data" name="req_insulin">
+            </div>
+            <div class="link_buttom"></div>
 
-        <div class="data_container">
-            <label class="segoeui_bold_white">Exercise </label> 
-            <input type="checkbox" class="required_data">
-        </div>
-        <div class="link_buttom"></div>
-        
-        <!-- Save Required Button -->
-        <!-- 还没有正式地给它添加任何的数据保存功能 -->
-        <button id="save_required_button" onclick="SubmitRequiredData()">
-            <span class="segoeui_bold_white">Save</span>
-        </button>  
+            <div class="data_container">
+                <label class="segoeui_bold_white">Exercise </label> 
+                <input type="checkbox" class="required_data" name="req_exercise">
+            </div>
+            <div class="link_buttom"></div>
+            
+            <!-- Save Required Button -->
+            <!-- 还没有正式地给它添加任何的数据保存功能 -->
+            <button type="submit" id="save_required_button" onclick="SubmitRequiredData()">
+                <span class="segoeui_bold_white">Save</span>
+            </button>  
+        </form>
+        {{/with}}
     </div>
+    
+    
     
     <!-- time sequence -->
     <div id="time_sequence">
@@ -126,41 +134,38 @@
 
 
             <!-- get threshold -->
-
-            <p id="weight_threshold_upper" class="segoeui_regular_blue">upper</p>
+            {{#with onePatient}}
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
             <p class="segoeui_regular_blue"> ~ </p>
-            <p id="weight_threshold_lower" class="segoeui_regular_blue">lower</p>
-            
+            <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
+            <div class="threshold_setting">
             <button>
-                <img src="./logo/setting.png" class="round_icon" id="set_threshold">
+                <img src="../logo/setting.png" class="round_icon" id="set_threshold_weight">
             </button>
-
-            <!--  threshold pop up form
+            </div>
+            
+            
             <div class= "gray_cover" id="gray_form_4"></div>
-            <div class="form-popup" id="threshold_form">
-                <form action="/:user_id" method = 'post' class="form-container">
+            <div class="form-popup" id="threshold_form_weight">
+                <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
                 
                     <label for="data_field"><b>upperbond</b></label>
 
-                    <input type="number" placeholder="Enter upper bond of threshold for weight" name="weight_upper" required>
+                    <input type="number" placeholder="Enter upper bond for weight" name="weight_upper" required>
                 
                     <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="number" placeholder="Enter lower bond of threshold for weight" name="weight_lower" required>
-
-                    <input type="text" placeholder="Enter upper bond of threshold for weight" name="weight_upper" required>
-                
-                    <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="text" placeholder="Enter lower bond of threshold for weight" name="weight_lower" required>
+                    <input type="number" placeholder="Enter lower bond for weight" name="weight_lower" required>
 
                 
-                    <button type="submit" class="submit_button">Submit</button>
-                    <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
+                    <button type="submit" class="submit_button" id ="weightThreshold_submit">Submit</button>
+                    <button type="button" class="close_button" id="weightThreshold_close">Close</button>
                 </form>
+                
             </div>
+            {{/with}}
 
-            -->
- origin/shiki2208
+            
         </div>
 
         <table>
@@ -189,14 +194,37 @@
 
 
             <!-- get data -->
-
-            <p id="bgl_threshold_upper" class="segoeui_regular_blue">upper</p>
+            {{#with onePatient}}
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
             <p class="segoeui_regular_blue"> ~ </p>
-            <p id="bgl_threshold_lower" class="segoeui_regular_blue">lower</p>
+            <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
             
             <div class="threshold_setting">
-                <img src="./logo/setting.png" onclick="#">
+            <button>
+                <img src="../logo/setting.png" class="round_icon" id="set_threshold_bgl">
+            </button>
             </div>
+
+            
+            <div class= "gray_cover" id="gray_form_5"></div>
+            <div class="form-popup" id="threshold_form_bgl">
+                <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
+                    <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>upperbond</b></label>
+
+                    <input type="number" placeholder="Enter upper bond for blood glucose level" name="bgl_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="number" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" required>
+
+                
+                    <button type="submit" class="submit_button" id ="bglThreshold_submit" >Submit</button>
+                    <button type="button" class="close_button" id="bglThreshold_close">Close</button>
+                </form>
+                
+            </div>
+            {{/with}}
         </div>
 
         <table>
@@ -218,6 +246,43 @@
     </div>
 
     <div id="doses_of_insulin_taken" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+
+            <!-- get data -->
+            {{#with onePatient}}
+            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
+            
+            <div class="threshold_setting">
+            <button>
+                <img src="../logo/setting.png" class="round_icon" id="set_threshold_insulin">
+            </button>
+            </div>
+
+            
+            <div class= "gray_cover" id="gray_form_6"></div>
+            <div class="form-popup" id="threshold_form_insulin">
+                <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
+                    <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>upperbond</b></label>
+
+                    <input type="number" placeholder="Enter upper bond for insulin" name="insulin_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="number" placeholder="Enter lower bond for insulin" name="insulin_lower" required>
+
+                
+                    <button type="submit" class="submit_button" id ="insulinThreshold_submit">Submit</button>
+                    <button type="button" class="close_button" id="insulinThreshold_close">Close</button>
+                </form>
+                
+            </div>
+            {{/with}}
+        </div>
         <table>
             <!-- category -->
             <tr>
@@ -237,6 +302,44 @@
     </div>
 
     <div id="exercise" class="patient_data_tabs_content">
+        <div class="threshold">
+            <h3>The threshold is:</h3>
+
+
+            <!-- get data -->
+            {{#with onePatient}}
+            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
+            
+            <div class="threshold_setting">
+            <button>
+                <img src="../logo/setting.png" class="round_icon" id="set_threshold_exercise">
+            </button>
+            </div>
+
+            
+            <div class= "gray_cover" id="gray_form_7"></div>
+            <div class="form-popup" id="threshold_form_exercise">
+                
+                <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
+                    <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>upperbond</b></label>
+
+                    <input type="number" placeholder="Enter upper bond for exercise" name="exercise_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="number" placeholder="Enter lower bond for exercise" name="exercise_lower" required>
+
+                
+                    <button type="submit" class="submit_button" id ="exerciseThreshold_submit">Submit</button>
+                    <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
+                </form>
+                
+            </div>
+            {{/with}}
+        </div>
         <table>
             <!-- category -->
             <tr>
@@ -291,8 +394,8 @@
 <div>
 
 </div>
-<script type="text/javascript" src="/javascripts/script.js"></script> 
-<!--
-<script type="text/javascript" src="/javascripts/weight_threshold.js"></script> 
--->
+<script type="text/javascript" src="../javascripts/script.js"></script> 
+
+<script type="text/javascript" src="../javascripts/weight_threshold.js"></script> 
+
 

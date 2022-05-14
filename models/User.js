@@ -1,9 +1,5 @@
 const mongoose = require('mongoose')
 
-const thresholdSchema = new mongoose.Schema({
-    uperBound : Number,
-    lowerBound: Number,
-})
 
 const UserSchema = new mongoose.Schema({
     first_name :{
@@ -60,7 +56,23 @@ const UserSchema = new mongoose.Schema({
     weight_down: {
         type:Number,
         default: 0,
-    }
+    },
+    bgl_req :{
+        type:Number,
+        default: 0
+    },
+    weight_req :{
+        type:Number,
+        default: 0
+    },
+    exercise_req :{
+        type:Number,
+        default: 0
+    },
+    insulin_req :{
+        type:Number,
+        default: 0
+    },
 })
 
 const NoteSchema = new mongoose.Schema({
@@ -97,13 +109,19 @@ const InsulinSchema = new mongoose.Schema({
     comment:{type:String}
 })
 
+const MessageSchema = new mongoose.Schema({
+    record_date :{type:Date,default:Date.now},
+    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    comment:{type:String}
+})
+
+const message = mongoose.model('message',MessageSchema,'message')
 const user = mongoose.model('user',UserSchema,'user')
 const note = mongoose.model('note',NoteSchema,'note')
 const exercise = mongoose.model('exercise',ExerciseSchema,'exercise')
 const bloodGlucose = mongoose.model('bloodGlucose',BloodGlucoseSchema,'bloodGlucose')
 const insulin = mongoose.model('insulin',InsulinSchema,'insulin')
 const weight = mongoose.model('weight',WeightSchema,'weight')
-const threshold = mongoose.model('threshold', thresholdSchema,'threshold')
-const myModel = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose,'insulin':insulin,'weight':weight,'note':note, 'threshold':threshold}
+const myModel = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose,'insulin':insulin,'weight':weight,'note':note,'message':message}
 
 module.exports = myModel
