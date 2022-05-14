@@ -18,8 +18,18 @@
 <!-- top part-->
 {{#with today}}    
 <div class="home_font">
+    <marquee direction="left" class="marquee-desktop">
+        <b>MESSAGE FROM CLINICIAN:</b>
+        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+    </marquee>
+
+    <marquee direction="up" scrollamount="1" class="marquee-iphone">
+        <b>MESSAGE FROM CLINICIAN:</b><br>
+        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+    </marquee>
     <div class="home"><b>Home</b></div> 
     <div class="date_font">{{this.date}}</div>
+    
 </div>
 {{/with}}
 
@@ -29,7 +39,10 @@
     <img class="profile_img" src={{this.img}}>
     <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
     <p class="profile_email"> {{this.email}}</p>
+    <div class="tooltip">
     <img class="medal" src="./logo/medal.png">
+    <span class="tooltiptext">Congratulations! Your engagement rate is over 80% </span>
+    </div>
 </div>
 {{/with}}
 
