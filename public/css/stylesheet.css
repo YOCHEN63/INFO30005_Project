@@ -1801,7 +1801,7 @@ body{
 }
 
 .login-right-content{
-  width: 44vw;
+  /* width: 44vw; */
   height: 50vh;
   margin-left: 20%;
   margin-right: 20%;
