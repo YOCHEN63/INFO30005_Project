@@ -1839,6 +1839,10 @@ body{
   text-decoration: underline;
   text-align: right;
 }
+.login-diabetes-right a:hover{
+  color: red;
+}
+
 .login-diabetes-right h5{
   font-size: 3.5vmin;
   background-color: #2372FF;
@@ -1889,7 +1893,15 @@ body{
   }
   
   
-  .login-right-content input[type=text], input[type=password] {
+  .login-right-content input[type=text]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin;
+  }
+  .login-right-content input[type=password]{
     width: 100%;
     padding: 2vmin 5vmin;
     display: inline-block;
