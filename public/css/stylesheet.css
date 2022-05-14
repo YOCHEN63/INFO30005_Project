@@ -1817,7 +1817,7 @@ body{
   font-family: var(--font-family-roboto);
   color: #828282;
 }
-.login-diabetes-right h3{
+.login-right-content h3{
   margin-top: 6%;
   font-size: 3.5vmin;
 }
@@ -1831,7 +1831,20 @@ body{
   box-sizing: border-box;
   font-size: 2.5vmin;
 }
-.login-diabetes-right h4{
+
+.login-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 3%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.login-right-content h4{
   font-size: 2vmin;
   margin-top: 3%;
   padding-left: 6vmin;
@@ -1843,22 +1856,7 @@ body{
   color: red;
 }
 
-.login-diabetes-right h5{
-  font-size: 3.5vmin;
-  background-color: #2372FF;
-  color: white;
-  margin-top: 3%;
-  padding:1vmin;
-  text-align: center;
 
-}
-
-.login-submit{
-  font-size: 3.5vmin;
-  background-color: #2372FF;
-  color: white;
-  text-align: center;
-}
 
 /*  -------About Diabetes mobile page-------- */
 @media screen and (max-width: 500px){
@@ -1887,7 +1885,7 @@ body{
     font-family: var(--font-family-roboto);
     color: #828282;
   }
-  .login-diabetes-right h3{
+  .login-right-content h3{
     margin-top: 12%;
     font-size: 7vmin;
   }
@@ -1907,9 +1905,22 @@ body{
     display: inline-block;
     border: 0.1vmin solid #ccc;
     box-sizing: border-box;
-    font-size: 3.5vmin;
+    font-size: 3.5vmin; 
   }
-  .login-diabetes-right h4{
+  .login-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 3%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .login-right-content h4{
     font-size: 4vmin;
     margin-top: 6%;
     padding-left: 12vmin;
@@ -1917,7 +1928,7 @@ body{
     text-decoration: underline;
     text-align: right;
   }
-  .login-diabetes-right h5{
+  .login-right-content h5{
     font-size: 7vmin;
     background-color: #2372FF;
     color: white;
@@ -1927,39 +1938,12 @@ body{
   
   }
 
-  .change-right-content{
-    height: 100vh;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 10%;
-  }
-  .change-right-content h1{
-    font-size: 15vmin;
-    font-family: var(--font-family-roboto);
-  
-  }
-
-  .change-diabetes-right h3{
-    margin-top: 12%;
-    font-size: 7vmin;
-  }
-  
-  .change-diabetes-right h5{
-    font-size: 7vmin;
-    background-color: #2372FF;
-    color: white;
-    margin-top: 6%;
-    padding:2vmin;
-    text-align: center;
-  
-  }
 }
 
 /* ------------------------------Change password ------shiki------------------------------ */
 .change-right-content{
-  width: 44.vw;
   height: 50vh;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-right: 20%;
   margin-top: 2%;
 }
@@ -1969,11 +1953,11 @@ body{
 
 }
 
-.change-diabetes-right h3{
+.change-right-content h3{
   margin-top: 6%;
   font-size: 3.5vmin;
 }
-.change-diabetes-right h5{
+.change-right-content h5{
   font-size: 3.5vmin;
   background-color: #2372FF;
   color: white;
@@ -1989,5 +1973,72 @@ body{
   display: inline-block;
   border: 0.1vmin solid #ccc;
   box-sizing: border-box;
-  font-size: 2.5vmin;
+  font-size: 3.5vmin;
+}
+.change-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+@media screen and (max-width: 500px){
+  .change-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .change-right-content h1{
+    font-size: 8vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+
+  .change-right-content h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  .change-right-content h5{
+    font-size: 7vmin;
+    background-color: #2372FF;
+    color: white;
+    margin-top: 6%;
+    padding:2vmin;
+    text-align: center;
+  } 
+  .change-right-content input[type=text]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin;
+  }
+  .change-right-content input[type=password]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin; 
+  }
+  .change-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
 }
