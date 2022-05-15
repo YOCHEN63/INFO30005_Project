@@ -231,7 +231,9 @@ body{
   display: flex;
   margin-left: 45%;
 }
-
+.home{
+  
+}
 
 .date_font{
   font-size: 2vmin;
@@ -248,6 +250,43 @@ body{
   margin-left: 3%;
   left: 30px;
   top: 70px;
+}
+.tooltip {
+  position: absolute;
+  top: 7vh;
+  left: 1vw;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  margin-left: 19%;
+  display: block;
+  text-align: center;
+  font-size: 2vmin;
+  border-radius: 15px;
+  width: 30vw;
+  background: #A2D2F9;
+  margin-top: 6%;
+  height: 7vh;
+  padding-top: 5%;
+
+  
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
+}
+.marquee-desktop{
+  display: none;
+}
+
+.marquee-iphone {
+  width: 29vw;
+  height: 17vh;
+  position: absolute;
+  font-size: 3vmin;
+  left: 66%;
+  top: 7%;
 }
 
 .patient_profile{
@@ -495,11 +534,27 @@ body{
   }
   .home_font {
     padding-top: 0.5%;
+    margin-left: -2%;
+    display: inline-flex;
   }
+  .home {
+    margin-left: 5%;
+  }
+  .marquee-desktop{
+    margin-left: 5%;
+    position: relative;
+    display: flex;
+    /* background-color: #A2D2F9;  */
+  }
+  .marquee-iphone{
+    display: none;
+  }
+
   .date_font {
     font-size: 3vmin;
     color: #007AD4;
-    margin-left: 50%;
+    margin-left: 31%;
+    margin-right: 3%;
   }
   .patient_profile {
     width: 20%;
@@ -534,6 +589,33 @@ body{
     margin-top: 10%;
   }
 
+
+  .tooltip {
+    position: relative;
+    top: 3vh;
+    left: 0;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-size: 2.5vmin;
+    border-radius: 20px;
+    width: 20vw;
+    background: #A2D2F9;
+    margin-top: 5%;
+    padding: 0;
+    height: auto;
+  
+    
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    
+  }
   .today-record-session{
     /* display: flex; */
     float: left;
@@ -1788,10 +1870,6 @@ body{
   float: left;
 
 }
-.login-diabetes-right arrow{
-  height: 5vh;
-
-}
 
 .loginarrow_icon{
   margin-left: 10%;
@@ -1801,7 +1879,7 @@ body{
 }
 
 .login-right-content{
-  width: 44vw;
+  /* width: 44vw; */
   height: 50vh;
   margin-left: 20%;
   margin-right: 20%;
@@ -1817,7 +1895,7 @@ body{
   font-family: var(--font-family-roboto);
   color: #828282;
 }
-.login-diabetes-right h3{
+.login-right-content h3{
   margin-top: 6%;
   font-size: 3.5vmin;
 }
@@ -1831,7 +1909,20 @@ body{
   box-sizing: border-box;
   font-size: 2.5vmin;
 }
-.login-diabetes-right h4{
+
+.login-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 3%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.login-right-content h4{
   font-size: 2vmin;
   margin-top: 3%;
   padding-left: 6vmin;
@@ -1839,22 +1930,11 @@ body{
   text-decoration: underline;
   text-align: right;
 }
-.login-diabetes-right h5{
-  font-size: 3.5vmin;
-  background-color: #2372FF;
-  color: white;
-  margin-top: 3%;
-  padding:1vmin;
-  text-align: center;
-
+.login-diabetes-right a:hover{
+  color: red;
 }
 
-.login-submit{
-  font-size: 3.5vmin;
-  background-color: #2372FF;
-  color: white;
-  text-align: center;
-}
+
 
 /*  -------About Diabetes mobile page-------- */
 @media screen and (max-width: 500px){
@@ -1883,13 +1963,13 @@ body{
     font-family: var(--font-family-roboto);
     color: #828282;
   }
-  .login-diabetes-right h3{
+  .login-right-content h3{
     margin-top: 12%;
     font-size: 7vmin;
   }
   
   
-  .login-right-content input[type=text], input[type=password] {
+  .login-right-content input[type=text]{
     width: 100%;
     padding: 2vmin 5vmin;
     display: inline-block;
@@ -1897,7 +1977,28 @@ body{
     box-sizing: border-box;
     font-size: 3.5vmin;
   }
-  .login-diabetes-right h4{
+  .login-right-content input[type=password]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin; 
+  }
+  .login-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 3%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .login-right-content h4{
     font-size: 4vmin;
     margin-top: 6%;
     padding-left: 12vmin;
@@ -1905,7 +2006,7 @@ body{
     text-decoration: underline;
     text-align: right;
   }
-  .login-diabetes-right h5{
+  .login-right-content h5{
     font-size: 7vmin;
     background-color: #2372FF;
     color: white;
@@ -1915,39 +2016,12 @@ body{
   
   }
 
-  .change-right-content{
-    height: 100vh;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 10%;
-  }
-  .change-right-content h1{
-    font-size: 15vmin;
-    font-family: var(--font-family-roboto);
-  
-  }
-
-  .change-diabetes-right h3{
-    margin-top: 12%;
-    font-size: 7vmin;
-  }
-  
-  .change-diabetes-right h5{
-    font-size: 7vmin;
-    background-color: #2372FF;
-    color: white;
-    margin-top: 6%;
-    padding:2vmin;
-    text-align: center;
-  
-  }
 }
 
 /* ------------------------------Change password ------shiki------------------------------ */
 .change-right-content{
-  width: 44.vw;
   height: 50vh;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-right: 20%;
   margin-top: 2%;
 }
@@ -1957,17 +2031,9 @@ body{
 
 }
 
-.change-diabetes-right h3{
+.change-right-content h3{
   margin-top: 6%;
   font-size: 3.5vmin;
-}
-.change-diabetes-right h5{
-  font-size: 3.5vmin;
-  background-color: #2372FF;
-  color: white;
-  margin-top: 15%;
-  padding:1vmin;
-  text-align: center;
 }
 
 
@@ -1977,5 +2043,72 @@ body{
   display: inline-block;
   border: 0.1vmin solid #ccc;
   box-sizing: border-box;
-  font-size: 2.5vmin;
+  font-size: 3.5vmin;
+}
+.change-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+@media screen and (max-width: 500px){
+  .change-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .change-right-content h1{
+    font-size: 8vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+
+  .change-right-content h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  .change-right-content h5{
+    font-size: 7vmin;
+    background-color: #2372FF;
+    color: white;
+    margin-top: 6%;
+    padding:2vmin;
+    text-align: center;
+  } 
+  .change-right-content input[type=text]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin;
+  }
+  .change-right-content input[type=password]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin; 
+  }
+  .change-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
 }

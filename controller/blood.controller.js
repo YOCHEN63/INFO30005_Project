@@ -435,6 +435,11 @@ const login =  (req, res) => {
     res.render('login.hbs',{layout:'login_layout'}) 
 }
 
+/* change password page*/
+const changePassword =  (req, res) => {
+    res.render('changePassword.hbs',{layout:'changePassword_layout'}) 
+}
+
 /* doc view all comment that is written by his patients*/
 const reqAllComment = async (req, res, next) => {
     try {
@@ -465,3 +470,4 @@ module.exports.insert = addData;
 module.exports.find = reqUserData;
 module.exports.reqLatestData = reqLatestData;
 module.exports.edit_threshold = updateThreshold
+module.exports.changePassword = changePassword
