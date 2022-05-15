@@ -106,11 +106,23 @@ body{
   padding-left: 10px;
   align-items: center;
 }
+.nav_icon_more{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  margin-left: 40%;
+  padding-top: 5px;
+  padding-left: 10px;
+  align-items: center;
+}
 @media screen and (max-width:499px) {
-  .nav_icon {
+  .nav_icon{
     margin-left: 35%;
     padding-left: 0px;
-  
+  }
+  .nav_icon_more{
+    margin-left: 35%;
+    padding-left: 0px;
   }
   
 }
@@ -262,7 +274,7 @@ body{
   margin-left: 19%;
   display: block;
   text-align: center;
-  font-size: 2vmin;
+  font-size: 4vmin;
   border-radius: 15px;
   width: 30vw;
   background: #A2D2F9;
@@ -510,6 +522,35 @@ body{
   display: none;
 }
 
+.PH-nav-more { 
+  position: absolute;
+  background-color: #007AD4;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+  border-radius: 20px;
+  font-size: 3vmin;
+  display: none;
+  bottom: 9%;
+  min-width: 100vw;
+  text-align: center;
+
+  
+}
+.PH-nav-more a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.PH-nav-more a:hover{
+  color: #000;
+}
+
+.PH-nav-display {
+  display: block;
+}
+
 /*--------------------ipad and desktop for Patient Home ------------andy-----------*/
 @media screen and (min-width: 500px){
   .patient_nav {
@@ -518,17 +559,42 @@ body{
     height: 72px;
   }
   .patient_nav a {
-    padding-right: 2%;
+    padding-right: 1%;
   }
   .PH-nav-logo {
     display: flex;
   }
-  .nav_icon {
+  .PH-nav-more { 
+    position: absolute;
+    background-color: #007AD4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 250px;
+    font-size: 2.5vmin;
+    bottom: auto;
+  }
+  .PH-nav-more a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .nav_icon{
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+  }
+  .nav_icon_more {
     width: 50px;
     height: 50px;
     padding-top: 5px;
   }
   .nav_icon:hover{
+    height: 57px;
+    width: 57px;
+  }
+  .nav_icon_more:hover{
     height: 57px;
     width: 57px;
   }
@@ -765,7 +831,7 @@ body{
 
 /* Full-width input fields */
 .form-container input[type=text] {
-  width: 81%;
+  width: 82%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -1194,6 +1260,7 @@ body{
   min-width: 100%;
   position:relative;
   display: flex;
+  height:10vh;
   
 
 }
@@ -1205,28 +1272,39 @@ body{
 }
 .data_header a{
   position: relative;
-  padding-top: 2%;
+  padding-top: 1.5%;
   padding-bottom: 1%;
-  padding-left: 30%;
+  padding-left: 5%;
 }
 .data_header p{
   text-decoration: none;
   position: relative;
   float: left;
-  padding-left: 12%;
-  padding-top: 2.5%;
+  padding-left: 35%;
+  padding-top: 1.5%;
+  font-size: 4vmin;
 
 }
 
 .leftarrow_icon{
 
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  align-items: center;
+  height: 50px;
+  width: 50px;
+}
+@media screen and (max-width:500px) {
+  .data_header p{
+    padding-left: 24%;
+    padding-top: 6.5%;
+    font-size: 6vmin;
+  }
+  .leftarrow_icon {
+    height: 40px;
+    width: 40px;
+  }
+  .data_header a{
+    padding-top: 5.5%;
+  }
 
-  overflow: hidden;
-  background: var(--white);
 }
 
 .underline{
