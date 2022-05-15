@@ -153,24 +153,24 @@ body{
   min-width: 800px;
 }
 
-.patients_list a{
+.Main_Table_list a{
   text-decoration: none;
   color: var(--blackl);
 }
 
-.patients_list .element_over_threshold{
+.Main_Table_list .element_over_threshold{
   background-color: #FF6B6B;
 }
 
-.patients_list a:visited{
+.Main_Table_list a:visited{
   color: var(--black);
 }
 
-.patients_list td:hover{
+.Main_Table_list td:hover{
   background-color: var(--hover_gray);
 }
 
-.patients_list th{
+.Main_Table_list th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -178,10 +178,10 @@ body{
 }
 
 /* todo: add style to the table elements*/
-.patients_list td{
+.Main_Table_list td{
   border: 1px solid var(--border_line);
-  padding-left: 20px;
   padding-top: 12px;
+  text-align: center;
 }
 
 .clinician_main_right_column{
