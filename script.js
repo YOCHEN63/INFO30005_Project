@@ -1,3 +1,4 @@
+const { text } = require("body-parser");
 const { set } = require("express/lib/application");
 
 /* -------------------------- Submit Required Data -------------------------- */
@@ -76,14 +77,31 @@ document.querySelector('#clinician_note_submit').onclick = function(){
     }
 }
 
-/* highlight cell */
-$(document).ready(function(){
-    var upper = document.getElementById("weight_threshold_upper").value;
-    var lower = document.getElementById("weight_threshold_lower").value;
+document.querySelector('#clinician_message_submit').onclick = function(){
+    //input can't be none
+    if(document.getElementById("clinician_message_submit").value.length == 0){
+        setTimeout(() => { alert("Message can't be none"); }, 500);
+    }
+    else{
+        var newli = document.createElement("li");
+        var newMessage = document.createElement("div");
+        var dateTime = GetDateTime();
+        var inputValue = document.getElementById("clinician_message_input").value;
+        var text = document.createTextNode(inputValue);
+        var dateText = document.createTextNode(dateTime);
 
-    $('#weight_current_data').each(function(){
-        if($(this).value > upper || $(this).value < lower){
-            $(this).classList.add(highlight);
-        }
-    })
-})
+        newMessage.classList.add("single_clinician_message");
+
+        text.classList.add("note_message segoeui_bold_white");
+        dateText.classList.add("single_clinician_message_datetime segoeui_bold_white");
+
+        newMessage.appendChild(text);
+        newMessage.appendChild(dateText);
+
+        newli.appendChild(newMessage);
+        document.getElementsByClassName("clinicianUI_message_content").appendChild(newli);
+
+        //clear input
+        document.getElementById("clinician_message_input").value = '';
+    }
+}
