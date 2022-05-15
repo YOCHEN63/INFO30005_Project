@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const user = require('../models/User')
 
 passport.use(new LocalStrategy(function (email, password, done){
-    var userData = user.find({'email':email}).lean();
+    let userData = user.find({'email':email}).lean();
     if(email != userData.email){
         return done(null, false, {message: IncorrectEmail})
     }
