@@ -604,7 +604,7 @@ body{
     display: inline-flex;
   }
   .home {
-    margin-left: 5%;
+    display: none;
   }
   .marquee-desktop{
     margin-left: 5%;
@@ -619,7 +619,7 @@ body{
   .date_font {
     font-size: 3vmin;
     color: #007AD4;
-    margin-left: 31%;
+    margin-left: 10%;
     margin-right: 3%;
   }
   .patient_profile {
