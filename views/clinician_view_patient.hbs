@@ -133,9 +133,9 @@
             <h3>The threshold is:</h3>
             <!-- get threshold -->
             {{#with onePatient}}
-            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
             <div class="threshold_setting">
             <button>
                 <img src="../logo/setting.png" class="round_icon" id="set_threshold_weight">
@@ -188,9 +188,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -200,6 +200,7 @@
 
             
             <div class= "gray_cover" id="gray_form_5"></div>
+            
             <div class="form-popup" id="threshold_form_bgl">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
@@ -245,9 +246,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -301,9 +302,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -382,10 +383,12 @@
         </div>
     </div>
 </div>
+
 <!-- Chats box -->
+<div class="clinicianUI_message_part">
+    <div class="clinicianUI_message_container"> 
 
-<div>
-
+    </div>
 </div>
 <script type="text/javascript" src="../javascripts/script.js"></script> 
 
