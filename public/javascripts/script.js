@@ -77,25 +77,6 @@ document.querySelector('#clinician_message_submit').onclick = function(){
         setTimeout(() => { alert("Message can't be none"); }, 500);
     }
     else{
-        var newli = document.createElement("li");
-        var newMessage = document.createElement("div");
-        var dateTime = GetDateTime();
-        var inputValue = document.getElementById("clinician_message_input").value;
-        var text = document.createTextNode(inputValue);
-        var dateText = document.createTextNode(dateTime);
-
-        newMessage.classList.add("single_clinician_message");
-
-        text.classList.add("note_message segoeui_bold_white");
-        dateText.classList.add("single_clinician_message_datetime segoeui_bold_white");
-
-        newMessage.appendChild(text);
-        newMessage.appendChild(dateText);
-
-        newli.appendChild(newMessage);
-        document.getElementsByClassName("clinicianUI_message_content").appendChild(newli);
-
-        //clear input
-        document.getElementById("clinician_message_input").value = '';
+       //不确定需不需要这个function
     }
 }

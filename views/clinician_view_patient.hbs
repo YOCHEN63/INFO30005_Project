@@ -4,7 +4,7 @@
     </a>
     {{#with onePatient}}
     <a>
-        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
+        <p class="segoeui_regular_blue">{{this.first_name}}'s profile</p>
     </a> 
     {{/with}}
     <a href="/clinician">
@@ -408,6 +408,10 @@
                     </div>               
                 </li>
                 <!-- message add here -->
+                <!-- 其实应该是input 直接到后台数据库
+                    这里应该就是render
+                    但是不知道格式会怎么影响毕竟主页是表格这里是div
+                -- >
             </ul>
         </div>
         
