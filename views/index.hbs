@@ -1,19 +1,34 @@
 <!--bottom nav part-->
 <div class="patient_nav">
     <img src="./logo/Diabetes @Home (4).png" class="PH-nav-logo">
-    <a href="#">
+    <a href="/">
         <img src="./logo/home.png" class="nav_icon">
     </a>
-    <a href="#">
+    {{!-- <a href="#">
         <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
     <a href="#">
         <img src="./logo/notification.png" class="nav_icon">
-    </a>
+    </a> --}}
     <a href="#">
-        <img src="./logo/setting.png" class="nav_icon">
+        <img src="./logo/more.png" class="nav_icon_more">
     </a>
 </div>
+
+<div class="PH-nav-more">
+    <a href="/home"><b>About Diabetes</b></a>
+    <a href="/about-us"><b>About Website</b></a>
+    <a href="/changePassword"><b>Change Password</b></a>
+</div>
+
+<script>
+const moreBtn = document.querySelector('.nav_icon_more')
+const PHnavlinks = document.querySelector('.PH-nav-more')
+
+moreBtn.addEventListener('click', ()=>{
+PHnavlinks.classList.toggle('PH-nav-display')
+})
+</script>
 
 <!-- top part-->
 {{#with today}}    
@@ -240,3 +255,4 @@
 
 </div>
 <script src="./javascripts/pop_form.js"></script> 
+<script src="./javascripts/script.js"></script>
