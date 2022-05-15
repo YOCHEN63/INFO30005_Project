@@ -1185,7 +1185,25 @@ body{
 }
 
 /* ----------------------------- Message Content ---------------------------- */
+.clinicianUI_message_container{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
+.clinicianUI_message_title{
+  border: 1px solid var(--border_line);
+}
+
+.clinicianUI_message_title h2{
+  text-align: center;
+}
+
+
+.clinicianUI_message_content{
+  border: 1px solid var(--border_line);
+  height: 300px;
+}
 /* shiki */
 
 .data_header{
@@ -1244,7 +1262,6 @@ body{
 }
 
 /* selection */
-
 .selection_container{
 
   display: flex;
@@ -1278,6 +1295,7 @@ body{
   overflow: hidden;
   white-space: nowrap;
 }
+
 /* show all data */
 .data_container{
   display: flex;
@@ -1286,8 +1304,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .data_container:after{
@@ -1295,7 +1311,6 @@ body{
   display: block;
   /* margin-top: 23.9%; */
 }
-
 
 .data_graph{
   height: 100%;
@@ -1315,8 +1330,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .viewdata_container:after{
