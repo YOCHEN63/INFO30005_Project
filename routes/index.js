@@ -6,6 +6,7 @@ const controllers = require('../controller/blood.controller')
 
 router.get('/', controllers.find) 
 router.get('/login', controllers.login)
+router.get('/changePassword', controllers.changePassword)
 router.get('/home', controllers.home)
 router.get('/about-us', controllers.about_us)
 router.get('/view_data', controllers.view_data) 
