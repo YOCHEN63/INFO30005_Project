@@ -314,7 +314,7 @@ body{
 
 .profile_img{
   width: 28%;
-  height: 50%;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -633,7 +633,7 @@ body{
   }
   .profile_img {
     width: 17vw;
-    height: 30vh;
+    height: auto;
   }
   .profile_email {
     font-size: 2.3vmin;
@@ -646,7 +646,7 @@ body{
   .medal {
     position: relative;
     width: 7vw;
-    height: 16vh;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
