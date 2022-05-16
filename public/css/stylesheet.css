@@ -1487,7 +1487,7 @@ body{
   display: flex;
   list-style-type: none;
   /* align-items: center; */
-  margin-left: 50%;
+  margin-left: 55%;
 }
 
 .AD-nav-links li {
@@ -1495,7 +1495,7 @@ body{
 }
 @media screen and (max-width: 1024px) {
 .AD-nav-links {
-  margin-left: 38%;
+  margin-left: 45%;
 }
 
   .AD-nav-links li {
