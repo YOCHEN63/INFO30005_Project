@@ -4,7 +4,7 @@
     </a>
     {{#with onePatient}}
     <a>
-        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
+        <p class="segoeui_regular_blue">{{this.first_name}}'s profile</p>
     </a> 
     {{/with}}
     <a href="/clinician">
@@ -12,6 +12,10 @@
     </a>
     <a href="#">
         <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
+    </a>
+    <!-- 加comment页面的-->
+    <a href="#">
+        <img src="../logo/comment.png" class="nav_icon">
     </a>
 </div>
 
@@ -131,20 +135,18 @@
     <div id="weight" class="patient_data_tabs_content">
         <div class="threshold">
             <h3>The threshold is:</h3>
-
-
             <!-- get threshold -->
             {{#with onePatient}}
-            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
             <div class="threshold_setting">
             <button>
                 <img src="../logo/setting.png" class="round_icon" id="set_threshold_weight">
             </button>
             </div>
             
-            
+            <!-- record threshold -->
             <div class= "gray_cover" id="gray_form_4"></div>
             <div class="form-popup" id="threshold_form_weight">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
@@ -164,8 +166,6 @@
                 
             </div>
             {{/with}}
-
-            
         </div>
 
         <table>
@@ -178,13 +178,10 @@
             {{#each weight_data}}
             <tr>
                 <td>{{this.record_date}}</td>
-                <td>{{this.weight}}</td>
+                <td id="weight_current_data">{{this.weight}}</td>
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
-            <!-- 
-                todo: get data from the database
-            -->
         </table>
     </div>
 
@@ -195,9 +192,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -207,6 +204,7 @@
 
             
             <div class= "gray_cover" id="gray_form_5"></div>
+            
             <div class="form-popup" id="threshold_form_bgl">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
@@ -252,9 +250,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -308,9 +306,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -388,14 +386,48 @@
             </button>
         </div>
     </div>
-</div>
-<!-- Chats box -->
 
-<div>
+    <!-- Chats box -->
+    <div class="clinicianUI_message_container">
+        <div class="clinicianUI_message_title"> 
+            <h2>
+                Message
+            </h2>
+        </div>
+        
+        <div class="clinicianUI_message_content">
+            <!-- add function not completed yet -->
+            <ul>
+                <li>
+                    <div class="single_clinician_message">
+                        <p class="note_message segoeui_bold_white">
+                            这里是留言render
+                        </p>
+                        <h6 class="single_clinician_message_datetime segoeui_bold_white">
+                            这里是时间render
+                        </h6>
+                    </div>               
+                </li>
+                <!-- message add here -->
+                <!-- 其实应该是input 直接到后台数据库
+                    这里应该就是render
+                    但是不知道格式会怎么影响毕竟主页是表格这里是div
+                -- >
+            </ul>
+        </div>
+        
+        <div id="note_input_container">
+            <input type="text" placeholder="Any comments for this patient?"
+                id="clinician_message_input">
 
+            <button id="clinician_message_submit"
+                    class="segoeui_bold_white">
+                Submit
+            </button> 
+        </div>
+    </div>
 </div>
+
 <script type="text/javascript" src="../javascripts/script.js"></script> 
 
 <script type="text/javascript" src="../javascripts/weight_threshold.js"></script> 
-
-

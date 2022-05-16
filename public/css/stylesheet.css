@@ -144,7 +144,7 @@ body{
   width: 70%;
 }
 
-.patients_list {
+.Main_Table_list {
   width: 80%;
   margin-top: 30px;
   margin-left: 66px;
@@ -153,24 +153,24 @@ body{
   min-width: 800px;
 }
 
-.patients_list a{
+.Main_Table_list a{
   text-decoration: none;
   color: var(--blackl);
 }
 
-.patients_list .element_over_threshold{
+.Main_Table_list .element_over_threshold{
   background-color: #FF6B6B;
 }
 
-.patients_list a:visited{
+.Main_Table_list a:visited{
   color: var(--black);
 }
 
-.patients_list td:hover{
+.Main_Table_list td:hover{
   background-color: var(--hover_gray);
 }
 
-.patients_list th{
+.Main_Table_list th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -178,10 +178,10 @@ body{
 }
 
 /* todo: add style to the table elements*/
-.patients_list td{
+.Main_Table_list td{
   border: 1px solid var(--border_line);
-  padding-left: 20px;
   padding-top: 12px;
+  text-align: center;
 }
 
 .clinician_main_right_column{
@@ -1251,9 +1251,76 @@ body{
 }
 
 /* ----------------------------- Message Content ---------------------------- */
+.clinicianUI_message_container{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
-/* shiki */
+.clinicianUI_message_title{
+  border: 1px solid var(--border_line);
+}
 
+.clinicianUI_message_title h2{
+  text-align: center;
+}
+
+.clinicianUI_message_content{
+  border: 1px solid var(--border_line);
+  height: 300px;
+}
+
+
+.clinicianUI_message_content ul{
+  list-style-type: none;
+}
+
+#clinician_message_input{
+  margin: 20px 30px;
+  height: 30px;
+  font-size: 17px;
+  width: 70%;
+  border: 1px solid var(--border_line);
+  border-radius: 8px;
+}
+
+#clinician_message_input:hover{
+  background-color: #f2f2f2;
+}
+
+#clinician_message_submit{
+  width: 15%;
+  height: 30px;
+  background-color: var(--background_blue);
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  margin:20px 0px;
+}
+
+#clinician_message_submit:hover{
+  background-color: var(--background_blue_hover);
+}
+
+#clinician_message_submit:active{
+  background-color: var(--background_blue_active);
+}
+
+.single_clinician_message{
+  border: 1px solid var(--border_line);
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  background-color: var(--background_blue);
+}
+
+.single_clinician_message_datetime{
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* ----------------------------------- Shiki -------------------------------- */
 .data_header{
   width: 100%;
   overflow: hidden;
@@ -1321,11 +1388,7 @@ body{
   margin-top: 0.2%;
 }
 
-
-
-
 /* selection */
-
 .selection_container{
 
   display: flex;
@@ -1359,6 +1422,7 @@ body{
   overflow: hidden;
   white-space: nowrap;
 }
+
 /* show all data */
 .data_container{
   display: flex;
@@ -1367,8 +1431,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .data_container:after{
@@ -1376,7 +1438,6 @@ body{
   display: block;
   /* margin-top: 23.9%; */
 }
-
 
 .data_graph{
   height: 100%;
@@ -1396,8 +1457,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .viewdata_container:after{

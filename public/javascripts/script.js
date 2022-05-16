@@ -70,3 +70,13 @@ document.querySelector('#clinician_note_submit').onclick = function(){
     }
 }
 
+
+document.querySelector('#clinician_message_submit').onclick = function(){
+    //input can't be none
+    if(document.getElementById("clinician_message_input").value.length == 0){
+        setTimeout(() => { alert("Message can't be none"); }, 500);
+    }
+    else{
+       //不确定需不需要这个function
+    }
+}

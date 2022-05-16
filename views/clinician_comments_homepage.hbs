@@ -1,4 +1,3 @@
-<!-- nav bar -->
 <div class="clinician_nav">
     <a href="/clinician">
         <img src="./logo/Diabetes @Home (8).png" class="round_icon">
@@ -21,23 +20,27 @@
 </div>
 
 <div class="table_name">
-    <h1 class="roboto_regular_black_48px">My patient</h1>
+    <h1 class="roboto_regular_black_48px">Comments</h1>
 </div>
 
-<!-- Comments table -->
 <div class="clinician_main_left_column">
     <table class="Main_Table_list">
         <!-- category -->
         <tr>
             <th>Name</th>
-            <th>Blood glucose level(Nmol/g)</th>
-            <th>Weight(kg)</th>
-            <th>Doses of insulin taken</th>
-            <th>Exercise(steps)</th>
+            <th>Date</th>
+            <th>Comment</th>
+            <th>Type of Data</th>
+            <th>Data Recorded</th>
         </tr>
 		{{#each patientData}}
         <tr>  
-            <td><a href="/clinician/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></td>    
+            <td>
+                <a href="/clinician/{{this._id}}">
+                    {{this.first_name}} {{this.last_name}}
+                </a>
+            </td>    
+
             {{#if bgl_over}} 
             <td class="element_over_threshold">{{this.bloodGlucose}}</td>
             {{else}}
@@ -60,6 +63,7 @@
             {{/if}} 
         </tr>
         {{/each}}
+
     </table>
 </div>
 

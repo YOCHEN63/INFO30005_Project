@@ -870,6 +870,9 @@ body{
     display: block;
 }
 
+.highlight{
+  background-color: palevioletred;
+}
 
 /* ------------------------------ Note Content ----------------------------- */
 
