@@ -1929,14 +1929,14 @@ body{
   height: 100vh;
   background-color: #2372FF;
   float: left;
+  display: flex;
+  justify-content: center;
 
 }
 .login-photo{
   width: 48vw;
-  height: 75vh;
-  margin-top: 10%;
-  margin-bottom: 10%;
-
+  height: auto;
+  margin: auto;
 }
 
 
