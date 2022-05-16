@@ -2158,7 +2158,7 @@ body{
     /* background-color: #2372FF; */
     color: white;
     margin-top: 6%;
-    padding:2vmin;
+    /* padding:2vmin; */
     text-align: center;
   } 
   .change-right-content input[type=text]{
