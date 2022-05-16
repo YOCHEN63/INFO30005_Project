@@ -77,3 +77,19 @@ document.querySelector('#clinician_note_submit').onclick = function(){
     }
 }
 
+/* --------------------------- New Paitent Modal -------------------------- */
+var newPatientBtn = document.getElementById("new_patient");
+
+var newPatientModal = document.getElementById("new_patient_modal");
+
+var newPatientModalClose = document.getElementById("modal_content_close")[0];
+
+newPatientBtn.onclick = function(){
+    newPatientModal.style.display = "block";
+}
+
+newPatientModalClose = document.getElementById("modal_content_close");
+
+newPatientModalClose.onclick = function(){
+    newPatientModal.style.display = "none";
+}
