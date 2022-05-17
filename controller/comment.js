@@ -11,9 +11,9 @@ const reqComment = async (req, res, next) => {
     const query = {
         path : 'user',
         select : 'clinicianID',
-        match : {clinicianID : req.params.clinician_id}
+        match : {clinicianID : '626260ca24f9653799b8b340'}
     }
-
+    const docData = await user.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
     let bgl_comments =  bloodGlucose.find().populate(query).lean()
     for(var bgl_comment in bgl_comments) {
         bgl_comment.dataType = 'blood glucose level'
@@ -32,12 +32,16 @@ const reqComment = async (req, res, next) => {
     }
 
     var result = bgl_comments.concat(exercise_comments).concat(weight_comments).concat(insulin_comments)
+    /*
     result.sort(dateData('record_date',false))
-    res.render('comments', {all_comments : result})
+    */
+    console.log(result)
+    res.render('clinician_view_patient', {all_comments : result,docData:docData})
+    
 
-
+    /*
     function dateData(property, bol) {
-        return function(a, b) {
+        function(a, b) {
             var value1 = a[property];
             var value2 = b[property];
             if (bol) {
@@ -49,8 +53,8 @@ const reqComment = async (req, res, next) => {
     
         }
     }
- 
+    */
 }
 
-module.exports = reqComment
+module.exports.reqComment = reqComment
 
