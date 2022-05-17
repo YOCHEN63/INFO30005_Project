@@ -99,12 +99,13 @@ const reqUserData = async (req, res) => {
             record_exercise = null
         }
         /* if we cant find one patient, we return 404*/
-        if (!reqBody){
-            return res.sendStatus(404)
+        if (!req.user.clinicianID) {
+            res.redirect('/clinician')    // redirect users with 'teacher' role to teachers' home page
         }
-        return res.render('index',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
-            weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
-            record_bgl:record_bgl })
+        else
+            return res.render('index',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
+                weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
+                record_bgl:record_bgl })
     } catch (err) {
         return console.error(err)
     }
@@ -121,6 +122,7 @@ const updateThreshold = async (req, res) => {
     
 
     const dataType = Object.keys(body)[0]
+    userData.save()
     /* require list*/
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
     /* find the rest of types that are not required*/
@@ -273,8 +275,8 @@ const reqLatestData = async (user_id) => {
 const reqDocData = async (req, res, next) => {
     try {
         /* fin doc and his patient*/
-        const docData = await myUser.findOne({"_id":"6283977c3009a785632bc30b"}).lean()
-        const patientData = await myUser.find({"clinicianID":"6283977c3009a785632bc30b"}).lean()
+        const docData = await myUser.findOne({"_id":req.user._id}).lean()
+        const patientData = await myUser.find({"clinicianID":req.user._id}).lean()
         console.log('doc log in')
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);

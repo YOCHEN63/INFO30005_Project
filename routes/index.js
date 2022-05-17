@@ -9,7 +9,7 @@ router.get('/changePassword', controllers.changePassword)
 router.get('/home', controllers.home)
 router.get('/about-us', controllers.about_us)
 router.get('/view_data', controllers.view_data) 
-router.get('/clinician', controllers.find_doc)
+router.get('/clinician',controllers.isAuthenticated, controllers.find_doc)
 router.get('/clinician/:user_id', controllers.find_doc_patient)
 
 
