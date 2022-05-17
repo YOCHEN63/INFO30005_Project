@@ -21,5 +21,14 @@ const register = async (req, res, next) => {
 
 }
 
+const sendMessage = async (req, res) => {
+    try {
+        let user = await userModel.findByIdAndUpdate(req.body.user_id, {support_message: req.body.support_message})
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 module.exports.changePassword = changePassword;
 module.exports.register = register;
+module.exports.updateMessage = sendMessage;

@@ -25,6 +25,9 @@ const UserSchema = new mongoose.Schema({
     clinicianID:{
         type:mongoose.Schema.Types.ObjectId,ref:'user'
     },
+    support_message: {
+        type:String
+    },
     bgl_up: {
         type:Number,
         default: 10000
