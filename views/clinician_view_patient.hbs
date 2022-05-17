@@ -4,7 +4,7 @@
     </a>
     {{#with onePatient}}
     <a>
-        <p class="segoeui_regular_blue">{{this.first_name}}'s profile</p>
+        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
     <a href="/clinician">
@@ -12,10 +12,6 @@
     </a>
     <a href="#">
         <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
-    </a>
-    <!-- 加comment页面的-->
-    <a href="#">
-        <img src="../logo/comment.png" class="nav_icon">
     </a>
 </div>
 
@@ -135,18 +131,20 @@
     <div id="weight" class="patient_data_tabs_content">
         <div class="threshold">
             <h3>The threshold is:</h3>
+
+
             <!-- get threshold -->
             {{#with onePatient}}
-            <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
             <div class="threshold_setting">
             <button>
                 <img src="../logo/setting.png" class="round_icon" id="set_threshold_weight">
             </button>
             </div>
             
-            <!-- record threshold -->
+            
             <div class= "gray_cover" id="gray_form_4"></div>
             <div class="form-popup" id="threshold_form_weight">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
@@ -166,6 +164,8 @@
                 
             </div>
             {{/with}}
+
+            
         </div>
 
         <table>
@@ -178,10 +178,13 @@
             {{#each weight_data}}
             <tr>
                 <td>{{this.record_date}}</td>
-                <td id="weight_current_data">{{this.weight}}</td>
+                <td>{{this.weight}}</td>
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
         </table>
     </div>
 
@@ -192,9 +195,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -204,7 +207,6 @@
 
             
             <div class= "gray_cover" id="gray_form_5"></div>
-            
             <div class="form-popup" id="threshold_form_bgl">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
@@ -250,9 +252,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -306,9 +308,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -427,7 +429,12 @@
         </div>
     </div>
 </div>
+<!-- Chats box -->
 
+<div>
+
+</div>
 <script type="text/javascript" src="../javascripts/script.js"></script> 
 
 <script type="text/javascript" src="../javascripts/weight_threshold.js"></script> 
+

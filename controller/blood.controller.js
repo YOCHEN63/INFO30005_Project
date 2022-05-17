@@ -448,6 +448,8 @@ const reqAllComment = async (req, res, next) => {
         console.log('doc view comments')
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
+            var data = await findAllComments(objectId);
+            console.log(data)
             /* write a new function to retrieve a list of objects*/
             /* find each patient's data*/
             console.log('get data for comment');
@@ -457,6 +459,16 @@ const reqAllComment = async (req, res, next) => {
         return next(err)
     }
     
+}
+
+const findBglComments = async (user_id) => {
+    /* find all data with comments from today */
+    try {
+        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        return {bgl_data}
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 module.exports.all_comment = reqAllComment
