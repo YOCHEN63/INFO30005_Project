@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
     first_name :{
@@ -113,6 +113,33 @@ const MessageSchema = new mongoose.Schema({
     record_date :{type:Date,default:Date.now},
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
+})
+
+// password comparison function
+UserSchema.methods.verifyPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
+
+const SALT_FACTOR = 10
+
+// hash password before saving
+UserSchema.pre('save', function save(next) {
+    const user = this// go to next if password field has not been modified
+    if (!user.isModified('password')) {
+        return next()
+    }
+
+    // auto-generate salt/hash
+    bcrypt.hash(user.password, SALT_FACTOR, (err, hash) => {
+        if (err) {
+            return next(err)
+        }
+        //replace password with hash
+        user.password = hash
+        next()
+    })
 })
 
 const message = mongoose.model('message',MessageSchema,'message')
