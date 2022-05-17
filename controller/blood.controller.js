@@ -31,7 +31,6 @@ const reqUserData = async (req, res) => {
     
     try {
         /* try to find start of the day*/
-        console.log(req.user)
         const now = new Date()
         let startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         startOfToday = startOfToday.toLocaleDateString('en-US', {timeZone: 'Australia/Melbourne'})
@@ -117,8 +116,10 @@ const reqUserData = async (req, res) => {
 const updateThreshold = async (req, res) => {
     let max = 10000
     let min = 0
-    current_user = await myUser.findOne({"user_id":'6266f45c3c62e10a62e038f4'})
     const body = req.body
+
+    
+
     const dataType = Object.keys(body)[0]
     /* require list*/
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
@@ -272,8 +273,8 @@ const reqLatestData = async (user_id) => {
 const reqDocData = async (req, res, next) => {
     try {
         /* fin doc and his patient*/
-        const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
-        const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
+        const docData = await myUser.findOne({"_id":"6283977c3009a785632bc30b"}).lean()
+        const patientData = await myUser.find({"clinicianID":"6283977c3009a785632bc30b"}).lean()
         console.log('doc log in')
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
@@ -368,21 +369,21 @@ const addData = async (req, res) => {
         if (dataType === 'weight') {
             const weightData = new weight({
                 'weight' : body.weight,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             weightData.save()
         } else if (dataType === 'blood_glucose_level') {
             const bloodGlucoseData = new bloodGlucose({
                 'blood_glucose_level' : body.blood_glucose_level,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             bloodGlucoseData.save()
         } else if (dataType === 'walk_steps') {
             const exerciseData = new exercise({
                 'walk_steps' : body.walk_steps,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             
@@ -391,7 +392,7 @@ const addData = async (req, res) => {
         } else if (dataType === 'insulin_shots') {
             const insulinData = new insulin({
                 'insulin_shots' : body.insulin_shots,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             console.log(insulinData)
@@ -407,10 +408,10 @@ const addData = async (req, res) => {
 const patientViewData = async (req, res, next) => {
     try {
         /* find all data sort by date*/
-        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var insulin_data = await insulin.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var bgl_data = await bloodGlucose.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
         /* set output time style year+month+date+hour+minute*/
         let options = {
             year: 'numeric', month: 'numeric', day: 'numeric',hour: 'numeric', minute: 'numeric',
@@ -474,7 +475,7 @@ const changePassword =  (req, res) => {
 const reqAllComment = async (req, res, next) => {
     try {
         /* remember to turn this id to req.params*/
-        const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
+        const patientData = await myUser.find({"clinicianID":req.user._id}).lean()
         console.log('doc view comments')
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);

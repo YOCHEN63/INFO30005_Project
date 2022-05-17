@@ -59,20 +59,28 @@ const UserSchema = new mongoose.Schema({
     },
     bgl_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     weight_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     exercise_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     insulin_req :{
         type:Number,
-        default: 0
+        default: 1
     },
+    register_date :{
+        type:Date,
+        default:Date.now
+    },
+    nick_name :{
+        type:String,
+        require: true
+    }
 })
 
 const NoteSchema = new mongoose.Schema({
