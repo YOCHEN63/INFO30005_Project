@@ -93,3 +93,11 @@ newPatientModalClose = document.getElementById("modal_content_close");
 newPatientModalClose.onclick = function(){
     newPatientModal.style.display = "none";
 }
+
+var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
+
+newPatientFormSubmit.onclick() = function(){
+    newPatientModal.style.display = "none";
+
+    setTimeout(() => { alert("New Paitent added successfully!"); }, 1500);
+}

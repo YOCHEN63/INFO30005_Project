@@ -86,3 +86,11 @@ newPatientModalClose = document.getElementById("modal_content_close");
 newPatientModalClose.onclick = function(){
     newPatientModal.style.display = "none";
 }
+
+var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
+
+newPatientFormSubmit.onclick() = function(){
+    setTimeout(() => { alert("Submit successfully!"); }, 500);
+
+    newPatientModal.style.display = "none";
+}

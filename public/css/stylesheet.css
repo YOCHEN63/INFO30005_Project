@@ -243,9 +243,6 @@ body{
   display: flex;
   margin-left: 45%;
 }
-.home{
-  
-}
 
 .date_font{
   font-size: 2vmin;
@@ -1120,8 +1117,47 @@ body{
 #modal_content_close{
   color: #aaaaaa;
   float: right;
-  font-size: 35px;
+}
+
+#modal_content_close img{
+  height: 25px;
+  width: 25px;
+}
+
+#modal_content_close :hover{
+  height: 28px;
+  width: 28px;
+}
+
+.new_patient_form label{
   font-weight: bold;
+  padding-left: 30px;
+}
+
+.new_patient_form input{
+  height: 30px;
+  width: 200px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+
+.new_patient_form button{
+  background-color: var(--green);
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.new_patient_form button:hover{
+  background-color: #06e07a;
+}
+
+.new_patient_form button:active{
+  background-color: #1ff994;
 }
 
 .modal_content_close:hover,
@@ -1332,7 +1368,7 @@ body{
 
 .clinicianUI_message_content{
   border: 1px solid var(--border_line);
-  height: 300px;
+  height: 100px;
 }
 
 

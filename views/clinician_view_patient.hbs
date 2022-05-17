@@ -25,36 +25,40 @@
 <div id="new_patient_modal">
 
     <div id="new_patient_modal_content">
-        <span id="modal_content_close">&times;</span>
+        <span id="modal_content_close">
+            <img src="/logo/close.png">
+        </span>
         
         <h2> New Patient Form</h2>
 
         <form class="new_patient_form">
             <label for="#">First Name:</label><br>
-            <input id="#" placeholder="eg:John"><br>
+            <input id="#" placeholder=" eg: John"><br>
 
             <label for="#">Last Name:</label><br>
-            <input id="#" placeholder="eg:Wick"><br>
+            <input id="#" placeholder=" eg: Wick"><br>
 
             <label for="#">Day of Birth</label><br>
-            <input id="#" placeholder="dd/mm/yy"><br>
+            <input id="#" placeholder=" eg: dd/mm/yy"><br>
 
             <label for="#">	Blood glucose level</label><br>
-            <input id="#" placeholder="-- kg"><br>
+            <input id="#" placeholder=" -- kg"><br>
 
             <label for="#">Weight</label><br>
-            <input id="#" placeholder="-- Nmol/L)"><br>
+            <input id="#" placeholder=" -- Nmol/L"><br>
 
             <label for="#">Doses of insulin taken</label><br>
-            <input id="#" placeholder="-- Doses"><br>
+            <input id="#" placeholder=" -- Doses"><br>
 
             <label for="#">Exercise</label><br>
-            <input id="#" placeholder="-- steps"><br>
+            <input id="#" placeholder=" -- steps"><br>
 
             <label>Note</label><br>
-            <input id="#" placeholder="......"><br>
-        
-            <button type="submit" class="segoeui_bold_white">Submit </button><br>
+            <input id="#" placeholder=" ...... "><br>
+
+            <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
+                Submit 
+            </button><br>
         </form>
     </div>
 
@@ -449,11 +453,6 @@
                         </h6>
                     </div>               
                 </li>
-                <!-- message add here -->
-                <!-- 其实应该是input 直接到后台数据库
-                    这里应该就是render
-                    但是不知道格式会怎么影响毕竟主页是表格这里是div
-                -- >
             </ul>
         </div>
         
@@ -468,6 +467,7 @@
         </div>
 
     </div>
+    
 </div>
 
 <script type="text/javascript" src="../javascripts/script.js"></script> 
