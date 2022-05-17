@@ -9,27 +9,27 @@ const weight = models.weight
 
 const reqComment = async (req, res, next) => {
     const query = {
-        path : 'user',
+        path : 'user_id',
         select : 'clinicianID',
         match : {clinicianID : '626260ca24f9653799b8b340'}
     }
-    const docData = await user.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
-    let bgl_comments =  bloodGlucose.find().populate(query).lean()
-    for(var bgl_comment in bgl_comments) {
-        bgl_comment.dataType = 'blood glucose level'
-    }
-    let exercise_comments =  exercise.find().populate(query).lean()
-    for(var exercise_comment in exercise_comments) {
-        exercise_comment.dataType = 'exercise'
-    }
-    let insulin_comments =  insulin.find().populate(query).lean()
-    for(var insulin_comment in insulin_comments) {
-        insulin_comment.dataType = 'insulin'
-    }
-    let weight_comments =  weight.find().populate(query).lean()
-    for(var weight_comment in weight_comments) {
-        weight_comment.dataType = 'weight'
-    }
+    // const docData = await user.findOne({"_id":req.user}).lean()
+    let bgl_comments =  await bloodGlucose.find().populate(query).lean()
+    bgl_comments.forEach((elem, index) =>{
+        elem.dataType = 'blood glucose level'
+    })
+    let exercise_comments = await exercise.find().populate(query).lean()
+    exercise_comments.forEach((elem, index) =>{
+        elem.dataType = 'exercise'
+    })
+    let insulin_comments =  await insulin.find().populate(query).lean()
+    insulin_comments.forEach((elem, index) =>{
+        elem.dataType = 'insulin shots'
+    })
+    let weight_comments = await weight.find().populate(query).lean()
+    weight_comments.forEach((elem, index) =>{
+        elem.dataType = 'weight'
+    })
 
     var result = bgl_comments.concat(exercise_comments).concat(weight_comments).concat(insulin_comments)
     /*
