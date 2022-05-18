@@ -315,7 +315,7 @@ const reqDocData = async (req, res, next) => {
 }
 
 /* clinian view one specific patient data*/
-const reqDocPatientData = async (req, res) => {
+const reqDocPatientData = async (req, res, next) => {
     try {
         /* set output time style year+month+date+hour+minute*/
         let options = {
