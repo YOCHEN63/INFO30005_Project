@@ -70,13 +70,27 @@ document.querySelector('#clinician_note_submit').onclick = function(){
     }
 }
 
+/* --------------------------- New Paitent Modal -------------------------- */
+var newPatientBtn = document.getElementById("new_patient");
 
-document.querySelector('#clinician_message_submit').onclick = function(){
-    //input can't be none
-    if(document.getElementById("clinician_message_input").value.length == 0){
-        setTimeout(() => { alert("Message can't be none"); }, 500);
-    }
-    else{
-       //不确定需不需要这个function
-    }
+var newPatientModal = document.getElementById("new_patient_modal");
+
+var newPatientModalClose = document.getElementById("modal_content_close");
+
+newPatientBtn.onclick = function(){
+    newPatientModal.style.display = "block";
+}
+
+newPatientModalClose = document.getElementById("modal_content_close");
+
+newPatientModalClose.onclick = function(){
+    newPatientModal.style.display = "none";
+}
+
+var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
+
+newPatientFormSubmit.onclick() = function(){
+    setTimeout(() => { alert("Submit successfully!"); }, 500);
+
+    newPatientModal.style.display = "none";
 }

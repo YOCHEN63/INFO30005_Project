@@ -18,6 +18,50 @@
     <a href="clinician/comments/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
+
+    <button id="new_patient" class="segoeui_bold_white">New Patient</button>
+</div>
+
+<!-- New Patient Modal-->
+<div id="new_patient_modal">
+
+    <div id="new_patient_modal_content">
+        <span id="modal_content_close">
+            <img src="/logo/close.png">
+        </span>
+        
+        <h2> New Patient Form</h2>
+
+        <form class="new_patient_form">
+            <label for="#">First Name:</label><br>
+            <input id="#" placeholder=" eg: John"><br>
+
+            <label for="#">Last Name:</label><br>
+            <input id="#" placeholder=" eg: Wick"><br>
+
+            <label for="#">Day of Birth</label><br>
+            <input id="#" placeholder=" eg: dd/mm/yy"><br>
+
+            <label for="#">	Blood glucose level</label><br>
+            <input id="#" placeholder=" -- kg"><br>
+
+            <label for="#">Weight</label><br>
+            <input id="#" placeholder=" -- Nmol/L"><br>
+
+            <label for="#">Doses of insulin taken</label><br>
+            <input id="#" placeholder=" -- Doses"><br>
+
+            <label for="#">Exercise</label><br>
+            <input id="#" placeholder=" -- steps"><br>
+
+            <label>Note</label><br>
+            <input id="#" placeholder=" ...... "><br>
+
+            <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
+                Submit 
+            </button><br>
+        </form>
+    </div>
 </div>
 
 <div class="table_name">
@@ -74,3 +118,5 @@
     </div>
 </div>
 {{/with}}
+
+<script type="text/javascript" src="../javascripts/script.js"></script>

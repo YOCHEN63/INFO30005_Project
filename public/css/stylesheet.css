@@ -243,9 +243,6 @@ body{
   display: flex;
   margin-left: 45%;
 }
-.home{
-  
-}
 
 .date_font{
   font-size: 2vmin;
@@ -1064,7 +1061,111 @@ body{
 
 
 /* ------------------------ Clinician UI Patient Data ---------------------- */
+#new_patient{
+  width: 150px;
+  height: 30px;
+  background-color: var(--background_blue);
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  text-align: center;
+}
 
+#new_patient:hover{
+  background-color:var(--background_blue_hover);
+}
+
+#new_patient:active{
+  background-color:var(--background_blue_active);
+}
+
+#new_patient_modal{
+  display:none;
+  position: absolute;
+  padding-top: 0;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#new_patient_modal_content h2{
+  margin:20px 20px;
+}
+
+#new_patient_modal_content button{
+  margin:20px 20px;
+  
+}
+
+#new_patient_modal_content{
+  border: 1px solid var(--border_line);
+  background-color: var(--white);
+  width: 50%;
+  margin:auto;
+  margin-top: 5%;
+}
+
+.new_patient_form{
+  margin-left: 20px;
+}
+
+#modal_content_close{
+  color: #aaaaaa;
+  float: right;
+}
+
+#modal_content_close img{
+  height: 25px;
+  width: 25px;
+}
+
+#modal_content_close :hover{
+  height: 28px;
+  width: 28px;
+}
+
+.new_patient_form label{
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.new_patient_form input{
+  height: 30px;
+  width: 200px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+
+.new_patient_form button{
+  background-color: var(--green);
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.new_patient_form button:hover{
+  background-color: #06e07a;
+}
+
+.new_patient_form button:active{
+  background-color: #1ff994;
+}
+
+.modal_content_close:hover,
+.modal_content_close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .patient_data_content{
   overflow: hidden;
@@ -1267,7 +1368,7 @@ body{
 
 .clinicianUI_message_content{
   border: 1px solid var(--border_line);
-  height: 300px;
+  height: 100px;
 }
 
 
