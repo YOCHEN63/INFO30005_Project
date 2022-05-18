@@ -274,7 +274,7 @@ body{
   margin-left: 19%;
   display: block;
   text-align: center;
-  font-size: 4vmin;
+  font-size: 3vmin;
   border-radius: 15px;
   width: 30vw;
   background: #A2D2F9;
@@ -314,7 +314,7 @@ body{
 
 .profile_img{
   width: 28%;
-  height: 50%;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -569,7 +569,7 @@ body{
     background-color: #007AD4;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 2;
     margin-left: 250px;
     font-size: 2.5vmin;
     bottom: auto;
@@ -633,7 +633,7 @@ body{
   }
   .profile_img {
     width: 17vw;
-    height: 30vh;
+    height: auto;
   }
   .profile_email {
     font-size: 2.3vmin;
@@ -646,7 +646,7 @@ body{
   .medal {
     position: relative;
     width: 7vw;
-    height: 16vh;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -1546,7 +1546,7 @@ body{
   display: flex;
   list-style-type: none;
   /* align-items: center; */
-  margin-left: 50%;
+  margin-left: 55%;
 }
 
 .AD-nav-links li {
@@ -1554,7 +1554,7 @@ body{
 }
 @media screen and (max-width: 1024px) {
 .AD-nav-links {
-  margin-left: 38%;
+  margin-left: 45%;
 }
 
   .AD-nav-links li {
@@ -1988,14 +1988,14 @@ body{
   height: 100vh;
   background-color: #2372FF;
   float: left;
+  display: flex;
+  justify-content: center;
 
 }
 .login-photo{
   width: 48vw;
-  height: 75vh;
-  margin-top: 10%;
-  margin-bottom: 10%;
-
+  height: auto;
+  margin: auto;
 }
 
 
@@ -2214,10 +2214,10 @@ body{
   
   .change-right-content h5{
     font-size: 7vmin;
-    background-color: #2372FF;
+    /* background-color: #2372FF; */
     color: white;
     margin-top: 6%;
-    padding:2vmin;
+    /* padding:2vmin; */
     text-align: center;
   } 
   .change-right-content input[type=text]{
