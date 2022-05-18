@@ -123,6 +123,7 @@ const viewPost = async (req, res) => {
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
     /* find the rest of types that are not required*/
     const difference = all_reqs.filter( x => !(new Set(Object.keys(body))).has(x) );
+    /*
     if (dataType === 'note'){
         console.log(req.body)
         let note = new noteModel({
@@ -131,6 +132,7 @@ const viewPost = async (req, res) => {
         })
         note.save()
     }
+    */
     if(dataType === 'bgl_upper'){
         max = body.bgl_upper
         min = body.bgl_lower
@@ -300,7 +302,7 @@ const reqDocData = async (req, res, next) => {
                 }
             }
         }
-        res.render('clinician_home',{docData:docData,patientData:patientData});
+        res.render('clinician_home',{docData:docData,patientData:patientData,flash: req.flash('msg')});
     } catch (err) {
         return next(err)
     }
@@ -347,7 +349,7 @@ const reqDocPatientData = async (req, res, next) => {
         }
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
-                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList})
+                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList,flash: req.flash('msg')})
     } catch (err) {
         return next(err)
     }

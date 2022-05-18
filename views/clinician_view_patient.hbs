@@ -32,30 +32,25 @@
         
         <h2> New Patient Form</h2>
 
-        <form class="new_patient_form">
+        <form action='/clinician/register' method ='post' class="new_patient_form">
+            <!-- Error message, if password length is not met-->
+            {{#if flash}}
+            <p class="error-message">*{{flash}}</p>
+            {{/if}}
             <label for="#">First Name:</label><br>
-            <input id="#" placeholder=" eg: John"><br>
+            <input id="#" placeholder=" eg: John" name="first_name"><br>
 
             <label for="#">Last Name:</label><br>
-            <input id="#" placeholder=" eg: Wick"><br>
+            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-            <label for="#">Day of Birth</label><br>
-            <input id="#" placeholder=" eg: dd/mm/yy"><br>
+            <label for="#">Email</label><br>
+            <input id="#" placeholder=" --@example.com kg" name="email"><br>
 
-            <label for="#">	Blood glucose level</label><br>
-            <input id="#" placeholder=" -- kg"><br>
+            <label for="#">Password</label><br>
+            <input id="#" placeholder=" Enter at least 8 characters" name="password"><br>
 
-            <label for="#">Weight</label><br>
-            <input id="#" placeholder=" -- Nmol/L"><br>
-
-            <label for="#">Doses of insulin taken</label><br>
-            <input id="#" placeholder=" -- Doses"><br>
-
-            <label for="#">Exercise</label><br>
-            <input id="#" placeholder=" -- steps"><br>
-
-            <label>Note</label><br>
-            <input id="#" placeholder=" ...... "><br>
+            <label for="#">nick_name</label><br>
+            <input id="#" placeholder=" --" name="nick_name"><br>
 
             <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
                 Submit 
@@ -128,7 +123,7 @@
     
     
     
-    <!-- time sequence -->
+    <!-- time sequence 
     <div id="time_sequence">
         <h5 class="segoeui_bold_white">Time required for data enter:</h5>
         <select>
@@ -154,6 +149,7 @@
             </button>
         </span>
     </div>
+    -->
 </div>
 
 <!-- middle column -->
@@ -185,9 +181,9 @@
 
             <!-- get threshold -->
             {{#with onePatient}}
-            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="weight_threshold_upper" class="segoeui_regular_blue">{{this.weight_up}}</p>
             <div class="threshold_setting">
             <button>
                 <img src="../logo/setting.png" class="round_icon" id="set_threshold_weight">
@@ -245,9 +241,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="bgl_threshold_lower" class="segoeui_regular_blue">{{this.bgl_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="bgl_threshold_upper" class="segoeui_regular_blue">{{this.bgl_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -302,9 +298,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="insulin_threshold_lower" class="segoeui_regular_blue">{{this.insulin_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="insulin_threshold_upper" class="segoeui_regular_blue">{{this.insulin_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -358,9 +354,9 @@
 
             <!-- get data -->
             {{#with onePatient}}
-            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
-            <p class="segoeui_regular_blue"> ~ </p>
             <p id="exercise_threshold_lower" class="segoeui_regular_blue">{{this.exercise_down}}</p>
+            <p class="segoeui_regular_blue"> ~ </p>
+            <p id="exercise_threshold_upper" class="segoeui_regular_blue">{{this.exercise_up}}</p>
             
             <div class="threshold_setting">
             <button>
@@ -417,7 +413,7 @@
 <!-- Note bar -->
 <div class="ClinicianUI_patient_detail_page_right">
     {{#with onePatient}}
-    <form action="/clinician/{{this._id}}" method = 'post'>
+    <form action="/clinician/{{this._id}}/note" method = 'post'>
         <div class="clinician_note_content">
             <h2 class="roboto_regular_black" style="font-size: 25px;">
                 Note

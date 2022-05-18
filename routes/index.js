@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const controllers = require('../controller/blood.controller')
 const comments = require('../controller/comment')
+const notes = require('../controller/note')
 const users = require('../controller/user')
 const passport = require('../passport.js')
 
@@ -18,7 +19,9 @@ router.get('/clinician/:user_id',controllers.isAuthenticated, controllers.find_d
 
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login', failureFlash: true }))
-router.post('/changePassword',users.changePassword)
-router.post('/clinician/:user_id', controllers.edit_threshold)
-router.post('/', controllers.insert)
+router.post('/clinician/:user_id/note',notes.addNote)
+router.post('/changePassword',controllers.isAuthenticated,users.changePassword)
+router.post('/clinician/register',controllers.isAuthenticated,users.register)
+router.post('/clinician/:user_id',controllers.isAuthenticated, controllers.edit_threshold)
+router.post('/',controllers.isAuthenticated, controllers.insert)
 module.exports = router

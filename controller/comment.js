@@ -55,7 +55,7 @@ const reqComment = async (req, res, next) => {
             Object.assign(result[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(result[i].record_date)})
         }
     }
-    res.render('clinician_comments_homepage', {all_comments : result,docData:docData})
+    res.render('clinician_comments_homepage', {all_comments : result,docData:docData,flash: req.flash('msg')})
 }
 
 module.exports.reqComment = reqComment
