@@ -46,7 +46,6 @@ const reqUserData = async (req, res) => {
         /* find the patient*/
 
         const reqBody = await myUser.findOne({"_id":req.user._id}).lean()
-        console.log(reqBody)
         /* find only today's newly update date to render*/
 
         let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":req.user._id},
@@ -474,10 +473,59 @@ const changePassword =  (req, res) => {
     res.render('changePassword.hbs',{layout:'changePassword_layout'}) 
 }
 
+const reqComment = async (req, res, next) => {
+    console.log(req.user)
+    const query = {
+        path : 'user_id',
+        select : 'clinicianID',
+        match : {clinicianID : req.user._id}
+    }
+    const docData = await myUser.findOne({"_id":req.user._id}).lean()
+    let bgl_comments =  await bloodGlucose.find().populate(query).lean()
+    bgl_comments.forEach((elem, index) =>{
+        elem.dataType = 'blood glucose level'
+    })
+    let exercise_comments = await exercise.find().populate(query).lean()
+    exercise_comments.forEach((elem, index) =>{
+        elem.dataType = 'exercise'
+    })
+    let insulin_comments =  await insulin.find().populate(query).lean()
+    insulin_comments.forEach((elem, index) =>{
+        elem.dataType = 'insulin shots'
+    })
+    let weight_comments = await weight.find().populate(query).lean()
+    weight_comments.forEach((elem, index) =>{
+        elem.dataType = 'weight'
+    })
 
+    var result = bgl_comments.concat(exercise_comments).concat(weight_comments).concat(insulin_comments)
+    /*
+    result.sort(dateData('record_date',false))
+    */
+    console.log(result)
+    res.render('clinician_comments_homepage', {all_comments : result,docData:docData})
+    
+
+    /*
+    function dateData(property, bol) {
+        function(a, b) {
+            var value1 = a[property];
+            var value2 = b[property];
+            if (bol) {
+
+                return Date.parse(value1) - Date.parse(value2);
+            } else {
+                return Date.parse(value2) - Date.parse(value1)
+            }
+    
+        }
+    }
+    */
+}
+
+module.exports.reqComment = reqComment
 module.exports.handleLogin = handleLogin
 module.exports.isAuthenticated = isAuthenticated
-module.exports.all_comment = reqAllComment
 module.exports.login = login
 module.exports.home = about_diabetes
 module.exports.about_us = about_us

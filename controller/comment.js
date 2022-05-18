@@ -8,12 +8,13 @@ const weight = models.weight
 
 
 const reqComment = async (req, res, next) => {
+    console.log(req.user)
     const query = {
         path : 'user_id',
         select : 'clinicianID',
-        match : {clinicianID : '626260ca24f9653799b8b340'}
+        match : {clinicianID : req.user._id}
     }
-    // const docData = await user.findOne({"_id":req.user}).lean()
+    const docData = await user.findOne({"_id":req.user._id}).lean()
     let bgl_comments =  await bloodGlucose.find().populate(query).lean()
     bgl_comments.forEach((elem, index) =>{
         elem.dataType = 'blood glucose level'
@@ -35,8 +36,8 @@ const reqComment = async (req, res, next) => {
     /*
     result.sort(dateData('record_date',false))
     */
-    console.log(result)
-    res.render('clinician_view_patient', {all_comments : result,docData:docData})
+   console.log(result)
+    res.render('clinician_comments_homepage', {all_comments : result,docData:docData})
     
 
     /*

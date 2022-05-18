@@ -1,6 +1,6 @@
 <div class="clinician_nav">
     <a href="/clinician">
-        <img src="./logo/Diabetes @Home (8).png" class="round_icon">
+        <img src="../logo/Diabetes @Home (8).png" class="round_icon">
     </a>
     {{#with docData}}
     <a>
@@ -8,10 +8,10 @@
     </a> 
     {{/with}}
     <a href="#">
-        <img src="./logo/home.png" class="nav_icon">
+        <img src="../logo/home.png" class="nav_icon">
     </a>
     <a href="#">
-        <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
+        <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
     <!-- 加comment页面的-->
     <a href="#">
@@ -74,9 +74,9 @@
         <!-- category -->
         <tr>
             
-            <th>Name</th>
-            <th>Comment</th>
+            <th>ID</th>
             <th>Type of Data</th>
+            <th>Comment</th>
             <th>Data Recorded</th>
             
         </tr>
@@ -84,13 +84,24 @@
         <tr>  
             <td>
                 <a href="/clinician/{{this._id}}">
-                    {{this.first_name}} {{this.last_name}}
+                    {{this.user_id}}
                 </a>
-            </td>    
-            <td>{{this.comment}}</td>
-            <td>{{this.weight}}</td>
-            <td>{{this.record_date}}</td>    
-            
+            </td>  
+            <td>
+                <a href="/clinician/{{this._id}}">
+                    {{this.dataType}}
+                </a>
+            </td>
+            <td>
+                <a href="/clinician/{{this._id}}">
+                    {{this.comment}} 
+                </a>
+            </td>  
+            <td>
+                <a href="/clinician/{{this._id}}">
+                    {{this.record_date}}
+                </a>
+            </td>                                             
         </tr>
         {{/each}}
 
