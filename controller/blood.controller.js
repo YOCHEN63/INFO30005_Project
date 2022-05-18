@@ -15,6 +15,7 @@ const flash = require('express-flash')
 const bcrypt = require('bcrypt')
 // use PASSPORT
 const passport = require('../passport.js')
+const noteModel = generalModel.note
 
 // Passport Authentication middleware
 const isAuthenticated = (req, res, next) => {
@@ -112,20 +113,24 @@ const reqUserData = async (req, res) => {
     
 }
 
-/* update threshold value */
-const updateThreshold = async (req, res) => {
+/* clinician view specific patient data page, this is the part for post handle */
+const viewPost = async (req, res) => {
     let max = 10000
     let min = 0
     const body = req.body
-
-    
-
     const dataType = Object.keys(body)[0]
-    userData.save()
     /* require list*/
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
     /* find the rest of types that are not required*/
     const difference = all_reqs.filter( x => !(new Set(Object.keys(body))).has(x) );
+    if (dataType === 'note'){
+        console.log(req.body)
+        let note = new noteModel({
+            comment : req.body.note,
+            user_id : req.params.user_id
+        })
+        note.save()
+    }
     if(dataType === 'bgl_upper'){
         max = body.bgl_upper
         min = body.bgl_lower
@@ -171,17 +176,6 @@ const updateThreshold = async (req, res) => {
             for (i=0;i<Object.keys(body).length;i++){
                 if(Object.keys(body)[i] === 'req_bgl'){
                     await user.findByIdAndUpdate(req.params.user_id,{bgl_req: 1})
-                    
-                    /*
-                    bcrypt.hash(current_user.password, 10, (err, hash) => {
-                        if (err) {
-                            return next(err)
-                        }
-                        //replace password with hash
-                        console.log(hash)
-                        user.findByIdAndUpdate(req.params.user_id,{password: hash})
-                    })
-                    */
                     
                 }
                 else if(Object.keys(body)[i] === 'req_weight'){
@@ -324,6 +318,7 @@ const reqDocPatientData = async (req, res, next) => {
         }
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
+        let noteList = noteModel.find({user_id: req.params.user_id}).lean()
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
@@ -352,7 +347,7 @@ const reqDocPatientData = async (req, res, next) => {
         }
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
-                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
+                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList})
     } catch (err) {
         return next(err)
     }
@@ -485,5 +480,5 @@ module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
 module.exports.find = reqUserData;
 module.exports.reqLatestData = reqLatestData;
-module.exports.edit_threshold = updateThreshold
+module.exports.edit_threshold = viewPost
 module.exports.changePassword = changePassword

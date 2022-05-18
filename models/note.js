@@ -8,6 +8,6 @@ const NoteSchema = new mySchema({
     user_id:{type:mySchema.Types.ObjectId,ref:'user'}
 })
 
-const NoteModel = mongoose.Model('note', NoteSchema,'note')
+const NoteModel = mongoose.Model('note', NoteSchema)
 
 module.exports = NoteModel
