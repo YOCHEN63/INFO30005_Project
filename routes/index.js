@@ -6,6 +6,7 @@ const notes = require('../controller/note')
 const users = require('../controller/user')
 const passport = require('../passport.js')
 
+// get requests
 router.get('/',controllers.isAuthenticated, controllers.find) 
 router.get('/login', controllers.login)
 router.get('/changePassword',controllers.isAuthenticated,controllers.changePassword)
@@ -16,7 +17,7 @@ router.get('/clinician',controllers.isAuthenticated, controllers.find_doc)
 router.get('/clinician/comments',controllers.isAuthenticated,comments.reqComment)
 router.get('/clinician/:user_id',controllers.isAuthenticated, controllers.find_doc_patient)
 
-
+// pose requests
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login', failureFlash: true }))
 router.post('/clinician/:user_id/note',notes.addNote)

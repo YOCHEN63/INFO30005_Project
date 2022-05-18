@@ -17,3 +17,5 @@ else if (pwd!="" && user!= ""){
         alert("Incorrect username or password!");
     }
 }
+
+// 提交的时候删
