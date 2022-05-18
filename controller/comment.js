@@ -15,7 +15,6 @@ const reqComment = async (req, res, next) => {
         match : {clinicianID : req.user._id}
     }
     const docData = await user.findOne({"_id":req.user._id}).lean()
-    console.log(docData._id)
     let bgl_comments =  await bloodGlucose.find().populate(query).lean()
     bgl_comments.forEach((elem, index) =>{
         elem.dataType = 'blood glucose level'
@@ -23,7 +22,6 @@ const reqComment = async (req, res, next) => {
     let exercise_comments = await exercise.find().populate(query).lean()
     exercise_comments.forEach((elem, index) =>{
         elem.dataType = 'exercise'
-        console.log(elem.user_id.first_name)
     })
     let insulin_comments =  await insulin.find().populate(query).lean()
     insulin_comments.forEach((elem, index) =>{
