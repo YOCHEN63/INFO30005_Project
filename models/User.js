@@ -152,6 +152,18 @@ UserSchema.pre('save', function save(next) {
         next()
     })
 })
+UserSchema.pre("findOneAndUpdate", async function (next) {
+    const user = this
+    try {
+      if (user.password) {
+        const hashed = await bcrypt.hash(user.password, SALT_FACTOR);
+        user.password = hashed;
+      }
+      next();
+    } catch (err) {
+      return next(err);
+    }
+});
 
 const message = mongoose.model('message',MessageSchema,'message')
 const user = mongoose.model('user',UserSchema,'user')

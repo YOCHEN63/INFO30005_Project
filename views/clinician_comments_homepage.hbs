@@ -81,28 +81,31 @@
             
         </tr>
 		{{#each all_comments}}
-        <tr>  
+        {{#if this.comment}}  
+        <tr>
+            
             <td>
-                <a href="/clinician/{{this._id}}">
-                    {{this.user_id}}
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.user_id.first_name}} {{this.user_id.last_name}}
                 </a>
             </td>  
             <td>
-                <a href="/clinician/{{this._id}}">
+                <a href="/clinician/{{this.user_id._id}}">
                     {{this.dataType}}
                 </a>
             </td>
             <td>
-                <a href="/clinician/{{this._id}}">
+                <a href="/clinician/{{this.user_id._id}}">
                     {{this.comment}} 
                 </a>
             </td>  
             <td>
-                <a href="/clinician/{{this._id}}">
+                <a href="/clinician/{{this.user_id._id}}">
                     {{this.record_date}}
                 </a>
             </td>                                             
         </tr>
+        {{/if}}
         {{/each}}
 
     </table>

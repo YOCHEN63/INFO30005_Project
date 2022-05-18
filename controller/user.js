@@ -2,7 +2,12 @@ const models = require('../models/User');
 const userModel = models.user
 
 const changePassword = async (req, res, next) => {
-    let user = await userModel.updateOne({user_id : req.body.user_id},{password: req.body.password})
+    console.log(req.body)
+    console.log(req.body.new_password)
+    console.log(req.user._id)
+    /*
+    let user = await userModel.findOneAndUpdate({user_id : req.user._id},{password: req.body.new_password})
+    */
 }
 
 const register = async (req, res, next) => {
