@@ -2,15 +2,20 @@ const models = require('../models/User');
 const userModel = models.user
 
 const changePassword = async (req, res, next) => {
-    console.log(req.body)
-    console.log(req.body.new_password)
-    console.log(req.user._id)
-    if (req.body.password.length<8){
-        res.redirect('back')
+    const user = await userModel.findOne({"_id":req.user._id}).lean()
+    if (req.body.new_password.length<8){
+        req.flash('msg', 'wrong password length')
+        res.redirect('/changePassword')
+    } else if (req.body.new_password !=req.body.confirm_password){
+        req.flash('msg', 'wrong password with confirm password')
+        res.redirect('/changePassword')
+    } else if (user.password != req.body.old_password){
+        req.flash('msg', 'wrong password')
+        res.redirect('/changePassword')
+    } else {
+        await userModel.findOneAndUpdate({_id : req.user._id},{password: req.body.new_password})
+        res.redirect('/login')
     }
-    /*
-    let user = await userModel.findOneAndUpdate({user_id : req.user._id},{password: req.body.new_password})
-    */
 }
 
 const register = async (req, res, next) => {

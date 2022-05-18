@@ -155,11 +155,10 @@ UserSchema.pre('save', function save(next) {
 UserSchema.pre("findOneAndUpdate", async function (next) {
     const user = this
     try {
-      if (user.password) {
-        const hashed = await bcrypt.hash(user.password, SALT_FACTOR);
-        user.password = hashed;
-      }
-      next();
+        if (this._update.password) {
+            const hashed = await bcrypt.hash(this._update.password, SALT_FACTOR);
+            this._update.password = hashed;
+        }
     } catch (err) {
       return next(err);
     }

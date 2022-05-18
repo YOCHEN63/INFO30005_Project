@@ -362,7 +362,6 @@ const addData = async (req, res) => {
         /* get the entered data*/
         const body = req.body
         const dataType = Object.keys(body)[0]
-        console.log(dataType)
         /* put them into table and store*/
         if (dataType === 'weight') {
             const weightData = new weight({
@@ -393,7 +392,6 @@ const addData = async (req, res) => {
                 'user_id': req.user._id,
                 'comment': body.comment
             })
-            console.log(insulinData)
             insulinData.save()
         }
         console.log("data saved")
@@ -467,7 +465,7 @@ const handleLogin = (req, res,next) => {
 
 /* change password page*/
 const changePassword =  (req, res) => {
-    res.render('changePassword.hbs',{layout:'changePassword_layout'}) 
+    res.render('changePassword.hbs',{layout:'changePassword_layout',flash: req.flash('msg')}) 
 }
 
 
