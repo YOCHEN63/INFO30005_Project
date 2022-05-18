@@ -11,10 +11,11 @@ const reqComment = async (req, res, next) => {
     console.log(req.user)
     const query = {
         path : 'user_id',
-        select : 'clinicianID',
+        select : 'clinicianID first_name last_name',
         match : {clinicianID : req.user._id}
     }
     const docData = await user.findOne({"_id":req.user._id}).lean()
+    console.log(docData._id)
     let bgl_comments =  await bloodGlucose.find().populate(query).lean()
     bgl_comments.forEach((elem, index) =>{
         elem.dataType = 'blood glucose level'
@@ -22,6 +23,7 @@ const reqComment = async (req, res, next) => {
     let exercise_comments = await exercise.find().populate(query).lean()
     exercise_comments.forEach((elem, index) =>{
         elem.dataType = 'exercise'
+        console.log(elem.user_id.first_name)
     })
     let insulin_comments =  await insulin.find().populate(query).lean()
     insulin_comments.forEach((elem, index) =>{
@@ -33,10 +35,14 @@ const reqComment = async (req, res, next) => {
     })
 
     var result = bgl_comments.concat(exercise_comments).concat(weight_comments).concat(insulin_comments)
+    for(var i = 0; i < result.length; i++) {
+        if(result[i].user_id === null){
+            result.splice(i, 1)
+        }
+    }
     /*
     result.sort(dateData('record_date',false))
     */
-   console.log(result)
     res.render('clinician_comments_homepage', {all_comments : result,docData:docData})
     
 
