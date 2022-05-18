@@ -9,13 +9,12 @@ const changePassword = async (req, res, next) => {
     } else if (req.body.new_password !=req.body.confirm_password){
         req.flash('msg', 'wrong password with confirm password')
         res.redirect('/changePassword')
-    } else if (user.password != req.body.old_password){
-        req.flash('msg', 'wrong password')
-        res.redirect('/changePassword')
-    } else {
+    } else{
         await userModel.findOneAndUpdate({_id : req.user._id},{password: req.body.new_password})
         res.redirect('/login')
+
     }
+  
 }
 
 const register = async (req, res, next) => {
