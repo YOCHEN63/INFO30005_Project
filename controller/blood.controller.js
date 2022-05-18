@@ -103,7 +103,7 @@ const reqUserData = async (req, res) => {
             res.redirect('/clinician')    // redirect users with 'teacher' role to teachers' home page
         }
         else
-            return res.render('index',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
+            return res.render('patient_home',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
                 weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
                 record_bgl:record_bgl })
     } catch (err) {

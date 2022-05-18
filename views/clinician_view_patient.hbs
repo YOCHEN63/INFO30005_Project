@@ -439,40 +439,48 @@
     </form>
     {{/with}}
     <!-- Chats box -->
-    <div class="clinicianUI_message_container">
-        <div class="clinicianUI_message_title"> 
-            <h2>
-                Message
-            </h2>
-        </div>
-        
-        <div class="clinicianUI_message_content">
-            <!-- add function not completed yet -->
-            <ul>
-                <li>
-                    <div class="single_clinician_message">
-                        <p class="note_message segoeui_bold_white">
-                            这里是留言render
-                        </p>
-                        <h6 class="single_clinician_message_datetime segoeui_bold_white">
-                            这里是时间render
-                        </h6>
-                    </div>               
-                </li>
-            </ul>
-        </div>
-        
-        <div id="note_input_container">
-            <input type="text" placeholder="Any comments for this patient?"
-                id="clinician_message_input">
+    {{#with onePatient}}
+    <form action="/clinician/{{this._id}}/message" method = 'post'>
+    
+        <div class="clinicianUI_message_container">
+            <div class="clinicianUI_message_title"> 
+                <h2>
+                    Message
+                </h2>
+            </div>
+            
+            <div class="clinicianUI_message_content">
+                <!-- add function not completed yet -->
+                <ul>
+                    <li>
+                        <div class="single_clinician_message">
+                            <p class="note_message segoeui_bold_white">
+                                {{this.support_message}}
+                            </p>
+                            <!--  
+                            <h6 class="single_clinician_message_datetime segoeui_bold_white">
+                                这里是时间render
+                            </h6>
+                            -->
+                        </div>               
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="note_input_container">
+                <input type="text" placeholder="Any comments for this patient?"
+                    id="clinician_message_input" name ="support_message">
 
-            <button id="clinician_message_submit"
-                    class="segoeui_bold_white">
-                Submit
-            </button> 
-        </div>
+                <button id="clinician_message_submit"
+                        class="segoeui_bold_white">
+                    Submit
+                </button> 
+            </div>
 
-    </div>
+        </div>
+    </form>
+    {{/with}}
+    
     
 </div>
 <!-- Chats box -->

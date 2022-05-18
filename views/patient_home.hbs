@@ -32,22 +32,22 @@ PHnavlinks.classList.toggle('PH-nav-display')
 </script>
 
 <!-- top part-->
-{{#with today}}    
+{{#if data.support_message}}    
 <div class="home_font">
     <marquee direction="left" class="marquee-desktop">
         <b>MESSAGE FROM CLINICIAN:</b>
-        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+        {{data.support_message}}
     </marquee>
 
     <marquee direction="up" scrollamount="1" class="marquee-iphone">
         <b>MESSAGE FROM CLINICIAN:</b><br>
-        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+        {{data.support_message}}
     </marquee>
     <div class="home"><b>Home</b></div> 
     <div class="date_font">{{this.date}}</div>
     
 </div>
-{{/with}}
+{{/if}}
 
 
 {{#with data}}    

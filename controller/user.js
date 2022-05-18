@@ -25,7 +25,8 @@ const register = async (req, res, next) => {
             email: req.body.email,
             password: req.body.password,
             clinicianID: req.user._id,
-            nick_name:req.body.nick_name
+            nick_name:req.body.nick_name,
+            img:"https://cdn-icons.flaticon.com/png/128/1144/premium/1144709.png?token=exp=1652876827~hmac=a9cbf22a14008fa13fc9f2ee5b0d5ac2"
         })
         if (req.body.password.length<8){
             req.flash('msg', 'wrong password length');
@@ -43,7 +44,9 @@ const register = async (req, res, next) => {
 
 const sendMessage = async (req, res) => {
     try {
-        let user = await userModel.findByIdAndUpdate(req.body.user_id, {support_message: req.body.support_message})
+        await userModel.findByIdAndUpdate(req.params.user_id, {support_message: req.body.support_message})
+        console.log('support message saved')
+        res.redirect("/clinician/"+req.params.user_id)
     } catch (err) {
         console.error(err)
     }

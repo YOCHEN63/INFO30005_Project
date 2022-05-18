@@ -20,6 +20,7 @@ router.get('/clinician/:user_id',controllers.isAuthenticated, controllers.find_d
 // pose requests
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login', failureFlash: true }))
+router.post('/clinician/:user_id/message',users.updateMessage)
 router.post('/clinician/:user_id/note',notes.addNote)
 router.post('/changePassword',controllers.isAuthenticated,users.changePassword)
 router.post('/clinician/register',controllers.isAuthenticated,users.register)
