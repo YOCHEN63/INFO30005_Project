@@ -473,36 +473,7 @@ const handleLogin = (req, res,next) => {
 const changePassword =  (req, res) => {
     res.render('changePassword.hbs',{layout:'changePassword_layout'}) 
 }
-/* doc view all comment that is written by his patients*/
-const reqAllComment = async (req, res, next) => {
-    try {
-        /* remember to turn this id to req.params*/
-        const patientData = await myUser.find({"clinicianID":req.user._id}).lean()
-        console.log('doc view comments')
-        for(var i = 0; i < patientData.length; i++){
-            var objectId = stringify(patientData[i]._id);
-            var data = await findAllComments(objectId);
-            console.log(data)
-            /* write a new function to retrieve a list of objects*/
-            /* find each patient's data*/
-            console.log('get data for comment');
-        }
-        /* write a new function to sort the retrieved list of data by date*/
-    } catch (err) {
-        return next(err)
-    }
-    
-}
 
-const findBglComments = async (user_id) => {
-    /* find all data with comments from today */
-    try {
-        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        return {bgl_data}
-    } catch (err) {
-        console.error(err)
-    }
-}
 
 module.exports.handleLogin = handleLogin
 module.exports.isAuthenticated = isAuthenticated
