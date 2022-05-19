@@ -446,15 +446,7 @@ const patientViewData = async (req, res, next) => {
     
 }
 
-/* home page */
-const about_diabetes =  (req, res) => {
-    res.render('about_diabetes.hbs',{layout:'about_diabetes_layout'}) 
-}
 
-/* about-us */
-const about_us =  (req, res) => {
-    res.render('about_us.hbs',{layout:'about_us_layout'}) 
-}
 
 /* login page*/
 const login =  (req, res) => {
@@ -475,8 +467,6 @@ const changePassword =  (req, res) => {
 module.exports.handleLogin = handleLogin
 module.exports.isAuthenticated = isAuthenticated
 module.exports.login = login
-module.exports.home = about_diabetes
-module.exports.about_us = about_us
 module.exports.view_data = patientViewData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
