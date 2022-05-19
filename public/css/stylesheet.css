@@ -2122,7 +2122,11 @@ body{
   margin: auto;
 }
 
-
+.alert{
+  font-size: 3vmin;
+  font-family: var(--font-family-roboto);
+  color: red;
+}
 
 .login-diabetes-right{
   width: 52vw;
@@ -2213,6 +2217,11 @@ body{
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 10%;
+  }
+  .alert{
+    font-size: 5vmin;
+    font-family: var(--font-family-roboto);
+    color: red;
   }
   .login-right-content h1{
     font-size: 10vmin;
