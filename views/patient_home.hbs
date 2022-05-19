@@ -256,9 +256,13 @@ PHnavlinks.classList.toggle('PH-nav-display')
     <!-- <img class="trans_badge" src="./logo/badge_transparent.png"> -->
     <p style="text-align: center;"> <b>LeaderBoard </b></p>
     <div class="scroller">
+            
+            <ol>
             {{#each leaderboard}}
-            <p>{{this.nick_name}} {{this.participant_percentage}}</p>
+            <li>{{this.nick_name}} {{this.participant_percentage}}</li>
             {{/each}}
+            </ol>
+            
     </div>
 
 </div>
