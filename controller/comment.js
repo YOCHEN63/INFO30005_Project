@@ -69,7 +69,7 @@ const reqComment = async (req, res, next) => {
         all_comments: result,
         docData: docData,
         flash: req.flash('msg'),
-        layout: "all_comments"
+        layout: 'all_comments',
     })
 }
 

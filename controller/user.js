@@ -24,10 +24,10 @@ const register = async (req, res, next) => {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: "11111111",
+            password: '11111111',
             clinicianID: req.user._id,
             nick_name: req.body.nick_name,
-            img: "https://randomuser.me/api/portraits/men/97.jpg",
+            img: 'https://randomuser.me/api/portraits/men/97.jpg',
         })
         newUser.save()
         res.redirect('back')
