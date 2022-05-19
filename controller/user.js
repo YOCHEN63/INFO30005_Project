@@ -4,10 +4,10 @@ const userModel = models.user
 const changePassword = async (req, res, next) => {
     const user = await userModel.findOne({"_id":req.user._id}).lean()
     if (req.body.new_password.length<8){
-        req.flash('msg', 'wrong password length')
+        req.flash('msg', 'Wrong password length')
         res.redirect('/changePassword')
     } else if (req.body.new_password !=req.body.confirm_password){
-        req.flash('msg', 'wrong password with confirm password')
+        req.flash('msg', 'Wrong password with confirm password')
         res.redirect('/changePassword')
     } else{
         await userModel.findOneAndUpdate({_id : req.user._id},{password: req.body.new_password})
