@@ -7,8 +7,8 @@ if (process.env.NODE_ENV !== 'production') {
 const mongoose = require('mongoose')
 
 const mongooseClient = mongoose
-    .connect(process.env.MONGO_URL , { dbName: 'users'})     // MongoDB user/password details are in .env file
-    .then( (m) => m.connection.getClient())
+    .connect(process.env.MONGO_URL, { dbName: 'users' }) // MongoDB user/password details are in .env file
+    .then((m) => m.connection.getClient())
 
 const db = mongoose.connection.on('error', (err) => {
     console.error(err)

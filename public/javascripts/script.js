@@ -73,24 +73,20 @@ document.querySelector('#clinician_note_submit').onclick = function(){
 /* --------------------------- New Paitent Modal -------------------------- */
 var newPatientBtn = document.getElementById("new_patient");
 
-var newPatientModal = document.getElementById("new_patient_modal");
+var newPatientModalBG = document.getElementById("new_patient_modal");
 
 var newPatientModalClose = document.getElementById("modal_content_close");
 
 newPatientBtn.onclick = function(){
-    newPatientModal.style.display = "block";
+    newPatientModalBG.style.display = "block";
 }
 
-newPatientModalClose = document.getElementById("modal_content_close");
-
 newPatientModalClose.onclick = function(){
-    newPatientModal.style.display = "none";
+    newPatientModalBG.style.display = "none";
 }
 
 var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
 
 newPatientFormSubmit.onclick() = function(){
-    setTimeout(() => { alert("Submit successfully!"); }, 500);
-
-    newPatientModal.style.display = "none";
+    newPatientModalBG.style.display = "none";
 }

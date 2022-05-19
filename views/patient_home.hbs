@@ -1,7 +1,7 @@
 <!--bottom nav part-->
 <div class="patient_nav">
     <img src="./logo/Diabetes @Home (4).png" class="PH-nav-logo">
-    <a href="/">
+    <a href="/patient">
         <img src="./logo/home.png" class="nav_icon">
     </a>
     {{!-- <a href="#">
@@ -16,7 +16,7 @@
 </div>
 
 <div class="PH-nav-more">
-    <a href="/home"><b>About Diabetes</b></a>
+    <a href="/"><b>About Diabetes</b></a>
     <a href="/about-us"><b>About Website</b></a>
     <a href="/changePassword"><b>Change Password</b></a>
     <form action="/logout" method="post" >
@@ -102,7 +102,8 @@ PHnavlinks.classList.toggle('PH-nav-display')
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Blood Glucose Level</b></label>
-            <input type="text" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" required />
+            <input type="number" placeholder="Enter Blood Glucose Level (Nmol/L)" name="blood_glucose_level" 
+            required min="0">
         
             <label for="comment_field"><b>Comment</b></label>
             <input type="text" placeholder="Enter Your Comment (Optional)" name="comment"/>
@@ -142,7 +143,8 @@ PHnavlinks.classList.toggle('PH-nav-display')
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Weight</b></label>
-            <input type="text" placeholder="Enter Weight (kg)" name="weight" required>
+            <input type="number" placeholder="Enter Weight (kg)" name="weight" 
+            required min="20">
         
             <label for="comment_field"><b>Comment</b></label>
             <input type="text" placeholder="Enter Your Comment (Optional)" name="comment">
@@ -184,7 +186,8 @@ PHnavlinks.classList.toggle('PH-nav-display')
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Insulin Taken</b></label>
-            <input type="text" placeholder="Enter insulin taken (doses)" name="insulin_shots" required>
+            <input type="number" placeholder="Enter insulin taken (doses)" name="insulin_shots" 
+            required min="0">
         
             <label for="comment_field"><b>Comment</b></label>
             <input type="text" placeholder="Enter Your Comment (Optional)" name="comment">
@@ -222,7 +225,8 @@ PHnavlinks.classList.toggle('PH-nav-display')
             <h1>Record Your Data</h1>
         
             <label for="data_field"><b>Exercise</b></label>
-            <input type="text" placeholder="Enter steps you walk (steps)" name="walk_steps" required>
+            <input type="number" placeholder="Enter steps you walk (steps)" name="walk_steps" 
+            required min="0">
         
             <label for="comment_field"><b>Comment</b></label>
             <input type="text" placeholder="Enter Your Comment (Optional)" name="comment">

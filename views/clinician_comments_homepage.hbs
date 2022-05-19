@@ -16,6 +16,12 @@
     </a>
 
     <button id="new_patient" class="segoeui_bold_white">New Patient</button>
+    
+    <form action="/logout" method="post" class="segoeui_bold_white" id="clinician_logout">
+        <button >
+            Logout
+        </button>
+    </form> 
 </div>
 
 
@@ -30,10 +36,6 @@
         <h2> New Patient Form</h2>
 
         <form action='/clinician/register' method ='post' class="new_patient_form">
-            <!-- Error message, if password length is not met-->
-            {{#if flash}}
-            <p class="error-message">*{{flash}}</p>
-            {{/if}}
             <label for="#">First Name:</label><br>
             <input id="#" placeholder=" eg: John" name="first_name"><br>
 
@@ -42,9 +44,6 @@
 
             <label for="#">Email</label><br>
             <input id="#" placeholder=" --@example.com kg" name="email"><br>
-
-            <label for="#">Password</label><br>
-            <input id="#" placeholder=" Enter at least 8 characters" name="password"><br>
 
             <label for="#">nick_name</label><br>
             <input id="#" placeholder=" --" name="nick_name"><br>

@@ -2,7 +2,7 @@
 
 <div class="patient_nav" style="z-index: 2;">
     <img src="./logo/Diabetes @Home (4).png" class="PH-nav-logo">
-    <a href="/">
+    <a href="/patient">
         <img src="./logo/home.png" class="nav_icon">
     </a>
     {{!-- <a href="#">
@@ -17,10 +17,12 @@
 </div>
 
 <div class="PH-nav-more">
-    <a href="/home"><b>About Diabetes</b></a>
+    <a href="/"><b>About Diabetes</b></a>
     <a href="/about-us"><b>About Website</b></a>
     <a href="/changePassword"><b>Change Password</b></a>
-    <a href="/home"><b>Log Out</b></a>
+    <form action="/logout" method="post" >
+        <button><b>Log Out</b></button>
+    </form>
 </div>
 
 <script>
