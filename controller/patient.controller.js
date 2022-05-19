@@ -341,7 +341,7 @@ const reqDocPatientData = async (req, res, next) => {
             timeZoneName: 'short'
         }
         /* find data of one specific patient*/
-        const onePatient = await myUser.findById(req.params.user_id).lean()
+        let onePatient = await myUser.findById(req.params.user_id).lean()
         let noteList = await noteModel.find({user_id: req.params.user_id}).lean()
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
@@ -373,7 +373,7 @@ const reqDocPatientData = async (req, res, next) => {
             Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
         }    
         if (noteList){
-            Object.assign(noteList, { ecord_date: new Intl.DateTimeFormat('en-AU', options).format(noteList.ecord_date)})
+            Object.assign(noteList, { record_date: new Intl.DateTimeFormat('en-AU', options).format(noteList.record_date)})
         }  
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,

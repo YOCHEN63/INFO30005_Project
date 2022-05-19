@@ -28,6 +28,7 @@ const register = async (req, res, next) => {
             nick_name:req.body.nick_name,
             img:"https://cdn-icons.flaticon.com/png/128/1144/premium/1144709.png?token=exp=1652876827~hmac=a9cbf22a14008fa13fc9f2ee5b0d5ac2"
         })
+        console.log(req.body.password.length)
         if (req.body.password.length<8){
             req.flash('msg', 'wrong password length');
             res.redirect('back')
