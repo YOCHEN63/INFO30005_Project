@@ -340,6 +340,11 @@ const reqDocPatientData = async (req, res, next) => {
             timeZone: 'Australia/Melbourne',
             timeZoneName: 'short'
         }
+        let option2 = {
+            year: 'numeric', month: 'numeric', day: 'numeric',
+            timeZone: 'Australia/Melbourne',
+            timeZoneName: 'short'
+        }
         /* find data of one specific patient*/
         let onePatient = await myUser.findById(req.params.user_id).lean()
         let noteList = await noteModel.find({user_id: req.params.user_id}).lean()
@@ -373,7 +378,9 @@ const reqDocPatientData = async (req, res, next) => {
             Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
         }    
         if (noteList){
-            Object.assign(noteList, { record_date: new Intl.DateTimeFormat('en-AU', options).format(noteList.record_date)})
+            for (i=0;i<noteList.length;i++){
+                Object.assign(noteList[i], { record_date: new Intl.DateTimeFormat('en-AU', option2).format(noteList[i].record_date)})
+            }
         }  
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
