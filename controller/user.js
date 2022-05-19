@@ -44,7 +44,7 @@ const register = async (req, res, next) => {
 
 const sendMessage = async (req, res) => {
     try {
-        await userModel.findByIdAndUpdate(req.params.user_id, {support_message: req.body.support_message})
+        await userModel.findByIdAndUpdate(req.params.user_id, {support_message: req.body.support_message,support_message_date:Date.now()})
         console.log('support message saved')
         res.redirect("/clinician/"+req.params.user_id)
     } catch (err) {
