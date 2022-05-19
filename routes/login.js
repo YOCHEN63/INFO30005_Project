@@ -7,13 +7,16 @@ const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.redirect('/login')
     }
-    return next();
+    return next()
 }
 
-router.post('/login', 
+router.post(
+    '/login',
     passport.authenticate('local', {
-        successRedirect : '/:userId', failureRedirect : '/login', failureFlash: true
+        successRedirect: '/:userId',
+        failureRedirect: '/login',
+        failureFlash: true,
     })
 )
 
-module.exports = router;
+module.exports = router

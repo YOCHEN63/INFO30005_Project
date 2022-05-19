@@ -2,7 +2,7 @@
     <a href="/clinician">
         <img src="../logo/doctor (1).png" class="round_icon">
     </a>
-    {{#with onePatient}}
+    {{#with docData}}
     <a>
         <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
@@ -56,9 +56,6 @@
             <h1 >Username: {{renderhere}} </h1><br>
             <h1 > Password: {{renderhere}} </h1><br>
         </div>       
-
-    </div>
-
 </div>
 
 <!-- left column -->
