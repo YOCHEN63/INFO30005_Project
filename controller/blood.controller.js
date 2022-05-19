@@ -47,6 +47,7 @@ const reqUserData = async (req, res) => {
         /* find the patient*/
 
         const reqBody = await myUser.findOne({"_id":req.user._id}).lean()
+        const allUser = await myUser.find({}).lean()
         /* find only today's newly update date to render*/
 
         let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":req.user._id},
@@ -76,8 +77,11 @@ const reqUserData = async (req, res) => {
         let todayDate = {
             "date":new Intl.DateTimeFormat('en-AU', todayformat).format(startOfToday)
         }
-
-
+        // find the days between register and now       
+        let startOfRegister = new Date(reqBody.register_date.getFullYear(), reqBody.register_date.getMonth(), reqBody.register_date.getDate())
+        let dateDiff = (startOfToday.getTime()-startOfRegister.getTime())/(3600*24*1000)
+        
+        // display the input form for require data
         if (reqBody.bgl_req == 1){
             record_bgl ={"record_bgl":"True"}
         } else {
@@ -98,14 +102,42 @@ const reqUserData = async (req, res) => {
         } else {
             record_exercise = null
         }
-        /* if we cant find one patient, we return 404*/
+        /* if log in user is a clinician, we redirect them to their page*/
         if (!req.user.clinicianID) {
-            res.redirect('/clinician')    // redirect users with 'teacher' role to teachers' home page
+            res.redirect('/clinician')    
         }
-        else
+        else{
+            // see if participand score of our current user is over 80 percent
+            if (reqBody.record_date/dateDiff > 0.8){
+                // if over, we show the digital bandage
+                show_bandage = {"show_bandage":"True"}
+            } else {
+                show_bandage = null
+            }
+            if (allUser){
+                // calculate paticipant score of each user
+                for (i=0;i<allUser.length;i++){
+                    // exclude clinician
+                    if (allUser[i].record_date === undefined){
+                        Object.assign(allUser[i], {record_date: -1})
+                    } 
+                    // assign participant score to each one
+                    let startOfRegister = new Date(allUser[i].register_date.getFullYear(),allUser[i].register_date.getMonth(), allUser[i].register_date.getDate())
+                    let dateDiff = (startOfToday.getTime()-startOfRegister.getTime())/(3600*24*1000)
+                    Object.assign(allUser[i], {participant_percentage: allUser[i].record_date/dateDiff})
+                                           
+                }
+            }
+            // find the top 5 participant guys
+            topOnes = allUser.sort(function (a, b) {
+                return b.participant_percentage-a.participant_percentage
+            })
+            let max = topOnes.slice(0, 5)
+            // if not, we continue to go onto patient page
             return res.render('patient_home',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
                 weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
-                record_bgl:record_bgl })
+                record_bgl:record_bgl,show_bandage:show_bandage,leaderboard:max })
+        }
     } catch (err) {
         return console.error(err)
     }
@@ -123,16 +155,6 @@ const viewPost = async (req, res) => {
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
     /* find the rest of types that are not required*/
     const difference = all_reqs.filter( x => !(new Set(Object.keys(body))).has(x) );
-    /*
-    if (dataType === 'note'){
-        console.log(req.body)
-        let note = new noteModel({
-            comment : req.body.note,
-            user_id : req.params.user_id
-        })
-        note.save()
-    }
-    */
     if(dataType === 'bgl_upper'){
         max = body.bgl_upper
         min = body.bgl_lower
@@ -320,7 +342,7 @@ const reqDocPatientData = async (req, res, next) => {
         }
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
-        let noteList = noteModel.find({user_id: req.params.user_id}).lean()
+        let noteList = await noteModel.find({user_id: req.params.user_id}).lean()
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
@@ -350,6 +372,9 @@ const reqDocPatientData = async (req, res, next) => {
         if (onePatient.support_message_date){
             Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
         }    
+        if (noteList){
+            Object.assign(noteList, { ecord_date: new Intl.DateTimeFormat('en-AU', options).format(noteList.ecord_date)})
+        }  
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
                         bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList,flash: req.flash('msg')})

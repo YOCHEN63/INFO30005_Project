@@ -32,8 +32,9 @@ PHnavlinks.classList.toggle('PH-nav-display')
 </script>
 
 <!-- top part-->
-{{#if data.support_message}}  
+ 
 <div class="home_font">
+    {{#if data.support_message}}   
     <marquee direction="left" class="marquee-desktop">
         <b>MESSAGE FROM CLINICIAN:</b>
         {{data.support_message}}
@@ -43,11 +44,14 @@ PHnavlinks.classList.toggle('PH-nav-display')
         <b>MESSAGE FROM CLINICIAN:</b><br>
         {{data.support_message}}
     </marquee>
+    {{/if}}
     <div class="home"><b>Home</b></div> 
+    {{#with today}}  
     <div class="date_font">{{this.date}}</div>
+    {{/with}}
     
 </div>
-{{/if}}
+
 
 
 {{#with data}}    
@@ -55,12 +59,15 @@ PHnavlinks.classList.toggle('PH-nav-display')
     <img class="profile_img" src={{this.img}}>
     <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
     <p class="profile_email"> {{this.email}}</p>
-    <div class="tooltip">
+    {{/with}}
+    {{#if show_bandage.show_bandage}}
+    <div class="tooltip"> 
     <img class="medal" src="./logo/medal.png">
     <span class="tooltiptext">Congratulations! Your engagement rate is over 80% </span>
     </div>
+    {{/if}}
 </div>
-{{/with}}
+
 
 <!-- today record part(middle-->
 <div class="today-record-session">
@@ -247,11 +254,9 @@ PHnavlinks.classList.toggle('PH-nav-display')
     <!-- <img class="trans_badge" src="./logo/badge_transparent.png"> -->
     <p style="text-align: center;"> <b>LeaderBoard </b></p>
     <div class="scroller">
-            <p>1. Captain Teemo</p>
-            <p>2. Shiki2208</p>
-            <p>3. Johnwwwwww</p>
-            <p>4. foreverfix</p>
-            <p>5. bettlejuice</p>
+            {{#each leaderboard}}
+            <p>{{this.nick_name}} {{this.participant_percentage}}</p>
+            {{/each}}
     </div>
 
 </div>
