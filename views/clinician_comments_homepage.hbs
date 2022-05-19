@@ -30,10 +30,6 @@
         <h2> New Patient Form</h2>
 
         <form action='/clinician/register' method ='post' class="new_patient_form">
-            <!-- Error message, if password length is not met-->
-            {{#if flash}}
-            <p class="error-message">*{{flash}}</p>
-            {{/if}}
             <label for="#">First Name:</label><br>
             <input id="#" placeholder=" eg: John" name="first_name"><br>
 

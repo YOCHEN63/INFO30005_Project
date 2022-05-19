@@ -478,8 +478,7 @@ const reqDocData = async (req, res, next) => {
         }
         res.render('clinician_home', {
             docData: docData,
-            patientData: patientData,
-            flash: req.flash('msg'),
+            patientData: patientData
         })
     } catch (err) {
         return next(err)
