@@ -24,19 +24,13 @@ const register = async (req, res, next) => {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.password,
+            password: "11111111",
             clinicianID: req.user._id,
             nick_name: req.body.nick_name,
-            img: 'https://cdn-icons.flaticon.com/png/128/1144/premium/1144709.png?token=exp=1652876827~hmac=a9cbf22a14008fa13fc9f2ee5b0d5ac2',
+            img: "https://randomuser.me/api/portraits/men/97.jpg",
         })
-        console.log(req.body.password.length)
-        if (req.body.password.length < 8) {
-            req.flash('msg', 'wrong password length')
-            res.redirect('back')
-        } else {
-            newUser.save()
-            res.redirect('back')
-        }
+        newUser.save()
+        res.redirect('back')
     } catch (err) {
         console.error(err)
     }

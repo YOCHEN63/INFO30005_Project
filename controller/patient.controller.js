@@ -507,6 +507,7 @@ const reqDocPatientData = async (req, res, next) => {
             timeZoneName: 'short',
         }
         /* find data of one specific patient*/
+        const docData = await myUser.findOne({ _id: req.user._id }).lean()
         let onePatient = await myUser.findById(req.params.user_id).lean()
         let noteList = await noteModel
             .find({ user_id: req.params.user_id })
@@ -597,6 +598,7 @@ const reqDocPatientData = async (req, res, next) => {
             weight_data: weight_data,
             noteList: noteList,
             flash: req.flash('msg'),
+            docData:docData
         })
     } catch (err) {
         return next(err)
