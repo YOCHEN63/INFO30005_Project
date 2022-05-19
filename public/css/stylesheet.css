@@ -828,6 +828,10 @@ body{
   margin:auto;
 
 }
+.form-popup label b{
+  font-size: 2.3vmin;
+}
+
 
 /* Add styles to the form container */
 .form-container {
@@ -856,7 +860,7 @@ body{
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
-  font-size: 2vmin;
+  font-size: 1.8vmin;
 }
 
 /* When the inputs get focus, do something */
