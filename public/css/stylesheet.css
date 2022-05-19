@@ -1119,12 +1119,41 @@ body{
   text-align: center;
 }
 
+#clinician_logout{
+  width: 150px;
+  height: 30px;
+  background-color: var(--background_blue);
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 200px;
+  text-align: center;
+}
+
+#clinician_logout button{
+  background-color: var(--background_blue);
+  border: none;
+  font-size: 17px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background-color: none;
+}
+
 #new_patient:hover{
   background-color:var(--background_blue_hover);
 }
 
+#clinician_logout:hover{
+  background-color: var(--background_blue_hover);
+}
+
 #new_patient:active{
   background-color:var(--background_blue_active);
+}
+
+#clinician_logout:active{
+  background-color: var(--background_blue_active);
 }
 
 #new_patient_modal{

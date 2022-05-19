@@ -18,6 +18,12 @@
     </a>
 
     <button id="new_patient" class="segoeui_bold_white">New Patient</button>
+
+    <form action="/logout" method="post" id="clinician_logout">
+        <button class="segoeui_bold_white">
+            Logout
+        </button>
+    </form>
 </div>
 
 <!-- New Patient Modal-->
@@ -28,27 +34,25 @@
             <img src="/logo/close.png">
         </span>
 
-        <div id="new_patient_form_block">
-            <h2> New Patient Form</h2>
+        <h2> New Patient Form</h2>
 
-            <form action='/clinician/register' method ='post' class="new_patient_form">
-                <label for="#">First Name:</label><br>
-                <input id="#" placeholder=" eg: John" name="first_name"><br>
+        <form action='/clinician/register' method ='post' class="new_patient_form">
+            <label for="#">First Name:</label><br>
+            <input id="#" placeholder=" eg: John" name="first_name"><br>
 
-                <label for="#">Last Name:</label><br>
-                <input id="#" placeholder=" eg: Wick" name="last_name"><br>
+            <label for="#">Last Name:</label><br>
+            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-                <label for="#">Email</label><br>
-                <input id="#" placeholder=" ------@example.com" name="email"><br>
+            <label for="#">Email</label><br>
+            <input id="#" placeholder=" ------@example.com" name="email"><br>
 
-                <label for="#">nick_name</label><br>
-                <input id="#" placeholder=" --" name="nick_name"><br>
+            <label for="#">nick_name</label><br>
+            <input id="#" placeholder=" --" name="nick_name"><br>
 
-                <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
-                    Submit 
-                </button><br>
-            </form>
-        </div>     
+            <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
+                Submit 
+            </button><br>
+        </form>   
     </div>
 </div>
 

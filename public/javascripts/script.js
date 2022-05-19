@@ -79,8 +79,6 @@ var newPatientModalClose = document.getElementById("modal_content_close");
 
 newPatientBtn.onclick = function(){
     newPatientModalBG.style.display = "block";
-    newPatientForm.style.display = "block";
-    newPatientCreated.style.display = "none";
 }
 
 newPatientModalClose.onclick = function(){
