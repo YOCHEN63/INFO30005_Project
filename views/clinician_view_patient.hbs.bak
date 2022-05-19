@@ -18,12 +18,6 @@
     </a>
 
     <button id="new_patient" class="segoeui_bold_white">New Patient</button>
-
-    <form action="/logout" method="post" id="clinician_logout">
-        <button class="segoeui_bold_white">
-            Logout
-        </button>
-    </form>
 </div>
 
 <!-- New Patient Modal-->
@@ -33,28 +27,35 @@
         <span id="modal_content_close">
             <img src="/logo/close.png">
         </span>
+        
+        <div id="new_patient_form_block">
+            <h2> New Patient Form</h2>
 
-        <h2> New Patient Form</h2>
+            <form action='/clinician/register' method ='post' class="new_patient_form">
+                <label for="#">First Name:</label><br>
+                <input id="#" placeholder=" eg: John" name="first_name"><br>
 
-        <form action='/clinician/register' method ='post' class="new_patient_form">
-            <label for="#">First Name:</label><br>
-            <input id="#" placeholder=" eg: John" name="first_name"><br>
+                <label for="#">Last Name:</label><br>
+                <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-            <label for="#">Last Name:</label><br>
-            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
+                <label for="#">Email</label><br>
+                <input id="#" placeholder=" ------@example.com" name="email"><br>
 
-            <label for="#">Email</label><br>
-            <input id="#" placeholder=" ------@example.com" name="email"><br>
+                <label for="#">nick_name</label><br>
+                <input id="#" placeholder=" --" name="nick_name"><br>
 
-            <label for="#">nick_name</label><br>
-            <input id="#" placeholder=" --" name="nick_name"><br>
+                <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
+                    Submit 
+                </button><br>
+            </form>
+        </div>
 
-            <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
-                Submit 
-            </button><br>
-        </form>   
-    </div>
-</div>
+        <div id="create_patient_sucessful">     
+            <h2> New Patient Create Successfully! </h2><br>
+
+            <h1 >Username: {{renderhere}} </h1><br>
+            <h1 > Password: {{renderhere}} </h1><br>
+        </div>       </div>
 
 <!-- left column -->
 <div class="ClinicianUI_patient_detail_page_left">
@@ -192,12 +193,13 @@
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
                 
-                    <label for="comment_field"><b>lowerbond</b></label><br>
-                    <input type="number" placeholder="Enter lower bond for weight" name="weight_lower" required 
-                            min="20"><br>
+                    <label for="data_field"><b>upperbond</b></label>
 
-                    <label for="data_field"><b>upperbond</b></label><br>
-                    <input type="number" placeholder="Enter upper bond for weight" name="weight_upper" required> <br>
+                    <input type="text" placeholder="Enter upper bond for weight" name="weight_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="text" placeholder="Enter lower bond for weight" name="weight_lower" required>
+
                 
                     <button type="submit" class="submit_button" id ="weightThreshold_submit">Submit</button>
                     <button type="button" class="close_button" id="weightThreshold_close">Close</button>
@@ -252,14 +254,14 @@
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
                 
-                    <label for="comment_field"><b>lowerbond</b></label><br>
-                    <input type="number" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" 
-                    required min="0"><br>
+                    <label for="data_field"><b>upperbond</b></label>
 
-                    <label for="data_field"><b>upperbond</b></label><br>
+                    <input type="text" placeholder="Enter upper bond for blood glucose level" name="bgl_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="text" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" required>
 
-                    <input type="number" placeholder="Enter upper bond for blood glucose level" name="bgl_upper" required><br>
-            
+                
                     <button type="submit" class="submit_button" id ="bglThreshold_submit" >Submit</button>
                     <button type="button" class="close_button" id="bglThreshold_close">Close</button>
                 </form>
@@ -308,14 +310,15 @@
             <div class="form-popup" id="threshold_form_insulin">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
-
-                    <label for="comment_field"><b>lowerbond</b></label><br>
-                    <input type="number" placeholder="Enter lower bond for insulin" name="insulin_lower" 
-                    required min="0"><br>
                 
-                    <label for="data_field"><b>upperbond</b></label><br>
-                    <input type="number" placeholder="Enter upper bond for insulin" name="insulin_upper" required><br>
-                           
+                    <label for="data_field"><b>upperbond</b></label>
+
+                    <input type="text" placeholder="Enter upper bond for insulin" name="insulin_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="text" placeholder="Enter lower bond for insulin" name="insulin_lower" required>
+
+                
                     <button type="submit" class="submit_button" id ="insulinThreshold_submit">Submit</button>
                     <button type="button" class="close_button" id="insulinThreshold_close">Close</button>
                 </form>
@@ -364,14 +367,15 @@
                 
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
+                
+                    <label for="data_field"><b>upperbond</b></label>
 
-                    <label for="comment_field"><b>lowerbond</b></label><br>
-                    <input type="number" placeholder="Enter lower bond for exercise" name="exercise_lower" 
-                    required min="0"><br>
+                    <input type="text" placeholder="Enter upper bond for exercise" name="exercise_upper" required>
+                
+                    <label for="comment_field"><b>lowerbond</b></label>
+                    <input type="text" placeholder="Enter lower bond for exercise" name="exercise_lower" required>
 
-                    <label for="data_field"><b>upperbond</b></label><br>
-                    <input type="number" placeholder="Enter upper bond for exercise" name="exercise_upper" required><br>
-
+                
                     <button type="submit" class="submit_button" id ="exerciseThreshold_submit">Submit</button>
                     <button type="button" class="close_button" id="exerciseThreshold_close">Close</button>
                 </form>
