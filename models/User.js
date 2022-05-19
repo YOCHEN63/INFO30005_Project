@@ -2,135 +2,136 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
-    first_name :{
-        type:String,
-        require: true
+    first_name: {
+        type: String,
+        require: true,
     },
-    last_name :{
-        type:String,
-        require: true
+    last_name: {
+        type: String,
+        require: true,
     },
-    img :{
-        type:String,
-        require: true
+    img: {
+        type: String,
+        require: true,
     },
-    email :{
-        type:String,
-        require: true
+    email: {
+        type: String,
+        require: true,
     },
-    password :{
-        type:String,
-        require: true
+    password: {
+        type: String,
+        require: true,
     },
-    clinicianID:{
-        type:mongoose.Schema.Types.ObjectId,ref:'user'
+    clinicianID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
     },
     support_message: {
-        type:String
+        type: String,
     },
     support_message_date: {
-        type:Date
+        type: Date,
     },
     bgl_up: {
-        type:Number,
-        default: 10000
+        type: Number,
+        default: 10000,
     },
     bgl_down: {
         type: Number,
-        default: 0
+        default: 0,
     },
     exercise_up: {
-        type:Number,
-        default: 10000
+        type: Number,
+        default: 10000,
     },
     exercise_down: {
         type: Number,
         default: 0,
     },
     insulin_up: {
-        type:Number,
-        default: 10000
+        type: Number,
+        default: 10000,
     },
     insulin_down: {
-        type:Number,
+        type: Number,
         default: 0,
     },
     weight_up: {
-        type:Number,
-        default: 10000
+        type: Number,
+        default: 10000,
     },
     weight_down: {
-        type:Number,
+        type: Number,
         default: 0,
     },
-    bgl_req :{
-        type:Number,
-        default: 1
+    bgl_req: {
+        type: Number,
+        default: 1,
     },
-    weight_req :{
-        type:Number,
-        default: 1
+    weight_req: {
+        type: Number,
+        default: 1,
     },
-    exercise_req :{
-        type:Number,
-        default: 1
+    exercise_req: {
+        type: Number,
+        default: 1,
     },
-    insulin_req :{
-        type:Number,
-        default: 1
+    insulin_req: {
+        type: Number,
+        default: 1,
     },
-    register_date :{
-        type:Date,
-        default:Date.now
+    register_date: {
+        type: Date,
+        default: Date.now,
     },
-    nick_name :{
-        type:String,
-        require: true
+    nick_name: {
+        type: String,
+        require: true,
     },
-    record_date :{
-        type:Number,
-        default: 0
-    }
+    record_date: {
+        type: Number,
+        default: 0,
+    },
 })
 
 const NoteSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    comment:{type:String,require:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    record_date: { type: Date, default: Date.now },
+    comment: { type: String, require: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
 })
 
 const BloodGlucoseSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    blood_glucose_level : {type:Number,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
-    comment:{type:String}
+    record_date: { type: Date, default: Date.now },
+    blood_glucose_level: { type: Number, required: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    comment: { type: String },
 })
 
 const ExerciseSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    walk_steps : {type:Number,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
-    comment:{type:String}
+    record_date: { type: Date, default: Date.now },
+    walk_steps: { type: Number, required: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    comment: { type: String },
 })
 
 const WeightSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    weight : {type:Number,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
-    comment:{type:String}
+    record_date: { type: Date, default: Date.now },
+    weight: { type: Number, required: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    comment: { type: String },
 })
 
 const InsulinSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    insulin_shots : {type:Number,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
-    comment:{type:String}
+    record_date: { type: Date, default: Date.now },
+    insulin_shots: { type: Number, required: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    comment: { type: String },
 })
 
 const MessageSchema = new mongoose.Schema({
-    record_date :{type:Date,default:Date.now},
-    user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
-    comment:{type:String}
+    record_date: { type: Date, default: Date.now },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    comment: { type: String },
 })
 
 // password comparison function
@@ -144,7 +145,7 @@ const SALT_FACTOR = 10
 
 // hash password before saving
 UserSchema.pre('save', function save(next) {
-    const user = this// go to next if password field has not been modified
+    const user = this // go to next if password field has not been modified
     if (!user.isModified('password')) {
         return next()
     }
@@ -159,25 +160,37 @@ UserSchema.pre('save', function save(next) {
         next()
     })
 })
-UserSchema.pre("findOneAndUpdate", async function (next) {
+UserSchema.pre('findOneAndUpdate', async function (next) {
     const user = this
     try {
         if (this._update.password) {
-            const hashed = await bcrypt.hash(this._update.password, SALT_FACTOR);
-            this._update.password = hashed;
+            const hashed = await bcrypt.hash(this._update.password, SALT_FACTOR)
+            this._update.password = hashed
         }
     } catch (err) {
-      return next(err);
+        return next(err)
     }
-});
+})
 
-const message = mongoose.model('message',MessageSchema,'message')
-const user = mongoose.model('user',UserSchema,'user')
-const note = mongoose.model('note',NoteSchema,'note')
-const exercise = mongoose.model('exercise',ExerciseSchema,'exercise')
-const bloodGlucose = mongoose.model('bloodGlucose',BloodGlucoseSchema,'bloodGlucose')
-const insulin = mongoose.model('insulin',InsulinSchema,'insulin')
-const weight = mongoose.model('weight',WeightSchema,'weight')
-const myModel = {'user':user,'exercise':exercise,'bloodGlucose':bloodGlucose,'insulin':insulin,'weight':weight,'note':note,'message':message}
+const message = mongoose.model('message', MessageSchema, 'message')
+const user = mongoose.model('user', UserSchema, 'user')
+const note = mongoose.model('note', NoteSchema, 'note')
+const exercise = mongoose.model('exercise', ExerciseSchema, 'exercise')
+const bloodGlucose = mongoose.model(
+    'bloodGlucose',
+    BloodGlucoseSchema,
+    'bloodGlucose'
+)
+const insulin = mongoose.model('insulin', InsulinSchema, 'insulin')
+const weight = mongoose.model('weight', WeightSchema, 'weight')
+const myModel = {
+    user: user,
+    exercise: exercise,
+    bloodGlucose: bloodGlucose,
+    insulin: insulin,
+    weight: weight,
+    note: note,
+    message: message,
+}
 
 module.exports = myModel

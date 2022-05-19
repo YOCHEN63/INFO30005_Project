@@ -1,32 +1,42 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const flash = require('express-flash')  // for showing login error messages
-const session = require('express-session')  // for managing user sessions
+const flash = require('express-flash') // for showing login error messages
+const session = require('express-session') // for managing user sessions
 require('dotenv/config')
 const passport = require('./passport.js')
 
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology: true})
-.then(()=>console.log('MongoDB Connected...'))
-.catch(err=>console.log(err))
+mongoose
+    .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log('MongoDB Connected...'))
+    .catch((err) => console.log(err))
 
 // Set your app up as an express app
 
 const bodyParser = require('body-parser')
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.json())
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+)
 app.use(express.static('public'))
 
-const exphbs = require('express-handlebars') 
+const exphbs = require('express-handlebars')
 
-app.engine('hbs', exphbs.engine({      // configure Handlebars 
-    defaultlayout: 'main', 
-    extname: 'hbs' 
-})) 
- 
-app.set('view engine', 'hbs')   // set Handlebars view engine
+app.engine(
+    'hbs',
+    exphbs.engine({
+        // configure Handlebars
+        defaultlayout: 'main',
+        extname: 'hbs',
+    })
+)
+
+app.set('view engine', 'hbs') // set Handlebars view engine
 
 const indexRouter = require('./routes/index')
 const mongoClient = require('./models/db.js')
@@ -42,18 +52,17 @@ app.use(
             sameSite: 'strict',
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            maxAge: 900000 // sessions expire after 5 minutes
+            maxAge: 900000, // sessions expire after 5 minutes
         },
     })
 )
 
 app.use(passport.authenticate('session'))
-app.use(flash());
+app.use(flash())
 // Set up to handle POST requests
-app.use(express.json())     // needed if POST data is in JSON format
+app.use(express.json()) // needed if POST data is in JSON format
 
 // app.use(express.urlencoded())  // only needed for URL-encoded input
-
 
 app.use('/', indexRouter)
 
@@ -64,6 +73,6 @@ app.get('/', (req,res) => {
     res.render('index.hbs') 
 })
 */
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('App listening to port 3000')
 })
