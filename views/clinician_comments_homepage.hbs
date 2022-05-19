@@ -1,7 +1,6 @@
-<!-- nav bar -->
 <div class="clinician_nav">
     <a href="/clinician">
-        <img src="./logo/Diabetes @Home (8).png" class="round_icon">
+        <img src="../logo/Diabetes @Home (8).png" class="round_icon">
     </a>
     {{#with docData}}
     <a>
@@ -9,15 +8,16 @@
     </a> 
     {{/with}}
     <a href="/clinician">
-        <img src="./logo/home.png" class="nav_icon">
+        <img src="../logo/home.png" class="nav_icon">
     </a>
     <!-- 加comment页面的-->
-    <a href="clinician/comments">
+    <a href="/clinician/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
 
     <button id="new_patient" class="segoeui_bold_white">New Patient</button>
 </div>
+
 
 <!-- New Patient Modal-->
 <div id="new_patient_modal">
@@ -54,48 +54,52 @@
             </button><br>
         </form>
     </div>
+
 </div>
 
 <div class="table_name">
-    <h1 class="roboto_regular_black_48px">My patient</h1>
+    <h1 class="roboto_regular_black_48px">Comments</h1>
 </div>
 
-<!-- Comments table -->
 <div class="clinician_main_left_column">
     <table class="Main_Table_list">
         <!-- category -->
         <tr>
-            <th>Name</th>
-            <th>Blood glucose level(Nmol/g)</th>
-            <th>Weight(kg)</th>
-            <th>Doses of insulin taken</th>
-            <th>Exercise(steps)</th>
+            
+            <th>Patient Name</th>
+            <th>Type of Data</th>
+            <th>Comment</th>
+            <th>Data Recorded</th>
+            
         </tr>
-		{{#each patientData}}
-        <tr>  
-            <td><a href="/clinician/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></td>    
-            {{#if bgl_over}} 
-            <td class="element_over_threshold">{{this.bloodGlucose}}</td>
-            {{else}}
-            <td>{{this.bloodGlucose}}</td>
-            {{/if}}
-            {{#if weight_over}} 
-            <td class="element_over_threshold">{{this.weight}}</td>
-            {{else}}
-            <td>{{this.weight}}</td>
-            {{/if}}
-            {{#if insulin_over}} 
-            <td class="element_over_threshold">{{this.insulin}}</td>
-            {{else}}
-            <td>{{this.insulin}}</td>
-            {{/if}}
-            {{#if exercise_over}} 
-            <td class="element_over_threshold">{{this.exercise}}</td>
-            {{else}}
-            <td>{{this.exercise}}</td>
-            {{/if}} 
+		{{#each all_comments}}
+        {{#if this.comment}}  
+        <tr>
+            
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.user_id.first_name}} {{this.user_id.last_name}}
+                </a>
+            </td>  
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.dataType}}
+                </a>
+            </td>
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.comment}} 
+                </a>
+            </td>  
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.record_date}}
+                </a>
+            </td>                                             
         </tr>
+        {{/if}}
         {{/each}}
+
     </table>
 </div>
 
@@ -111,4 +115,4 @@
 </div>
 {{/with}}
 
-<script type="text/javascript" src="../javascripts/script.js"></script>
+<script type="text/javascript" src="../javascripts/script.js"></script> 

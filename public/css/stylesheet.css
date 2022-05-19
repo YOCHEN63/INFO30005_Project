@@ -106,6 +106,26 @@ body{
   padding-left: 10px;
   align-items: center;
 }
+.nav_icon_more{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  margin-left: 40%;
+  padding-top: 5px;
+  padding-left: 10px;
+  align-items: center;
+}
+@media screen and (max-width:499px) {
+  .nav_icon{
+    margin-left: 35%;
+    padding-left: 0px;
+  }
+  .nav_icon_more{
+    margin-left: 35%;
+    padding-left: 0px;
+  }
+  
+}
 
 .nav_icon:hover{
   height: 55px;
@@ -124,7 +144,7 @@ body{
   width: 70%;
 }
 
-.patients_list {
+.Main_Table_list {
   width: 80%;
   margin-top: 30px;
   margin-left: 66px;
@@ -133,20 +153,24 @@ body{
   min-width: 800px;
 }
 
-.patients_list a{
+.Main_Table_list a{
   text-decoration: none;
   color: var(--blackl);
 }
 
-.patients_list a:visited{
+.Main_Table_list .element_over_threshold{
+  background-color: #FF6B6B;
+}
+
+.Main_Table_list a:visited{
   color: var(--black);
 }
 
-.patients_list td:hover{
+.Main_Table_list td:hover{
   background-color: var(--hover_gray);
 }
 
-.patients_list th{
+.Main_Table_list th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -154,10 +178,10 @@ body{
 }
 
 /* todo: add style to the table elements*/
-.patients_list td{
+.Main_Table_list td{
   border: 1px solid var(--border_line);
-  padding-left: 20px;
   padding-top: 12px;
+  text-align: center;
 }
 
 .clinician_main_right_column{
@@ -192,8 +216,7 @@ body{
 }
 
 
-/* ----------------------------- Patient Page ------------------------------ */
-
+/*---------------------------new patient home------------andy-------------------*/
 
 
 .patient_nav{
@@ -215,62 +238,80 @@ body{
 }
 
 .home_font{
-  text-align: center;  
-  padding-top: 31px;
-  font-size: 26px;
-}
-
-/* responsive design auto changing font in different screen*/
-@media screen and (min-width: 601px) {
-  .home_font {
-    font-size: 40px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .home_font {
-    font-size: 50px;
-  }
+  padding-top: 3%;
+  font-size: 4.5vmin;
+  display: flex;
+  margin-left: 45%;
 }
 
 .date_font{
-  font-size: 15px;
-  text-align: right;
-  padding-right: 5%;
-}
-@media screen and (min-width: 601px) {
-  .date_font {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .date_font {
-    font-size: 30px;
-  }
+  font-size: 2vmin;
+  margin-left: 35%;
+  margin-top: 2%;
+  
 }
 
+
 .medal{
-  position: absolute;  
-  width: 54px;
-  height: 68px;
-  margin-top: 3%;
+  position: absolute;
+  width: 58px;
+  height: 73px;
   margin-left: 3%;
-  /* top: 90px;
-  left: 26px;  */
+  left: 30px;
+  top: 70px;
+}
+.tooltip {
+  position: absolute;
+  top: 7vh;
+  left: 1vw;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  margin-left: 19%;
+  display: block;
+  text-align: center;
+  font-size: 3vmin;
+  border-radius: 15px;
+  width: 30vw;
+  background: #A2D2F9;
+  margin-top: 6%;
+  height: 7vh;
+  padding-top: 5%;
+
+  
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
+}
+.marquee-desktop{
+  display: none;
+}
+
+.marquee-iphone {
+  width: 29vw;
+  height: 17vh;
+  position: absolute;
+  font-size: 3vmin;
+  left: 66%;
+  top: 7%;
 }
 
 .patient_profile{
   background-color: white;
-  margin-top: 16px;
-  height: 10%;
+  margin-top: 3%;
+  height: 20vh;
   width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  
 }
 
 .profile_img{
-  max-width: 15%;
-  max-height: 15%;
+  width: 28%;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -281,37 +322,18 @@ body{
 
 .profile_name{
   text-align: center; 
-  font-size: 24px;
-}
-@media screen and (min-width: 601px) {
-  .profile_name {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .profile_name{
-    font-size: 40px;
-  }
+  font-size: 5vmin;
 }
 
 .profile_email{
   text-align: center;
-  font-size: 16px;
-}
-@media screen and (min-width: 601px) {
-  .profile_email {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .profile_email {
-    font-size: 30px;
-  }
+  font-size: 3.5vmin;
+
 }
 
 .today_record{
   /* background-color: white; */
-  margin-top: 16px;
+  /* margin-top: 16px; */
   height: 25%;
   width: 90%;
   display: block;
@@ -320,59 +342,33 @@ body{
 }
 
 .today_record_text{
-  font-size: 20px;
+  font-size: 4.5vmin;
   margin-left: 3.5%;
   padding-top: 4%;
-}
-@media screen and (min-width: 601px) {
-  .today_record_text {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .today_record_text {
-    font-size: 40px;
-  }
 }
 
 .add_icon_blue{
   width: 25px;
-  margin-right: 3.5%;
   float: right;
+}
+
+.add_icon_blue:hover {
+  cursor: pointer;
+  background-color: #F8F8F8;
 }
 
 .align_left{
   float: left;
   margin-left: 3.5%;
   margin-top: 4%;
-  font-size: 14px;
-}
-@media screen and (min-width: 601px) {
-  .align_left {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .align_left {
-    font-size: 25px;
-  }
+  font-size: 4vmin;
 }
 
 .align_right{
   float: right;
   margin-right: 5%;
   margin-top: 4%;
-  font-size: 14px;
-}
-@media screen and (min-width: 601px) {
-  .align_right {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .align_right {
-    font-size: 25px;
-  }
+  font-size: 4vmin;
 }
 
 .rightarrow_blue{
@@ -395,13 +391,13 @@ body{
   border-right: 5px solid #047BF1;
   /* background-color: #ddffff; */
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 500px) {
   .bubbleText {
       border-left: 8px solid #047BF1;
       border-right: 8px solid #047BF1;
   }
 }
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1400px) {
   .bubbleText {
       border-left: 10px solid #047BF1;
       border-right: 10px solid #047BF1;
@@ -410,18 +406,9 @@ body{
 
 .bubbleText p{
   margin-left: 7.5%;
-  font-size: 16px;
+  font-size: 3.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText p {
-    font-size: 22px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText p {
-    font-size: 28px;
-  }
-}
+
 
 .bubbleText_noRecord{
   border-radius: 20px;
@@ -431,18 +418,9 @@ body{
   border-width: 0.5px;
   border-color: var(--black);
   background-color: #FF6B6B;
-  font-size: 16px;
+  font-size: 3.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText_noRecord {
-    font-size: 22px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText_noRecord {
-    font-size: 28px;
-  }
-}
+
 
 .bubbleText_noRecord p{
   margin-left: 15%;
@@ -450,19 +428,16 @@ body{
 
 
 .bubbleText time{
-  margin-left: 75%;
-  font-size: 10px;
+  margin-left: 70%;
+  font-size: 3vmin;
   color:#5C6770;
 }
-@media screen and (min-width: 601px) {
-  .bubbleText time {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .bubbleText time{
-    font-size: 25px;
-  }
+
+
+
+.PH-bottom-element {
+  height: 30vh;
+
 }
 
 .past_record{
@@ -473,19 +448,9 @@ body{
   width: 43%;
   float: left;
   text-align: center;
-  font-size: 16px;
+  font-size: 4.5vmin;
 }
-@media screen and (min-width: 601px) {
-  .past_record {
-    font-size: 20px;
-    margin-bottom: 15%;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .past_record {
-    font-size: 30px;
-  }
-}
+
 
 .note_icon{
   width:65px;
@@ -500,46 +465,18 @@ body{
   margin-bottom: 5%;
   padding: 8px 15px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 4vmin;
 }
-@media screen and (min-width: 601px) {
-  .past_record button {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .today_record_text {
-    font-size: 30px;
-  }
-}
+
 
 .scroller{
   width: auto;
-  height: 130px;
+  height: 14.8vh;
   overflow-y: scroll;
   padding-left: 5%;
   /* overflow: visible; */
 }
-@media screen and (min-width: 601px) {
-  .scroller{
-    height: 150px;
-  }
-}
-@media screen and (min-width: 1100px) {
-  .scroller{
-    height: 180px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .scroller{
-    height: 220px;
-  }
-}
-@media screen and (min-width: 1920px) {
-  .scroller{
-    height: 240px;
-  }
-}
+
 
 .leader_board{
   background-color: var(--white);
@@ -547,45 +484,31 @@ body{
   margin-right: 5%;
   margin-bottom: 5%;
   width: 43%;
-  height: 30%;
+  /* height: 30%; */
   float: right;
   /* text-align: center; */
-  font-size: 16px;
+  font-size: 4.5vmin;
 } 
-@media screen and (min-width: 601px) {
-  .leader_board {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .leader_board {
-    font-size: 30px;
-  }
+.leader_board p{
+  margin-bottom: 5%;
 }
 
-.scroller p{
+.scroller ol{
   background-color: #A2D2F9;
-  padding-top: 3%;
+  padding-top: 0%;
   padding-bottom: 3%;
-  padding-left: 5%;
+  padding-left: 13%;
   border-radius: 10px;
   border-style: solid;
   margin-left: 3.5%;
   margin-right: 5%;
   border-width: 5px;
   border-color: var(--white);
-  font-size: 14px;
+  font-size: 3.5vmin;
   color:var(--white);
 }
-@media screen and (min-width: 601px) {
-  .scroller p {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .scroller p {
-    font-size: 30px;
-  }
+.scroller ol li{
+  padding-top: 10%;
 }
 
 .trans_badge{
@@ -597,12 +520,283 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
+.PH-nav-logo{
+  display: none;
+}
+
+.PH-nav-more { 
+  position: absolute;
+  background-color: #007AD4;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+  border-radius: 20px;
+  font-size: 3vmin;
+  display: none;
+  bottom: 9%;
+  min-width: 100vw;
+  text-align: center;
+
+  
+}
+.PH-nav-more a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.PH-nav-more a:hover{
+  color: #000;
+}
+.PH-nav-more form{
+  padding: 12px 16px;
+}
+.PH-nav-more button {
+  color: white;
+  padding: 12px 16px;
+  display: contents;
+  border: none;
+  text-decoration: none;
+  font-size: 2.5vmin;
+}
+.PH-nav-more button b{
+  font-family: 'PingFang SC';
+}
+.PH-nav-more button:hover{
+  color: #000;
+}
+
+.PH-nav-display {
+  display: block;
+}
+
+/*--------------------ipad and desktop for Patient Home ------------andy-----------*/
+@media screen and (min-width: 500px){
+  .patient_nav {
+    position: relative;
+    justify-content: left;
+    height: 72px;
+  }
+  .patient_nav a {
+    padding-right: 1%;
+  }
+  .PH-nav-logo {
+    display: flex;
+  }
+  .PH-nav-more { 
+    position: absolute;
+    background-color: #007AD4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+    margin-left: 250px;
+    font-size: 2.5vmin;
+    bottom: auto;
+  }
+  .PH-nav-more a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .nav_icon{
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+  }
+  .nav_icon_more {
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+  }
+  .nav_icon:hover{
+    height: 57px;
+    width: 57px;
+  }
+  .nav_icon_more:hover{
+    height: 57px;
+    width: 57px;
+  }
+  .home_font {
+    padding-top: 0.5%;
+    margin-left: -2%;
+    /* display: inline-flex; */
+  }
+  .home {
+    display: none;
+  }
+  .marquee-desktop{
+    margin-left: 5%;
+    position: absolute;
+    display: flex;
+    width: 71vw;
+    /* background-color: #A2D2F9;  */
+  }
+  .marquee-iphone{
+    display: none;
+  }
+
+  .date_font {
+    font-size: 3vmin;
+    color: #007AD4;
+    margin-left: 83%;
+    margin-right: 3%;
+  }
+  .patient_profile {
+    width: 20%;
+    height: 70vh;
+    margin-left: 3%;
+    margin-top: 1%;
+    float: left;
+    background-color: #F6F8F9;
+
+  }
+  .profile_img {
+    width: 17vw;
+    height: auto;
+  }
+  .profile_email {
+    font-size: 2.3vmin;
+  }
+  .profile_name {
+    font-size: 4.5vmin;
+    margin-top: 10%;
+  }
+
+  .medal {
+    position: relative;
+    width: 7vw;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    top: 0;
+    margin-top: 10%;
+  }
+
+
+  .tooltip {
+    position: relative;
+    top: 3vh;
+    left: 0;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-size: 2.5vmin;
+    border-radius: 20px;
+    width: 20vw;
+    background: #A2D2F9;
+    margin-top: 5%;
+    padding: 0;
+    height: auto;
+  
+    
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    
+  }
+  .today-record-session{
+    /* display: flex; */
+    float: left;
+    height: 80vh;
+    width: 50vw;
+    border: 1px;
+    border-style: solid;
+    margin-left: 1%;
+    margin-top: 0.5%;
+  }
+  .today_record_text {
+    font-size: 3.5vmin;
+    margin-left: 0;
+    padding-top: 5%;
+    margin-bottom: 3%;
+  }
+  .align_left {
+    font-size: 3vmin;
+  }
+  .align_right {
+    font-size: 3vmin;
+  }
+  .bubbleText p {
+    margin-left: 5%;
+    font-size: 2.5vmin;
+  }
+  .bubbleText time {
+    margin-left: 80%;
+    font-size: 2vmin;
+  }
+  .add_icon_blue {
+    width: 40px;
+  }
+  .bubbleText_noRecord {
+    font-size: 2.5vmin;
+  }
+
+  .past_record {
+    width: 20%;
+    margin-bottom: 4%;
+    margin-left: 3%;
+    font-size: 3.5vmin;
+    margin-top: 3%;
+  }
+  .past_record p{
+    margin-top: 6%;
+    margin-bottom: 2%;
+  }
+  .past_record button {
+    font-size: 3.5vmin;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 10%;
+  }
+  .past_record button:hover{
+    background-color: #2372FF;
+  }
+  .note_icon {
+    width: 38%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .leader_board {
+    width: 20%;
+    float: left;
+    margin-top: 0%;
+    margin-left: 3%;
+    margin-right: 0%;
+    /* height: 35vh; */
+    font-size: 3.5vmin;
+  }
+  .leader_board p {
+    margin-top: 6%;
+    margin-bottom: 2%;
+  }
+  .scroller {
+    height: 26vh;
+    padding-left: 2%;
+    
+  }
+  .scroller ol {
+    margin-top: 1%;
+    font-size: 3.25vmin;
+  }
+
+}
 /* ----------------------------- Comment Page ------------------------------ */
 
 
 .comment_button{
   float: right;
-  margin-top: 2%;
+  margin-top: 3.5%;
+  border: none;
+  cursor: pointer;
 }
 
 .form-popup .label{
@@ -634,6 +828,10 @@ body{
   margin:auto;
 
 }
+.form-popup label b{
+  font-size: 2.3vmin;
+}
+
 
 /* Add styles to the form container */
 .form-container {
@@ -657,11 +855,12 @@ body{
 
 /* Full-width input fields */
 .form-container input[type=text] {
-  width: 80%;
+  width: 82%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  font-size: 1.8vmin;
 }
 
 /* When the inputs get focus, do something */
@@ -679,6 +878,7 @@ body{
   cursor: pointer;
   width: 80%;
   margin-bottom:10px;
+  font-size: 2.5vmin;
 }
 
 /* Add a red background color to the button */
@@ -690,6 +890,7 @@ body{
   cursor: pointer;
   width: 80%;
   margin-bottom:10px;
+  font-size: 2.5vmin;
 }
 
 .form-container .data_field{
@@ -728,6 +929,13 @@ body{
 
 .patient_detail_card h4{
   text-align: center;
+}
+
+.patient-email{
+  text-align: center;
+  color: var(--dove-gray);
+  font-style: normal;
+  font-size: 20px;
 }
 
 /* -------------------------- Required Data Selector ------------------------ */
@@ -887,7 +1095,111 @@ body{
 
 
 /* ------------------------ Clinician UI Patient Data ---------------------- */
+#new_patient{
+  width: 150px;
+  height: 30px;
+  background-color: var(--background_blue);
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  text-align: center;
+}
 
+#new_patient:hover{
+  background-color:var(--background_blue_hover);
+}
+
+#new_patient:active{
+  background-color:var(--background_blue_active);
+}
+
+#new_patient_modal{
+  display:none;
+  position: absolute;
+  padding-top: 0;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#new_patient_modal_content h2{
+  margin:20px 20px;
+}
+
+#new_patient_modal_content button{
+  margin:20px 20px;
+  
+}
+
+#new_patient_modal_content{
+  border: 1px solid var(--border_line);
+  background-color: var(--white);
+  width: 50%;
+  margin:auto;
+  margin-top: 5%;
+}
+
+.new_patient_form{
+  margin-left: 20px;
+}
+
+#modal_content_close{
+  color: #aaaaaa;
+  float: right;
+}
+
+#modal_content_close img{
+  height: 25px;
+  width: 25px;
+}
+
+#modal_content_close :hover{
+  height: 28px;
+  width: 28px;
+}
+
+.new_patient_form label{
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.new_patient_form input{
+  height: 30px;
+  width: 200px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+
+.new_patient_form button{
+  background-color: var(--green);
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.new_patient_form button:hover{
+  background-color: #06e07a;
+}
+
+.new_patient_form button:active{
+  background-color: #1ff994;
+}
+
+.modal_content_close:hover,
+.modal_content_close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .patient_data_content{
   overflow: hidden;
@@ -1074,15 +1386,83 @@ body{
 }
 
 /* ----------------------------- Message Content ---------------------------- */
+.clinicianUI_message_container{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
-/* shiki */
+.clinicianUI_message_title{
+  border: 1px solid var(--border_line);
+}
 
+.clinicianUI_message_title h2{
+  text-align: center;
+}
+
+.clinicianUI_message_content{
+  border: 1px solid var(--border_line);
+  height: 100px;
+}
+
+
+.clinicianUI_message_content ul{
+  list-style-type: none;
+}
+
+#clinician_message_input{
+  margin: 20px 30px;
+  height: 30px;
+  font-size: 17px;
+  width: 70%;
+  border: 1px solid var(--border_line);
+  border-radius: 8px;
+}
+
+#clinician_message_input:hover{
+  background-color: #f2f2f2;
+}
+
+#clinician_message_submit{
+  width: 15%;
+  height: 30px;
+  background-color: var(--background_blue);
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  margin:20px 0px;
+}
+
+#clinician_message_submit:hover{
+  background-color: var(--background_blue_hover);
+}
+
+#clinician_message_submit:active{
+  background-color: var(--background_blue_active);
+}
+
+.single_clinician_message{
+  border: 1px solid var(--border_line);
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  background-color: var(--background_blue);
+}
+
+.single_clinician_message_datetime{
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* ----------------------------------- Shiki -------------------------------- */
 .data_header{
   width: 100%;
   overflow: hidden;
   min-width: 100%;
   position:relative;
   display: flex;
+  height:10vh;
   
 
 }
@@ -1094,28 +1474,39 @@ body{
 }
 .data_header a{
   position: relative;
-  padding-top: 2%;
+  padding-top: 1.5%;
   padding-bottom: 1%;
-  padding-left: 30%;
+  padding-left: 5%;
 }
 .data_header p{
   text-decoration: none;
   position: relative;
   float: left;
-  padding-left: 12%;
-  padding-top: 2.5%;
+  padding-left: 35%;
+  padding-top: 1.5%;
+  font-size: 4vmin;
 
 }
 
 .leftarrow_icon{
 
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  align-items: center;
+  height: 50px;
+  width: 50px;
+}
+@media screen and (max-width:500px) {
+  .data_header p{
+    padding-left: 24%;
+    padding-top: 6.5%;
+    font-size: 6vmin;
+  }
+  .leftarrow_icon {
+    height: 40px;
+    width: 40px;
+  }
+  .data_header a{
+    padding-top: 5.5%;
+  }
 
-  overflow: hidden;
-  background: var(--white);
 }
 
 .underline{
@@ -1132,11 +1523,7 @@ body{
   margin-top: 0.2%;
 }
 
-
-
-
 /* selection */
-
 .selection_container{
 
   display: flex;
@@ -1170,6 +1557,7 @@ body{
   overflow: hidden;
   white-space: nowrap;
 }
+
 /* show all data */
 .data_container{
   display: flex;
@@ -1178,8 +1566,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .data_container:after{
@@ -1187,7 +1573,6 @@ body{
   display: block;
   /* margin-top: 23.9%; */
 }
-
 
 .data_graph{
   height: 100%;
@@ -1207,8 +1592,6 @@ body{
   position:relative;
   text-align: center;
   justify-content: center;
-
-      
 }
 
 .viewdata_container:after{
@@ -1217,4 +1600,796 @@ body{
   margin-top: 23.9%;
 }
 
+/* ----------------------------- About Diabetes ------------------andy---------- */
+.AD-header {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../image/AD-header-img.png');
 
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+
+}
+
+.AD-header-content {
+  background: rgba(0, 94, 255, 0.55);
+  height: 60%;
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 7%;
+  border-radius: 20px;
+  
+  
+}
+
+.AD-header-content h2{
+  margin-top: 5%;
+  margin-left: 10%;
+  color: white;
+  font-size: 5vmin;
+  width: 50vw;
+  
+
+}
+
+.AD-header-content p {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  color: white;
+  width: 40vw;
+  font-size: 3vmin;
+}
+
+.AD-header-content a{
+  color:white;
+  margin-top: 5%;
+  margin-left: 10%;
+  font-size: 3vmin;
+  margin-left: 80%;
+}
+.AD-header-content a:hover{
+  color:#000
+}
+
+.AD-header-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  /* margin-top: 5%; */
+  margin-left: 10%;
+}
+
+
+/* -------Nav Bar--------*/
+.AD-head-logo {
+  height: 11vh;
+  width: auto;
+  float: left;
+  margin-left: 2%;
+}
+
+.AD-navbar {
+  background-color: #2372FF;
+  height: 11vh;
+  font-size: 3vmin;
+  justify-content: space-between;
+}
+
+.AD-nav-links {
+  display: flex;
+  list-style-type: none;
+  /* align-items: center; */
+  margin-left: 55%;
+}
+
+.AD-nav-links li {
+  margin: 25px 20px;  
+}
+@media screen and (max-width: 1024px) {
+.AD-nav-links {
+  margin-left: 45%;
+}
+
+  .AD-nav-links li {
+    margin: 22px 12px; 
+  }
+}
+@media screen and (min-width: 1900px) {
+  .AD-nav-links li {
+    margin: 33px 22px; 
+  }
+}
+
+.AD-nav-links li a {
+  color: white;
+}
+
+.AD-nav-links li :hover {
+  color: black;
+}
+
+.AD-menu-btn{
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 40px;
+  cursor:pointer;
+  display: none;
+}
+
+
+.AD-video-content {
+  background: #F8FAFC;
+  height: 70%;
+  width: 30%;
+  margin-top: 10%;
+  margin-left: 6%;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #000;
+}
+
+.AD-video-content h2{
+  margin-top: 5%;
+  text-align: center;
+  font-size: 4vmin;
+}
+
+.AD-video-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  /* margin-top: 5%; */
+  margin-left: 10%;
+}
+
+.AD-video-content iframe {
+  margin-top: 3%;
+  width: 90%;
+  height: 40%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.AD-about-Diabetes {
+  background-color: white;
+  width: 100vw;
+  height: 85vh;
+  /* display: flex; */
+}
+
+.AD-about-Diabetes-heading {
+  padding-top: 5%;
+  margin-left: 10%;
+  font-size: 2.5vmin;
+
+}
+
+.AD-about-Diabetes-content {
+  background: #F8FAFC;
+  height: 58%;
+  width: 20%;
+  margin-top: 5%;
+  margin-left: 4%;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #000;
+  float: left;
+  box-shadow: 5px 10px #888888;
+}
+
+.AD-about-Diabetes-content h2 {
+  padding-top: 7%;
+  margin-left: 0%;
+  font-size: 3vmin;
+  text-align: center;
+}
+
+.AD-about-Diabetes-line {
+  width: 80%;
+  height: 4px;
+  background-color: #E2E6EA;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.AD-about-Diabetes-content p {
+  width: 85%;
+  font-size: 2vmin;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.AD-about-Diabetes-content p a {
+  display: block;
+}
+
+.AD-about-Diabetes-content p a:hover {
+  color: green;
+}
+
+
+/* ---AD footer--- */
+.AD-footer {
+  background-color: #2372FF;
+  height: 11vh;
+  display: flex;
+}
+
+.AD-footer ul {
+  list-style-type: none;
+  align-items: center;
+}
+
+.AD-footer-content {
+  font-size: 2vmin;
+  display: flex;
+  /* list-style-type: none; */
+  margin-left: 5%;
+  justify-content: space-between;
+  width: 50%;
+  
+}
+
+.AD-footer-content li {
+  color: white;
+}
+
+.AD-footer-content li a{
+  color: white;
+}
+
+.AD-footer-content li a:hover{
+  color:#000;
+}
+
+
+.AD-footer-img {
+  margin-left: 15%;
+  display: flex;
+  width: 25vw;
+}
+
+.AD-footer-img-content {
+  width: 50%;
+  margin-top:5%;
+  margin-left: 5%;
+}
+
+/*  -------About Diabetes mobile page-------- */
+@media screen and (max-width: 500px){
+  .AD-menu-btn {
+    display:flex;
+  }
+
+
+  .AD-nav-links {
+    flex-direction: column;
+    width: 100%;
+    /* height: 100vh; */
+    justify-content: center;
+    background-color:#2372FF;
+    position: relative;
+    margin-left: 0;
+    /* margin-top: -900px;  no affect*/
+    display: none;
+    border: 1px solid white;
+    border-left: hidden;
+    border-right: hidden;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .AD-nav-links a:link {
+    text-decoration: none;
+  }
+   .AD-nav-links a:hover{
+    text-decoration: underline;
+  }
+
+  .mobile-menu{
+    display: flex;
+  }
+  .AD-nav-links li {
+    margin: 30px auto;
+    font-size: large;
+  }
+
+
+  .AD-header {
+    display: block;
+    float: left;
+  }
+
+  .AD-header-content {
+    height: 30%;
+    width: 90%;
+    /* margin-top: 0; */
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
+
+  .AD-header-content h2 {
+    margin-top: 0%;
+    padding-top: 5%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+  }
+
+  .AD-header-content p {
+    width: 70vw;
+  }
+
+  .AD-video-content {
+    height: 60%;
+    width: 90%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .AD-about-Diabetes {
+    float: left;
+    height: 120vh;
+  }
+
+  .AD-about-Diabetes-content {
+    width: 90%;
+    height: 20%;
+    box-shadow: none;
+  }
+
+  .AD-about-Diabetes-content h2 {
+    font-size: 4vmin;
+    padding-top: 5%;
+  }
+
+  .AD-about-Diabetes-line {
+    margin-top: 3%;
+  }
+
+  .AD-footer {
+    /* display: block; */
+    float: left;
+    width: 100%;
+    height: 5vh;
+  }
+  .AD-footer-content {
+    /* margin-left: 8%; */
+  }
+
+  .AD-footer-content li a {
+    display: none;
+  }
+
+  .AD-footer-img {
+    margin-left: 5%;
+    margin-top: 1%;
+    width: 50vw;
+  }
+
+  .AD-footer-img-content {
+    width: 60%;
+  
+  }
+
+}
+
+
+/* ------------------------------About Us Page---------------andy----------*/
+.AU-header {
+  background-image: url('../image/AU-header-img.jpeg');
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-position: bottom;
+  background-size: cover;
+}
+
+
+
+.AU-header-content {
+  background: rgba(0, 94, 255, 0.55);
+  height: 50%;
+  width: 80%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.AU-header-content h2 {
+  margin-top: 5%;
+  margin-left: 7%;
+  font-size: 4.5vmin;
+  color: white;
+}
+
+.AU-header-content p {
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 4vmin;
+  width: 65vw;
+  color: white;
+}
+
+.AU-main {
+  background-color: white;
+  width:100vw;
+  height: 100vh;
+}
+
+.AU-about-Diabetes-content {
+    background: #F8FAFC;
+    height: 50%;
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 6%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #000;
+    float: left;
+    box-shadow: 5px 10px #888888;
+}
+.AU-about-Diabetes-content h2 {
+  padding-top: 7%;
+  margin-left: 0%;
+  font-size: 3.5vmin;
+  text-align: center;
+}
+
+.AU-about-Diabetes-content p {
+  width: 85%;
+  font-size: 2.5vmin;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.AU-about-Diabetes-content2 {
+  background: #F8FAFC;
+    height: 25%;
+    width: 88%;
+    margin-top: 5%;
+    margin-left: 6%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #000;
+    float: left;
+    box-shadow: 5px 10px #888888;
+}
+
+.AU-about-Diabetes-content2 h2 {
+  padding-top: 2%;
+  font-size: 3.5vmin;
+  text-align: center;
+}
+
+.AU-about-Diabetes-content2 p {
+  width: 85%;
+  font-size: 2.5vmin;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+.AU-about-Diabetes-line2 {
+  width: 80%;
+  height: 4px;
+  margin-top: 1%;
+  background-color: #E2E6EA;
+  margin-left: 10%;
+}
+
+/*  -------About Us mobile page-------- */
+@media screen and (max-width: 500px){
+  .AU-header {
+    height: 38vh;
+  }
+  .AU-header-content {
+    height: 75%;
+  }
+  .AU-main {
+    height: 110vh;
+  }
+  .AU-about-Diabetes-content {
+    width: 87%;
+    height: 24%;
+  }
+  .AU-about-Diabetes-content h2 {
+    padding-top: 4%;
+  }
+  .AU-about-Diabetes-content p {
+    margin-top: 4%;
+  }
+  .AU-about-Diabetes-content2 {
+    height: 14%;
+  }
+
+}
+
+/* ------------------------------Login page ------shiki------------------------------ */
+.login-diabetes-left{
+  width: 48vw;
+  height: 100vh;
+  background-color: #2372FF;
+  float: left;
+  display: flex;
+  justify-content: center;
+
+}
+.login-photo{
+  width: 48vw;
+  height: auto;
+  margin: auto;
+}
+
+.alert{
+  font-size: 3vmin;
+  font-family: var(--font-family-roboto);
+  color: red;
+}
+
+.login-diabetes-right{
+  width: 52vw;
+  height: 100vh;
+  background-color: white;
+  float: left;
+
+}
+
+.loginarrow_icon{
+  margin-left: 10%;
+  margin-top: 8%;
+  height: 5vh;
+  width: 5vh;
+}
+
+.login-right-content{
+  /* width: 44vw; */
+  height: 50vh;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+}
+.login-right-content h1{
+  font-size: 5vmin;
+  font-family: var(--font-family-roboto);
+
+}
+.login-right-content h2{
+  font-size: 2.5vmin;
+  font-family: var(--font-family-roboto);
+  color: #828282;
+}
+.login-right-content h3{
+  margin-top: 6%;
+  font-size: 3.5vmin;
+}
+
+
+.login-right-content input[type=text], input[type=password] {
+  width: 100%;
+  padding: 1vmin 2.5vmin;
+  display: inline-block;
+  border: 0.1vmin solid #ccc;
+  box-sizing: border-box;
+  font-size: 2.5vmin;
+}
+
+.login-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.login-right-content h4{
+  font-size: 2vmin;
+  margin-top: 3%;
+  padding-left: 6vmin;
+  font-family: var(--font-family-roboto);
+  text-decoration: underline;
+  text-align: right;
+}
+.login-diabetes-right a:hover{
+  color: red;
+}
+
+
+
+/*  -------About Diabetes mobile page-------- */
+@media screen and (max-width: 500px){
+  .login-diabetes-left{
+    display: none;
+  }
+  .login-diabetes-right{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    float: left;
+  }
+  .login-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .alert{
+    font-size: 5vmin;
+    font-family: var(--font-family-roboto);
+    color: red;
+  }
+  .login-right-content h1{
+    font-size: 10vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+  .login-right-content h2{
+    font-size: 5vmin;
+    font-family: var(--font-family-roboto);
+    color: #828282;
+  }
+  .login-right-content h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  
+  .login-right-content input[type=text]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin;
+  }
+  .login-right-content input[type=password]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin; 
+  }
+  .login-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .login-right-content h4{
+    font-size: 4vmin;
+    margin-top: 6%;
+    padding-left: 12vmin;
+    font-family: var(--font-family-roboto);
+    text-decoration: underline;
+    text-align: right;
+  }
+  .login-right-content h5{
+    font-size: 7vmin;
+    background-color: #2372FF;
+    color: white;
+    margin-top: 6%;
+    padding:2vmin;
+    text-align: center;
+  
+  }
+
+}
+
+/* ------------------------------Change password ------shiki------------------------------ */
+.change-right-content{
+  height: 50vh;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2%;
+}
+.change-right-content h1{
+  font-size: 5vmin;
+  font-family: var(--font-family-roboto);
+
+}
+
+.change-right-content h3{
+  margin-top: 6%;
+  font-size: 3.5vmin;
+}
+
+
+.change-right-content input[type=text], input[type=password] {
+  width: 100%;
+  padding: 1vmin 2.5vmin;
+  display: inline-block;
+  border: 0.1vmin solid #ccc;
+  box-sizing: border-box;
+  font-size: 3.5vmin;
+}
+.change-right-content input[type=submit]{
+  font-size: 3.5vmin;
+  background-color: #2372FF;
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  padding: 1vmin;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+@media screen and (max-width: 500px){
+  .change-right-content{
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  .change-right-content h1{
+    font-size: 8vmin;
+    font-family: var(--font-family-roboto);
+  
+  }
+
+  .change-right-content h3{
+    margin-top: 12%;
+    font-size: 7vmin;
+  }
+  
+  .change-right-content h5{
+    font-size: 7vmin;
+    /* background-color: #2372FF; */
+    color: white;
+    margin-top: 6%;
+    /* padding:2vmin; */
+    text-align: center;
+  } 
+  .change-right-content input[type=text]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin;
+  }
+  .change-right-content input[type=password]{
+    width: 100%;
+    padding: 2vmin 5vmin;
+    display: inline-block;
+    border: 0.1vmin solid #ccc;
+    box-sizing: border-box;
+    font-size: 3.5vmin; 
+  }
+  .change-right-content input[type=submit]{
+    font-size: 5.5vmin;
+    background-color: #2372FF;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+    padding: 1vmin;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+  }
+}

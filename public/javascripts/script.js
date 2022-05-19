@@ -47,7 +47,7 @@ function GetDateTime(){
     return dateTime;
 }
 /* --------------------------- Patient Note Submit -------------------------- */
-
+/*
 document.querySelector('#clinician_note_submit').onclick = function(){
     //input can't be none
     if(document.getElementById("clinician_note_input").value.length == 0){
@@ -69,4 +69,28 @@ document.querySelector('#clinician_note_submit').onclick = function(){
         document.getElementById("clinician_note_input").value = '';
     }
 }
+*/
+/* --------------------------- New Paitent Modal -------------------------- */
+var newPatientBtn = document.getElementById("new_patient");
 
+var newPatientModal = document.getElementById("new_patient_modal");
+
+var newPatientModalClose = document.getElementById("modal_content_close");
+
+newPatientBtn.onclick = function(){
+    newPatientModal.style.display = "block";
+}
+
+newPatientModalClose = document.getElementById("modal_content_close");
+
+newPatientModalClose.onclick = function(){
+    newPatientModal.style.display = "none";
+}
+
+var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
+
+newPatientFormSubmit.onclick() = function(){
+    setTimeout(() => { alert("Submit successfully!"); }, 500);
+
+    newPatientModal.style.display = "none";
+}

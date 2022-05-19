@@ -1,25 +1,42 @@
 <!-- bottom nav bar-->
 
 <div class="patient_nav" style="z-index: 2;">
+    <img src="./logo/Diabetes @Home (4).png" class="PH-nav-logo">
     <a href="/">
         <img src="./logo/home.png" class="nav_icon">
     </a>
-    <a href="#">
+    {{!-- <a href="#">
         <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
     <a href="#">
         <img src="./logo/notification.png" class="nav_icon">
-    </a>
+    </a> --}}
     <a href="#">
-        <img src="./logo/setting.png" class="nav_icon">
+        <img src="./logo/more.png" class="nav_icon_more">
     </a>
 </div>
+
+<div class="PH-nav-more">
+    <a href="/home"><b>About Diabetes</b></a>
+    <a href="/about-us"><b>About Website</b></a>
+    <a href="/changePassword"><b>Change Password</b></a>
+    <a href="/home"><b>Log Out</b></a>
+</div>
+
+<script>
+const moreBtn = document.querySelector('.nav_icon_more')
+const PHnavlinks = document.querySelector('.PH-nav-more')
+
+moreBtn.addEventListener('click', ()=>{
+PHnavlinks.classList.toggle('PH-nav-display')
+})
+</script>
 
 <div class="data_header">
     <a href="/">
         <img src="./logo/left-arrow.png" class="leftarrow_icon">
     </a>
-    <p class ="roboto_regular_gray_24px">My data</p>
+    <p>My data</p>
 </div>
 
 <div class="underline">
