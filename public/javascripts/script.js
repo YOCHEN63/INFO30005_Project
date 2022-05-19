@@ -77,10 +77,6 @@ var newPatientModalBG = document.getElementById("new_patient_modal");
 
 var newPatientModalClose = document.getElementById("modal_content_close");
 
-var newPatientForm = document.getElementById("new_patient_form_block");
-
-var newPatientCreated = document.getElementById("create_patient_sucessful");
-
 newPatientBtn.onclick = function(){
     newPatientModalBG.style.display = "block";
     newPatientForm.style.display = "block";
@@ -94,6 +90,5 @@ newPatientModalClose.onclick = function(){
 var newPatientFormSubmit = document.getElementById("new_patient_form_submit");
 
 newPatientFormSubmit.onclick() = function(){
-    newPatientForm.style.display = "none";
-    newPatientCreated.style.display = "block";
+    newPatientModalBG.style.display = "none";
 }
