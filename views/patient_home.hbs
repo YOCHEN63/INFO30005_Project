@@ -23,7 +23,7 @@
         <button><b>Log Out</b></button>
     </form>
 </div>
-
+<!-- script
 <script>
 const moreBtn = document.querySelector('.nav_icon_more')
 const PHnavlinks = document.querySelector('.PH-nav-more')
@@ -32,7 +32,7 @@ moreBtn.addEventListener('click', ()=>{
 PHnavlinks.classList.toggle('PH-nav-display')
 })
 </script>
-
+-->
 <!-- top part-->
  
 <div class="home_font">
@@ -259,7 +259,7 @@ PHnavlinks.classList.toggle('PH-nav-display')
             
             <ol>
             {{#each leaderboard}}
-            <li>{{this.nick_name}} {{this.participant_percentage}}</li>
+            <li>{{this.nick_name}}</li>
             {{/each}}
             </ol>
             
@@ -268,3 +268,4 @@ PHnavlinks.classList.toggle('PH-nav-display')
 </div>
 <script src="./javascripts/pop_form.js"></script> 
 <script src="./javascripts/script.js"></script>
+<script src="./javascripts/patient_nav.js"></script>
