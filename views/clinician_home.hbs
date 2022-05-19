@@ -17,16 +17,22 @@
     </a>
 
     <button id="new_patient" class="segoeui_bold_white">New Patient</button>
+
+    <form action="/logout" method="post" id="clinician_logout">
+        <button class="segoeui_bold_white">
+            Logout
+        </button>
+    </form>
 </div>
 
 <!-- New Patient Modal-->
 <div id="new_patient_modal">
 
-    <div id="new_patient_modal_content">
+    <div class="new_patient_modal_content">
         <span id="modal_content_close">
             <img src="/logo/close.png">
         </span>
-        
+
         <h2> New Patient Form</h2>
 
         <form action='/clinician/register' method ='post' class="new_patient_form">
@@ -37,7 +43,7 @@
             <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
             <label for="#">Email</label><br>
-            <input id="#" placeholder=" --@example.com kg" name="email"><br>
+            <input id="#" placeholder=" ------@example.com" name="email"><br>
 
             <label for="#">nick_name</label><br>
             <input id="#" placeholder=" --" name="nick_name"><br>
@@ -45,7 +51,7 @@
             <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
                 Submit 
             </button><br>
-        </form>
+        </form>   
     </div>
 </div>
 

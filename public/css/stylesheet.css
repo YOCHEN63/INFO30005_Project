@@ -800,7 +800,18 @@ body{
 }
 
 .form-popup .label{
+  margin-top: 10px;
+}
+
+.form-popup input{
+  height:  60px;
+  width:  90%;
+  background-color: var(#f2f2f2);
   margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: large;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .gray_cover{
@@ -1108,12 +1119,41 @@ body{
   text-align: center;
 }
 
+#clinician_logout{
+  width: 150px;
+  height: 30px;
+  background-color: var(--background_blue);
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 200px;
+  text-align: center;
+}
+
+#clinician_logout button{
+  background-color: var(--background_blue);
+  border: none;
+  font-size: 17px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background-color: none;
+}
+
 #new_patient:hover{
   background-color:var(--background_blue_hover);
 }
 
+#clinician_logout:hover{
+  background-color: var(--background_blue_hover);
+}
+
 #new_patient:active{
   background-color:var(--background_blue_active);
+}
+
+#clinician_logout:active{
+  background-color: var(--background_blue_active);
 }
 
 #new_patient_modal{
@@ -1127,16 +1167,20 @@ body{
   background-color: rgba(0,0,0,0.4);
 }
 
-#new_patient_modal_content h2{
+.new_patient_modal_content h2{
   margin:20px 20px;
 }
 
-#new_patient_modal_content button{
+#new_patient_modal_content h1{
+  margin: 20px 20px;
+}
+
+.new_patient_modal_content button{
   margin:20px 20px;
   
 }
 
-#new_patient_modal_content{
+.new_patient_modal_content{
   border: 1px solid var(--border_line);
   background-color: var(--white);
   width: 50%;
@@ -1144,7 +1188,11 @@ body{
   margin-top: 5%;
 }
 
-.new_patient_form{
+#new_patient_form_block{
+  display: none;
+}
+
+#new_patient_form{
   margin-left: 20px;
 }
 
