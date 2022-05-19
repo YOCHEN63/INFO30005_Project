@@ -4,17 +4,16 @@
     </a>
     {{#with onePatient}}
     <a>
-        <p class="segoeui_regular_blue">{{this.first_name}}'s profile</p>
+        <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
+    <!-- home nav-->
     <a href="/clinician">
         <img src="../logo/home.png" class="nav_icon">
     </a>
-    <a href="#">
-        <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
-    </a>
-    <!-- 加comment页面的-->
-    <a href="#">
+
+    <!-- comment page nav-->
+    <a href="/clinician/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
 
@@ -31,30 +30,25 @@
         
         <h2> New Patient Form</h2>
 
-        <form class="new_patient_form">
+        <form action='/clinician/register' method ='post' class="new_patient_form">
+            <!-- Error message, if password length is not met-->
+            {{#if flash}}
+            <p class="error-message">*{{flash}}</p>
+            {{/if}}
             <label for="#">First Name:</label><br>
-            <input id="#" placeholder=" eg: John"><br>
+            <input id="#" placeholder=" eg: John" name="first_name"><br>
 
             <label for="#">Last Name:</label><br>
-            <input id="#" placeholder=" eg: Wick"><br>
+            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-            <label for="#">Day of Birth</label><br>
-            <input id="#" placeholder=" eg: dd/mm/yy"><br>
+            <label for="#">Email</label><br>
+            <input id="#" placeholder=" --@example.com kg" name="email"><br>
 
-            <label for="#">	Blood glucose level</label><br>
-            <input id="#" placeholder=" -- kg"><br>
+            <label for="#">Password</label><br>
+            <input id="#" placeholder=" Enter at least 8 characters" name="password"><br>
 
-            <label for="#">Weight</label><br>
-            <input id="#" placeholder=" -- Nmol/L"><br>
-
-            <label for="#">Doses of insulin taken</label><br>
-            <input id="#" placeholder=" -- Doses"><br>
-
-            <label for="#">Exercise</label><br>
-            <input id="#" placeholder=" -- steps"><br>
-
-            <label>Note</label><br>
-            <input id="#" placeholder=" ...... "><br>
+            <label for="#">nick_name</label><br>
+            <input id="#" placeholder=" --" name="nick_name"><br>
 
             <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
                 Submit 
@@ -71,10 +65,10 @@
         {{#with onePatient}}
         <img src={{this.img}}>
         <div class="patient_detail_container">
-            <h4 class="roboto_regular_black" style="font-size: 48px;">
+            <h4 class="roboto_regular_black" style="font-size: 42px;">
                 {{this.first_name}} {{this.last_name}}
             </h4>
-            <p class="roboto_regular_gray_24px">{{this.email}}</p>
+            <p class="patient-email">{{this.email}}</p>
         </div>
         {{/with}}
     </div>
@@ -127,7 +121,7 @@
     
     
     
-    <!-- time sequence -->
+    <!-- time sequence 
     <div id="time_sequence">
         <h5 class="segoeui_bold_white">Time required for data enter:</h5>
         <select>
@@ -153,6 +147,7 @@
             </button>
         </span>
     </div>
+    -->
 </div>
 
 <!-- middle column -->
@@ -180,6 +175,8 @@
     <div id="weight" class="patient_data_tabs_content">
         <div class="threshold">
             <h3>The threshold is:</h3>
+
+
             <!-- get threshold -->
             {{#with onePatient}}
             <p id="weight_threshold_lower" class="segoeui_regular_blue">{{this.weight_down}}</p>
@@ -191,7 +188,7 @@
             </button>
             </div>
             
-            <!-- record threshold -->
+            
             <div class= "gray_cover" id="gray_form_4"></div>
             <div class="form-popup" id="threshold_form_weight">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
@@ -199,10 +196,10 @@
                 
                     <label for="data_field"><b>upperbond</b></label>
 
-                    <input type="number" placeholder="Enter upper bond for weight" name="weight_upper" required>
+                    <input type="text" placeholder="Enter upper bond for weight" name="weight_upper" required>
                 
                     <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="number" placeholder="Enter lower bond for weight" name="weight_lower" required>
+                    <input type="text" placeholder="Enter lower bond for weight" name="weight_lower" required>
 
                 
                     <button type="submit" class="submit_button" id ="weightThreshold_submit">Submit</button>
@@ -211,6 +208,8 @@
                 
             </div>
             {{/with}}
+
+            
         </div>
 
         <table>
@@ -223,10 +222,13 @@
             {{#each weight_data}}
             <tr>
                 <td>{{this.record_date}}</td>
-                <td id="weight_current_data">{{this.weight}}</td>
+                <td>{{this.weight}}</td>
                 <td>{{this.comment}}</td>
             </tr>
             {{/each}}
+            <!-- 
+                todo: get data from the database
+            -->
         </table>
     </div>
 
@@ -249,17 +251,16 @@
 
             
             <div class= "gray_cover" id="gray_form_5"></div>
-            
             <div class="form-popup" id="threshold_form_bgl">
                 <form action="/clinician/{{this._id}}" method = 'post' class="form-container">
                     <h1>Record Your Threshold</h1>
                 
                     <label for="data_field"><b>upperbond</b></label>
 
-                    <input type="number" placeholder="Enter upper bond for blood glucose level" name="bgl_upper" required>
+                    <input type="text" placeholder="Enter upper bond for blood glucose level" name="bgl_upper" required>
                 
                     <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="number" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" required>
+                    <input type="text" placeholder="Enter lower bond for blood glucose level" name="bgl_lower" required>
 
                 
                     <button type="submit" class="submit_button" id ="bglThreshold_submit" >Submit</button>
@@ -313,10 +314,10 @@
                 
                     <label for="data_field"><b>upperbond</b></label>
 
-                    <input type="number" placeholder="Enter upper bond for insulin" name="insulin_upper" required>
+                    <input type="text" placeholder="Enter upper bond for insulin" name="insulin_upper" required>
                 
                     <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="number" placeholder="Enter lower bond for insulin" name="insulin_lower" required>
+                    <input type="text" placeholder="Enter lower bond for insulin" name="insulin_lower" required>
 
                 
                     <button type="submit" class="submit_button" id ="insulinThreshold_submit">Submit</button>
@@ -370,10 +371,10 @@
                 
                     <label for="data_field"><b>upperbond</b></label>
 
-                    <input type="number" placeholder="Enter upper bond for exercise" name="exercise_upper" required>
+                    <input type="text" placeholder="Enter upper bond for exercise" name="exercise_upper" required>
                 
                     <label for="comment_field"><b>lowerbond</b></label>
-                    <input type="number" placeholder="Enter lower bond for exercise" name="exercise_lower" required>
+                    <input type="text" placeholder="Enter lower bond for exercise" name="exercise_lower" required>
 
                 
                     <button type="submit" class="submit_button" id ="exerciseThreshold_submit">Submit</button>
@@ -409,67 +410,87 @@
 <!-- Right column -->
 <!-- Note bar -->
 <div class="ClinicianUI_patient_detail_page_right">
-    <div class="clinician_note_content">
-        <h2 class="roboto_regular_black" style="font-size: 25px;">
-            Note
-        </h2>
-
-        <!-- Add Note -->
-        <div class="notes_container">
-            <ul id="notes">
-            </ul>
-        </div>
-
-        <!-- Note Submit button -->
-        <div id="note_input_container">
-            <input type="text" placeholder="Any notes here..."
-                id="clinician_note_input">
-                
-            <button id="clinician_note_submit" 
-                    class="segoeui_bold_white">
-                Submit
-            </button>
-        </div>
-    </div>
-
-    <!-- Chats box -->
-    <div class="clinicianUI_message_container">
-        <div class="clinicianUI_message_title"> 
-            <h2>
-                Message
+    {{#with onePatient}}
+    <form action="/clinician/{{this._id}}/note" method = 'post'>
+    {{/with}}
+        <div class="clinician_note_content">
+            <h2 class="roboto_regular_black" style="font-size: 25px;">
+                Note
             </h2>
-        </div>
-        
-        <div class="clinicianUI_message_content">
-            <!-- add function not completed yet -->
-            <ul>
-                <li>
-                    <div class="single_clinician_message">
-                        <p class="note_message segoeui_bold_white">
-                            这里是留言render
-                        </p>
-                        <h6 class="single_clinician_message_datetime segoeui_bold_white">
-                            这里是时间render
-                        </h6>
-                    </div>               
-                </li>
-            </ul>
-        </div>
-        
-        <div id="note_input_container">
-            <input type="text" placeholder="Any comments for this patient?"
-                id="clinician_message_input">
+            
+            <!-- Add Note -->
+            <div class="notes_container">               
+                <ul id="notes">
+                    {{#each noteList}}
+                    <li class="note_message single_note_container">{{this.comment}} {{this.record_date}}</li>
+                    {{/each}}
+                </ul>               
+            </div>
 
-            <button id="clinician_message_submit"
-                    class="segoeui_bold_white">
-                Submit
-            </button> 
+            <!-- Note Submit button -->
+            <div id="note_input_container">
+                <input type="text" placeholder="Any notes here..."
+                    id="clinician_note_input" name="note" required>
+                    
+                <button type="submit" id="clinician_note_submit" 
+                        class="segoeui_bold_white">
+                    Submit
+                </button>
+            </div>
         </div>
+    </form>
+    
+    <!-- Chats box -->
+    {{#with onePatient}}
+    <form action="/clinician/{{this._id}}/message" method = 'post'>
+    
+        <div class="clinicianUI_message_container">
+            <div class="clinicianUI_message_title"> 
+                <h2>
+                    Message
+                </h2>
+            </div>
+            {{#if this.support_message}}
+            <div class="clinicianUI_message_content">
+                <!-- add function not completed yet -->
+                <ul>
+                    <li>
+                        <div class="single_clinician_message">
+                            <p class="note_message segoeui_bold_white">
+                                {{this.support_message}}
+                            </p>
+                             
+                            <h6 class="single_clinician_message_datetime segoeui_bold_white">
+                                {{this.support_message_date}}
+                            </h6>
+                            
+                        </div>               
+                    </li>
+                </ul>
+            </div>
+            {{/if}}
+            <div id="note_input_container">
+                <input type="text" placeholder="Any comments for this patient?"
+                    id="clinician_message_input" name ="support_message">
 
-    </div>
+                <button id="clinician_message_submit"
+                        class="segoeui_bold_white">
+                    Submit
+                </button> 
+            </div>
+
+        </div>
+    </form>
+    {{/with}}
+    
     
 </div>
+<!-- Chats box -->
 
+<div>
+
+</div>
 <script type="text/javascript" src="../javascripts/script.js"></script> 
 
 <script type="text/javascript" src="../javascripts/weight_threshold.js"></script> 
+

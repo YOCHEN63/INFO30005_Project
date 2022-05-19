@@ -8,14 +8,11 @@
         <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
-    <a href="#">
+    <a href="/clinician">
         <img src="./logo/home.png" class="nav_icon">
     </a>
-    <a href="#">
-        <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
-    </a>
     <!-- 加comment页面的-->
-    <a href="#">
+    <a href="clinician/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
 
@@ -32,30 +29,25 @@
         
         <h2> New Patient Form</h2>
 
-        <form class="new_patient_form">
+        <form action='/clinician/register' method ='post' class="new_patient_form">
+            <!-- Error message, if password length is not met-->
+            {{#if flash}}
+            <p class="error-message">*{{flash}}</p>
+            {{/if}}
             <label for="#">First Name:</label><br>
-            <input id="#" placeholder=" eg: John"><br>
+            <input id="#" placeholder=" eg: John" name="first_name"><br>
 
             <label for="#">Last Name:</label><br>
-            <input id="#" placeholder=" eg: Wick"><br>
+            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-            <label for="#">Day of Birth</label><br>
-            <input id="#" placeholder=" eg: dd/mm/yy"><br>
+            <label for="#">Email</label><br>
+            <input id="#" placeholder=" --@example.com kg" name="email"><br>
 
-            <label for="#">	Blood glucose level</label><br>
-            <input id="#" placeholder=" -- kg"><br>
+            <label for="#">Password</label><br>
+            <input id="#" placeholder=" Enter at least 8 characters" name="password"><br>
 
-            <label for="#">Weight</label><br>
-            <input id="#" placeholder=" -- Nmol/L"><br>
-
-            <label for="#">Doses of insulin taken</label><br>
-            <input id="#" placeholder=" -- Doses"><br>
-
-            <label for="#">Exercise</label><br>
-            <input id="#" placeholder=" -- steps"><br>
-
-            <label>Note</label><br>
-            <input id="#" placeholder=" ...... "><br>
+            <label for="#">nick_name</label><br>
+            <input id="#" placeholder=" --" name="nick_name"><br>
 
             <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
                 Submit 

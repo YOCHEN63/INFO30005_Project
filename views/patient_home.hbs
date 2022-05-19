@@ -19,8 +19,11 @@
     <a href="/home"><b>About Diabetes</b></a>
     <a href="/about-us"><b>About Website</b></a>
     <a href="/changePassword"><b>Change Password</b></a>
+    <form action="/logout" method="post" >
+        <button><b>Log Out</b></button>
+    </form>
 </div>
-
+<!-- script
 <script>
 const moreBtn = document.querySelector('.nav_icon_more')
 const PHnavlinks = document.querySelector('.PH-nav-more')
@@ -29,24 +32,28 @@ moreBtn.addEventListener('click', ()=>{
 PHnavlinks.classList.toggle('PH-nav-display')
 })
 </script>
-
+-->
 <!-- top part-->
-{{#with today}}    
+ 
 <div class="home_font">
+    {{#if data.support_message}}   
     <marquee direction="left" class="marquee-desktop">
         <b>MESSAGE FROM CLINICIAN:</b>
-        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+        {{data.support_message}}
     </marquee>
 
     <marquee direction="up" scrollamount="1" class="marquee-iphone">
         <b>MESSAGE FROM CLINICIAN:</b><br>
-        Well done, John! Keep exercising everyday. Don't let pain define you, let it refine you. I can't wait to catch up with you soon.
+        {{data.support_message}}
     </marquee>
+    {{/if}}
     <div class="home"><b>Home</b></div> 
+    {{#with today}}  
     <div class="date_font">{{this.date}}</div>
+    {{/with}}
     
 </div>
-{{/with}}
+
 
 
 {{#with data}}    
@@ -54,12 +61,15 @@ PHnavlinks.classList.toggle('PH-nav-display')
     <img class="profile_img" src={{this.img}}>
     <p class="profile_name"> <b>{{this.first_name}} {{this.last_name}}</b> </p>
     <p class="profile_email"> {{this.email}}</p>
-    <div class="tooltip">
+    {{/with}}
+    {{#if show_bandage.show_bandage}}
+    <div class="tooltip"> 
     <img class="medal" src="./logo/medal.png">
     <span class="tooltiptext">Congratulations! Your engagement rate is over 80% </span>
     </div>
+    {{/if}}
 </div>
-{{/with}}
+
 
 <!-- today record part(middle-->
 <div class="today-record-session">
@@ -246,13 +256,16 @@ PHnavlinks.classList.toggle('PH-nav-display')
     <!-- <img class="trans_badge" src="./logo/badge_transparent.png"> -->
     <p style="text-align: center;"> <b>LeaderBoard </b></p>
     <div class="scroller">
-            <p>1. Captain Teemo</p>
-            <p>2. Shiki2208</p>
-            <p>3. Johnwwwwww</p>
-            <p>4. foreverfix</p>
-            <p>5. bettlejuice</p>
+            
+            <ol>
+            {{#each leaderboard}}
+            <li>{{this.nick_name}}</li>
+            {{/each}}
+            </ol>
+            
     </div>
 
 </div>
 <script src="./javascripts/pop_form.js"></script> 
 <script src="./javascripts/script.js"></script>
+<script src="./javascripts/patient_nav.js"></script>

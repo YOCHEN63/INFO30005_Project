@@ -3,21 +3,12 @@
     <ul class="AD-nav-links">
         <li><a href="/home"><b>About Diabetes</b></a></li>
         <li><a href="/about-us"><b>About This Website</b></a></li>
-        <li><a href="#"><b>Theme</b></a></li>
+        {{!-- <li><a href="#"><b>Theme</b></a></li> --}}
         <li><a href="/login"><b>Log In</b></a></li>
     </ul>
     <img src="./image/menu_button.png" class="AD-menu-btn">
 
 </nav>
-
-<script>
-    const menuBtn = document.querySelector('.AD-menu-btn')
-    const navlinks = document.querySelector('.AD-nav-links')
-
-    menuBtn.addEventListener('click', ()=>{
-        navlinks.classList.toggle('mobile-menu')
-    })
-</script>
 
 <header class="AU-header">
         
@@ -74,3 +65,6 @@
     </div>
 
 </main>
+
+
+<script src="./javascripts/about_nav.js"></script>

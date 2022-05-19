@@ -3,21 +3,12 @@
     <ul class="AD-nav-links">
         <li><a href="/home"><b>About Diabetes</b></a></li>
         <li><a href="/about-us"><b>About This Website</b></a></li>
-        <li><a href="#"><b>Theme</b></a></li>
+        {{!-- <li><a href="#"><b>Theme</b></a></li> --}}
         <li><a href="/login"><b>Log In</b></a></li>
     </ul>
     <img src="./image/menu_button.png" class="AD-menu-btn">
 
 </nav>
-
-<script>
-    const menuBtn = document.querySelector('.AD-menu-btn')
-    const navlinks = document.querySelector('.AD-nav-links')
-
-    menuBtn.addEventListener('click', ()=>{
-        navlinks.classList.toggle('mobile-menu')
-    })
-</script>
 
 <header class="AD-header">
     <div class="AD-header-content">
@@ -29,7 +20,7 @@
             cause many health issues. If patients follow by the right advice, technology 
             and medication diabetes can be managed well.
         </p>
-        <a href="#">More...</a>
+        <a href="https://www.diabetesaustralia.com.au/about-diabetes/what-is-diabetes/" target="_blank">More...</a>
     </div>
 
     <div class="AD-video-content">
@@ -82,9 +73,9 @@
         <p>
             To learn more about diabetes, you can visit websites: 
             <p> 
-                <a href="https://www.diabetesaustralia.com.au/">Diabetes Australia</a>
-                <a href="http://www.diabetesvic.org.au">Diabetes Victoria</a>
-                <a href="http://www.diabetesnsw.com.au">Diabetes NSW</a>
+                <a href="https://www.diabetesaustralia.com.au/" target="_blank">Diabetes Australia</a>
+                <a href="http://www.diabetesvic.org.au" target="_blank">Diabetes Victoria</a>
+                <a href="http://www.diabetesnsw.com.au" target="_blank">Diabetes NSW</a>
                 
                 
             </p>
@@ -93,3 +84,5 @@
 
 
 </main>
+
+<script src="./javascripts/about_nav.js"></script>

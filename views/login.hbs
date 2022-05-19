@@ -9,13 +9,21 @@
     <div class="login-right-content">
         <h1>Log in</h1>
         <h2>Please enter your details.</h2>
-        <form method="post" action="">
-            <h3><label>Username</label></h3>
-            <input type="text" id="username">
+        {{#if flash}}
+        <p class="alert">*{{flash}}</p>
+        {{/if}}
+        <form method="post" action="/login">
+            <h3><label>Email</label></h3>
+            <input type="text" id="email" name="email" required>
             <h3><label>Password</label></h3>
-            <input type="password" id="password">
-            <a href="/changePassword"> <h4>forget password/change password</h4></a>
+            <input type="password" id="password" name="password" required >
+
+            {{!-- <a href="/changePassword"> <h4>forget password/change password</h4></a> --}}
+
             <input type="submit" value="Sign in" class="login-submit" id="submit">
         </form>
     </div>
 </div>
+
+
+<script src="./javascripts/login.js"></script>

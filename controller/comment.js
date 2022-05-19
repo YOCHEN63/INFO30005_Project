@@ -1,43 +1,62 @@
 const express = require('express');
-const User = require('../models/User')
+const models = require('../models/User')
+const user = models.user
+const bloodGlucose = models.bloodGlucose
+const exercise = models.exercise
+const insulin = models.insulin
+const weight = models.weight
 
+// doc page for requesting all users' comments
 const reqComment = async (req, res, next) => {
-    let bgl_comments = User.bloodGlucose.find().lean()
-    for(var bgl_comment in bgl_comments) {
-        bgl_comment.dataType = 'blood glucose level'
+    // formate date
+    let options = {
+        year: 'numeric', month: 'numeric', day: 'numeric',hour: 'numeric', minute: 'numeric',
+        timeZone: 'Australia/Melbourne',
+        timeZoneName: 'short'
     }
-    let exercise_comments = User.exercise.find().lean()
-    for(var exercise_comment in exercise_comments) {
-        exercise_comment.dataType = 'exercise'
+    // get all users' comments
+    const query = {
+        path : 'user_id',
+        select : 'clinicianID first_name last_name',
+        match : {clinicianID : req.user._id}
     }
-    let insulin_comments = User.insulin.find().lean()
-    for(var insulin_comment in insulin_comments) {
-        insulin_comment.dataType = 'insulin'
-    }
-    let weight_comments = User.weight.find().lean()
-    for(var weight_comment in weight_comments) {
-        weight_comment.dataType = 'weight'
-    }
+    const docData = await user.findOne({"_id":req.user._id}).lean()
+    let bgl_comments =  await bloodGlucose.find().populate(query).lean()
+    bgl_comments.forEach((elem, index) =>{
+        elem.dataType = 'blood glucose level'
+    })
+    let exercise_comments = await exercise.find().populate(query).lean()
+    exercise_comments.forEach((elem, index) =>{
+        elem.dataType = 'exercise'
+    })
+    let insulin_comments =  await insulin.find().populate(query).lean()
+    insulin_comments.forEach((elem, index) =>{
+        elem.dataType = 'insulin shots'
+    })
+    let weight_comments = await weight.find().populate(query).lean()
+    weight_comments.forEach((elem, index) =>{
+        elem.dataType = 'weight'
+    })
 
     var result = bgl_comments.concat(exercise_comments).concat(weight_comments).concat(insulin_comments)
-    result.sort(dateData('record_date',false))
-    res.render('comments', {all_comments : result})
-
-
-    function dateData(property, bol) {
-        return function(a, b) {
-            var value1 = a[property];
-            var value2 = b[property];
-            if (bol) {
-
-                return Date.parse(value1) - Date.parse(value2);
-            } else {
-                return Date.parse(value2) - Date.parse(value1)
-            }
-    
+    for(var i = 0; i < result.length; i++) {
+        if(result[i].user_id === null){
+            result.splice(i, 1)
         }
     }
- 
+    // sort the results by date
+    result.sort(function(a,b){
+
+        return new Date(b.record_date) - new Date(a.record_date);
+      })
+    // formate date in result
+    if (result){
+        for (i=0;i<result.length;i++){
+            Object.assign(result[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(result[i].record_date)})
+        }
+    }
+    res.render('clinician_comments_homepage', {all_comments : result,docData:docData,flash: req.flash('msg')})
 }
 
+module.exports.reqComment = reqComment
 

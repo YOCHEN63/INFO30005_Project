@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
     first_name :{
@@ -24,6 +24,12 @@ const UserSchema = new mongoose.Schema({
     },
     clinicianID:{
         type:mongoose.Schema.Types.ObjectId,ref:'user'
+    },
+    support_message: {
+        type:String
+    },
+    support_message_date: {
+        type:Date
     },
     bgl_up: {
         type:Number,
@@ -59,20 +65,32 @@ const UserSchema = new mongoose.Schema({
     },
     bgl_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     weight_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     exercise_req :{
         type:Number,
-        default: 0
+        default: 1
     },
     insulin_req :{
         type:Number,
-        default: 0
+        default: 1
     },
+    register_date :{
+        type:Date,
+        default:Date.now
+    },
+    nick_name :{
+        type:String,
+        require: true
+    },
+    record_date :{
+        type:Number,
+        default: 0
+    }
 })
 
 const NoteSchema = new mongoose.Schema({
@@ -114,6 +132,44 @@ const MessageSchema = new mongoose.Schema({
     user_id:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
     comment:{type:String}
 })
+
+// password comparison function
+UserSchema.methods.verifyPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
+
+const SALT_FACTOR = 10
+
+// hash password before saving
+UserSchema.pre('save', function save(next) {
+    const user = this// go to next if password field has not been modified
+    if (!user.isModified('password')) {
+        return next()
+    }
+
+    // auto-generate salt/hash
+    bcrypt.hash(user.password, SALT_FACTOR, (err, hash) => {
+        if (err) {
+            return next(err)
+        }
+        //replace password with hash
+        user.password = hash
+        next()
+    })
+})
+UserSchema.pre("findOneAndUpdate", async function (next) {
+    const user = this
+    try {
+        if (this._update.password) {
+            const hashed = await bcrypt.hash(this._update.password, SALT_FACTOR);
+            this._update.password = hashed;
+        }
+    } catch (err) {
+      return next(err);
+    }
+});
 
 const message = mongoose.model('message',MessageSchema,'message')
 const user = mongoose.model('user',UserSchema,'user')

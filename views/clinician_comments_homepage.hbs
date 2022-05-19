@@ -1,20 +1,17 @@
 <div class="clinician_nav">
     <a href="/clinician">
-        <img src="./logo/Diabetes @Home (8).png" class="round_icon">
+        <img src="../logo/Diabetes @Home (8).png" class="round_icon">
     </a>
     {{#with docData}}
     <a>
         <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
-    <a href="#">
-        <img src="./logo/home.png" class="nav_icon">
-    </a>
-    <a href="#">
-        <img src="./logo/multiple-users-silhouette (1).png" class="nav_icon">
+    <a href="/clinician">
+        <img src="../logo/home.png" class="nav_icon">
     </a>
     <!-- 加comment页面的-->
-    <a href="#">
+    <a href="/clinician/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
 
@@ -32,30 +29,25 @@
         
         <h2> New Patient Form</h2>
 
-        <form class="new_patient_form">
+        <form action='/clinician/register' method ='post' class="new_patient_form">
+            <!-- Error message, if password length is not met-->
+            {{#if flash}}
+            <p class="error-message">*{{flash}}</p>
+            {{/if}}
             <label for="#">First Name:</label><br>
-            <input id="#" placeholder=" eg: John"><br>
+            <input id="#" placeholder=" eg: John" name="first_name"><br>
 
             <label for="#">Last Name:</label><br>
-            <input id="#" placeholder=" eg: Wick"><br>
+            <input id="#" placeholder=" eg: Wick" name="last_name"><br>
 
-            <label for="#">Day of Birth</label><br>
-            <input id="#" placeholder=" eg: dd/mm/yy"><br>
+            <label for="#">Email</label><br>
+            <input id="#" placeholder=" --@example.com kg" name="email"><br>
 
-            <label for="#">	Blood glucose level</label><br>
-            <input id="#" placeholder=" -- kg"><br>
+            <label for="#">Password</label><br>
+            <input id="#" placeholder=" Enter at least 8 characters" name="password"><br>
 
-            <label for="#">Weight</label><br>
-            <input id="#" placeholder=" -- Nmol/L"><br>
-
-            <label for="#">Doses of insulin taken</label><br>
-            <input id="#" placeholder=" -- Doses"><br>
-
-            <label for="#">Exercise</label><br>
-            <input id="#" placeholder=" -- steps"><br>
-
-            <label>Note</label><br>
-            <input id="#" placeholder=" ...... "><br>
+            <label for="#">nick_name</label><br>
+            <input id="#" placeholder=" --" name="nick_name"><br>
 
             <button type="submit" class="segoeui_bold_white" id="new_patient_form_submit">
                 Submit 
@@ -73,41 +65,39 @@
     <table class="Main_Table_list">
         <!-- category -->
         <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Comment</th>
+            
+            <th>Patient Name</th>
             <th>Type of Data</th>
+            <th>Comment</th>
             <th>Data Recorded</th>
+            
         </tr>
-		{{#each patientData}}
-        <tr>  
+		{{#each all_comments}}
+        {{#if this.comment}}  
+        <tr>
+            
             <td>
-                <a href="/clinician/{{this._id}}">
-                    {{this.first_name}} {{this.last_name}}
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.user_id.first_name}} {{this.user_id.last_name}}
                 </a>
-            </td>    
-
-            {{#if bgl_over}} 
-            <td class="element_over_threshold">{{this.bloodGlucose}}</td>
-            {{else}}
-            <td>{{this.bloodGlucose}}</td>
-            {{/if}}
-            {{#if weight_over}} 
-            <td class="element_over_threshold">{{this.weight}}</td>
-            {{else}}
-            <td>{{this.weight}}</td>
-            {{/if}}
-            {{#if insulin_over}} 
-            <td class="element_over_threshold">{{this.insulin}}</td>
-            {{else}}
-            <td>{{this.insulin}}</td>
-            {{/if}}
-            {{#if exercise_over}} 
-            <td class="element_over_threshold">{{this.exercise}}</td>
-            {{else}}
-            <td>{{this.exercise}}</td>
-            {{/if}} 
+            </td>  
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.dataType}}
+                </a>
+            </td>
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.comment}} 
+                </a>
+            </td>  
+            <td>
+                <a href="/clinician/{{this.user_id._id}}">
+                    {{this.record_date}}
+                </a>
+            </td>                                             
         </tr>
+        {{/if}}
         {{/each}}
 
     </table>

@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 const generalModel = require('../models/User')
 const express = require('express')
 const moment = require('moment');
+const {user} = require('../models/User')
 const { stringify } = require('nodemon/lib/utils')
-const { user } = require('../models/User')
 const render = express.render
 const myUser = generalModel.user
 const bloodGlucose = generalModel.bloodGlucose
@@ -11,6 +11,21 @@ const exercise = generalModel.exercise
 const insulin = generalModel.insulin
 const weight = generalModel.weight
 const message = generalModel.message
+const flash = require('express-flash') 
+const bcrypt = require('bcrypt')
+// use PASSPORT
+const passport = require('../passport.js')
+const noteModel = generalModel.note
+
+// Passport Authentication middleware
+const isAuthenticated = (req, res, next) => {
+    // If user is not authenticated via Passport, redirect to login page
+    if (!req.isAuthenticated()) {
+        return res.redirect('/login')
+    }
+    // Otherwise, proceed to next middleware function
+    return next()
+}
 
 /*request for user data */
 const reqUserData = async (req, res) => {
@@ -31,17 +46,17 @@ const reqUserData = async (req, res) => {
 
         /* find the patient*/
 
-        const reqBody = await myUser.findOne({"first_name":"Pat"}).lean()
-
+        const reqBody = await myUser.findOne({"_id":req.user._id}).lean()
+        const allUser = await myUser.find({}).lean()
         /* find only today's newly update date to render*/
 
-        let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":req.user._id},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        let weight_data = await weight.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let weight_data = await weight.findOne({$and:[{"user_id":req.user._id},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        let exercise_data = await exercise.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let exercise_data = await exercise.findOne({$and:[{"user_id":req.user._id},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
-        let insulin_data = await insulin.findOne({$and:[{"user_id":'6266f45c3c62e10a62e038f4'},
+        let insulin_data = await insulin.findOne({$and:[{"user_id":req.user._id},
             {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
 
         /* change date the form we want*/
@@ -62,8 +77,11 @@ const reqUserData = async (req, res) => {
         let todayDate = {
             "date":new Intl.DateTimeFormat('en-AU', todayformat).format(startOfToday)
         }
-
-
+        // find the days between register and now       
+        let startOfRegister = new Date(reqBody.register_date.getFullYear(), reqBody.register_date.getMonth(), reqBody.register_date.getDate())
+        let dateDiff = (startOfToday.getTime()-startOfRegister.getTime())/(3600*24*1000)
+        
+        // display the input form for require data
         if (reqBody.bgl_req == 1){
             record_bgl ={"record_bgl":"True"}
         } else {
@@ -84,13 +102,42 @@ const reqUserData = async (req, res) => {
         } else {
             record_exercise = null
         }
-        /* if we cant find one patient, we return 404*/
-        if (!reqBody){
-            return res.sendStatus(404)
+        /* if log in user is a clinician, we redirect them to their page*/
+        if (!req.user.clinicianID) {
+            res.redirect('/clinician')    
         }
-        return res.render('index',{data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
-            weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
-            record_bgl:record_bgl })
+        else{
+            // see if participand score of our current user is over 80 percent
+            if (reqBody.record_date/dateDiff > 0.8){
+                // if over, we show the digital bandage
+                show_bandage = {"show_bandage":"True"}
+            } else {
+                show_bandage = null
+            }
+            if (allUser){
+                // calculate paticipant score of each user
+                for (i=0;i<allUser.length;i++){
+                    // exclude clinician
+                    if (allUser[i].record_date === undefined){
+                        Object.assign(allUser[i], {record_date: -1})
+                    } 
+                    // assign participant score to each one
+                    let startOfRegister = new Date(allUser[i].register_date.getFullYear(),allUser[i].register_date.getMonth(), allUser[i].register_date.getDate())
+                    let dateDiff = (startOfToday.getTime()-startOfRegister.getTime())/(3600*24*1000)
+                    Object.assign(allUser[i], {participant_percentage: allUser[i].record_date/dateDiff})
+                                           
+                }
+            }
+            // find the top 5 participant guys
+            topOnes = allUser.sort(function (a, b) {
+                return b.participant_percentage-a.participant_percentage
+            })
+            let max = topOnes.slice(0, 5)
+            // if not, we continue to go onto patient page
+            return res.render('patient_home',{flash: req.flash('error'),data:reqBody,bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,
+                weight_data:weight_data,today:todayDate,record_exercise:record_exercise,record_insulin:record_insulin,record_weight:record_weight,
+                record_bgl:record_bgl,show_bandage:show_bandage,leaderboard:max })
+        }
     } catch (err) {
         return console.error(err)
     }
@@ -98,18 +145,16 @@ const reqUserData = async (req, res) => {
     
 }
 
-/* update threshold value */
-const updateThreshold = async (req, res) => {
+/* clinician view specific patient data page, this is the part for post handle */
+const viewPost = async (req, res) => {
     let max = 10000
     let min = 0
-
     const body = req.body
     const dataType = Object.keys(body)[0]
     /* require list*/
     let all_reqs = [ 'req_bgl', 'req_weight', 'req_insulin', 'req_exercise' ]
     /* find the rest of types that are not required*/
     const difference = all_reqs.filter( x => !(new Set(Object.keys(body))).has(x) );
-    
     if(dataType === 'bgl_upper'){
         max = body.bgl_upper
         min = body.bgl_lower
@@ -155,6 +200,7 @@ const updateThreshold = async (req, res) => {
             for (i=0;i<Object.keys(body).length;i++){
                 if(Object.keys(body)[i] === 'req_bgl'){
                     await user.findByIdAndUpdate(req.params.user_id,{bgl_req: 1})
+                    
                 }
                 else if(Object.keys(body)[i] === 'req_weight'){
                     await user.findByIdAndUpdate(req.params.user_id,{weight_req: 1})
@@ -246,8 +292,8 @@ const reqLatestData = async (user_id) => {
 const reqDocData = async (req, res, next) => {
     try {
         /* fin doc and his patient*/
-        const docData = await myUser.findOne({"_id":'626260ca24f9653799b8b340'}).lean()
-        const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
+        const docData = await myUser.findOne({"_id":req.user._id}).lean()
+        const patientData = await myUser.find({"clinicianID":req.user._id}).lean()
         console.log('doc log in')
         for(var i = 0; i < patientData.length; i++){
             var objectId = stringify(patientData[i]._id);
@@ -278,7 +324,7 @@ const reqDocData = async (req, res, next) => {
                 }
             }
         }
-        res.render('clinician_home',{docData:docData,patientData:patientData});
+        res.render('clinician_home',{docData:docData,patientData:patientData,flash: req.flash('msg')});
     } catch (err) {
         return next(err)
     }
@@ -286,7 +332,7 @@ const reqDocData = async (req, res, next) => {
 }
 
 /* clinian view one specific patient data*/
-const reqDocPatientData = async (req, res) => {
+const reqDocPatientData = async (req, res, next) => {
     try {
         /* set output time style year+month+date+hour+minute*/
         let options = {
@@ -294,8 +340,14 @@ const reqDocPatientData = async (req, res) => {
             timeZone: 'Australia/Melbourne',
             timeZoneName: 'short'
         }
+        let option2 = {
+            year: 'numeric', month: 'numeric', day: 'numeric',
+            timeZone: 'Australia/Melbourne',
+            timeZoneName: 'short'
+        }
         /* find data of one specific patient*/
-        const onePatient = await myUser.findById(req.params.user_id).lean()
+        let onePatient = await myUser.findById(req.params.user_id).lean()
+        let noteList = await noteModel.find({user_id: req.params.user_id}).lean()
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
@@ -322,9 +374,17 @@ const reqDocPatientData = async (req, res) => {
                 Object.assign(insulin_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data[i].record_date)})
             }
         }
+        if (onePatient.support_message_date){
+            Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
+        }    
+        if (noteList){
+            for (i=0;i<noteList.length;i++){
+                Object.assign(noteList[i], { record_date: new Intl.DateTimeFormat('en-AU', option2).format(noteList[i].record_date)})
+            }
+        }  
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
-                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data})
+                        bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList,flash: req.flash('msg')})
     } catch (err) {
         return next(err)
     }
@@ -337,26 +397,36 @@ const addData = async (req, res) => {
         /* get the entered data*/
         const body = req.body
         const dataType = Object.keys(body)[0]
-        console.log(dataType)
+        const now = new Date()
+        let startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        startOfToday = startOfToday.toLocaleDateString('en-US', {timeZone: 'Australia/Melbourne'})
+        startOfToday = new Date(startOfToday)
+
+        /* find the patient*/
+
+        const userData = await myUser.findOne({"_id":req.user._id}).lean()
+        /* find only today's newly update date to render*/
+
+        
         /* put them into table and store*/
         if (dataType === 'weight') {
             const weightData = new weight({
                 'weight' : body.weight,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             weightData.save()
         } else if (dataType === 'blood_glucose_level') {
             const bloodGlucoseData = new bloodGlucose({
                 'blood_glucose_level' : body.blood_glucose_level,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             bloodGlucoseData.save()
         } else if (dataType === 'walk_steps') {
             const exerciseData = new exercise({
                 'walk_steps' : body.walk_steps,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
             
@@ -365,11 +435,44 @@ const addData = async (req, res) => {
         } else if (dataType === 'insulin_shots') {
             const insulinData = new insulin({
                 'insulin_shots' : body.insulin_shots,
-                'user_id': '6266f45c3c62e10a62e038f4',
+                'user_id': req.user._id,
                 'comment': body.comment
             })
-            console.log(insulinData)
             insulinData.save()
+        }      
+        // find record data of today 
+        let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let weight_data = await weight.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let exercise_data = await exercise.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let insulin_data = await insulin.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        // count number of record data
+        let num_record = 0
+        // count number of data that require to be recorded
+        let req_record = userData.bgl_req+userData.weight_req+userData.insulin_req+userData.exercise_req
+        if (bgl_data){
+            num_record+=1
+        }
+        if (weight_data){
+            num_record+=1
+        } 
+        if (insulin_data){
+            num_record+=1
+        }
+        if (exercise_data){
+            num_record+=1
+        }
+        // update record date if all data has been recorded
+        let new_record = userData.record_date+1
+        if (num_record === req_record){
+            await myUser.findByIdAndUpdate(req.user._id, {record_date: new_record})
+        }
+        // check if only one data need to be record
+        if (num_record === 0 && req_record === 1){
+            await myUser.findByIdAndUpdate(req.user._id, {record_date: new_record})
         }
         console.log("data saved")
         return res.redirect('/')
@@ -381,10 +484,10 @@ const addData = async (req, res) => {
 const patientViewData = async (req, res, next) => {
     try {
         /* find all data sort by date*/
-        var bgl_data = await bloodGlucose.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var weight_data = await weight.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var exercise_data = await exercise.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
-        var insulin_data = await insulin.find({"user_id":'6266f45c3c62e10a62e038f4'}).sort({"record_date": -1}).lean()
+        var bgl_data = await bloodGlucose.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var weight_data = await weight.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var exercise_data = await exercise.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
+        var insulin_data = await insulin.find({"user_id":req.user._id}).sort({"record_date": -1}).lean()
         /* set output time style year+month+date+hour+minute*/
         let options = {
             year: 'numeric', month: 'numeric', day: 'numeric',hour: 'numeric', minute: 'numeric',
@@ -420,54 +523,17 @@ const patientViewData = async (req, res, next) => {
     
 }
 
-/* home page */
-const about_diabetes =  (req, res) => {
-    res.render('about_diabetes.hbs',{layout:'about_diabetes_layout'}) 
-}
 
-/* about-us */
-const about_us =  (req, res) => {
-    res.render('about_us.hbs',{layout:'about_us_layout'}) 
-}
 
-/* login page*/
-const login =  (req, res) => {
-    res.render('login.hbs',{layout:'login_layout'}) 
-}
 
-/* change password page*/
-const changePassword =  (req, res) => {
-    res.render('changePassword.hbs',{layout:'changePassword_layout'}) 
-}
 
-/* doc view all comment that is written by his patients*/
-const reqAllComment = async (req, res, next) => {
-    try {
-        /* remember to turn this id to req.params*/
-        const patientData = await myUser.find({"clinicianID":'626260ca24f9653799b8b340'}).lean()
-        console.log('doc view comments')
-        for(var i = 0; i < patientData.length; i++){
-            var objectId = stringify(patientData[i]._id);
-            /* write a new function to retrieve a list of objects*/
-            /* find each patient's data*/
-            console.log('get data for comment');
-        }
-        /* write a new function to sort the retrieved list of data by date*/
-    } catch (err) {
-        return next(err)
-    }
-    
-}
 
-module.exports.all_comment = reqAllComment
-module.exports.login = login
-module.exports.home = about_diabetes
-module.exports.about_us = about_us
+
+module.exports.isAuthenticated = isAuthenticated
 module.exports.view_data = patientViewData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
 module.exports.insert = addData;
 module.exports.find = reqUserData;
 module.exports.reqLatestData = reqLatestData;
-module.exports.edit_threshold = updateThreshold
-module.exports.changePassword = changePassword
+module.exports.edit_threshold = viewPost

@@ -1,27 +1,16 @@
-const noteModel = require('../models/note')
+const express = require('express')
 const mongoose = require('mongoose')
-const { note } = require('../models/User')
+const model = require('../models/User')
+const noteModel = model.note
 
-const insert = async(res, req, next) => {
-    try {   
-        let note = new noteModel({
-            comment : req.body.comment,
-            user_id : req.user
-        })
-        note.save()
-    }catch(err) {
-        console.error(err)
-    } 
+const insert =  async (req, res) => {     
+    console.log(req.body)
+    let note = new noteModel({
+        comment : req.body.note,
+        user_id : req.params.user_id
+    })
+    note.save()
+    res.redirect("/clinician/"+req.params.user_id)
 }   
 
-const reqNote = async(res, req, next) => {
-    try {
-        let noteList = noteModel.find({user_id: req.user.id}).lean()
-        return res.render('note')
-    }catch(err) {
-        return console.error(err)
-    }
-}
-
-module.exports.insert = insert;
-module.exports.reqNote = reqNote;
+module.exports.addNote = insert
