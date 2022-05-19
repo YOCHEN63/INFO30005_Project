@@ -1421,13 +1421,6 @@ body{
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
-.patient-email{
-  color: var(--dove-gray);
-  text-align: center;
-  font-style: normal;
-  font-size: 24px;
-}
 /* ----------------------------------- Shiki -------------------------------- */
 .data_header{
   width: 100%;
@@ -2160,7 +2153,7 @@ body{
   background-color: #2372FF;
   color: white;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 3%;
   padding: 1vmin;
   border: none;
   text-decoration: none;
@@ -2235,7 +2228,7 @@ body{
     background-color: #2372FF;
     color: white;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 3%;
     padding: 1vmin;
     border: none;
     text-decoration: none;
