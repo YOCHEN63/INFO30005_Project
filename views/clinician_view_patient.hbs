@@ -449,7 +449,7 @@
                     Message
                 </h2>
             </div>
-            
+            {{#if this.support_message}}
             <div class="clinicianUI_message_content">
                 <!-- add function not completed yet -->
                 <ul>
@@ -467,7 +467,7 @@
                     </li>
                 </ul>
             </div>
-            
+            {{/if}}
             <div id="note_input_container">
                 <input type="text" placeholder="Any comments for this patient?"
                     id="clinician_message_input" name ="support_message">

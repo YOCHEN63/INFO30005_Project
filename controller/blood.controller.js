@@ -347,7 +347,9 @@ const reqDocPatientData = async (req, res, next) => {
                 Object.assign(insulin_data[i], { record_date: new Intl.DateTimeFormat('en-AU', options).format(insulin_data[i].record_date)})
             }
         }
-        Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
+        if (onePatient.support_message_date){
+            Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
+        }    
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
                         bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList,flash: req.flash('msg')})
