@@ -931,6 +931,13 @@ body{
   text-align: center;
 }
 
+.patient-email{
+  text-align: center;
+  color: var(--dove-gray);
+  font-style: normal;
+  font-size: 24px;
+}
+
 /* -------------------------- Required Data Selector ------------------------ */
 
 .patient_data_selector_container{
