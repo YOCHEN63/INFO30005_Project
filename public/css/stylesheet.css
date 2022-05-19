@@ -1127,16 +1127,20 @@ body{
   background-color: rgba(0,0,0,0.4);
 }
 
-#new_patient_modal_content h2{
+.new_patient_modal_content h2{
   margin:20px 20px;
 }
 
-#new_patient_modal_content button{
+#new_patient_modal_content h1{
+  margin: 20px 20px;
+}
+
+.new_patient_modal_content button{
   margin:20px 20px;
   
 }
 
-#new_patient_modal_content{
+.new_patient_modal_content{
   border: 1px solid var(--border_line);
   background-color: var(--white);
   width: 50%;
@@ -1144,7 +1148,15 @@ body{
   margin-top: 5%;
 }
 
-.new_patient_form{
+#create_patient_sucessful{
+  display: block;
+}
+
+#new_patient_form_block{
+  display: none;
+}
+
+#new_patient_form{
   margin-left: 20px;
 }
 
