@@ -342,7 +342,7 @@ const reqDocPatientData = async (req, res, next) => {
         }
         /* find data of one specific patient*/
         const onePatient = await myUser.findById(req.params.user_id).lean()
-        let noteList = noteModel.find({user_id: req.params.user_id}).lean()
+        let noteList = await noteModel.find({user_id: req.params.user_id}).lean()
         var bgl_data = await bloodGlucose.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var weight_data = await weight.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
         var exercise_data = await exercise.find({"user_id":req.params.user_id}).sort({"record_date": -1}).lean()
@@ -372,6 +372,9 @@ const reqDocPatientData = async (req, res, next) => {
         if (onePatient.support_message_date){
             Object.assign(onePatient, { support_message_date: new Intl.DateTimeFormat('en-AU', options).format(onePatient.support_message_date)})
         }    
+        if (noteList){
+            Object.assign(noteList, { ecord_date: new Intl.DateTimeFormat('en-AU', options).format(noteList.ecord_date)})
+        }  
         console.log('doc view data')
         return res.render('clinician_view_patient',{layout:'clinician_view_layout',onePatient:onePatient,
                         bgl_data:bgl_data,exercise_data:exercise_data,insulin_data:insulin_data,weight_data:weight_data,noteList:noteList,flash: req.flash('msg')})

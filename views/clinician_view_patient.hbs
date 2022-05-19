@@ -412,15 +412,19 @@
 <div class="ClinicianUI_patient_detail_page_right">
     {{#with onePatient}}
     <form action="/clinician/{{this._id}}/note" method = 'post'>
+    {{/with}}
         <div class="clinician_note_content">
             <h2 class="roboto_regular_black" style="font-size: 25px;">
                 Note
             </h2>
-
+            
             <!-- Add Note -->
-            <div class="notes_container">
+            <div class="notes_container">               
                 <ul id="notes">
-                </ul>
+                    {{#each noteList}}
+                    <li class="note_message single_note_container">{{this.record_date}} {{this.comment}}</li>
+                    {{/each}}
+                </ul>               
             </div>
 
             <!-- Note Submit button -->
@@ -435,7 +439,7 @@
             </div>
         </div>
     </form>
-    {{/with}}
+    
     <!-- Chats box -->
     {{#with onePatient}}
     <form action="/clinician/{{this._id}}/message" method = 'post'>
