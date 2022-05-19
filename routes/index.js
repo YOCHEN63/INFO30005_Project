@@ -6,11 +6,12 @@ const notes = require('../controller/note')
 const users = require('../controller/user')
 const passport = require('../passport.js')
 const home = require('../controller/home')
+const log = require('../controller/log.controller')
 
 // get requests
 router.get('/',controllers.isAuthenticated, controllers.find) 
-router.get('/login', controllers.login)
-router.get('/changePassword',controllers.isAuthenticated,controllers.changePassword)
+router.get('/login', log.login)
+router.get('/changePassword',controllers.isAuthenticated,log.changePassword)
 router.get('/home', home.home)
 router.get('/about-us', home.about_us)
 router.get('/view_data',controllers.isAuthenticated, controllers.view_data) 
@@ -21,6 +22,7 @@ router.get('/clinician/:user_id',controllers.isAuthenticated, controllers.find_d
 // pose requests
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login', failureFlash: true }))
+router.post('/logout',log.logOut)
 router.post('/clinician/:user_id/message',users.updateMessage)
 router.post('/clinician/:user_id/note',notes.addNote)
 router.post('/changePassword',controllers.isAuthenticated,users.changePassword)

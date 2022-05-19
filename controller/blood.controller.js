@@ -518,25 +518,11 @@ const patientViewData = async (req, res, next) => {
 
 
 
-/* login page*/
-const login =  (req, res) => {
-    res.render('login.hbs',{layout:'login_layout',flash: req.flash('error'), title: 'Login'}) 
-}
-const handleLogin = (req, res,next) => {
-    console.log(req.body.user_email);
-    console.log(req.body.user_password);
-    res.redirect("/")
-}
-
-/* change password page*/
-const changePassword =  (req, res) => {
-    res.render('changePassword.hbs',{layout:'changePassword_layout',flash: req.flash('msg')}) 
-}
 
 
-module.exports.handleLogin = handleLogin
+
+
 module.exports.isAuthenticated = isAuthenticated
-module.exports.login = login
 module.exports.view_data = patientViewData
 module.exports.find_doc_patient = reqDocPatientData;
 module.exports.find_doc = reqDocData;
@@ -544,4 +530,3 @@ module.exports.insert = addData;
 module.exports.find = reqUserData;
 module.exports.reqLatestData = reqLatestData;
 module.exports.edit_threshold = viewPost
-module.exports.changePassword = changePassword
