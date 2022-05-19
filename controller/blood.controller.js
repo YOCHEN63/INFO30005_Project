@@ -365,6 +365,17 @@ const addData = async (req, res) => {
         /* get the entered data*/
         const body = req.body
         const dataType = Object.keys(body)[0]
+        const now = new Date()
+        let startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        startOfToday = startOfToday.toLocaleDateString('en-US', {timeZone: 'Australia/Melbourne'})
+        startOfToday = new Date(startOfToday)
+
+        /* find the patient*/
+
+        const userData = await myUser.findOne({"_id":req.user._id}).lean()
+        /* find only today's newly update date to render*/
+
+        
         /* put them into table and store*/
         if (dataType === 'weight') {
             const weightData = new weight({
@@ -396,6 +407,40 @@ const addData = async (req, res) => {
                 'comment': body.comment
             })
             insulinData.save()
+        }      
+        // find record data of today 
+        let bgl_data = await bloodGlucose.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let weight_data = await weight.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let exercise_data = await exercise.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        let insulin_data = await insulin.findOne({$and:[{"user_id":req.user._id},
+            {"record_date": {$gte: ["record_date",startOfToday]}}]}).sort({"record_date": -1}).lean()
+        // count number of record data
+        let num_record = 0
+        // count number of data that require to be recorded
+        let req_record = userData.bgl_req+userData.weight_req+userData.insulin_req+userData.exercise_req
+        if (bgl_data){
+            num_record+=1
+        }
+        if (weight_data){
+            num_record+=1
+        } 
+        if (insulin_data){
+            num_record+=1
+        }
+        if (exercise_data){
+            num_record+=1
+        }
+        // update record date if all data has been recorded
+        let new_record = userData.record_date+1
+        if (num_record === req_record){
+            await myUser.findByIdAndUpdate(req.user._id, {record_date: new_record})
+        }
+        // check if only one data need to be record
+        if (num_record === 0 && req_record === 1){
+            await myUser.findByIdAndUpdate(req.user._id, {record_date: new_record})
         }
         console.log("data saved")
         return res.redirect('/')

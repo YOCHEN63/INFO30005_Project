@@ -86,6 +86,10 @@ const UserSchema = new mongoose.Schema({
     nick_name :{
         type:String,
         require: true
+    },
+    record_date :{
+        type:Number,
+        default: 0
     }
 })
 
