@@ -28,6 +28,9 @@ const UserSchema = new mongoose.Schema({
     support_message: {
         type:String
     },
+    support_message_date: {
+        type:Date
+    },
     bgl_up: {
         type:Number,
         default: 10000

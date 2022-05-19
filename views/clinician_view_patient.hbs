@@ -7,6 +7,7 @@
         <p class="segoeui_regular_blue">Hi, {{this.first_name}}</p>
     </a> 
     {{/with}}
+    <!-- home nav-->
     <a href="/clinician">
         <img src="../logo/home.png" class="nav_icon">
     </a>
@@ -14,8 +15,8 @@
         <img src="../logo/multiple-users-silhouette (1).png" class="nav_icon">
     </a>
 
-    <!-- 加comment页面的-->
-    <a href="#">
+    <!-- comment page nav-->
+    <a href="/clinician/comments">
         <img src="../logo/comment.png" class="nav_icon">
     </a>
 
@@ -457,11 +458,11 @@
                             <p class="note_message segoeui_bold_white">
                                 {{this.support_message}}
                             </p>
-                            <!--  
+                             
                             <h6 class="single_clinician_message_datetime segoeui_bold_white">
-                                这里是时间render
+                                {{this.support_message_date}}
                             </h6>
-                            -->
+                            
                         </div>               
                     </li>
                 </ul>
