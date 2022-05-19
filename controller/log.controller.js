@@ -19,7 +19,7 @@ const changePassword = (req, res) => {
 }
 const logOut = (req, res) => {
     req.logout()
-    res.redirect('/home')
+    res.redirect('/')
 }
 
 module.exports.login = login

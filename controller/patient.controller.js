@@ -728,7 +728,7 @@ const addData = async (req, res) => {
             })
         }
         console.log('data saved')
-        return res.redirect('/')
+        return res.redirect('/patient')
     } catch (err) {
         return console.error(err)
     }

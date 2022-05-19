@@ -9,10 +9,10 @@ const home = require('../controller/home')
 const log = require('../controller/log.controller')
 
 // get requests
-router.get('/', controllers.isAuthenticated, controllers.find)
+router.get('/patient', controllers.isAuthenticated, controllers.find)
 router.get('/login', log.login)
 router.get('/changePassword', controllers.isAuthenticated, log.changePassword)
-router.get('/home', home.home)
+router.get('/', home.home)
 router.get('/about-us', home.about_us)
 router.get('/view_data', controllers.isAuthenticated, controllers.view_data)
 router.get('/clinician', controllers.isAuthenticated, controllers.find_doc)
@@ -31,7 +31,7 @@ router.get(
 router.post(
     '/login',
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/patient',
         failureRedirect: '/login',
         failureFlash: true,
     })
