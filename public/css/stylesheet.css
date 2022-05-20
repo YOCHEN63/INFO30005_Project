@@ -1916,7 +1916,18 @@ body{
     display:flex;
   }
 
-
+  .AD-video-content h2{
+    font-size: 5.5vmin;
+  }
+  .AD-about-Diabetes-content p {
+    font-size: 3.3vmin;
+  }
+  .AD-about-Diabetes-heading {
+    font-size: 3.5vmin;
+  }
+  .AD-about-Diabetes-content p a {
+    font-size: 3.3vmin;
+  }
   .AD-nav-links {
     flex-direction: column;
     width: 100%;
@@ -1970,10 +1981,12 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3%;
+    font-size: 5.5vmin;
   }
 
   .AD-header-content p {
     width: 70vw;
+    font-size: 3.3vmin;
   }
 
   .AD-video-content {
@@ -1996,7 +2009,7 @@ body{
   }
 
   .AD-about-Diabetes-content h2 {
-    font-size: 4vmin;
+    font-size: 5.5vmin;
     padding-top: 5%;
   }
 
@@ -2058,7 +2071,7 @@ body{
 .AU-header-content h2 {
   margin-top: 5%;
   margin-left: 7%;
-  font-size: 4.5vmin;
+  font-size: 5.5vmin;
   color: white;
 }
 
@@ -2146,6 +2159,9 @@ body{
   .AU-header-content {
     height: 75%;
   }
+  .AU-header-content p {
+    font-size: 4.2vmin;
+  }
   .AU-main {
     height: 110vh;
   }
@@ -2155,14 +2171,21 @@ body{
   }
   .AU-about-Diabetes-content h2 {
     padding-top: 4%;
+    font-size: 5.5vmin;
   }
   .AU-about-Diabetes-content p {
     margin-top: 4%;
+    font-size: 3.4vmin;
   }
   .AU-about-Diabetes-content2 {
-    height: 14%;
+    height: 17%;
   }
-
+  .AU-about-Diabetes-content2 h2 {
+    font-size: 5.5vmin;
+  }
+  .AU-about-Diabetes-content2 p {
+    font-size: 3.4vmin;
+  }
 }
 
 /* ------------------------------Login page ------shiki------------------------------ */
